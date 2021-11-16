@@ -1,6 +1,10 @@
-//
-// Created by inte on 11/4/21.
-//
+/**
+ * Naam: Inte Vleminckx
+ * Studentennummer: 20201844
+ * Datum:
+ * Version: V1.0
+ * Description:
+ */
 
 #ifndef DOODLE_JUMP_BONUS_H
 #define DOODLE_JUMP_BONUS_H
@@ -11,19 +15,9 @@
 using namespace std;
 
 class Bonus : public Entity {
-public:
-
-    Bonus();
 
 };
 
-class Spring : public Bonus {
-
-};
-
-class Jetpack : public Bonus {
-
-};
 
 
 #endif //DOODLE_JUMP_BONUS_H

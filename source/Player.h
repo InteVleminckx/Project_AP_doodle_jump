@@ -1,6 +1,10 @@
-//
-// Created by inte on 11/4/21.
-//
+/**
+ * Naam: Inte Vleminckx
+ * Studentennummer: 20201844
+ * Datum:
+ * Version: V1.0
+ * Description:
+ */
 
 #ifndef DOODLE_JUMP_PLAYER_H
 #define DOODLE_JUMP_PLAYER_H
@@ -11,18 +15,6 @@
 using namespace std;
 
 class Player : public Entity {
-    double m_velocityX;
-    double m_velocityY;
-
-public:
-
-    Player();
-
-    /**
-     * Verplaats de speler in de x richting.
-     * @param right: bool, deze bepaalt of de speler rechts of links moet gaan
-     */
-    void move_playerX(bool right);
 
 
 };
