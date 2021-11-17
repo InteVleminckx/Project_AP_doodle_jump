@@ -17,14 +17,13 @@
 #include <iostream>
 #include <vector>
 
-
 using namespace std;
 
 class Observer;
 class Subject {
 public:
 
-    vector<Observer>  m_observers; /** Een vector die alle observers van het subject bevat*/
+    vector<Observer*>  m_observers; /** Een vector die alle observers van het subject bevat*/
 
     /**
      * Een constructor.
@@ -36,14 +35,14 @@ public:
      * Voegt een observer toe aan de vector van observers van het subject.
      * @param observer: een observer
      */
-    void addObserver(const Observer& observer);
+    void addObserver(Observer* observer);
 
     /**
      * Function: removeObserver(Observer observer)
      * Verwijdert een observer uit de vector van observers van het subject.
      * @param observer: een observer
      */
-    void removeObserver(const Observer& observer);
+    void removeObserver(const Observer* observer);
 
     /**
      * Function: Notify()

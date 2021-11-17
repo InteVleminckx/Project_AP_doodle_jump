@@ -12,9 +12,10 @@
 #define DOODLE_JUMP_OBSERVER_H
 
 #include <iostream>
-#include "Subject.h"
 
 using namespace std;
+#include "Subject.h"
+
 
 class Observer {
 
@@ -28,6 +29,7 @@ public:
     Observer(Subject& subject);
 
     /**
+     * Function: Update()
      * Updates de huidige staat van het subject.
      */
     void Update();

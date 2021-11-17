@@ -16,6 +16,27 @@ using namespace std;
 
 class Player_L : public Entity_Model {
 
+    double m_jumpforce;
+
+public:
+
+    /**
+     * Function: gravity()
+     * Haalt de speler naar beneden, de zwaartekracht werkt op hem.
+     */
+    void gravity();
+
+    /**
+     * Function: moveRight()
+     * Verplaatst de player naar rechts.
+     */
+    void moveRight() override;
+
+    /**
+     * Function: moveLeft()
+     * Verplaatst de player naar links.
+     */
+    void moveLeft() override;
 
 };
 
