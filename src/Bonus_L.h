@@ -6,18 +6,18 @@
  * Description:
  */
 
-#ifndef DOODLE_JUMP_BONUS_H
-#define DOODLE_JUMP_BONUS_H
+#ifndef DOODLE_JUMP_BONUS_L_H
+#define DOODLE_JUMP_BONUS_L_H
 
 #include <iostream>
-#include "Entity.h"
+#include "Entity_Model.h"
 
 using namespace std;
 
-class Bonus : public Entity {
+class Bonus_L : public Entity_Model {
 
 };
 
 
 
-#endif //DOODLE_JUMP_BONUS_H
+#endif //DOODLE_JUMP_BONUS_L_H
