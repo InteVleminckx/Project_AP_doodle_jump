@@ -16,27 +16,30 @@
 using namespace std;
 #include "Subject.h"
 
+namespace logic {
+    class Observer {
 
-class Observer {
+        Subject m_subject;
 
-    Subject m_subject;
+    public:
 
-public:
+        /**
+         * Is een constructor.
+         */
+        Observer(Subject& subject);
 
-    /**
-     * Is een constructor.
-     */
-    Observer(Subject& subject);
+        /**
+         * Function: Update()
+         * Updates de huidige staat van het subject.
+         */
+        void Update();
 
-    /**
-     * Function: Update()
-     * Updates de huidige staat van het subject.
-     */
-    void Update();
+        bool operator==(const Observer& that);
 
-    bool operator==(const Observer& that);
+    };
+}
 
-};
+
 
 
 #endif //DOODLE_JUMP_OBSERVER_H

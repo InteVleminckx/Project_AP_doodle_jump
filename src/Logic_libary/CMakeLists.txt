@@ -1,0 +1,11 @@
+add_library(logic
+        BG_Tile.cpp
+        Bonus.cpp
+        Entity_Model.cpp
+        Observer.cpp
+        Platform.cpp
+        Player.cpp
+        Stopwatch.cpp
+        Subject.cpp
+        World.cpp
+        )

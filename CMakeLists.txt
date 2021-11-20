@@ -20,32 +20,22 @@ SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake/Modules/
 FIND_PACKAGE(SFML 2 COMPONENTS system window graphics)
 
 # The src files to compile
-SET(SRC src/main.cpp
-        src/Player_L.cpp
-        src/Player_L.h
-        src/Platform_L.cpp
-        src/Platform_L.h
-        src/Bonus_L.cpp
-        src/Bonus_L.h
-        src/BG_Tile_L.cpp
-        src/BG_Tile_L.h
-        src/Entity_Model.cpp
-        src/Entity_Model.h
-        src/Subject.cpp
-        src/Subject.h
-        src/Observer.cpp
-        src/Observer.h
-        )
+include_directories(src/Logic_libary src/Game_Representation)
+add_subdirectory(src/Logic_libary)
+add_subdirectory(src/Game_Representation)
+
+
 
 # Add include dirs for SFML
 # (The SFML_INCLUDE_DIR variable is defined by FindSFML.cmake, if SFML was found)
 INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR})
 
 # The program we're compiling with the sources set above
-ADD_EXECUTABLE(doodle_jump ${SRC})
+ADD_EXECUTABLE(doodle_jump src/main.cpp)
 
 # Link target to SFML libs
 # (The SFML_LIBRARIES variable is defined by FindSFML.cmake, if SFML was found)
 TARGET_LINK_LIBRARIES(doodle_jump ${SFML_LIBRARIES})
+target_link_libraries(doodle_jump representation logic)
 
 INSTALL(TARGETS doodle_jump DESTINATION ${PROJECT_SOURCE_DIR}/bin)

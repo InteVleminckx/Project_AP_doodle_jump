@@ -14,9 +14,12 @@
 
 using namespace std;
 
-class Bonus_L : public Entity_Model {
+namespace logic {
+    class Bonus : public Entity_Model {
 
-};
+    };
+}
+
 
 
 
