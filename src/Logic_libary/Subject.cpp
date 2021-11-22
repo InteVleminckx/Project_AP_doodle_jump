@@ -2,9 +2,7 @@
 #include "Observer.h"
 
 namespace logic {
-    Subject::Subject() {
-
-    }
+    Subject::Subject() = default;
 
     void Subject::addObserver(Observer* observer) { m_observers.push_back(observer); }
 

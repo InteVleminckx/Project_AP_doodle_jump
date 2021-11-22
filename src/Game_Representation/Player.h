@@ -15,9 +15,13 @@ using namespace std;
 
 namespace representation {
     class Player : public Model_View {
-    public:
+    protected:
 
         Player();
+
+    public:
+
+        Player(logic::Subject& subject);
 
     };
 }

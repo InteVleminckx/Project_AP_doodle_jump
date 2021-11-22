@@ -18,15 +18,21 @@ using namespace std;
 
 namespace logic {
     class Observer {
+    protected:
 
         Subject m_subject;
+
+        /**
+         * Is een constructor.
+         */
+        Observer();
 
     public:
 
         /**
          * Is een constructor.
          */
-        Observer(Subject& subject);
+         Observer(Subject& subject);
 
         /**
          * Function: Update()

@@ -31,7 +31,7 @@ add_subdirectory(src/Game_Representation)
 INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR})
 
 # The program we're compiling with the sources set above
-ADD_EXECUTABLE(doodle_jump src/main.cpp)
+ADD_EXECUTABLE(doodle_jump src/main.cpp src/Exceptions.cpp)
 
 # Link target to SFML libs
 # (The SFML_LIBRARIES variable is defined by FindSFML.cmake, if SFML was found)

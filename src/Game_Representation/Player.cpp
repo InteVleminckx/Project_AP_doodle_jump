@@ -7,4 +7,12 @@
 namespace representation {
 
 
+    Player::Player() {}
+
+    Player::Player(logic::Subject& subject)
+    {
+        m_subject = subject;
+        createSprite("../Sprites/Doodle_player.png");
+    }
+
 }
