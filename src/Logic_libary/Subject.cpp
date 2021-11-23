@@ -17,5 +17,5 @@ namespace logic {
         }
     }
 
-    void Subject::Notify() { for (Observer* ob : m_observers) ob->Update(); }
+    void Subject::Notify() { for (Observer* ob : m_observers) ob->update(); }
 }

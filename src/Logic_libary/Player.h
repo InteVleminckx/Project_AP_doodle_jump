@@ -16,7 +16,7 @@ using namespace std;
 
 namespace logic {
 
-    class Player : public Entity_Model {
+    class Player_L : public Entity_Model {
 
         double m_jumpforce;
 

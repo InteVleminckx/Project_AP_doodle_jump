@@ -12,14 +12,8 @@ using namespace std;
 
 namespace representation {
     class Game {
-        sf::RenderWindow m_window;
-        bool m_isRunning;
     public:
-
         Game();
-        sf::RenderWindow* getWindow();
-        bool isRunning();
-        void updateWindow();
     };
 }
 

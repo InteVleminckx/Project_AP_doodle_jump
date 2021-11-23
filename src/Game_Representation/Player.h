@@ -9,12 +9,14 @@
 #ifndef DOODLE_JUMP_PLAYER_G_H
 #define DOODLE_JUMP_PLAYER_G_H
 
-#include "Model_View.h"
+#include "Entity_View.h"
+#include "../Logic_libary/Player.h"
 
 using namespace std;
 
 namespace representation {
-    class Player : public Model_View {
+    class Player : public Entity_View {
+
     protected:
 
         Player();
@@ -22,6 +24,8 @@ namespace representation {
     public:
 
         Player(logic::Subject& subject);
+
+        void update() override;
 
     };
 }

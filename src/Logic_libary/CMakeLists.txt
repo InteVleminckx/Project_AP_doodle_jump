@@ -8,4 +8,5 @@ add_library(logic
         Stopwatch.cpp
         Subject.cpp
         World.cpp
+        Abstract_Factory.cpp
         )

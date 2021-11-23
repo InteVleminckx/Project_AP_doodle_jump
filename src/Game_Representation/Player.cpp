@@ -11,8 +11,17 @@ namespace representation {
 
     Player::Player(logic::Subject& subject)
     {
-        m_subject = subject;
+        m_subject = &subject;
         createSprite("../Sprites/Doodle_player.png");
+
     }
+
+    void Player::update() {
+        representation::Window* window = representation::Window::Instance();
+        m_modelSprite.setPosition(((logic::Player_L* ) m_subject)->getX(), ((logic::Player_L* ) m_subject)->getY());
+        window->getWindow()->draw(m_modelSprite);
+    }
+
+
 
 }

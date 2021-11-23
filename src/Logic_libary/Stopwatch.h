@@ -19,7 +19,7 @@ namespace logic {
 
         static Stopwatch* s_instance;
         chrono::system_clock::time_point m_startTime;
-        chrono::duration<float> m_deltaTime;
+        chrono::duration<float> m_deltaTime{};
         float m_timeScale;
 
     public:

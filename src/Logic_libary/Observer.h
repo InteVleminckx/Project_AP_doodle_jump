@@ -20,7 +20,7 @@ namespace logic {
     class Observer {
     protected:
 
-        Subject m_subject;
+        Subject* m_subject;
 
         /**
          * Is een constructor.
@@ -38,7 +38,7 @@ namespace logic {
          * Function: Update()
          * Updates de huidige staat van het subject.
          */
-        void Update();
+        virtual void update();
 
         bool operator==(const Observer& that);
 

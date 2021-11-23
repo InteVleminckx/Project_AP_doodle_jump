@@ -17,7 +17,8 @@ using namespace std;
 namespace logic {
     class Entity_Model : public Subject {
 
-        double m_x, m_y, m_velocityX, m_velocityY, m_lenght, m_width;
+        float m_x, m_y, m_velocityX, m_velocityY;
+        double m_lenght, m_width;
 
     public:
 
@@ -29,30 +30,30 @@ namespace logic {
         /**
          * Function: setX(double x)
          * Geeft een x waarde aan de entity
-         * @param x: is een double
+         * @param x: is een float
          */
-        void setX(double x);
+        void setX(float x);
 
         /**
          * Function: setY(double y)
          * Geeft een y waarde aan de entity
-         * @param y: is een double
+         * @param y: is een float
          */
-        void setY(double y);
+        void setY(float y);
 
         /**
          * Function: setVelocityX(double velocityX)
          * Geeft een velocity in de x richting aan de entity
-         * @param velocityX: is een double
+         * @param velocityX: is een float
          */
-        void setVelocityX(double velocityX);
+        void setVelocityX(float velocityX);
 
         /**
          * Function: setVelocityY(double velocityY)
          * Geeft een velocity in de y richting aan de entity
-         * @param velocityY: is een double
+         * @param velocityY: is een float
          */
-        void setVelocityY(double velocityY);
+        void setVelocityY(float velocityY);
 
         /**
          * Function: setLenght(double lenght)
@@ -71,30 +72,30 @@ namespace logic {
         /**
          * Function: getX()
          * Geeft de x waarde van de entity terug.
-         * @return double
+         * @return float
          */
-        double getX() const;
+        float getX() const;
 
         /**
          * Function: getY()
          * Geeft de y waarde van de entity terug.
-         * @return double
+         * @return float
          */
-        double getY() const;
+        float getY() const;
 
         /**
          * Function: getVelocityX()
          * Geeft de velocityX waarde van de entity terug.
-         * @return double
+         * @return float
          */
-        double getVelocityX() const;
+        float getVelocityX() const;
 
         /**
          * Function: getVelocityY()
          * Geeft de velocityY waarde van de entity terug.
-         * @return double
+         * @return float
          */
-        double getVelocityY() const;
+        float getVelocityY() const;
 
         /**
          * Function: getLenght()

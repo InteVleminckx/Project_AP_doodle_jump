@@ -6,31 +6,32 @@
  * Description:
  */
 
-#ifndef DOODLE_JUMP_MODEL_VIEW_H
-#define DOODLE_JUMP_MODEL_VIEW_H
+#ifndef DOODLE_JUMP_ENTITY_VIEW_H
+#define DOODLE_JUMP_ENTITY_VIEW_H
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "../Logic_libary/Observer.h"
 #include "../../src/Exceptions.h"
+#include "../Game_Representation/Window.h"
 
 using namespace std;
 
 namespace representation {
-class Model_View : public logic::Observer{
+class Entity_View : public logic::Observer{
 
     protected:
 
         sf::Sprite m_modelSprite;
         sf::Texture m_modelTexture; //* Toevoegen anders raakt texture kwijt en krijg je white square*/
 
-        Model_View();
+        Entity_View();
 
         void createSprite(const string& filepath);
 
     public:
 
-        Model_View(logic::Subject& subject);
+        Entity_View(logic::Subject& subject);
 
         sf::Sprite getSprite();
 
@@ -40,4 +41,4 @@ class Model_View : public logic::Observer{
 
 
 
-#endif //DOODLE_JUMP_MODEL_VIEW_H
+#endif //DOODLE_JUMP_ENTITY_VIEW_H

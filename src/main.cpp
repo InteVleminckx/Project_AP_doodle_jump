@@ -2,42 +2,49 @@
 #include "Logic_libary/Stopwatch.h"
 #include "Game_Representation/Game.h"
 #include "Game_Representation/Player.h"
-#include "Logic_libary/Subject.h"
 #include "Logic_libary/Player.h"
+#include "Game_Representation/Window.h"
+#include "Game_Representation/Platform.h"
+#include "Logic_libary/Platform.h"
 
 using namespace std;
 
 int main() {
 
-    logic::Player player_L = logic::Player();
+    logic::Player_L player_L = logic::Player_L();
     auto player_R = representation::Player(player_L);
     player_L.addObserver(&player_R);
 
-    logic::Stopwatch* stopwatch = logic::Stopwatch::Instance();
+    logic::Platform_L_horizontal platformLHorizontal = logic::Platform_L_horizontal();
+    auto PlatformH = representation::Platform_horizontal(platformLHorizontal);
+    platformLHorizontal.addObserver(&PlatformH);
 
-    bool isRunning = true;
+
+    logic::Stopwatch* stopwatch = logic::Stopwatch::Instance();
+    representation::Window* window = representation::Window::Instance();
+
     float frameRate = 60.0f;
 
     representation::Game game;
 
-    while (game.isRunning())
+    while (window->isOpen())
     {
         stopwatch->Tick();
         if (stopwatch->GetDeltaTime() >= 1/frameRate)
         {
+            window->getWindow()->clear(sf::Color::White);
+            player_R.update();
+            PlatformH.update();
+            window->getWindow()->display();
             stopwatch->Reset();
-            cout << 1 / stopwatch->GetDeltaTime() << endl;
-            game.getWindow()->clear(sf::Color::White);
-            game.getWindow()->draw(player_R.getSprite());
-            game.getWindow()->display();
+//            cout << 1 / stopwatch->GetDeltaTime() << endl;
 
         }
-
-        game.updateWindow();
-
+        window->update();
     }
 
     logic::Stopwatch::Release();
+    representation::Window::Release();
 
     return 0;
 }

@@ -25,7 +25,6 @@ add_subdirectory(src/Logic_libary)
 add_subdirectory(src/Game_Representation)
 
 
-
 # Add include dirs for SFML
 # (The SFML_INCLUDE_DIR variable is defined by FindSFML.cmake, if SFML was found)
 INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR})
@@ -37,6 +36,6 @@ target_link_libraries(doodle_jump representation logic)
 
 # Link target to SFML libs
 # (The SFML_LIBRARIES variable is defined by FindSFML.cmake, if SFML was found)
-target_link_libraries(doodle_jump ${SFML_LIBRARIES})
+TARGET_LINK_LIBRARIES(doodle_jump ${SFML_LIBRARIES})
 
 INSTALL(TARGETS doodle_jump DESTINATION ${PROJECT_SOURCE_DIR}/bin)
