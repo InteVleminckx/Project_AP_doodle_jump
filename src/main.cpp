@@ -18,9 +18,7 @@ int main() {
     bool isRunning = true;
     float frameRate = 60.0f;
 
-    sf::RenderWindow* window = new sf::RenderWindow(sf::VideoMode(600,600), "Doodle Jump");
-
-    representation::Game game(window);
+    representation::Game game;
 
     while (game.isRunning())
     {
