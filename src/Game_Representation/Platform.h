@@ -15,7 +15,7 @@ namespace representation {
     class Platform : public Entity_View{
     public:
         Platform();
-        Platform(logic::Subject& subject);
+        Platform(shared_ptr<logic::Subject>& subject);
 
         void update() override;
 
@@ -23,22 +23,22 @@ namespace representation {
 
     class Platform_static : public Platform {
     public:
-        Platform_static(logic::Subject& subject);
+        Platform_static(shared_ptr<logic::Subject>& subject);
     };
 
     class Platform_vertical : public Platform {
     public:
-        Platform_vertical(logic::Subject& subject);
+        Platform_vertical(shared_ptr<logic::Subject>& subject);
     };
 
     class Platform_horizontal : public Platform {
     public:
-        Platform_horizontal(logic::Subject& subject);
+        Platform_horizontal(shared_ptr<logic::Subject>& subject);
     };
 
     class Platform_temporary : public Platform {
     public:
-        Platform_temporary(logic::Subject& subject);
+        Platform_temporary(shared_ptr<logic::Subject>& subject);
     };
 
 }

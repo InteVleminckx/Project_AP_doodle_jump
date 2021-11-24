@@ -16,6 +16,7 @@
 
 #include <iostream>
 #include <vector>
+#include <memory>
 
 using namespace std;
 
@@ -24,7 +25,8 @@ namespace logic {
     class Subject {
     public:
 
-        vector<Observer*>  m_observers; /** Een vector die alle observers van het subject bevat*/
+//        vector<Observer*>  m_observers; /** Een vector die alle observers van het subject bevat*/
+        vector<shared_ptr<Observer>> m_observers;
 
         /**
          * Een constructor.
@@ -36,20 +38,24 @@ namespace logic {
          * Voegt een observer toe aan de vector van observers van het subject.
          * @param observer: een observer
          */
-        void addObserver(Observer* observer);
+//        void addObserver(Observer* observer);
+        void addObserver(const shared_ptr<Observer>& observer);
 
         /**
          * Function: removeObserver(Observer observer)
          * Verwijdert een observer uit de vector van observers van het subject.
          * @param observer: een observer
          */
-        void removeObserver(const Observer* observer);
+//        void removeObserver(const Observer* observer);
+        void removeObserver(const shared_ptr<Observer>& observer);
 
         /**
          * Function: Notify()
          * Gaat over alle observer van het subject en roept hier de update function op aan.
          */
         void Notify();
+
+        virtual ~Subject();
 
     };
 }

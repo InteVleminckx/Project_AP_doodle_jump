@@ -20,7 +20,8 @@ namespace logic {
     class Observer {
     protected:
 
-        Subject* m_subject;
+//        Subject* m_subject;
+        shared_ptr<Subject> m_subject;
 
         /**
          * Is een constructor.
@@ -32,7 +33,7 @@ namespace logic {
         /**
          * Is een constructor.
          */
-         Observer(Subject& subject);
+         Observer(shared_ptr<logic::Subject>& subject);
 
         /**
          * Function: Update()

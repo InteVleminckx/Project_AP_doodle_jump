@@ -4,9 +4,12 @@
 namespace logic {
     Subject::Subject() = default;
 
-    void Subject::addObserver(Observer* observer) { m_observers.push_back(observer); }
+//    void Subject::addObserver(Observer* observer)
+    void Subject::addObserver(const shared_ptr<Observer>& observer)
+    { m_observers.push_back(observer); }
 
-    void Subject::removeObserver(const Observer* observer)
+//    void Subject::removeObserver(const Observer* observer)
+    void Subject::removeObserver(const shared_ptr<Observer>& observer)
     {
         for (int i = 0; i < m_observers.size();  ++i)
         {
@@ -17,5 +20,9 @@ namespace logic {
         }
     }
 
-    void Subject::Notify() { for (Observer* ob : m_observers) ob->update(); }
+    void Subject::Notify() { for (const auto& ob : m_observers) ob->update(); }
+
+    Subject::~Subject() {
+
+    }
 }

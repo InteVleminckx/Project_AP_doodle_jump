@@ -9,7 +9,7 @@ namespace representation {
 
     Entity_View::Entity_View() = default;
 
-    Entity_View::Entity_View(logic::Subject &subject) {m_subject = &subject;}
+    Entity_View::Entity_View(shared_ptr<logic::Subject> &subject){m_subject = subject;}
 
     void Entity_View::createSprite(const string& filepath)
     {

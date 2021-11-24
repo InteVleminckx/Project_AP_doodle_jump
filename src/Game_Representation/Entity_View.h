@@ -31,7 +31,7 @@ class Entity_View : public logic::Observer{
 
     public:
 
-        Entity_View(logic::Subject& subject);
+        Entity_View(shared_ptr<logic::Subject>& subject);
 
         sf::Sprite getSprite();
 

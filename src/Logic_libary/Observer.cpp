@@ -4,7 +4,7 @@ namespace logic {
 
     Observer::Observer() = default;
 
-    Observer::Observer(Subject& subject) : m_subject(&subject) {}
+    Observer::Observer(shared_ptr<logic::Subject>& subject) : m_subject(subject) {}
 
     bool Observer::operator==(const Observer &that) {
         return false;

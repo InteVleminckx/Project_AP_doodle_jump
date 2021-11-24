@@ -11,13 +11,11 @@ using namespace std;
 
 int main() {
 
-    logic::Player_L player_L = logic::Player_L();
-    auto player_R = representation::Player(player_L);
-    player_L.addObserver(&player_R);
+    shared_ptr<logic::Subject> player_L = shared_ptr<logic::Player_L> (new logic::Player_L);
+    player_L->addObserver(shared_ptr<logic::Observer> (new representation::Player(player_L)));
 
-    logic::Platform_L_horizontal platformLHorizontal = logic::Platform_L_horizontal();
-    auto PlatformH = representation::Platform_horizontal(platformLHorizontal);
-    platformLHorizontal.addObserver(&PlatformH);
+    shared_ptr<logic::Subject> platform_L = shared_ptr<logic::Platform_L_horizontal> (new logic::Platform_L_horizontal);
+    platform_L->addObserver(shared_ptr<logic::Observer> (new representation::Platform_horizontal(platform_L)));
 
 
     logic::Stopwatch* stopwatch = logic::Stopwatch::Instance();
@@ -33,8 +31,9 @@ int main() {
         if (stopwatch->GetDeltaTime() >= 1/frameRate)
         {
             window->getWindow()->clear(sf::Color::White);
-            player_R.update();
-            PlatformH.update();
+            player_L->Notify();
+            platform_L->Notify();
+
             window->getWindow()->display();
             stopwatch->Reset();
 //            cout << 1 / stopwatch->GetDeltaTime() << endl;
