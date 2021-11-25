@@ -9,13 +9,13 @@
 #ifndef DOODLE_JUMP_PLAYER_G_H
 #define DOODLE_JUMP_PLAYER_G_H
 
-#include "Entity_View.h"
+#include "EntityView.h"
 #include "../Logic_libary/Player.h"
 
 using namespace std;
 
 namespace representation {
-    class Player : public Entity_View {
+    class Player : public EntityView {
 
     protected:
 

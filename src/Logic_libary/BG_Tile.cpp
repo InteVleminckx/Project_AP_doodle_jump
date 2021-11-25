@@ -3,4 +3,5 @@
 namespace logic {
 
 
+    BG_Tile::BG_Tile() {}
 }

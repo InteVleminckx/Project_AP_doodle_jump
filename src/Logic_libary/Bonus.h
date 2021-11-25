@@ -10,12 +10,12 @@
 #define DOODLE_JUMP_BONUS_L_H
 
 #include <iostream>
-#include "Entity_Model.h"
+#include "EntityModel.h"
 
 using namespace std;
 
 namespace logic {
-    class Bonus : public Entity_Model {
+    class Bonus : public EntityModel {
 
     };
 }

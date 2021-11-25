@@ -6,12 +6,12 @@
 #define DOODLE_JUMP_BONUS_H
 
 #include <iostream>
-#include "Entity_View.h"
+#include "EntityView.h"
 
 using namespace std;
 
 namespace representation {
-    class Bonus : public Entity_View {
+    class Bonus : public EntityView {
     public:
 
         Bonus();

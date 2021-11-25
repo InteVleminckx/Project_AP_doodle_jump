@@ -4,25 +4,24 @@
 namespace logic {
     Subject::Subject() = default;
 
-//    void Subject::addObserver(Observer* observer)
     void Subject::addObserver(const shared_ptr<Observer>& observer)
     { m_observers.push_back(observer); }
 
-//    void Subject::removeObserver(const Observer* observer)
     void Subject::removeObserver(const shared_ptr<Observer>& observer)
     {
         for (int i = 0; i < m_observers.size();  ++i)
         {
             if (m_observers[i] == observer)
             {
-                cout << "Remove observer out vector: m_obsevers.erase(m_observers->begin() + i)" << endl;
+               m_observers.erase(m_observers.begin()+i);
+               cout << "observer erased" << endl;
             }
         }
     }
 
     void Subject::Notify() { for (const auto& ob : m_observers) ob->update(); }
 
-    Subject::~Subject() {
+    void Subject::emptyObserver() {m_observers.clear();}
 
-    }
+
 }

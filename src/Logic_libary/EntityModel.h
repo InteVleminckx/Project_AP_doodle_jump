@@ -6,8 +6,8 @@
  * Description:
  */
 
-#ifndef DOODLE_JUMP_ENTITY_MODEL_H
-#define DOODLE_JUMP_ENTITY_MODEL_H
+#ifndef DOODLE_JUMP_ENTITYMODEL_H
+#define DOODLE_JUMP_ENTITYMODEL_H
 
 #include <iostream>
 #include "Subject.h"
@@ -15,9 +15,9 @@
 using namespace std;
 
 namespace logic {
-    class Entity_Model : public Subject {
+    class EntityModel : public Subject {
 
-        float m_x, m_y, m_velocityX, m_velocityY;
+        float m_x, m_y, m_velocityX{3.0f}, m_velocityY;
         double m_lenght, m_width;
 
     public:
@@ -25,7 +25,7 @@ namespace logic {
         /**
          * Is een constructor.
          */
-        Entity_Model();
+        EntityModel();
 
         /**
          * Function: setX(double x)
@@ -128,4 +128,4 @@ namespace logic {
 
 
 
-#endif //DOODLE_JUMP_ENTITY_MODEL_H
+#endif //DOODLE_JUMP_ENTITYMODEL_H

@@ -1,6 +1,9 @@
 add_library(representation
-        Entity_View.cpp
+        EntityView.cpp
         Player.cpp
         Game.cpp
         Window.cpp
-        Bonus.cpp Bonus.h BG_Tile.cpp BG_Tile.h Platform.cpp Platform.h)
+        Bonus.cpp
+        BG_Tile.cpp
+        Platform.cpp
+        PlayerFactory.cpp PlayerFactory.h PlatformFactory.cpp PlatformFactory.h BG_TileFactory.cpp BG_TileFactory.h BonusFactory.cpp BonusFactory.h)

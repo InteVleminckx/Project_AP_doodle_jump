@@ -6,12 +6,12 @@
 #define DOODLE_JUMP_BG_TILE_H
 
 #include <iostream>
-#include "Entity_View.h"
+#include "EntityView.h"
 
 using namespace std;
 
 namespace representation {
-    class BG_Tile : public Entity_View {
+    class BG_Tile : public EntityView {
     public:
 
         BG_Tile();

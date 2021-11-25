@@ -6,8 +6,8 @@
  * Description:
  */
 
-#ifndef DOODLE_JUMP_ENTITY_VIEW_H
-#define DOODLE_JUMP_ENTITY_VIEW_H
+#ifndef DOODLE_JUMP_ENTITYVIEW_H
+#define DOODLE_JUMP_ENTITYVIEW_H
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
@@ -18,20 +18,20 @@
 using namespace std;
 
 namespace representation {
-class Entity_View : public logic::Observer{
+class EntityView : public logic::Observer{
 
     protected:
 
         sf::Sprite m_modelSprite;
         sf::Texture m_modelTexture; //* Toevoegen anders raakt texture kwijt en krijg je white square*/
 
-        Entity_View();
+        EntityView();
 
         void createSprite(const string& filepath);
 
     public:
 
-        Entity_View(shared_ptr<logic::Subject>& subject);
+        EntityView(shared_ptr<logic::Subject>& subject);
 
         sf::Sprite getSprite();
 
@@ -41,4 +41,4 @@ class Entity_View : public logic::Observer{
 
 
 
-#endif //DOODLE_JUMP_ENTITY_VIEW_H
+#endif //DOODLE_JUMP_ENTITYVIEW_H

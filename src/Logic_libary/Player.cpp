@@ -7,6 +7,7 @@ namespace logic {
 
     void Player_L::moveLeft() {setX(getX() - getVelocityX());}
 
+
 }
 
 

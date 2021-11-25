@@ -6,13 +6,13 @@
 #define DOODLE_JUMP_PLATFORM_H
 
 #include <iostream>
-#include "Entity_View.h"
+#include "EntityView.h"
 #include "../Logic_libary/Platform.h"
 
 using namespace std;
 
 namespace representation {
-    class Platform : public Entity_View{
+    class Platform : public EntityView{
     public:
         Platform();
         Platform(shared_ptr<logic::Subject>& subject);

@@ -10,12 +10,12 @@
 #define DOODLE_JUMP_PLATFORM_L_H
 
 #include <iostream>
-#include "Entity_Model.h"
+#include "EntityModel.h"
 
 using namespace std;
 
 namespace logic {
-    class Platform_L : public Entity_Model {
+    class Platform_L : public EntityModel {
 
         bool m_temporary = false;
         bool m_vertical = false;

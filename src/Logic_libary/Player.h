@@ -10,13 +10,13 @@
 #define DOODLE_JUMP_PLAYER_L_H
 
 #include <iostream>
-#include "Entity_Model.h"
+#include "EntityModel.h"
 
 using namespace std;
 
 namespace logic {
 
-    class Player_L : public Entity_Model {
+    class Player_L : public EntityModel {
 
         double m_jumpforce;
 

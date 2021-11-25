@@ -2,16 +2,16 @@
 // Created by inte on 11/18/21.
 //
 
-#include "Entity_View.h"
+#include "EntityView.h"
 
 
 namespace representation {
 
-    Entity_View::Entity_View() = default;
+    EntityView::EntityView() = default;
 
-    Entity_View::Entity_View(shared_ptr<logic::Subject> &subject){m_subject = subject;}
+    EntityView::EntityView(shared_ptr<logic::Subject> &subject){m_subject = subject;}
 
-    void Entity_View::createSprite(const string& filepath)
+    void EntityView::createSprite(const string& filepath)
     {
 
         try {
@@ -26,7 +26,7 @@ namespace representation {
         this->m_modelSprite.setTexture(m_modelTexture);
     }
 
-    sf::Sprite Entity_View::getSprite() { return m_modelSprite; }
+    sf::Sprite EntityView::getSprite() { return m_modelSprite; }
 
 }
 

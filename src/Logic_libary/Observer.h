@@ -20,7 +20,6 @@ namespace logic {
     class Observer {
     protected:
 
-//        Subject* m_subject;
         shared_ptr<Subject> m_subject;
 
         /**

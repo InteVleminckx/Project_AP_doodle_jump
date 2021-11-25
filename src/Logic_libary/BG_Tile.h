@@ -10,13 +10,13 @@
 #define DOODLE_JUMP_BG_TILE_L_H
 
 #include <iostream>
-#include "Entity_Model.h"
+#include "EntityModel.h"
 
 using namespace std;
 
 namespace logic {
-    class BG_Tile : public Entity_Model {
-
+    class BG_Tile : public EntityModel {
+    public:
         BG_Tile();
 
     };
