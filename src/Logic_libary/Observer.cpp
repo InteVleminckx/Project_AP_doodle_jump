@@ -11,7 +11,15 @@ namespace logic {
         return false;
     }
 
-    void Observer::update() {cout << "Update" << endl; }
+    void Observer::update(float x, float y) {cout << "Update" << endl; }
+
+    float Observer::getWidth() {
+        return m_width;
+    }
+
+    float Observer::getHeight() {
+        return m_height;
+    }
 
 
 }

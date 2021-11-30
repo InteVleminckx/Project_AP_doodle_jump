@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include "../Logic_libary/EntityFactory.h"
+#include "../Game_Representation/Platform.h"
 
 using namespace std;
 
@@ -15,6 +16,11 @@ namespace representation {
     public:
 
         PlatformFactory();
+
+        void createPlayer(shared_ptr<logic::Subject> &subject) override {};
+        void createBG_Tile(shared_ptr<logic::Subject> &subject) override {};
+        void createPlatform(shared_ptr<logic::Subject> &subject) override;
+        void createBonus(shared_ptr<logic::Subject> &subject) override {};
 
     };
 

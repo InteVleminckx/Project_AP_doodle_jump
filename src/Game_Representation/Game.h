@@ -10,6 +10,8 @@
 #include "../Logic_libary/World.h"
 #include "Window.h"
 #include "PlayerFactory.h"
+#include "PlatformFactory.h"
+
 
 using namespace std;
 

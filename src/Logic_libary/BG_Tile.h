@@ -19,6 +19,10 @@ namespace logic {
     public:
         BG_Tile();
 
+        void gravity() override {}
+
+        void jump() override {};
+
     };
 }
 

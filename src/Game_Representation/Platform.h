@@ -17,7 +17,7 @@ namespace representation {
         Platform();
         Platform(shared_ptr<logic::Subject>& subject);
 
-        void update() override;
+        void update(float, float) override;
 
     };
 

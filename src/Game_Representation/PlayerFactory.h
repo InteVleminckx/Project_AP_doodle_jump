@@ -18,7 +18,6 @@ namespace representation {
         PlayerFactory();
 
         void createPlayer(shared_ptr<logic::Subject> &subject) override;
-
         void createBG_Tile(shared_ptr<logic::Subject> &subject) override;
         void createPlatform(shared_ptr<logic::Subject> &subject) override;
         void createBonus(shared_ptr<logic::Subject> &subject) override;

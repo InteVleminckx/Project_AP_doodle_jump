@@ -11,6 +11,8 @@
 
 #include <iostream>
 #include "EntityModel.h"
+#include "Counter.h"
+#include "Stopwatch.h"
 
 using namespace std;
 
@@ -18,9 +20,10 @@ namespace logic {
 
     class Player_L : public EntityModel {
 
-        double m_jumpforce;
+//        float m_jumpforce{250.0f};
 
     public:
+
 
         /**
          * Function: gravity()
@@ -39,6 +42,9 @@ namespace logic {
          * Verplaatst de player naar links.
          */
         void moveLeft() override;
+
+
+        void jump() override;
 
     };
 

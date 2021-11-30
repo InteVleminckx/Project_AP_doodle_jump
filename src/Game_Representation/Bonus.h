@@ -16,7 +16,7 @@ namespace representation {
 
         Bonus();
 
-        void update() override;
+        void update(float,float) override;
 
     };
 }

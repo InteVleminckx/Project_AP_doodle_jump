@@ -16,16 +16,21 @@
 #include "Platform.h"
 #include "BG_Tile.h"
 #include "Bonus.h"
+#include <memory>
+#include "../Logic_libary/Counter.h"
 
 using namespace std;
 
-enum Platform {Static, Horizontal, Vertical, Temporary};
-enum Bonus {Rocket, Spring};
+enum _Platform{Static, Horizontal, Vertical, Temporary};
+enum _Bonus {Rocket, Spring};
 
 namespace logic {
     class World {
 
-        vector<shared_ptr<Subject>> m_entities;
+        vector<shared_ptr<Subject>> m_bonussen;
+        vector<shared_ptr<Subject>> m_platforms;
+        vector<shared_ptr<Subject>> m_BGtiles;
+        shared_ptr<Subject> m_player;
 
     public:
 
@@ -33,11 +38,21 @@ namespace logic {
 
         void createPlayer(shared_ptr<EntityFactory> &factory);
 
-        void createPlatform(shared_ptr<EntityFactory> &factory, Platform type);
+        void createPlatform(shared_ptr<EntityFactory> &factory, _Platform type);
 
-        void createBonus(shared_ptr<EntityFactory> &factory, Bonus type);
+        void createBonus(shared_ptr<EntityFactory> &factory, _Bonus type);
 
         void createBG_Tile(shared_ptr<EntityFactory> &factory);
+
+        //----------- Player -----------//
+
+        void movePlayerRight();
+
+        void movePlayerLeft();
+
+        bool playerTouchesPlatform();
+
+        //------------ Player -----------//
 
         void updateEntities();
 

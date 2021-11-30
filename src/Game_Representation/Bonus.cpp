@@ -10,7 +10,7 @@ namespace representation {
 
     }
 
-    void Bonus::update() {
-        Observer::update();
+    void Bonus::update(float x,float y) {
+
     }
 }

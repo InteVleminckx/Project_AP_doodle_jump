@@ -14,9 +14,9 @@ namespace logic {
 
     void EntityModel::setVelocityY(float velocityY) {m_velocityY = velocityY;}
 
-    void EntityModel::setLenght(double lenght) {m_lenght = lenght;}
+    void EntityModel::setHeight(float height) {m_height = height;}
 
-    void EntityModel::setWidth(double width) {m_width = width;}
+    void EntityModel::setWidth(float width) {m_width = width;}
 
     float EntityModel::getX() const {return m_x;}
 
@@ -26,13 +26,22 @@ namespace logic {
 
     float EntityModel::getVelocityY() const {return m_velocityY;}
 
-    double EntityModel::getLenght() const {return m_lenght;}
+    float EntityModel::getHeight() const {return m_height;}
 
-    double EntityModel::getWidth() const {return m_width;}
+    float EntityModel::getWidth() const {return m_width;}
 
     void EntityModel::moveRight() {}
 
     void EntityModel::moveLeft() {}
+
+    void EntityModel::Notify() {
+        for (auto &ob : m_observers)
+        {
+            ob->update(this->getX(), this->getY());
+        }
+
+    }
+
 }
 
 

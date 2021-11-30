@@ -17,6 +17,7 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+#include "../Game_Representation/Window.h"
 
 using namespace std;
 
@@ -50,8 +51,31 @@ namespace logic {
          * Function: Notify()
          * Gaat over alle observer van het subject en roept hier de update function op aan.
          */
-        void Notify();
+        virtual void Notify() = 0;
 
+        virtual void moveRight() = 0;
+
+        virtual void moveLeft() = 0;
+
+        virtual void setX(float x)  = 0;
+
+        virtual void setY(float y) = 0;
+
+        virtual void jump() = 0;
+
+        virtual float getY() const = 0;
+
+        virtual float getX() const = 0;
+
+        virtual void gravity() = 0;
+
+        virtual void setWidth(float ) = 0;
+
+        virtual void setHeight(float ) = 0;
+
+        virtual float getWidth() const = 0;
+
+        virtual float getHeight() const = 0;
 
         void emptyObserver();
 

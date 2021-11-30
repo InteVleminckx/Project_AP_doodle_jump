@@ -21,6 +21,8 @@ namespace logic {
     protected:
 
         shared_ptr<Subject> m_subject;
+        float m_width;
+        float m_height;
 
         /**
          * Is een constructor.
@@ -38,7 +40,10 @@ namespace logic {
          * Function: Update()
          * Updates de huidige staat van het subject.
          */
-        virtual void update();
+        virtual void update(float x, float y);
+
+        float getWidth();
+        float getHeight();
 
         bool operator==(const Observer& that);
 

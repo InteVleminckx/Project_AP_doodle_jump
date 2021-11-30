@@ -28,6 +28,10 @@ namespace representation {
 
         bool isOpen();
 
+        bool isPressedLeft();
+
+        bool isPressedRight();
+
 
     private:
         Window();

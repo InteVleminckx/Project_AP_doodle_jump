@@ -11,14 +11,17 @@
 
 #include <iostream>
 #include "Subject.h"
+#include "Observer.h"
 
 using namespace std;
 
 namespace logic {
+
     class EntityModel : public Subject {
 
-        float m_x, m_y, m_velocityX{3.0f}, m_velocityY;
-        double m_lenght, m_width;
+    protected:
+        float m_x, m_y, m_velocityX{500.0f}, m_velocityY{-9.81f};
+        float m_height, m_width;
 
     public:
 
@@ -26,6 +29,8 @@ namespace logic {
          * Is een constructor.
          */
         EntityModel();
+
+        void Notify() override;
 
         /**
          * Function: setX(double x)
@@ -56,32 +61,32 @@ namespace logic {
         void setVelocityY(float velocityY);
 
         /**
-         * Function: setLenght(double lenght)
+         * Function: setheight(double height)
          * Geeft de entity een hoogte.
-         * @param lenght: is een double.
+         * @param height: is een float.
          */
-        void setLenght(double lenght);
+        void setHeight(float height) override;
 
         /**
          * Function: setWidth(double width)
          * Geeft de entity een breedte.
-         * @param width: is een double.
+         * @param width: is een float.
          */
-        void setWidth(double width);
+        void setWidth(float width) override;
 
         /**
          * Function: getX()
          * Geeft de x waarde van de entity terug.
          * @return float
          */
-        float getX() const;
+        float getX() const override;
 
         /**
          * Function: getY()
          * Geeft de y waarde van de entity terug.
          * @return float
          */
-        float getY() const;
+        float getY() const override;
 
         /**
          * Function: getVelocityX()
@@ -98,18 +103,18 @@ namespace logic {
         float getVelocityY() const;
 
         /**
-         * Function: getLenght()
+         * Function: getHeight()
          * Geeft de hoogte van de entity terug.
-         * @return double
+         * @return float
          */
-        double getLenght() const;
+        float getHeight() const override;
 
         /**
          * Function: getWidth()
          * Geeft de breedte van de entity terug.
-         * @return double
+         * @return float
          */
-        double getWidth() const;
+        float getWidth() const override;
 
         /**
          * Function: moveRight()

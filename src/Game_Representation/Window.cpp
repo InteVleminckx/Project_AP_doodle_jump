@@ -19,7 +19,7 @@ namespace representation {
         s_instance = nullptr;
     }
 
-    Window::Window() : m_window(sf::VideoMode(600, 600), "Doodle Jump") {
+    Window::Window() : m_window(sf::VideoMode(450, 750), "Doodle Jump") {
         m_isOpen = true;
     }
 
@@ -42,6 +42,16 @@ namespace representation {
 
     bool Window::isOpen() {
         return m_isOpen;
+    }
+
+    bool Window::isPressedLeft() {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) return true;
+        return false;
+    }
+
+    bool Window::isPressedRight() {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) return true;
+        return false;
     }
 
 

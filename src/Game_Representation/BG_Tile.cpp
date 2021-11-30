@@ -10,7 +10,7 @@ namespace representation {
 
     }
 
-    void BG_Tile::update() {
-        Observer::update();
+    void BG_Tile::update(float x,float y) {
+
     }
 }

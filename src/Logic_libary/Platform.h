@@ -64,6 +64,10 @@ namespace logic {
          */
         bool isHorizontal() const;
 
+        void gravity() override {}
+
+        void jump() override {};
+
     };
 
     class Platform_L_static : public  Platform_L {
@@ -75,6 +79,9 @@ namespace logic {
          */
         Platform_L_static();
 
+        void gravity() override {}
+
+        void jump() override {};
     };
 
     class Platform_L_vertical : public  Platform_L {
@@ -86,6 +93,9 @@ namespace logic {
          */
         Platform_L_vertical();
 
+        void gravity() override {}
+
+        void jump() override {};
     };
 
     class Platform_L_horizontal : public  Platform_L {
@@ -97,6 +107,9 @@ namespace logic {
          */
         Platform_L_horizontal();
 
+        void gravity() override {}
+
+        void jump() override {};
     };
 
     class Platform_L_temporary : public  Platform_L {
@@ -108,6 +121,9 @@ namespace logic {
          */
         Platform_L_temporary();
 
+        void gravity() override {}
+
+        void jump() override {};
     };
 }
 

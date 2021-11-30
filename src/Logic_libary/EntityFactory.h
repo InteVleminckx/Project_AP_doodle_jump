@@ -6,7 +6,7 @@
 #define DOODLE_JUMP_ENTITYFACTORY_H
 
 #include <iostream>
-#include "../Logic_libary/Subject.h"
+#include "../Logic_libary/EntityModel.h"
 
 using namespace std;
 
