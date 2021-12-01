@@ -1,6 +1,10 @@
-//
-// Created by inte on 11/23/21.
-//
+/**
+ * Naam: Inte Vleminckx
+ * Studentennummer: 20201844
+ * Datum:
+ * Version: V1.0
+ * Description:
+ */
 
 #ifndef DOODLE_JUMP_BONUS_H
 #define DOODLE_JUMP_BONUS_H
@@ -16,7 +20,7 @@ namespace representation {
 
         Bonus();
 
-        void update(float,float) override;
+        void update() override;
 
     };
 }

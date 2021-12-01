@@ -30,8 +30,6 @@ namespace logic {
          */
         EntityModel();
 
-        void Notify() override;
-
         /**
          * Function: setX(double x)
          * Geeft een x waarde aan de entity

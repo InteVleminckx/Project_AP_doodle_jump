@@ -2,9 +2,7 @@
 
 namespace logic {
 
-    EntityModel::EntityModel() {
-
-    }
+    EntityModel::EntityModel() = default;
 
     void EntityModel::setX(float x) {m_x = x;}
 
@@ -33,14 +31,6 @@ namespace logic {
     void EntityModel::moveRight() {}
 
     void EntityModel::moveLeft() {}
-
-    void EntityModel::Notify() {
-        for (auto &ob : m_observers)
-        {
-            ob->update(this->getX(), this->getY());
-        }
-
-    }
 
 }
 

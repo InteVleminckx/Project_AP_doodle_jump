@@ -58,6 +58,7 @@ namespace logic {
     void World::updateEntities() {
         m_player->Notify();
         m_player->gravity();
+        cout << m_player->getX() << " " << m_player->getY() << endl;
         if (playerTouchesPlatform()) m_player->jump();
         for (const auto& entity : m_BGtiles) entity->Notify();
         for (const auto& entity : m_platforms) entity->Notify();

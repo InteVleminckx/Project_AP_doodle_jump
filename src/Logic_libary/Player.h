@@ -24,12 +24,16 @@ namespace logic {
 
     public:
 
+        /**
+         * Is een constructor.
+         */
+        Player_L();
 
         /**
          * Function: gravity()
          * Haalt de speler naar beneden, de zwaartekracht werkt op hem.
          */
-        void gravity();
+        void gravity() override;
 
         /**
          * Function: moveRight()

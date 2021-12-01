@@ -40,7 +40,7 @@ namespace logic {
          * Function: Update()
          * Updates de huidige staat van het subject.
          */
-        virtual void update(float x, float y);
+        virtual void update() = 0;
 
         float getWidth();
         float getHeight();

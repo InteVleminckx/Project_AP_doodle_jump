@@ -1,7 +1,3 @@
-//
-// Created by inte on 11/23/21.
-//
-
 #include "Bonus.h"
 
 namespace representation {
@@ -10,7 +6,7 @@ namespace representation {
 
     }
 
-    void Bonus::update(float x,float y) {
+    void Bonus::update() {
 
     }
 }

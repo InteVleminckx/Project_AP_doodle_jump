@@ -24,9 +24,10 @@ using namespace std;
 namespace logic {
     class Observer;
     class Subject {
-    public:
-
+    public: //ToDo: Nog protected/private maken en hiervoor nog een getFunctie voor makes als dit nodig is
         vector<shared_ptr<Observer>> m_observers; /** Een vector die alle observers van het subject bevat*/
+
+    public:
 
         /**
          * Een constructor.
@@ -51,7 +52,7 @@ namespace logic {
          * Function: Notify()
          * Gaat over alle observer van het subject en roept hier de update function op aan.
          */
-        virtual void Notify() = 0;
+        void Notify();
 
         virtual void moveRight() = 0;
 
