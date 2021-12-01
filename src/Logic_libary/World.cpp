@@ -13,8 +13,9 @@ namespace logic {
 
     void World::createPlayer(shared_ptr<EntityFactory> &factory)
     {
-        m_player = std::make_shared<logic::Player_L> ();
+        m_player = std::make_shared<logic::Player_L> (.0f, -1.f, .15f, .09f);
         factory->createPlayer(m_player);
+        m_player->jump();
     }
 
     void World::createPlatform(shared_ptr<EntityFactory> &factory, _Platform type)
@@ -22,16 +23,16 @@ namespace logic {
         shared_ptr<logic::Subject> platform;
         switch (type) {
             case Static:
-                platform = make_shared<logic::Platform_L_static>();
+                platform = make_shared<logic::Platform_L_static>(0.0f, -.75f, .2f, .035f);
                 break;
             case Horizontal:
-                 platform = std::make_shared<logic::Platform_L_horizontal> ();
+                 platform = std::make_shared<logic::Platform_L_horizontal> (0.0f, -.5f, .2f, .035f);
                 break;
             case Vertical:
-                platform = std::make_shared<logic::Platform_L_vertical> ();
+                platform = std::make_shared<logic::Platform_L_vertical> (0.0f, -.5f, .2f, .035f);
                 break;
             case Temporary:
-                platform = std::make_shared<logic::Platform_L_temporary> ();
+                platform = std::make_shared<logic::Platform_L_temporary> (0.0f, -.5f, .2f, .035f);
         }
         factory->createPlatform(platform);
         m_platforms.push_back(platform);
@@ -58,7 +59,6 @@ namespace logic {
     void World::updateEntities() {
         m_player->Notify();
         m_player->gravity();
-        cout << m_player->getX() << " " << m_player->getY() << endl;
         if (playerTouchesPlatform()) m_player->jump();
         for (const auto& entity : m_BGtiles) entity->Notify();
         for (const auto& entity : m_platforms) entity->Notify();
@@ -84,12 +84,19 @@ namespace logic {
     bool World::playerTouchesPlatform() {
         for (const auto &platform : m_platforms)
         {
-            //kleine marge
-            if (platform->getY() - 5.0f < m_player->getY() + m_player->getHeight() &&  m_player->getY() + m_player->getHeight() < platform->getY() + 5.0f)
+            //omdat we een kleine marge nemen zien we of de player zijn y collisiond over heel het platform
+            if (platform->getY()-platform->getHeight()/2 <= m_player->getY() - m_player->getHeight()/2 &&
+                m_player->getY() - m_player->getHeight()/2 <= platform->getY()+platform->getHeight()/2)
             {
-                if (platform->getX() < m_player->getX() && m_player->getX() < platform->getX() + platform->getWidth()) return true;
-                else if (platform->getX() < m_player->getX() + m_player->getWidth() && m_player->getX() + m_player->getWidth() < platform->getX() + platform->getWidth()) return true;
+                cout << endl;
+                if (platform->getX()-platform->getWidth()/2 <= m_player->getX()+m_player->getWidth()/2 &&
+                    m_player->getX()+m_player->getWidth()/2 <= platform->getX()+platform->getWidth()/2) return true;
+
+                else if (platform->getX()-platform->getWidth()/2 <= m_player->getX()-m_player->getWidth()/2 &&
+                    m_player->getX()-m_player->getWidth()/2 <= platform->getX()+platform->getWidth()/2) return true;
             }
+
+
         }
         return false;
     }

@@ -2,7 +2,9 @@
 
 namespace logic {
 
-    Player_L::Player_L() {
+    Player_L::Player_L() = default;
+
+    Player_L::Player_L(float posX, float posY, float width, float height) {
         /**
         We werken in het logic gedeelte tussen -1 en 1 in de x-as en -1 en +inf in de y-as
         De begin positie van onze player moet dus tussen deze waarde te komen liggen
@@ -11,26 +13,17 @@ namespace logic {
         Dus het centrum van onze player in het begin zou eigl (0,-1) moeten zijn
         */
 
-        m_x  = 0.0f; m_y = 1.0f;
-        m_velocityY = .015f;
+        m_x  = posX; m_y = posY;
         m_velocityX = 2.0f;
+        m_gravity = 1.5f;
+        m_width = width; m_height = height;
+
     }
 
     void Player_L::gravity() {
 
-
-//        if (m_velocityY > -9.81f)
-//        {
-//            m_velocityY = (-logic::Counter::Instance()->GetDeltaTime() * 9.81f * 60.0f) /
-//                            (1/logic::Stopwatch::Instance()->GetDeltaTime());
-//        }
-//
-//        else if (m_velocityY < -9.81f)
-//        {
-//            m_velocityY = -9.81f;
-//            logic::Counter::Instance()->Release();
-//        }
-        setY(getY() - getVelocityY());
+        setVelocityY(getVelocityY() - m_gravity * Stopwatch::Instance()->GetDeltaTime());
+        setY(getY() + (getVelocityY() * Stopwatch::Instance()->GetDeltaTime()));
     }
 
     void Player_L::moveRight() {
@@ -50,17 +43,7 @@ namespace logic {
         setX(newPos);
     }
 
-    void Player_L::jump() {
-        //zet "gravity" naar het omgekeerde
-        m_velocityY = -m_velocityY;
-
-        //start een telleler die van 1 naar -1 telt op 2 seconden
-        //1, 0.99, 0.98 -> -0.98, -0.99, -1
-        //geeft dan een sprong effect dit getal doen we dan telkens maal de m_velocityY
-        logic::Counter::Instance()->Reset();
-
-
-    }
+    void Player_L::jump() {m_velocityY = sqrt(2.0f * m_gravity * m_jumpforce);}
 
 
 }

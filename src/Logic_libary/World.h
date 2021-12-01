@@ -17,7 +17,6 @@
 #include "BG_Tile.h"
 #include "Bonus.h"
 #include <memory>
-#include "../Logic_libary/Counter.h"
 
 using namespace std;
 

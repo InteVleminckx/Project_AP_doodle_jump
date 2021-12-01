@@ -20,8 +20,7 @@ namespace logic {
     class EntityModel : public Subject {
 
     protected:
-        float m_x, m_y, m_velocityX{500.0f}, m_velocityY{-9.81f};
-        float m_height, m_width;
+        float m_x{}, m_y{}, m_velocityX{}, m_velocityY{}, m_height{}, m_width{}, m_gravity{};
 
     public:
 
@@ -35,14 +34,14 @@ namespace logic {
          * Geeft een x waarde aan de entity
          * @param x: is een float
          */
-        void setX(float x);
+        void setX(float x) override;
 
         /**
          * Function: setY(double y)
          * Geeft een y waarde aan de entity
          * @param y: is een float
          */
-        void setY(float y);
+        void setY(float y) override;
 
         /**
          * Function: setVelocityX(double velocityX)

@@ -19,7 +19,7 @@ namespace representation {
         s_instance = nullptr;
     }
 
-    Window::Window() : m_window(sf::VideoMode(450, 750), "Doodle Jump") {
+    Window::Window() : m_window(sf::VideoMode(390, 580), "Doodle Jump") {
         m_isOpen = true;
     }
 

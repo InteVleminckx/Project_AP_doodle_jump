@@ -9,4 +9,4 @@ add_library(logic
         Subject.cpp
         World.cpp
         EntityFactory.cpp
-        Counter.cpp Counter.h)
+        )

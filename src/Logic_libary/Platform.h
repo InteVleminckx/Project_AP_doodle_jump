@@ -16,17 +16,17 @@ using namespace std;
 
 namespace logic {
     class Platform_L : public EntityModel {
-
         bool m_temporary = false;
-        bool m_vertical = false;
-        bool m_horizontal = false;
 
-    public:
-
+    protected:
         /**
          * Is een constructor.
          */
         Platform_L();
+
+    public:
+
+        Platform_L(float posX, float posY, float width, float height);
 
         /**
          * Zet temporary op true of false naar gelang zijn staat.
@@ -35,34 +35,10 @@ namespace logic {
         void setTemporary(bool temporary);
 
         /**
-         * Zet vertical op true of false naar gelang zijn staat.
-         * @param vertical: is een bool.
-         */
-        void setVertical(bool vertical);
-
-        /**
-         * Zet horizontal op true of false naar gelang zijn staat.
-         * @param horizontal: is een bool.
-         */
-        void setHorizontal(bool horizontal);
-
-        /**
          * Zegt of een platform temporary is of niet.
          * @return: een bool.
          */
         bool isTemporary() const;
-
-        /**
-         * Zegt of een platform vertical is of niet.
-         * @return: een bool.
-         */
-        bool isVertical() const;
-
-        /**
-         * Zegt of een platform horizontal is of niet.
-         * @return: een bool.
-         */
-        bool isHorizontal() const;
 
         void gravity() override {}
 
@@ -72,12 +48,14 @@ namespace logic {
 
     class Platform_L_static : public  Platform_L {
 
-    public:
-
         /**
          * Is een constructor.
          */
         Platform_L_static();
+
+    public:
+
+        Platform_L_static(float posX, float posY, float width, float height);
 
         void gravity() override {}
 
@@ -86,12 +64,14 @@ namespace logic {
 
     class Platform_L_vertical : public  Platform_L {
 
-    public:
-
         /**
          * Is een constructor.
          */
         Platform_L_vertical();
+
+    public:
+
+        Platform_L_vertical(float posX, float posY, float width, float height);
 
         void gravity() override {}
 
@@ -100,12 +80,14 @@ namespace logic {
 
     class Platform_L_horizontal : public  Platform_L {
 
-    public:
-
         /**
          * Is een constructor.
          */
         Platform_L_horizontal();
+
+    public:
+
+        Platform_L_horizontal(float posX, float posY, float width, float height);
 
         void gravity() override {}
 
@@ -114,12 +96,14 @@ namespace logic {
 
     class Platform_L_temporary : public  Platform_L {
 
-    public:
-
         /**
          * Is een constructor.
          */
         Platform_L_temporary();
+
+    public:
+
+        Platform_L_temporary(float posX, float posY, float width, float height);
 
         void gravity() override {}
 

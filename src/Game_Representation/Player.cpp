@@ -7,8 +7,8 @@ namespace representation {
 
     Player::Player(shared_ptr<logic::Subject> &subject)
     {
-        m_width = Window::Instance()->getWindow()->getSize().x/8.5f;
-        m_height = Window::Instance()->getWindow()->getSize().y/11.5f;
+        m_width = Window::Instance()->getWindow()->getSize().x*subject->getWidth();
+        m_height = Window::Instance()->getWindow()->getSize().y*subject->getHeight();
         m_subject = subject;
         createSprite("../Sprites/Doodle_player.png");
         m_modelSprite.scale(m_width/m_modelTexture.getSize().x, m_height/m_modelTexture.getSize().y);
