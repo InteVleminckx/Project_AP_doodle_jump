@@ -21,7 +21,7 @@ namespace representation {
             logic::Stopwatch::Instance()->Tick();
             if (logic::Stopwatch::Instance()->GetDeltaTime() >= 1/m_frameRate)
             {
-                Window::Instance()->getWindow()->clear(sf::Color::White);
+                Window::Instance()->getWindow()->clear(sf::Color(122,122,122));
                 m_world.updateEntities();
                 Window::Instance()->getWindow()->display();
                 logic::Stopwatch::Instance()->Reset();

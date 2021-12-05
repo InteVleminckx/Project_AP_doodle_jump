@@ -20,7 +20,7 @@ namespace logic {
 
     class Player_L : public EntityModel {
 
-        float m_jumpforce{.5f};
+        float m_jumpforce{.25f};
         /**
          * Is een constructor.
          */

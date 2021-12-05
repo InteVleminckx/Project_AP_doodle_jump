@@ -16,6 +16,7 @@
 #include "Platform.h"
 #include "BG_Tile.h"
 #include "Bonus.h"
+#include "Random.h"
 #include <memory>
 
 using namespace std;

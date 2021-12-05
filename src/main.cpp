@@ -1,5 +1,6 @@
 #include "Game_Representation/Game.h"
 
+
 using namespace std;
 
 int main() {
@@ -9,6 +10,7 @@ int main() {
     game.stopGame();
 
     return 0;
+
 }
 
 

@@ -1,7 +1,3 @@
-//
-// Created by inte on 11/18/21.
-//
-
 #include "World.h"
 
 namespace logic {
@@ -13,7 +9,7 @@ namespace logic {
 
     void World::createPlayer(shared_ptr<EntityFactory> &factory)
     {
-        m_player = std::make_shared<logic::Player_L> (.0f, 1.f, .15f, .09f);
+        m_player = std::make_shared<logic::Player_L> (.5f, 0.f, .15f, .15f);
         factory->createPlayer(m_player);
         m_player->jump();
     }
@@ -23,20 +19,20 @@ namespace logic {
         shared_ptr<logic::Subject> platform;
 
         //ToDo: bepaal een random type van het platform met de random functie
-        _Platform type  = Static;
+        _Platform type  = Random::Instance()->getPlatformType();
 
         switch (type) {
             case Static:
-                platform = make_shared<logic::Platform_L_static>(0.0f, -.75f, .2f, .035f);
+                platform = make_shared<logic::Platform_L_static>(0.5f, 0.1f, .15f, .035f);
                 break;
             case Horizontal:
-                 platform = std::make_shared<logic::Platform_L_horizontal> (0.0f, -.5f, .2f, .035f);
+                 platform = std::make_shared<logic::Platform_L_horizontal> (0.5f, 0.1f, .15f, .035f);
                 break;
             case Vertical:
-                platform = std::make_shared<logic::Platform_L_vertical> (0.0f, -.5f, .2f, .035f);
+                platform = std::make_shared<logic::Platform_L_vertical> (0.5f, 0.1f, .15f, .035f);
                 break;
             case Temporary:
-                platform = std::make_shared<logic::Platform_L_temporary> (0.0f, -.5f, .2f, .035f);
+                platform = std::make_shared<logic::Platform_L_temporary> (0.5f, 0.1f, .15f, .035f);
         }
         factory->createPlatform(platform, type);
         m_platforms.push_back(platform);
@@ -89,6 +85,7 @@ namespace logic {
 
     bool World::playerTouchesPlatform() {
 
+
         vector<pair<float, float>> leftPlayer, rightPlayer;
         getPointsBetweenFrames(leftPlayer, rightPlayer, m_player);
 
@@ -101,8 +98,8 @@ namespace logic {
 
                 //static, controller of de y-waarde van de player tussen het platform ligt
                 if (leftPlatform.size() == 1 &&
-                    leftPlatform[0].second - (platform->getHeight()/2) <= leftPlayer[i].second + (m_player->getHeight()/2) &&
-                    leftPlayer[i].second + (m_player->getHeight()/2) <= leftPlatform[0].second + (platform->getHeight()/2) )
+                    leftPlatform[0].second >= leftPlayer[i].second - (m_player->getHeight()/2) &&
+                    leftPlayer[i].second - (m_player->getHeight()/2) >= leftPlatform[0].second - (platform->getHeight()/2) )
                 {
                     // nu nog controlleren of de x-waarde ertussen zit zodat de player effectief het platform geraakt heeft
                     float Bx0 = leftPlatform[0].first;
@@ -110,13 +107,13 @@ namespace logic {
 
 //                    cout << "PlatformLeft: " << Bx0 << " <= PlayerLeft: " << leftPlayer[i].first << " <= PlatformRight: " << Bx1 << endl;
 
-                    if (Bx0 < leftPlayer[i].first && leftPlayer[i].first < Bx1)
+                    if (Bx0 <= leftPlayer[i].first && leftPlayer[i].first <= Bx1)
                     {
                         return true;
                     }
 
 //                    cout << "PlatformLeft: " << Bx0 << " <= PlayerRight: " << rightPlayer[i].first << " <= PlatformRight: " << Bx1 << endl;
-                    if (Bx0 < rightPlayer[i].first && rightPlayer[i].first < Bx1) {
+                    if (Bx0 <= rightPlayer[i].first && rightPlayer[i].first <= Bx1) {
                         return true;
                     }
 
@@ -132,6 +129,34 @@ namespace logic {
             }
 
         }
+
+        //De we beschouwen de huidge postie als center van het object, we beschouwen dan ook elk
+        //object als een "virtuele" box
+        //We beschouwen dan x0 linkse kant van het centrum en x1 de rechterkant
+        //We beschouwen dan ook y0 het deel boven het centrum en y1 het deel eronder
+
+//        float player_x0 = m_player->getX() - m_player->getWidth()/2;
+//        float player_x1 = m_player->getX() + m_player->getWidth()/2;
+////        float player_y0 = m_player->getY() - m_player->getHeight()/2;
+//        float player_y1 = m_player->getY() - m_player->getHeight()/2;
+//
+//        for (const auto& platform : m_platforms)
+//        {
+//            float platform_x0 = platform->getX() - platform->getWidth()/2;
+//            float platform_x1 = platform->getX() + platform->getWidth()/2;
+//            float platform_y0 = platform->getY() - platform->getHeight()/2;
+//            float platform_y1 = platform->getY() + platform->getHeight()/2;
+//
+//            //Het de player zijn onderkant bevindt zich al op de hoogte van het platform
+//            if (platform_y0 <= player_y1 && player_y1 <= platform_y1)
+//            {
+//                //controlleren of deze er ook nog tussen zit
+//                cout << platform_y0 << " " << player_y1 << " " << platform_y1 << endl;
+//                if (platform_x0 <= player_x0 && player_x0 <= platform_x1) return true;
+//                if (platform_x0 <= player_x1 && player_x1 <= platform_x1) return true;
+//            }
+//        }
+
         return false;
     }
 

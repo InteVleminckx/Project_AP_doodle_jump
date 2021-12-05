@@ -15,7 +15,7 @@ namespace logic {
 
         m_x  = posX; m_y = posY;
         m_xPrev  = posX; m_yPrev = posY;
-        m_velocityX = 2.0f;
+        m_velocityX = 1.5f;
         m_gravity = 1.5f;
         m_width = width; m_height = height;
 
@@ -32,7 +32,7 @@ namespace logic {
         float newPos = getX() + (getVelocityX() * Stopwatch::Instance()->GetDeltaTime());
 
         if (newPos >= 1.f)
-            newPos = -1.f;
+            newPos = 0;
         EntityModel::setXprev(m_x);
         setX(newPos);
 
@@ -40,7 +40,7 @@ namespace logic {
 
     void Player_L::moveLeft() {
         float newPos = getX() - (getVelocityX() * Stopwatch::Instance()->GetDeltaTime());
-        if (newPos <= -1.f)
+        if (newPos <= 0)
             newPos = 1.f;
         EntityModel::setXprev(m_x);
         setX(newPos);

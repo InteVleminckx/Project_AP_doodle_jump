@@ -1,7 +1,3 @@
-//
-// Created by inte on 11/18/21.
-//
-
 #include "EntityView.h"
 
 
@@ -15,7 +11,7 @@ namespace representation {
     {
 
         try {
-            if (!m_modelTexture.loadFromFile(filepath, sf::IntRect(30, 30, 32, 32)))
+            if (!m_modelTexture.loadFromFile(filepath))
                 throw InputException();
         }
         catch (InputException& exception) {
@@ -24,7 +20,6 @@ namespace representation {
         }
 
         this->m_modelSprite.setTexture(m_modelTexture);
-//        this->m_modelSprite.l
 
 
     }

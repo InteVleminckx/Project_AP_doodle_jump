@@ -5,15 +5,16 @@ namespace representation {
     Platform::Platform() = default;
 
     Platform::Platform(shared_ptr<logic::Subject>& subject) {
+        float scale = Window::Instance()->getWindow()->getSize().x;
+        m_width =  scale * subject->getWidth();
+        m_height = scale * subject->getHeight();
         m_subject = subject;
-        m_width = Window::Instance()->getWindow()->getSize().x*subject->getWidth()/2;
-        m_height = Window::Instance()->getWindow()->getSize().y*subject->getHeight()/2;
     }
 
     void Platform::update() {
 
-        float x = Window::Instance()->getWindow()->getSize().x/2 + (Window::Instance()->getWindow()->getSize().x/2 * m_subject->getX()) - m_width/2;
-        float y = Window::Instance()->getWindow()->getSize().y/2 + (Window::Instance()->getWindow()->getSize().y/2 * (-m_subject->getY())) - m_height/2;
+        float x = Window::Instance()->getWindow()->getSize().x*m_subject->getX()-m_width/2;
+        float y = Window::Instance()->getWindow()->getSize().y - (m_subject->getY()*Window::Instance()->getWindow()->getSize().y)-m_height/2;
         m_modelSprite.setPosition(x, y);
         representation::Window::Instance()->getWindow()->draw(m_modelSprite);
     }
