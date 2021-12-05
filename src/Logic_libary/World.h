@@ -20,9 +20,6 @@
 
 using namespace std;
 
-enum _Platform{Static, Horizontal, Vertical, Temporary};
-enum _Bonus {Rocket, Spring};
-
 namespace logic {
     class World {
 
@@ -37,9 +34,9 @@ namespace logic {
 
         void createPlayer(shared_ptr<EntityFactory> &factory);
 
-        void createPlatform(shared_ptr<EntityFactory> &factory, _Platform type);
+        void createPlatform(shared_ptr<EntityFactory> &factory);
 
-        void createBonus(shared_ptr<EntityFactory> &factory, _Bonus type);
+        void createBonus(shared_ptr<EntityFactory> &factory);
 
         void createBG_Tile(shared_ptr<EntityFactory> &factory);
 
@@ -56,6 +53,8 @@ namespace logic {
         void updateEntities();
 
         void releaseObservers();
+
+        void getPointsBetweenFrames(vector<pair<float, float>>& left, vector<pair<float, float>>& right, const shared_ptr<Subject>& subject);
     };
 }
 

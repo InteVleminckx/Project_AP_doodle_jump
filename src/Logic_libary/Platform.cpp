@@ -11,6 +11,7 @@ namespace logic {
         Dit geldt dus ook voor de grote van ons platform
         */
         m_x = posX; m_y = posY;
+        m_xPrev  = posX; m_yPrev = posY;
         m_width = width; m_height = height;
     }
 

@@ -6,16 +6,15 @@ namespace representation {
     {
         logic::Stopwatch::Instance();
         representation::Window::Instance();
+        logic::Random::Instance();
         m_frameRate = 60.0f;
     }
 
     void Game::beginGame() {
 
-        shared_ptr<logic::EntityFactory> playerFactory = make_shared<PlayerFactory>();
-        m_world.createPlayer(playerFactory);
-
-        shared_ptr<logic::EntityFactory> platformFactory = make_shared<PlatformFactory>();
-        m_world.createPlatform(platformFactory, Static);
+        shared_ptr<logic::EntityFactory> factory = make_shared<Representation::ConcreteFactory>();
+        m_world.createPlayer(factory);
+        m_world.createPlatform(factory);
 
         while (Window::Instance()->isOpen())
         {
@@ -29,7 +28,7 @@ namespace representation {
 //                cout << 1 / logic::Stopwatch::Instance()->GetDeltaTime() << endl;
                 if (Window::Instance()->isPressedLeft()) m_world.movePlayerLeft();
                 if (Window::Instance()->isPressedRight()) m_world.movePlayerRight();
-//                sf::sleep(sf::seconds(0.03f));
+//                sf::sleep(sf::seconds(0.1f));
 
             }
             Window::Instance()->update();
@@ -40,6 +39,7 @@ namespace representation {
         m_world.releaseObservers();
         logic::Stopwatch::Release();
         representation::Window::Release();
+        logic::Random::Release();
     }
 
 }

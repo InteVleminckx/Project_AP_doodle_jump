@@ -9,8 +9,8 @@
 #include <SFML/Graphics.hpp>
 #include "../Logic_libary/World.h"
 #include "Window.h"
-#include "PlayerFactory.h"
-#include "PlatformFactory.h"
+#include "ConcreteFactory.h"
+#include "../Logic_libary/Random.h"
 
 
 using namespace std;

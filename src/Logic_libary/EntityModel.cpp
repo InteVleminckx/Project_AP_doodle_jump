@@ -32,6 +32,14 @@ namespace logic {
 
     void EntityModel::moveLeft() {}
 
+    void EntityModel::setXprev(float x) {m_xPrev = x;}
+
+    void EntityModel::setYprev(float y) {m_yPrev = y;}
+
+    float EntityModel::getXprev() const {return m_xPrev;}
+
+    float EntityModel::getYprev() const {return m_yPrev;}
+
 }
 
 

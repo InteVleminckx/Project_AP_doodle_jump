@@ -15,7 +15,7 @@ namespace representation {
     {
 
         try {
-            if (!m_modelTexture.loadFromFile(filepath))
+            if (!m_modelTexture.loadFromFile(filepath, sf::IntRect(30, 30, 32, 32)))
                 throw InputException();
         }
         catch (InputException& exception) {
@@ -24,6 +24,9 @@ namespace representation {
         }
 
         this->m_modelSprite.setTexture(m_modelTexture);
+//        this->m_modelSprite.l
+
+
     }
 
     sf::Sprite EntityView::getSprite() { return m_modelSprite; }

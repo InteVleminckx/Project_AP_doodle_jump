@@ -20,7 +20,7 @@ namespace logic {
     class EntityModel : public Subject {
 
     protected:
-        float m_x{}, m_y{}, m_velocityX{}, m_velocityY{}, m_height{}, m_width{}, m_gravity{};
+        float m_x{}, m_y{}, m_xPrev{}, m_yPrev{}, m_velocityX{}, m_velocityY{}, m_height{}, m_width{}, m_gravity{};
 
     public:
 
@@ -42,6 +42,20 @@ namespace logic {
          * @param y: is een float
          */
         void setY(float y) override;
+
+        /**
+         * Function: setX(double x)
+         * Geeft een x waarde aan de entity
+         * @param x: is een float
+         */
+        void setXprev(float x) override;
+
+        /**
+         * Function: setY(double y)
+         * Geeft een y waarde aan de entity
+         * @param y: is een float
+         */
+        void setYprev(float y) override;
 
         /**
          * Function: setVelocityX(double velocityX)
@@ -84,6 +98,20 @@ namespace logic {
          * @return float
          */
         float getY() const override;
+
+        /**
+         * Function: getX()
+         * Geeft de x waarde van de entity terug.
+         * @return float
+         */
+        float getXprev() const override;
+
+        /**
+         * Function: getY()
+         * Geeft de y waarde van de entity terug.
+         * @return float
+         */
+        float getYprev() const override;
 
         /**
          * Function: getVelocityX()

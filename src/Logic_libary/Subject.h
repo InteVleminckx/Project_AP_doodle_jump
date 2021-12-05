@@ -62,11 +62,19 @@ namespace logic {
 
         virtual void setY(float y) = 0;
 
+        virtual void setXprev(float x)  = 0;
+
+        virtual void setYprev(float y) = 0;
+
         virtual void jump() = 0;
 
         virtual float getY() const = 0;
 
         virtual float getX() const = 0;
+
+        virtual float getYprev() const = 0;
+
+        virtual float getXprev() const = 0;
 
         virtual void gravity() = 0;
 
