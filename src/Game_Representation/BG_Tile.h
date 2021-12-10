@@ -20,8 +20,6 @@ namespace representation {
 
         BG_Tile();
 
-        void update() override;
-
     };
 
 

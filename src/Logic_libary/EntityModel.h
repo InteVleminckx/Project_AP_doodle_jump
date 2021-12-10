@@ -90,56 +90,56 @@ namespace logic {
          * Geeft de x waarde van de entity terug.
          * @return float
          */
-        float getX() const override;
+        float getX()  override;
 
         /**
          * Function: getY()
          * Geeft de y waarde van de entity terug.
          * @return float
          */
-        float getY() const override;
+        float getY()  override;
 
         /**
          * Function: getX()
          * Geeft de x waarde van de entity terug.
          * @return float
          */
-        float getXprev() const override;
+        float getXprev()  override;
 
         /**
          * Function: getY()
          * Geeft de y waarde van de entity terug.
          * @return float
          */
-        float getYprev() const override;
+        float getYprev()  override;
 
         /**
          * Function: getVelocityX()
          * Geeft de velocityX waarde van de entity terug.
          * @return float
          */
-        float getVelocityX() const;
+        float getVelocityX() ;
 
         /**
          * Function: getVelocityY()
          * Geeft de velocityY waarde van de entity terug.
          * @return float
          */
-        float getVelocityY() const;
+        float getVelocityY() ;
 
         /**
          * Function: getHeight()
          * Geeft de hoogte van de entity terug.
          * @return float
          */
-        float getHeight() const override;
+        float getHeight()  override;
 
         /**
          * Function: getWidth()
          * Geeft de breedte van de entity terug.
          * @return float
          */
-        float getWidth() const override;
+        float getWidth()  override;
 
         /**
          * Function: moveRight()

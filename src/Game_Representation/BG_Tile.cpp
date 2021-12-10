@@ -6,7 +6,4 @@ namespace representation {
 
     }
 
-    void BG_Tile::update() {
-
-    }
 }

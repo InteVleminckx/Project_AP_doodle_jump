@@ -4,10 +4,12 @@ namespace representation {
 
     Game::Game()
     {
-        logic::Stopwatch::Instance();
-        representation::Window::Instance();
-        logic::Random::Instance();
+        int windowWidth = 390; int windowHeight = 580; string gameTitle = "Doodle jump";
         m_frameRate = 60.0f;
+        logic::Stopwatch::Instance();
+        representation::Window::Instance(windowWidth, windowHeight, gameTitle);
+        logic::Random::Instance();
+        logic::Camera::Instance(windowWidth, windowHeight);
     }
 
     void Game::beginGame() {
@@ -40,6 +42,7 @@ namespace representation {
         logic::Stopwatch::Release();
         representation::Window::Release();
         logic::Random::Release();
+        logic::Camera::Release();
     }
 
 }

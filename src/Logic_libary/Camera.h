@@ -1,6 +1,11 @@
-//
-// Created by inte on 12/5/21.
-//
+/**
+ * Naam: Inte Vleminckx
+ * Studentennummer: 20201844
+ * Datum:
+ * Version: V1.0
+ * Description:
+ */
+
 
 #ifndef DOODLE_JUMP_CAMERA_H
 #define DOODLE_JUMP_CAMERA_H
@@ -10,15 +15,37 @@
 
 using namespace std;
 
-class Camera {
+struct projectedPixels : std::pair<float, float> { float &x = this->first; float &y = this->second; };
+
+namespace logic {
+    class Camera {
+
+        static Camera* s_instance;
+        int m_width, m_height, m_offset{};
+
+    public:
 
 
 
-public:
+        static Camera* Instance(int width = 0, int height = 0);
 
-    Camera();
+        static void Release();
 
-};
+        projectedPixels projectToPixel(float x, float y);
+
+        bool visibleInView(float x, float y);
+
+        int getCameraWidth();
+
+        int getCameraHeight();
+
+    private:
+        Camera(int width, int height);
+
+        ~Camera();
+
+    };
+}
 
 
 #endif //DOODLE_JUMP_CAMERA_H

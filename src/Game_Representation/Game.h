@@ -11,6 +11,7 @@
 #include "Window.h"
 #include "ConcreteFactory.h"
 #include "../Logic_libary/Random.h"
+#include "../Logic_libary/Camera.h"
 
 
 using namespace std;

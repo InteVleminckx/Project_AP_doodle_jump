@@ -16,17 +16,17 @@ namespace logic {
 
     void EntityModel::setWidth(float width) {m_width = width;}
 
-    float EntityModel::getX() const {return m_x;}
+    float EntityModel::getX()  {return m_x;}
 
-    float EntityModel::getY() const {return m_y;}
+    float EntityModel::getY()  {return m_y;}
 
-    float EntityModel::getVelocityX() const {return m_velocityX;}
+    float EntityModel::getVelocityX()  {return m_velocityX;}
 
-    float EntityModel::getVelocityY() const {return m_velocityY;}
+    float EntityModel::getVelocityY()  {return m_velocityY;}
 
-    float EntityModel::getHeight() const {return m_height;}
+    float EntityModel::getHeight()  {return m_height;}
 
-    float EntityModel::getWidth() const {return m_width;}
+    float EntityModel::getWidth() {return m_width;}
 
     void EntityModel::moveRight() {}
 
@@ -36,9 +36,9 @@ namespace logic {
 
     void EntityModel::setYprev(float y) {m_yPrev = y;}
 
-    float EntityModel::getXprev() const {return m_xPrev;}
+    float EntityModel::getXprev() {return m_xPrev;}
 
-    float EntityModel::getYprev() const {return m_yPrev;}
+    float EntityModel::getYprev() {return m_yPrev;}
 
 }
 

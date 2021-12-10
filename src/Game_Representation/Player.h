@@ -25,8 +25,6 @@ namespace representation {
 
         Player(shared_ptr<logic::Subject> &subject);
 
-        void update() override;
-
     };
 }
 

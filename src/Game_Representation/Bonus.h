@@ -20,8 +20,6 @@ namespace representation {
 
         Bonus();
 
-        void update() override;
-
     };
 }
 

@@ -18,7 +18,7 @@ namespace representation {
 
     public:
 
-        static Window* Instance();
+        static Window* Instance(int width = 0, int height = 0, string title = "");
 
         static void Release();
 
@@ -34,7 +34,7 @@ namespace representation {
 
 
     private:
-        Window();
+        Window(int width, int height, string title);
 
         ~Window();
 

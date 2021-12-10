@@ -14,6 +14,7 @@
 #include "../Logic_libary/Observer.h"
 #include "../../src/Exceptions.h"
 #include "../Game_Representation/Window.h"
+#include "../Logic_libary/Camera.h"
 
 using namespace std;
 
@@ -34,6 +35,8 @@ class EntityView : public logic::Observer{
         EntityView(shared_ptr<logic::Subject>& subject);
 
         sf::Sprite getSprite();
+
+        void update() override;
 
     };
 

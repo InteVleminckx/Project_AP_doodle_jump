@@ -68,13 +68,13 @@ namespace logic {
 
         virtual void jump() = 0;
 
-        virtual float getY() const = 0;
+        virtual float getY()  = 0;
 
-        virtual float getX() const = 0;
+        virtual float getX()  = 0;
 
-        virtual float getYprev() const = 0;
+        virtual float getYprev()  = 0;
 
-        virtual float getXprev() const = 0;
+        virtual float getXprev()  = 0;
 
         virtual void gravity() = 0;
 
@@ -82,9 +82,9 @@ namespace logic {
 
         virtual void setHeight(float ) = 0;
 
-        virtual float getWidth() const = 0;
+        virtual float getWidth()  = 0;
 
-        virtual float getHeight() const = 0;
+        virtual float getHeight()  = 0;
 
         void emptyObserver();
 

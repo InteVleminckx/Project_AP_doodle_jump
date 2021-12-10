@@ -18,6 +18,7 @@
 #include "Bonus.h"
 #include "Random.h"
 #include <memory>
+#include "Camera.h"
 
 using namespace std;
 

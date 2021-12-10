@@ -25,7 +25,7 @@ namespace logic {
     _Platform Random::getPlatformType() {
 
         //ToDo: dit nog afstellen op score, in het begin veel meer kans op static platforms
-        //Nadien eigenlijk zien was score is en zo meer kans geven op andere soorten platforms
+        //Nadien eigenlijk zien wat score is en zo meer kans geven op andere soorten platforms
 
         int number = rand() % 4;
 

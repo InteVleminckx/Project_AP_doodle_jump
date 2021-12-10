@@ -9,7 +9,7 @@ namespace logic {
 
     void World::createPlayer(shared_ptr<EntityFactory> &factory)
     {
-        m_player = std::make_shared<logic::Player_L> (.5f, 0.f, .15f, .15f);
+        m_player = std::make_shared<logic::Player_L> (0.f, 0.f, .1f, .125f);
         factory->createPlayer(m_player);
         m_player->jump();
     }
@@ -18,21 +18,22 @@ namespace logic {
     {
         shared_ptr<logic::Subject> platform;
 
-        //ToDo: bepaal een random type van het platform met de random functie
         _Platform type  = Random::Instance()->getPlatformType();
+
+        //TODO: de posities moeten hier nog random gemaakt worden
 
         switch (type) {
             case Static:
-                platform = make_shared<logic::Platform_L_static>(0.5f, 0.1f, .15f, .035f);
+                platform = make_shared<logic::Platform_L_static>(0.f, -1.f, .15f, .035f);
                 break;
             case Horizontal:
-                 platform = std::make_shared<logic::Platform_L_horizontal> (0.5f, 0.1f, .15f, .035f);
+                 platform = std::make_shared<logic::Platform_L_horizontal> (0.f, -1.f, .15f, .035f);
                 break;
             case Vertical:
-                platform = std::make_shared<logic::Platform_L_vertical> (0.5f, 0.1f, .15f, .035f);
+                platform = std::make_shared<logic::Platform_L_vertical> (0.f, -1.f, .15f, .035f);
                 break;
             case Temporary:
-                platform = std::make_shared<logic::Platform_L_temporary> (0.5f, 0.1f, .15f, .035f);
+                platform = std::make_shared<logic::Platform_L_temporary> (0.f, -1.f, .15f, .035f);
         }
         factory->createPlatform(platform, type);
         m_platforms.push_back(platform);
@@ -63,6 +64,9 @@ namespace logic {
         else {
         }
         m_player->Notify();
+
+        logic::Camera::Instance()->projectToPixel(m_player->getX(), m_player->getY());
+
         for (const auto& entity : m_BGtiles) entity->Notify();
         for (const auto& entity : m_platforms) entity->Notify();
         for (const auto& entity : m_bonussen) entity->Notify();
@@ -98,21 +102,21 @@ namespace logic {
 
                 //static, controller of de y-waarde van de player tussen het platform ligt
                 if (leftPlatform.size() == 1 &&
-                    leftPlatform[0].second >= leftPlayer[i].second - (m_player->getHeight()/2) &&
-                    leftPlayer[i].second - (m_player->getHeight()/2) >= leftPlatform[0].second - (platform->getHeight()/2) )
+                    leftPlatform[0].second <= leftPlayer[i].second &&
+                    leftPlayer[i].second <= leftPlatform[0].second + platform->getHeight() )
                 {
                     // nu nog controlleren of de x-waarde ertussen zit zodat de player effectief het platform geraakt heeft
                     float Bx0 = leftPlatform[0].first;
                     float Bx1 = rightPlatfrom[0].first;
 
-//                    cout << "PlatformLeft: " << Bx0 << " <= PlayerLeft: " << leftPlayer[i].first << " <= PlatformRight: " << Bx1 << endl;
+                    cout << "PlatformLeft: " << Bx0 << " <= PlayerLeft: " << leftPlayer[i].first << " <= PlatformRight: " << Bx1 << endl;
 
                     if (Bx0 <= leftPlayer[i].first && leftPlayer[i].first <= Bx1)
                     {
                         return true;
                     }
 
-//                    cout << "PlatformLeft: " << Bx0 << " <= PlayerRight: " << rightPlayer[i].first << " <= PlatformRight: " << Bx1 << endl;
+                    cout << "PlatformLeft: " << Bx0 << " <= PlayerRight: " << rightPlayer[i].first << " <= PlatformRight: " << Bx1 << endl;
                     if (Bx0 <= rightPlayer[i].first && rightPlayer[i].first <= Bx1) {
                         return true;
                     }
@@ -129,33 +133,6 @@ namespace logic {
             }
 
         }
-
-        //De we beschouwen de huidge postie als center van het object, we beschouwen dan ook elk
-        //object als een "virtuele" box
-        //We beschouwen dan x0 linkse kant van het centrum en x1 de rechterkant
-        //We beschouwen dan ook y0 het deel boven het centrum en y1 het deel eronder
-
-//        float player_x0 = m_player->getX() - m_player->getWidth()/2;
-//        float player_x1 = m_player->getX() + m_player->getWidth()/2;
-////        float player_y0 = m_player->getY() - m_player->getHeight()/2;
-//        float player_y1 = m_player->getY() - m_player->getHeight()/2;
-//
-//        for (const auto& platform : m_platforms)
-//        {
-//            float platform_x0 = platform->getX() - platform->getWidth()/2;
-//            float platform_x1 = platform->getX() + platform->getWidth()/2;
-//            float platform_y0 = platform->getY() - platform->getHeight()/2;
-//            float platform_y1 = platform->getY() + platform->getHeight()/2;
-//
-//            //Het de player zijn onderkant bevindt zich al op de hoogte van het platform
-//            if (platform_y0 <= player_y1 && player_y1 <= platform_y1)
-//            {
-//                //controlleren of deze er ook nog tussen zit
-//                cout << platform_y0 << " " << player_y1 << " " << platform_y1 << endl;
-//                if (platform_x0 <= player_x0 && player_x0 <= platform_x1) return true;
-//                if (platform_x0 <= player_x1 && player_x1 <= platform_x1) return true;
-//            }
-//        }
 
         return false;
     }
@@ -193,7 +170,7 @@ namespace logic {
             //we nemen hier de lengte van y als aantalpixels
             if (x < y){a = y;}
 
-                //we nemen hier de lengte van x als aantalpixels
+            //we nemen hier de lengte van x als aantalpixels
             else{ a = x;}
             aantalPoints = a+0.001f;
         }
@@ -204,8 +181,8 @@ namespace logic {
             float Xi = p*x0 + (1-p)*x1;
             float Yi = p*y0 + (1-p)*y1;
 
-            left.push_back(make_pair(Xi-subject->getWidth()/2, Yi));
-            right.push_back(make_pair(Xi+subject->getWidth()/2, Yi));
+            left.push_back(make_pair(Xi, Yi));
+            right.push_back(make_pair(Xi+subject->getWidth(), Yi));
         }
 
 

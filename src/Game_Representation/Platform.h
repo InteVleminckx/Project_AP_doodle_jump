@@ -16,9 +16,6 @@ namespace representation {
     public:
         Platform();
         Platform(shared_ptr<logic::Subject>& subject);
-
-        void update() override;
-
     };
 
     class Platform_static : public Platform {

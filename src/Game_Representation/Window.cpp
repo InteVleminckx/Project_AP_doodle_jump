@@ -8,9 +8,9 @@ namespace representation {
 
     Window* Window::s_instance = nullptr;
 
-    Window* Window::Instance() {
+    Window* Window::Instance(int width, int height, string title) {
         if (s_instance == nullptr)
-            s_instance = new Window;
+            s_instance = new Window(width, height, title);
         return s_instance;
     }
 
@@ -19,7 +19,7 @@ namespace representation {
         s_instance = nullptr;
     }
 
-    Window::Window() : m_window(sf::VideoMode(390, 580), "Doodle Jump") {
+    Window::Window(int width, int height, string title) : m_window(sf::VideoMode(width, height), title) {
         m_isOpen = true;
     }
 

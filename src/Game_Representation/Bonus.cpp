@@ -6,7 +6,4 @@ namespace representation {
 
     }
 
-    void Bonus::update() {
-
-    }
 }
