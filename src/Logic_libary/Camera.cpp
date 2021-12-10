@@ -30,15 +30,17 @@ namespace logic {
          * Dit kunnen we dan ook zo interpreteren voor de hoogte
          */
         projectedPixels pixels;
-        pixels.x = (m_width/2 + (x * m_width/2));
-        pixels.y = m_height - (m_height/2 + (y * m_height/2) - m_offset);
+//        pixels.x = (m_width/2 + (x * m_width/2));
+        pixels.x = x*m_width;
+        pixels.y = m_height - (m_height/2 + (y * m_height/2) - (m_offset*m_height/2));
+
         return pixels;
 
     }
 
     bool Camera::visibleInView(float x, float y) {
 
-        if (0 <= x && x <= m_width && 0 + m_offset <= y && y <= m_height + m_offset) return true;
+        if (0 <= x && x <= m_width && 0 + (m_offset*m_height/2) <= y && y <= m_height + (m_offset*m_height/2)) return true;
         return false;
     }
 

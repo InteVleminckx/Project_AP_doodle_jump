@@ -86,6 +86,8 @@ namespace logic {
 
         virtual float getHeight()  = 0;
 
+        virtual float getVelocityY() = 0;
+
         void emptyObserver();
 
 

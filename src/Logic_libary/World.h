@@ -36,7 +36,7 @@ namespace logic {
 
         void createPlayer(shared_ptr<EntityFactory> &factory);
 
-        void createPlatform(shared_ptr<EntityFactory> &factory);
+        void createPlatform(shared_ptr<EntityFactory> &factory, float y);
 
         void createBonus(shared_ptr<EntityFactory> &factory);
 

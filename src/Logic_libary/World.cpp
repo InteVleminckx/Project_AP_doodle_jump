@@ -9,12 +9,12 @@ namespace logic {
 
     void World::createPlayer(shared_ptr<EntityFactory> &factory)
     {
-        m_player = std::make_shared<logic::Player_L> (0.f, 0.f, .1f, .125f);
+        m_player = std::make_shared<logic::Player_L> (0.5f, -1.f, .1f, .125f);
         factory->createPlayer(m_player);
         m_player->jump();
     }
 
-    void World::createPlatform(shared_ptr<EntityFactory> &factory)
+    void World::createPlatform(shared_ptr<EntityFactory> &factory, float y)
     {
         shared_ptr<logic::Subject> platform;
 
@@ -24,16 +24,16 @@ namespace logic {
 
         switch (type) {
             case Static:
-                platform = make_shared<logic::Platform_L_static>(0.f, -1.f, .15f, .035f);
+                platform = make_shared<logic::Platform_L_static>(0.5f, y, .15f, .035f);
                 break;
             case Horizontal:
-                 platform = std::make_shared<logic::Platform_L_horizontal> (0.f, -1.f, .15f, .035f);
+                 platform = std::make_shared<logic::Platform_L_horizontal> (0.5f, y, .15f, .035f);
                 break;
             case Vertical:
-                platform = std::make_shared<logic::Platform_L_vertical> (0.f, -1.f, .15f, .035f);
+                platform = std::make_shared<logic::Platform_L_vertical> (0.5f, y, .15f, .035f);
                 break;
             case Temporary:
-                platform = std::make_shared<logic::Platform_L_temporary> (0.f, -1.f, .15f, .035f);
+                platform = std::make_shared<logic::Platform_L_temporary> (0.5f, y, .15f, .035f);
         }
         factory->createPlatform(platform, type);
         m_platforms.push_back(platform);
@@ -89,6 +89,7 @@ namespace logic {
 
     bool World::playerTouchesPlatform() {
 
+        if (m_player->getVelocityY() > 0) return false;
 
         vector<pair<float, float>> leftPlayer, rightPlayer;
         getPointsBetweenFrames(leftPlayer, rightPlayer, m_player);
@@ -109,14 +110,16 @@ namespace logic {
                     float Bx0 = leftPlatform[0].first;
                     float Bx1 = rightPlatfrom[0].first;
 
-                    cout << "PlatformLeft: " << Bx0 << " <= PlayerLeft: " << leftPlayer[i].first << " <= PlatformRight: " << Bx1 << endl;
+//                    cout << endl << m_player->getX() << endl;
+//
+//                    cout << "PlatformLeft: " << Bx0 << " <= PlayerLeft: " << leftPlayer[i].first << " <= PlatformRight: " << Bx1 << endl;
 
                     if (Bx0 <= leftPlayer[i].first && leftPlayer[i].first <= Bx1)
                     {
                         return true;
                     }
 
-                    cout << "PlatformLeft: " << Bx0 << " <= PlayerRight: " << rightPlayer[i].first << " <= PlatformRight: " << Bx1 << endl;
+//                    cout << "PlatformLeft: " << Bx0 << " <= PlayerRight: " << rightPlayer[i].first << " <= PlatformRight: " << Bx1 << endl;
                     if (Bx0 <= rightPlayer[i].first && rightPlayer[i].first <= Bx1) {
                         return true;
                     }
@@ -139,55 +142,52 @@ namespace logic {
 
     void World::getPointsBetweenFrames(vector<pair<float, float>> &left, vector<pair<float, float>> &right, const shared_ptr<Subject>& subject) {
 
-        float a; float aantalPoints;
+        //TODO: reference naar Computer graphics neerzetten
+
         float x0 = subject->getXprev();
         float x1 = subject->getX();
         float y0 = subject->getYprev();
         float y1 = subject->getY();
 
-        if(x0 == x1){
-            if (y0 > y1){swap(y0,y1);}
-            a = y1-y0;
-            aantalPoints = a+0.001f;
-            if (a==0) a = 0.001f;
+        float iterator = 0.001f;
+
+        if (x0 == x1) {
+            for (float i = std::min(y0, y1); i <= std::max(y0, y1); i+=iterator) {
+                left.emplace_back(x0, i);
+                right.emplace_back(x0+m_player->getWidth(), i);
+            }
         }
-
-        else if(y0 == y1){
-            if (x0 > x1){swap(x0,x1);}
-            a = x1-x0;
-            aantalPoints = a+0.001f;
-            if (a==0) a=0.001f;
+        else if (y0 == y1) {
+            for (float i = std::min(x0, x1); i <= std::max(x0, x1); i+=iterator) {
+                left.emplace_back(i, y0);
+                right.emplace_back(i+m_player->getWidth(), y0);
+            }
         }
+        else {
+            if (x0 > x1) {
+                std::swap(x0, x1);
+                std::swap(y0, y1);
+            }
 
-        else{
-
-            float x = x0-x1;
-            float y = y0-y1;
-
-            //als ze negatief zijn maken we ze eerst positief
-            if (x < 0){x*=-1;} if (y < 0){y*=-1;}
-
-            //we nemen hier de lengte van y als aantalpixels
-            if (x < y){a = y;}
-
-            //we nemen hier de lengte van x als aantalpixels
-            else{ a = x;}
-            aantalPoints = a+0.001f;
+            float m = ( y1 - y0) / ( x1 - x0);
+            if (-1.0 <= m && m <= 1.0) {
+                for (float i = 0; i <= (x1 - x0); i+=iterator) {
+                    left.emplace_back(x0 + i,  (y0 + m * i));
+                    right.emplace_back(x0 + i + m_player->getWidth(),  (y0 + m * i));
+                }
+            }
+            else if (m > 1.0) {
+                for (float i = 0; i <= (y1 - y0); i+=iterator) {
+                    left.emplace_back( (x0 + (i / m)), y0 + i);
+                    right.emplace_back( ((x0 + m_player->getWidth() )+ (i / m)), y0 + i);
+                }
+            }
+            else if (m < -1.0) {
+                for (float i = 0; i <= (y0 - y1); i+=iterator) {
+                    left.emplace_back( (x0 - (i / m)), y0 - i);
+                    right.emplace_back( ((x0 + m_player->getWidth()) - (i / m)), y0 - i);
+                }
+            }
         }
-
-        for (float i = 0; i < aantalPoints; i+=0.001) {
-
-            float p = i/a;
-            float Xi = p*x0 + (1-p)*x1;
-            float Yi = p*y0 + (1-p)*y1;
-
-            left.push_back(make_pair(Xi, Yi));
-            right.push_back(make_pair(Xi+subject->getWidth(), Yi));
-        }
-
-
-
     }
-
-
 }

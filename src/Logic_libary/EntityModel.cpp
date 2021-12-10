@@ -1,5 +1,6 @@
 #include "EntityModel.h"
 
+
 namespace logic {
 
     EntityModel::EntityModel() = default;

@@ -28,12 +28,12 @@ namespace representation {
         //TODO: dit moet nog verplaatst worden naar logic
         projectedPixels pixels = logic::Camera::Instance()->projectToPixel(m_subject->getX(), m_subject->getY());
 
-        if (logic::Camera::Instance()->visibleInView(pixels.x, pixels.y))
-        {
+//        if (logic::Camera::Instance()->visibleInView(pixels.x, pixels.y))
+//        {
             //TODO: enkel dit dan nog laten staan
             m_modelSprite.setPosition(pixels.x, pixels.y - m_height);
             representation::Window::Instance()->getWindow()->draw(m_modelSprite);
-        }
+//        }
 
         //TODO: verwijder observer als deze niet meer visible is
 

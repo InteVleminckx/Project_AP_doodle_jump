@@ -16,7 +16,19 @@ namespace representation {
 
         shared_ptr<logic::EntityFactory> factory = make_shared<Representation::ConcreteFactory>();
         m_world.createPlayer(factory);
-        m_world.createPlatform(factory);
+        m_world.createPlatform(factory, -1.f);
+        m_world.createPlatform(factory, -.7f);
+        m_world.createPlatform(factory, -0.4f);
+        m_world.createPlatform(factory, -.1f);
+        m_world.createPlatform(factory, .2f);
+        m_world.createPlatform(factory, .5f);
+        m_world.createPlatform(factory, .8f);
+        m_world.createPlatform(factory, 1.1f);
+        m_world.createPlatform(factory, 1.4f);
+        m_world.createPlatform(factory, 1.7f);
+        m_world.createPlatform(factory, 2.f);
+        m_world.createPlatform(factory, 2.3f);
+        m_world.createPlatform(factory, 2.6f);
 
         while (Window::Instance()->isOpen())
         {

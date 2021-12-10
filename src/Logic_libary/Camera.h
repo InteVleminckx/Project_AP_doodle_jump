@@ -21,11 +21,10 @@ namespace logic {
     class Camera {
 
         static Camera* s_instance;
-        int m_width, m_height, m_offset{};
+        int m_width, m_height;
+        float m_offset{};
 
     public:
-
-
 
         static Camera* Instance(int width = 0, int height = 0);
 
@@ -38,6 +37,13 @@ namespace logic {
         int getCameraWidth();
 
         int getCameraHeight();
+
+        void setOffset(float y){
+            if (y >= 0 && y > m_offset)
+            {
+                m_offset = y;
+            }
+        }
 
     private:
         Camera(int width, int height);

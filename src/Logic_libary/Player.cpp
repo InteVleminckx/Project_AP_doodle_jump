@@ -15,7 +15,7 @@ namespace logic {
 
         m_x  = posX; m_y = posY;
         m_xPrev  = posX; m_yPrev = posY;
-        m_velocityX = 1.5f;
+        m_velocityX = 1.f;
         m_gravity = 1.5f;
         m_width = width; m_height = height;
 
@@ -25,6 +25,7 @@ namespace logic {
         setVelocityY(getVelocityY() - m_gravity * Stopwatch::Instance()->GetDeltaTime());
         setYprev(m_y);
         setY(getY() + (getVelocityY() * Stopwatch::Instance()->GetDeltaTime()));
+        logic::Camera::Instance()->setOffset(getY());
     }
 
     void Player_L::moveRight() {
@@ -32,7 +33,8 @@ namespace logic {
         float newPos = getX() + (getVelocityX() * Stopwatch::Instance()->GetDeltaTime());
 
         if (newPos >= 1.f)
-            newPos = -1.f;
+            newPos = 0.f;
+//            newPos = -1.f;
         setXprev(m_x);
         setX(newPos);
 
@@ -40,7 +42,8 @@ namespace logic {
 
     void Player_L::moveLeft() {
         float newPos = getX() - (getVelocityX() * Stopwatch::Instance()->GetDeltaTime());
-        if (newPos <= -1.f)
+//        if (newPos <= -1.f)
+        if (newPos <= 0.f)
             newPos = 1.f;
         setXprev(m_x);
         setX(newPos);

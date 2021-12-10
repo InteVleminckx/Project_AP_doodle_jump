@@ -12,6 +12,7 @@
 #include <iostream>
 #include "Subject.h"
 #include "Observer.h"
+#include "Camera.h"
 
 using namespace std;
 
@@ -125,7 +126,7 @@ namespace logic {
          * Geeft de velocityY waarde van de entity terug.
          * @return float
          */
-        float getVelocityY() ;
+        float getVelocityY() override;
 
         /**
          * Function: getHeight()
