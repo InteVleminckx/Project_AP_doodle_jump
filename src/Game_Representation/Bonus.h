@@ -16,10 +16,25 @@ using namespace std;
 
 namespace representation {
     class Bonus : public EntityView {
+    protected:
+        Bonus();
     public:
 
-        Bonus();
+        Bonus(shared_ptr<logic::Subject>& subject);
+    };
 
+    class Spring : public Bonus {
+        Spring();
+
+    public:
+        Spring(shared_ptr<logic::Subject>& subject);
+    };
+
+    class Rocket : public Bonus {
+        Rocket();
+
+    public:
+        Rocket(shared_ptr<logic::Subject>& subject);
     };
 }
 

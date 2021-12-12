@@ -47,4 +47,8 @@ namespace logic {
     int Camera::getCameraWidth() {return m_width;}
 
     int Camera::getCameraHeight() {return m_width;}
+
+    void Camera::setOffset(float y) {
+        if (y >= 0 && y > m_offset) m_offset = y;
+    }
 }

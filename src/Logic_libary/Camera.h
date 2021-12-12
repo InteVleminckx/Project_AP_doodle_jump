@@ -38,12 +38,7 @@ namespace logic {
 
         int getCameraHeight();
 
-        void setOffset(float y){
-            if (y >= 0 && y > m_offset)
-            {
-                m_offset = y;
-            }
-        }
+        void setOffset(float y);
 
     private:
         Camera(int width, int height);

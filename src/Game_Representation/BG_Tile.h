@@ -16,9 +16,12 @@ using namespace std;
 
 namespace representation {
     class BG_Tile : public EntityView {
-    public:
 
         BG_Tile();
+
+    public:
+
+        BG_Tile(shared_ptr<logic::Subject>& subject);
 
     };
 

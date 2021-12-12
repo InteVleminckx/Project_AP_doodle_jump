@@ -4,8 +4,7 @@ namespace representation {
 
     Player::Player()= default;
 
-    Player::Player(shared_ptr<logic::Subject> &subject)
-    {
+    Player::Player(shared_ptr<logic::Subject> &subject) {
         m_width =  logic::Camera::Instance()->getCameraWidth() * subject->getWidth();
         m_height = logic::Camera::Instance()->getCameraHeight() * subject->getHeight();
         m_subject = subject;

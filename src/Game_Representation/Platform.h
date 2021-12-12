@@ -1,7 +1,3 @@
-//
-// Created by inte on 11/23/21.
-//
-
 #ifndef DOODLE_JUMP_PLATFORM_H
 #define DOODLE_JUMP_PLATFORM_H
 

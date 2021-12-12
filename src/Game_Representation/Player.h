@@ -16,11 +16,7 @@ using namespace std;
 
 namespace representation {
     class Player : public EntityView {
-
-    protected:
-
         Player();
-
     public:
 
         Player(shared_ptr<logic::Subject> &subject);
