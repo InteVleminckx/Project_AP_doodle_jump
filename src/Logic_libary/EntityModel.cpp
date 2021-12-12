@@ -41,6 +41,10 @@ namespace logic {
 
     float EntityModel::getYprev() {return m_yPrev;}
 
+    void EntityModel::gravity() {}
+
+    void EntityModel::jump() {}
+
 }
 
 

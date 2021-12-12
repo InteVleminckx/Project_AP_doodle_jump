@@ -88,6 +88,10 @@ namespace logic {
 
         virtual float getVelocityY() = 0;
 
+        virtual void movePlatform() {};
+
+        virtual bool isTemporary() const {};
+
         void emptyObserver();
 
 

@@ -42,6 +42,8 @@ namespace logic {
 
         void createBG_Tile(shared_ptr<EntityFactory> &factory);
 
+        void removePlatform(shared_ptr<Subject>& platform);
+
         //----------- Player -----------//
 
         void movePlayerRight();

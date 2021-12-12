@@ -17,8 +17,9 @@ using namespace std;
 namespace logic {
     class Platform_L : public EntityModel {
         bool m_temporary = false;
-
+        float m_startPositionY{};
     protected:
+
         /**
          * Is een constructor.
          */
@@ -40,9 +41,13 @@ namespace logic {
          */
         bool isTemporary() const;
 
-        void gravity() override {}
+        void setStartPostionY(float y);
 
-        void jump() override {};
+        float getStartPositionY();
+
+        virtual void movePlatform() {};
+
+        virtual void changeDirection() {};
 
     };
 
@@ -56,10 +61,6 @@ namespace logic {
     public:
 
         Platform_L_static(float posX, float posY, float width, float height);
-
-        void gravity() override {}
-
-        void jump() override {};
     };
 
     class Platform_L_vertical : public  Platform_L {
@@ -73,9 +74,9 @@ namespace logic {
 
         Platform_L_vertical(float posX, float posY, float width, float height);
 
-        void gravity() override {}
+        void movePlatform() override;
 
-        void jump() override {};
+        void changeDirection() override;
     };
 
     class Platform_L_horizontal : public  Platform_L {
@@ -89,9 +90,9 @@ namespace logic {
 
         Platform_L_horizontal(float posX, float posY, float width, float height);
 
-        void gravity() override {}
+        void movePlatform() override;
 
-        void jump() override {};
+        void changeDirection() override;
     };
 
     class Platform_L_temporary : public  Platform_L {
@@ -104,10 +105,6 @@ namespace logic {
     public:
 
         Platform_L_temporary(float posX, float posY, float width, float height);
-
-        void gravity() override {}
-
-        void jump() override {};
     };
 }
 

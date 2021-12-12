@@ -68,7 +68,11 @@ namespace logic {
         logic::Camera::Instance()->projectToPixel(m_player->getX(), m_player->getY());
 
         for (const auto& entity : m_BGtiles) entity->Notify();
-        for (const auto& entity : m_platforms) entity->Notify();
+        for (const auto& entity : m_platforms)
+        {
+            entity->movePlatform();
+            entity->Notify();
+        }
         for (const auto& entity : m_bonussen) entity->Notify();
     }
 
@@ -94,7 +98,7 @@ namespace logic {
         vector<pair<float, float>> leftPlayer, rightPlayer;
         getPointsBetweenFrames(leftPlayer, rightPlayer, m_player);
 
-        for (const auto &platform : m_platforms)
+        for (auto &platform : m_platforms)
         {
             vector<pair<float, float>> leftPlatform, rightPlatfrom;
             getPointsBetweenFrames(leftPlatform, rightPlatfrom, platform);
@@ -116,11 +120,13 @@ namespace logic {
 
                     if (Bx0 <= leftPlayer[i].first && leftPlayer[i].first <= Bx1)
                     {
+                        if (platform->isTemporary())removePlatform(platform);
                         return true;
                     }
 
 //                    cout << "PlatformLeft: " << Bx0 << " <= PlayerRight: " << rightPlayer[i].first << " <= PlatformRight: " << Bx1 << endl;
                     if (Bx0 <= rightPlayer[i].first && rightPlayer[i].first <= Bx1) {
+                        if (platform->isTemporary())removePlatform(platform);
                         return true;
                     }
 
@@ -189,5 +195,17 @@ namespace logic {
                 }
             }
         }
+    }
+
+    void World::removePlatform(shared_ptr<Subject>& platform) {
+
+        for (int i = 0; i<m_platforms.size(); i++) {
+            if (platform == m_platforms[i])
+            {
+                m_platforms.erase(m_platforms.begin() + i);
+                break;
+            }
+        }
+
     }
 }

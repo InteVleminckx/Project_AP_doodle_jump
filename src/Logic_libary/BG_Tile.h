@@ -16,12 +16,11 @@ using namespace std;
 
 namespace logic {
     class BG_Tile : public EntityModel {
+    protected:
     public:
         BG_Tile();
+        BG_Tile(float posX, float posY, float width, float height);
 
-        void gravity() override {}
-
-        void jump() override {};
 
     };
 }

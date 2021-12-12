@@ -13,6 +13,7 @@
 #include "Subject.h"
 #include "Observer.h"
 #include "Camera.h"
+#include "Stopwatch.h"
 
 using namespace std;
 
@@ -153,6 +154,10 @@ namespace logic {
          * Verplaatst de entity naar links.
          */
         virtual void moveLeft();
+
+        void gravity() override;
+
+        void jump() override ;
 
     };
 }

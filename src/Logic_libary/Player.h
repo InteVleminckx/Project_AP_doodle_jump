@@ -11,7 +11,6 @@
 
 #include <iostream>
 #include "EntityModel.h"
-#include "Stopwatch.h"
 #include <cmath>
 
 using namespace std;
@@ -20,7 +19,7 @@ namespace logic {
 
     class Player_L : public EntityModel {
 
-        float m_jumpforce{.5f};
+        float m_jumpforce{0.5f};
         /**
          * Is een constructor.
          */
