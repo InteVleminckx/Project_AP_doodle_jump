@@ -20,6 +20,8 @@ namespace logic {
 
         _Platform getPlatformType();
 
+        _Bonus getBonusType();
+
         void Reset();
 
     private:

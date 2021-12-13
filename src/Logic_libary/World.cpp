@@ -16,7 +16,7 @@ namespace logic {
 
     void World::createPlatform(shared_ptr<EntityFactory> &factory, float y)
     {
-        shared_ptr<logic::Subject> platform;
+        shared_ptr<logic::Platform_L> platform;
 
         _Platform type  = Random::Instance()->getPlatformType();
 
@@ -41,18 +41,26 @@ namespace logic {
 
     void World::createBonus(shared_ptr<EntityFactory> &factory)
     {
-        shared_ptr<logic::Subject> bonus;
-//        switch (type) {
-//            case Rocket:
-//
-//            case Spring:
-//
-//        }
+        shared_ptr<logic::Bonus_L> bonus;
+        _Bonus type  = Random::Instance()->getBonusType();
+
+        //TODO: de posities moeten hier nog random gemaakt worden
+
+        switch (type) {
+            case Spring:
+                bonus = make_shared<logic::Spring_L>(0.5f, 0.f, .15f, .035f);
+                break;
+            case Rocket:
+                bonus = std::make_shared<logic::Rocket_L> (0.5f, 0.f, .15f, .035f);
+        }
+
+        factory->createBonus(bonus, type);
+        m_bonussen.push_back(bonus);
     }
 
     void World::createBG_Tile(shared_ptr<EntityFactory> &factory)
     {
-        shared_ptr<logic::Subject> tile = std::make_shared<logic::BG_Tile> ();
+        shared_ptr<logic::BG_Tile_L> tile = std::make_shared<logic::BG_Tile_L> ();
         factory->createBG_Tile(tile);
         m_BGtiles.push_back(tile);
     }
@@ -117,7 +125,7 @@ namespace logic {
         return false;
     }
 
-    void World::getPointsBetweenFrames(vector<pair<float, float>> &left, vector<pair<float, float>> &right, const shared_ptr<Subject>& subject) {
+    void World::getPointsBetweenFrames(vector<pair<float, float>> &left, vector<pair<float, float>> &right, const shared_ptr<Player_L>& subject) {
 
         //TODO: reference naar Computer graphics neerzetten
 
@@ -168,7 +176,7 @@ namespace logic {
         }
     }
 
-    void World::removePlatform(shared_ptr<Subject>& platform) {
+    void World::removePlatform(shared_ptr<Platform_L>& platform) {
 
         for (int i = 0; i<m_platforms.size(); i++) {
             if (platform == m_platforms[i])

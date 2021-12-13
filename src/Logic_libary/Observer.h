@@ -19,10 +19,7 @@ using namespace std;
 namespace logic {
     class Observer {
     protected:
-
         shared_ptr<Subject> m_subject;
-        float m_width;
-        float m_height;
 
         /**
          * Is een constructor.
@@ -41,9 +38,6 @@ namespace logic {
          * Updates de huidige staat van het subject.
          */
         virtual void update() = 0;
-
-        float getWidth();
-        float getHeight();
 
         bool operator==(const Observer& that);
 

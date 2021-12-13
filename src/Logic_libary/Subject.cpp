@@ -18,9 +18,6 @@ namespace logic {
             }
         }
     }
-
-    void Subject::Notify() {for (const auto & ob: m_observers) {ob->update();}}
-
     void Subject::emptyObserver() {m_observers.clear();}
 
 

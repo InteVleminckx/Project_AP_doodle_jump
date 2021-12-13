@@ -42,4 +42,19 @@ namespace logic {
 
         return Static;
     }
+
+    _Bonus Random::getBonusType() {
+        //ToDo: dit nog afstellen op score, in het begin veel meer kans op bonussen
+
+        int number = rand() % 2;
+
+        switch (number) {
+            case 0:
+                return Spring;
+            case 1:
+                return Rocket;
+        }
+
+        return Spring;
+    }
 }

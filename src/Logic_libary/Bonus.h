@@ -15,24 +15,24 @@
 using namespace std;
 
 namespace logic {
-    class Bonus : public EntityModel {
+    class Bonus_L : public EntityModel {
     protected:
         float m_bonusforce{};
-        Bonus();
+        Bonus_L();
     public:
-        Bonus(float posX, float posY, float width, float height);
+        Bonus_L(float posX, float posY, float width, float height);
     };
 
-    class Spring : public Bonus {
-        Spring();
+    class Spring_L : public Bonus_L {
+        Spring_L();
     public:
-        Spring(float posX, float posY, float width, float height);
+        Spring_L(float posX, float posY, float width, float height);
     };
 
-    class Rocket : public Bonus {
-        Rocket();
+    class Rocket_L : public Bonus_L {
+        Rocket_L();
     public:
-        Rocket(float posX, float posY, float width, float height);
+        Rocket_L(float posX, float posY, float width, float height);
     };
 }
 

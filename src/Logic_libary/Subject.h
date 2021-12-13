@@ -52,46 +52,12 @@ namespace logic {
          * Function: Notify()
          * Gaat over alle observer van het subject en roept hier de update function op aan.
          */
-        void Notify();
+        virtual void Notify() = 0;
 
-        virtual void moveRight() = 0;
-
-        virtual void moveLeft() = 0;
-
-        virtual void setX(float x)  = 0;
-
-        virtual void setY(float y) = 0;
-
-        virtual void setXprev(float x)  = 0;
-
-        virtual void setYprev(float y) = 0;
-
-        virtual void jump() = 0;
-
-        virtual float getY()  = 0;
-
-        virtual float getX()  = 0;
-
-        virtual float getYprev()  = 0;
-
-        virtual float getXprev()  = 0;
-
-        virtual void gravity() = 0;
-
-        virtual void setWidth(float ) = 0;
-
-        virtual void setHeight(float ) = 0;
-
-        virtual float getWidth()  = 0;
-
-        virtual float getHeight()  = 0;
-
-        virtual float getVelocityY() = 0;
-
-        virtual void movePlatform() {};
-
-        virtual bool isTemporary() {};
-
+        /**
+         * Function: emptyObserver()
+         * Verwijderd alle observers uit zijn vector.
+         */
         void emptyObserver();
 
 

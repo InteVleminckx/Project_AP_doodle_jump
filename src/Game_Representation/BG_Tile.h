@@ -12,6 +12,7 @@
 #include <iostream>
 #include "EntityView.h"
 
+
 using namespace std;
 
 namespace representation {
@@ -21,7 +22,7 @@ namespace representation {
 
     public:
 
-        BG_Tile(shared_ptr<logic::Subject>& subject);
+        BG_Tile(shared_ptr<logic::BG_Tile_L>& BG_tile, string image);
 
     };
 

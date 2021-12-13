@@ -36,22 +36,22 @@ namespace logic {
          * Function: gravity()
          * Haalt de speler naar beneden, de zwaartekracht werkt op hem.
          */
-        void gravity() override;
+        void gravity();
 
         /**
          * Function: moveRight()
          * Verplaatst de player naar rechts.
          */
-        void moveRight() override;
+        void moveRight();
 
         /**
          * Function: moveLeft()
          * Verplaatst de player naar links.
          */
-        void moveLeft() override;
+        void moveLeft();
 
 
-        void jump() override;
+        void jump();
 
     };
 

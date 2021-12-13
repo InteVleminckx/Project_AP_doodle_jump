@@ -12,18 +12,16 @@ namespace logic {
         Onze player start midden in het scherm en wordt vanaf 0 gelauched naar boven op de y-as
         Dus het centrum van onze player in het begin zou eigl (0,-1) moeten zijn
         */
-
-        m_x  = posX; m_y = posY;
-        m_xPrev  = posX; m_yPrev = posY;
-        m_velocityX = 1.f;
-        m_gravity = 1.5f;
-        m_width = width; m_height = height;
-
+        setX(posX); setY(posY);
+        setXprev(posX); setYprev(posY);
+        setVelocityX(1.f);
+        setGravity(1.5f);
+        setWidth(width); setHeight(height);
     }
 
     void Player_L::gravity() {
-        setVelocityY(getVelocityY() - m_gravity * Stopwatch::Instance()->GetDeltaTime());
-        setYprev(m_y);
+        setVelocityY(getVelocityY() - getGravity() * Stopwatch::Instance()->GetDeltaTime());
+        setYprev(getY());
         setY(getY() + (getVelocityY() * Stopwatch::Instance()->GetDeltaTime()));
         logic::Camera::Instance()->setOffset(getY());
     }
@@ -35,7 +33,7 @@ namespace logic {
         if (newPos >= 1.f)
             newPos = 0.f;
 //            newPos = -1.f;
-        setXprev(m_x);
+        setXprev(getX());
         setX(newPos);
 
     }
@@ -45,11 +43,11 @@ namespace logic {
 //        if (newPos <= -1.f)
         if (newPos <= 0.f)
             newPos = 1.f;
-        setXprev(m_x);
+        setXprev(getX());
         setX(newPos);
     }
 
-    void Player_L::jump() {m_velocityY = sqrt(2.0f * m_gravity * m_jumpforce);}
+    void Player_L::jump() { setVelocityY(sqrt(2.0f * getGravity() * m_jumpforce));}
 
 
 }

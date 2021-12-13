@@ -12,6 +12,7 @@
 #include <iostream>
 #include "EntityView.h"
 
+
 using namespace std;
 
 namespace representation {
@@ -20,21 +21,22 @@ namespace representation {
         Bonus();
     public:
 
-        Bonus(shared_ptr<logic::Subject>& subject);
+        Bonus(shared_ptr<logic::Bonus_L>& bonus, string& image);
+
     };
 
     class Spring : public Bonus {
         Spring();
 
     public:
-        Spring(shared_ptr<logic::Subject>& subject);
+        Spring(shared_ptr<logic::Bonus_L>& bonus, string image);
     };
 
     class Rocket : public Bonus {
         Rocket();
 
     public:
-        Rocket(shared_ptr<logic::Subject>& subject);
+        Rocket(shared_ptr<logic::Bonus_L>& bonus, string image);
     };
 }
 

@@ -10,9 +10,9 @@ namespace logic {
         De begin positie het platform moet dus tussen deze waarde te komen liggen
         Dit geldt dus ook voor de grote van ons platform
         */
-        m_x = posX; m_y = posY;
-        m_xPrev  = posX; m_yPrev = posY;
-        m_width = width; m_height = height;
+        setX(posX); setY(posY);
+        setXprev(posX); setYprev(posY);
+        setWidth(width); setHeight(height);
     }
 
     void Platform_L::setTemporary(bool temporary) {m_temporary = temporary;}

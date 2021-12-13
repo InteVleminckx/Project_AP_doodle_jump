@@ -1,6 +1,10 @@
-//
-// Created by inte on 12/2/21.
-//
+/**
+ * Naam: Inte Vleminckx
+ * Studentennummer: 20201844
+ * Datum:
+ * Version: V1.0
+ * Description:
+ */
 
 #ifndef DOODLE_JUMP_CONCRETEFACTORY_H
 #define DOODLE_JUMP_CONCRETEFACTORY_H
@@ -20,10 +24,10 @@ namespace Representation {
 
         ConcreteFactory() = default;
 
-        void createPlayer(shared_ptr<logic::Subject> &subject) override;
-        void createBG_Tile(shared_ptr<logic::Subject> &subject) override;
-        void createPlatform(shared_ptr<logic::Subject> &subject, _Platform type) override;
-        void createBonus(shared_ptr<logic::Subject> &subject, _Bonus type) override;
+        void createPlayer(shared_ptr<logic::Player_L> &subject) override;
+        void createBG_Tile(shared_ptr<logic::BG_Tile_L> &subject) override;
+        void createPlatform(shared_ptr<logic::Platform_L> &subject, _Platform type) override;
+        void createBonus(shared_ptr<logic::Bonus_L> &subject, _Bonus type) override;
 
     };
 }

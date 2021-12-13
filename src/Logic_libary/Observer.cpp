@@ -11,14 +11,6 @@ namespace logic {
         return false;
     }
 
-    float Observer::getWidth() {
-        return m_width;
-    }
-
-    float Observer::getHeight() {
-        return m_height;
-    }
-
 
 }
 

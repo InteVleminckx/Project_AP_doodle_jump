@@ -9,6 +9,10 @@ namespace logic {
 
     void EntityModel::setY(float y) {m_y = y;}
 
+    void EntityModel::setXprev(float x) {m_xPrev = x;}
+
+    void EntityModel::setYprev(float y) {m_yPrev = y;}
+
     void EntityModel::setVelocityX(float velocityX) {m_velocityX = velocityX;}
 
     void EntityModel::setVelocityY(float velocityY) {m_velocityY = velocityY;}
@@ -17,33 +21,44 @@ namespace logic {
 
     void EntityModel::setWidth(float width) {m_width = width;}
 
-    float EntityModel::getX()  {return m_x;}
+    void EntityModel::setGravity(float gravity) {m_gravity = gravity;}
 
-    float EntityModel::getY()  {return m_y;}
+    float EntityModel::getX() const  {return m_x;}
 
-    float EntityModel::getVelocityX()  {return m_velocityX;}
+    float EntityModel::getY() const  {return m_y;}
 
-    float EntityModel::getVelocityY()  {return m_velocityY;}
+    float EntityModel::getXprev() const {return m_xPrev;}
 
-    float EntityModel::getHeight()  {return m_height;}
+    float EntityModel::getYprev() const {return m_yPrev;}
 
-    float EntityModel::getWidth() {return m_width;}
+    int EntityModel::getProjectedX() const {return m_projectedX;}
 
-    void EntityModel::moveRight() {}
+    int EntityModel::getProjectedY() const {return m_projectedY;}
 
-    void EntityModel::moveLeft() {}
+    float EntityModel::getVelocityX() const  {return m_velocityX;}
 
-    void EntityModel::setXprev(float x) {m_xPrev = x;}
+    float EntityModel::getVelocityY() const  {return m_velocityY;}
 
-    void EntityModel::setYprev(float y) {m_yPrev = y;}
+    float EntityModel::getHeight() const  {return m_height;}
 
-    float EntityModel::getXprev() {return m_xPrev;}
+    float EntityModel::getWidth() const {return m_width;}
 
-    float EntityModel::getYprev() {return m_yPrev;}
+    float EntityModel::getGravity() const {return m_gravity;}
 
-    void EntityModel::gravity() {}
+    void EntityModel::Notify() {
+        for (auto& ob : m_observers){
+            projectPointsToPixels();
+            ob->update();
+        }
 
-    void EntityModel::jump() {}
+    }
+
+    void EntityModel::projectPointsToPixels() {
+        projectedPixels pixels = logic::Camera::Instance()->projectToPixel(getX(), getY());
+        m_projectedX = pixels.x;
+        m_projectedY = pixels.y;
+    }
+
 
 }
 

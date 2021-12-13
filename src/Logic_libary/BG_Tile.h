@@ -15,11 +15,11 @@
 using namespace std;
 
 namespace logic {
-    class BG_Tile : public EntityModel {
+    class BG_Tile_L : public EntityModel {
     protected:
     public:
-        BG_Tile();
-        BG_Tile(float posX, float posY, float width, float height);
+        BG_Tile_L();
+        BG_Tile_L(float posX, float posY, float width, float height);
 
 
     };

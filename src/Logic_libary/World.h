@@ -25,10 +25,10 @@ using namespace std;
 namespace logic {
     class World {
 
-        vector<shared_ptr<Subject>> m_bonussen;
-        vector<shared_ptr<Subject>> m_platforms;
-        vector<shared_ptr<Subject>> m_BGtiles;
-        shared_ptr<Subject> m_player;
+        vector<shared_ptr<Bonus_L>> m_bonussen;
+        vector<shared_ptr<Platform_L>> m_platforms;
+        vector<shared_ptr<BG_Tile_L>> m_BGtiles;
+        shared_ptr<Player_L> m_player;
 
     public:
 
@@ -42,7 +42,7 @@ namespace logic {
 
         void createBG_Tile(shared_ptr<EntityFactory> &factory);
 
-        void removePlatform(shared_ptr<Subject>& platform);
+        void removePlatform(shared_ptr<Platform_L>& platform);
 
         //----------- Player -----------//
 
@@ -58,7 +58,7 @@ namespace logic {
 
         void releaseObservers();
 
-        void getPointsBetweenFrames(vector<pair<float, float>>& left, vector<pair<float, float>>& right, const shared_ptr<Subject>& subject);
+        void getPointsBetweenFrames(vector<pair<float, float>>& left, vector<pair<float, float>>& right, const shared_ptr<Player_L>& subject);
     };
 }
 

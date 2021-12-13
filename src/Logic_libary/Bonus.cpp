@@ -2,23 +2,23 @@
 
 namespace logic {
 
-    Bonus::Bonus() = default;
+    Bonus_L::Bonus_L() = default;
 
-    Spring::Spring() = default;
+    Spring_L::Spring_L() = default;
 
-    Rocket::Rocket() = default;
+    Rocket_L::Rocket_L() = default;
 
-    Bonus::Bonus(float posX, float posY, float width, float height) {
-        m_x  = posX; m_y = posY;
-        m_width = width; m_height = height;
+    Bonus_L::Bonus_L(float posX, float posY, float width, float height) {
+        setX(posX); setY(posY);
+        setWidth(width); setHeight(height);
     }
 
-    Spring::Spring(float posX, float posY, float width, float height) : Bonus(posX, posY, width, height) {
+    Spring_L::Spring_L(float posX, float posY, float width, float height) : Bonus_L(posX, posY, width, height) {
         // 5x zo groot als normaal
         m_bonusforce = 2.5f;
     }
 
-    Rocket::Rocket(float posX, float posY, float width, float height) : Bonus(posX, posY, width, height) {
+    Rocket_L::Rocket_L(float posX, float posY, float width, float height) : Bonus_L(posX, posY, width, height) {
         //zelf te kiezen
         m_bonusforce = 5.f;
     }
