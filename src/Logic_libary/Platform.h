@@ -39,7 +39,7 @@ namespace logic {
          * Zegt of een platform temporary is of niet.
          * @return: een bool.
          */
-        bool isTemporary() const;
+        bool isTemporary();
 
         void setStartPostionY(float y);
 

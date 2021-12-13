@@ -17,7 +17,7 @@ namespace logic {
 
     void Platform_L::setTemporary(bool temporary) {m_temporary = temporary;}
 
-    bool Platform_L::isTemporary() const {return m_temporary;}
+    bool Platform_L::isTemporary() {return m_temporary;}
 
     void Platform_L::setStartPostionY(float y) {m_startPositionY = y;}
 
@@ -36,7 +36,9 @@ namespace logic {
 
     void Platform_L_vertical::movePlatform() {
 
-        setY(getY() - (getVelocityY() * Stopwatch::Instance()->GetDeltaTime()));
+        float newPos = getY() - (getVelocityY() * Stopwatch::Instance()->GetDeltaTime());
+        setYprev(getY());
+        setY(newPos);
 
         if (abs(getY() - getStartPositionY()) >= 0.25f) changeDirection();
 
@@ -53,7 +55,10 @@ namespace logic {
     }
 
     void Platform_L_horizontal::movePlatform() {
-        setX(getX() - (getVelocityX() * Stopwatch::Instance()->GetDeltaTime()));
+        float newPos = getX() - (getVelocityX() * Stopwatch::Instance()->GetDeltaTime());
+        setXprev(getX());
+        setX(newPos);
+
         if (getX() <= 0) changeDirection();
         else if (getX() + getWidth() >= 1) changeDirection();
     }

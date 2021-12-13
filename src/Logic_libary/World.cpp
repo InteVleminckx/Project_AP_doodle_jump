@@ -61,8 +61,6 @@ namespace logic {
 
         m_player->gravity();
         if (playerTouchesPlatform()) m_player->jump();
-        else {
-        }
         m_player->Notify();
 
         logic::Camera::Instance()->projectToPixel(m_player->getX(), m_player->getY());
@@ -98,49 +96,22 @@ namespace logic {
         vector<pair<float, float>> leftPlayer, rightPlayer;
         getPointsBetweenFrames(leftPlayer, rightPlayer, m_player);
 
-        for (auto &platform : m_platforms)
-        {
-            vector<pair<float, float>> leftPlatform, rightPlatfrom;
-            getPointsBetweenFrames(leftPlatform, rightPlatfrom, platform);
-
+        for (auto &platform : m_platforms) {
             for (int i = 0; i < leftPlayer.size(); i++) {
+                float platform_Y0 = platform->getY();
+                float platform_Y1 = platform->getY() + platform->getHeight();
 
                 //static, controller of de y-waarde van de player tussen het platform ligt
-                if (leftPlatform.size() == 1 &&
-                    leftPlatform[0].second <= leftPlayer[i].second &&
-                    leftPlayer[i].second <= leftPlatform[0].second + platform->getHeight() )
-                {
+                if (platform_Y0 <= leftPlayer[i].second && leftPlayer[i].second <= platform_Y1) {
+                    float platform_X0 = platform->getX();
+                    float platform_X1 = platform->getX() + platform->getWidth();
                     // nu nog controlleren of de x-waarde ertussen zit zodat de player effectief het platform geraakt heeft
-                    float Bx0 = leftPlatform[0].first;
-                    float Bx1 = rightPlatfrom[0].first;
-
-//                    cout << endl << m_player->getX() << endl;
-//
-//                    cout << "PlatformLeft: " << Bx0 << " <= PlayerLeft: " << leftPlayer[i].first << " <= PlatformRight: " << Bx1 << endl;
-
-                    if (Bx0 <= leftPlayer[i].first && leftPlayer[i].first <= Bx1)
-                    {
+                    if ((platform_X0 <= leftPlayer[i].first && leftPlayer[i].first <= platform_X1) || (platform_X0 <= rightPlayer[i].first && rightPlayer[i].first <= platform_X1)) {
                         if (platform->isTemporary())removePlatform(platform);
                         return true;
                     }
-
-//                    cout << "PlatformLeft: " << Bx0 << " <= PlayerRight: " << rightPlayer[i].first << " <= PlatformRight: " << Bx1 << endl;
-                    if (Bx0 <= rightPlayer[i].first && rightPlayer[i].first <= Bx1) {
-                        if (platform->isTemporary())removePlatform(platform);
-                        return true;
-                    }
-
                 }
-
-                //dynamic
-                else  {
-
-
-                }
-
-
             }
-
         }
 
         return false;

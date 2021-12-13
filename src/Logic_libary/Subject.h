@@ -90,7 +90,7 @@ namespace logic {
 
         virtual void movePlatform() {};
 
-        virtual bool isTemporary() const {};
+        virtual bool isTemporary() {};
 
         void emptyObserver();
 
