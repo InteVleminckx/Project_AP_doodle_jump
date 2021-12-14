@@ -85,7 +85,7 @@ namespace logic {
             {
                 entity->movePlatform();
 
-                if (entity->getY() < m_player->getY() - abs(belowLogicY * 2)){
+                if (entity->getY() < m_player->getY() - abs(belowLogicY)){
                     removePlatform(entity);
                     removedPlatform = true;
                     break;
@@ -231,19 +231,13 @@ namespace logic {
         }
 
         else{
-
-            //TODO: fiks dit nog blijft maar platformen aanmaken.
-            if (m_player->getHeight() + renderTop >= renderTop + height)
+            if (m_player->getY() + (abs(belowLogicY) * 2) > renderTop + (height*3.5))
             {
-
-                renderTop = m_player->getHeight() + renderTop;
-
+                renderTop = m_player->getY() + (abs(belowLogicY) * 2);
                 if (Random::Instance()->createPlatform())
                 {
                     float x = Random::Instance()->giveRandomX(leftLogicX, rightLogicX);
-
                     if (x > rightLogicX - width) x = rightLogicX - width;
-
                     createPlatform(factory, x, renderTop, width, height);
                 }
             }
