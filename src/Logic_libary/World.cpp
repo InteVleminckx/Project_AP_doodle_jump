@@ -7,16 +7,21 @@ namespace logic {
         leftLogicX = 0;
         rightLogicX = 1.f;
         belowLogicY = -1.f;
+
+        m_playerHeight = .125f; m_playerWidth = .1f;
+        m_platformHeight = 0.035f; m_platformWidth = .15f;
+        m_springHeight = .05f; m_springWidth = .05f;
+        m_rocketHeight = .075f; m_rocketWidth = .075f;
     }
 
-    void World::createPlayer(shared_ptr<EntityFactory> &factory, float width, float height)
+    void World::createPlayer(shared_ptr<EntityFactory> &factory)
     {
-        m_player = std::make_shared<logic::Player_L> (leftLogicX/2, belowLogicY, width, height);
+        m_player = std::make_shared<logic::Player_L> (leftLogicX/2, belowLogicY, m_playerWidth, m_playerHeight);
         factory->createPlayer(m_player);
         m_player->jump();
     }
 
-    void World::createPlatform(shared_ptr<EntityFactory> &factory, float x, float y, float width, float height)
+    void World::createPlatform(shared_ptr<EntityFactory> &factory, float x, float y)
     {
         shared_ptr<logic::Platform_L> platform;
 
@@ -24,34 +29,37 @@ namespace logic {
 
         switch (type) {
             case Static:
-                platform = make_shared<logic::Platform_L_static>(x, y, width, height);
+                if (Random::Instance()->createBonus()) createBonus(factory, x, y);
+                platform = make_shared<logic::Platform_L_static>(x, y, m_platformWidth, m_platformHeight);
                 break;
             case Horizontal:
-                 platform = std::make_shared<logic::Platform_L_horizontal> (x, y, width, height);
+                 platform = std::make_shared<logic::Platform_L_horizontal> (x, y, m_platformWidth, m_platformHeight);
                 break;
             case Vertical:
-                platform = std::make_shared<logic::Platform_L_vertical> (x, y, width, height);
+                platform = std::make_shared<logic::Platform_L_vertical> (x, y, m_platformWidth, m_platformHeight);
                 break;
             case Temporary:
-                platform = std::make_shared<logic::Platform_L_temporary> (x, y, width,height);
+                platform = std::make_shared<logic::Platform_L_temporary> (x, y, m_platformWidth,m_platformHeight);
         }
         factory->createPlatform(platform, type);
         m_platforms.push_back(platform);
     }
 
-    void World::createBonus(shared_ptr<EntityFactory> &factory, float width, float height)
+    void World::createBonus(shared_ptr<EntityFactory> &factory, float x, float y)
     {
         shared_ptr<logic::Bonus_L> bonus;
         _Bonus type  = Random::Instance()->getBonusType();
-
+        float x1;
         //TODO: de posities moeten hier nog random gemaakt worden
 
         switch (type) {
             case Spring:
-                bonus = make_shared<logic::Spring_L>(0.5f, 0.f, width, height);
+                x1 = x + (m_platformWidth/2) - (m_springWidth/2);
+                bonus = make_shared<logic::Spring_L>(x1, y+m_platformHeight, m_springWidth, m_springHeight);
                 break;
             case Rocket:
-                bonus = std::make_shared<logic::Rocket_L> (0.5f, 0.f, width, height);
+                x1 = x + (m_platformWidth/2) - (m_rocketWidth/2);
+                bonus = std::make_shared<logic::Rocket_L> (x1, y+m_platformHeight, m_rocketWidth, m_rocketHeight);
         }
 
         factory->createBonus(bonus, type);
@@ -68,14 +76,13 @@ namespace logic {
     void World::updateEntities() {
 
         m_player->gravity();
+        playerTouchesBoost();
         if (playerTouchesPlatform()) m_player->jump();
         m_player->Notify();
 
         logic::Camera::Instance()->projectToPixel(m_player->getX(), m_player->getY());
 
         for (const auto& entity : m_BGtiles) entity->Notify();
-
-        cout << m_platforms.size() << endl;
 
         bool removedPlatform = true;
         while(removedPlatform)
@@ -141,6 +148,29 @@ namespace logic {
         return false;
     }
 
+    void World::playerTouchesBoost() {
+//        if (m_player->getVelocityY() > 0) return false;
+
+        vector<pair<float, float>> leftPlayer, rightPlayer;
+        getPointsBetweenFrames(leftPlayer, rightPlayer, m_player);
+
+        for (auto &bonus : m_bonussen) {
+            for (int i = 0; i < leftPlayer.size(); i++) {
+                float bonus_Y0 = bonus->getY();
+                float bonus_Y1 = bonus->getY() + bonus->getHeight();
+
+                if (bonus_Y0 <= leftPlayer[i].second && leftPlayer[i].second <= bonus_Y1) {
+                    float bonus_X0 = bonus->getX();
+                    float bonus_X1 = bonus->getX() + bonus->getWidth();
+
+                    if ((bonus_X0 <= leftPlayer[i].first && leftPlayer[i].first <= bonus_X1) || (bonus_X0 <= rightPlayer[i].first && rightPlayer[i].first <= bonus_X1)) {
+                        m_player->powerup(bonus->getForce());
+                    }
+                }
+            }
+        }
+    }
+
     void World::getPointsBetweenFrames(vector<pair<float, float>> &left, vector<pair<float, float>> &right, const shared_ptr<Player_L>& subject) {
 
         //TODO: reference naar Computer graphics neerzetten
@@ -204,7 +234,7 @@ namespace logic {
 
     }
 
-    void World::createAplatform(float width, float height, shared_ptr<EntityFactory> &factory, bool begin) {
+    void World::createAplatform(shared_ptr<EntityFactory> &factory, bool begin) {
         //We controlleren of er een nieuw platform moet gemaakt worden.
         //op elke lijn staat er eigl maximaal 1 platform
         //We kijken dus of binnen een range van de player of er op een lijn een platform gegenereerd moet worden.
@@ -213,32 +243,32 @@ namespace logic {
         {
             renderTop = belowLogicY + (abs(belowLogicY) * 2);
 
-            int aantalPlatforms = ceil((abs(belowLogicY) * 2)/(height*3.5));
+            int aantalPlatforms = ceil((abs(belowLogicY) * 2)/(m_platformHeight*3.5));
 
             for (int i = 0; i < aantalPlatforms+1; ++i)
             {
                 if (Random::Instance()->createPlatform())
                 {
-                    float y = belowLogicY + (i * height * 3.5);
+                    float y = belowLogicY + (i * m_platformHeight * 3.5);
                     float x = Random::Instance()->giveRandomX(leftLogicX, rightLogicX);
 
-                    if (x > rightLogicX - width) x = rightLogicX - width;
+                    if (x > rightLogicX - m_platformWidth) x = rightLogicX - m_platformWidth;
 
-                    createPlatform(factory, x, y, width, height);
+                    createPlatform(factory, x, y);
                 }
             }
 
         }
 
         else{
-            if (m_player->getY() + (abs(belowLogicY) * 2) > renderTop + (height*3.5))
+            if (m_player->getY() + (abs(belowLogicY) * 2) > renderTop + (m_platformHeight*2.5))
             {
                 renderTop = m_player->getY() + (abs(belowLogicY) * 2);
                 if (Random::Instance()->createPlatform())
                 {
                     float x = Random::Instance()->giveRandomX(leftLogicX, rightLogicX);
-                    if (x > rightLogicX - width) x = rightLogicX - width;
-                    createPlatform(factory, x, renderTop, width, height);
+                    if (x > rightLogicX - m_platformWidth) x = rightLogicX - m_platformWidth;
+                    createPlatform(factory, x, renderTop);
                 }
             }
 

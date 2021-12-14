@@ -56,12 +56,27 @@ namespace logic {
 
     float Random::giveRandomX(float leftBound, float rightBound) {
 
+        //bron: https://en.cppreference.com/w/cpp/numeric/random/uniform_real_distribution
+        std::random_device rd;  // Will be used to obtain a seed for the random number engine
+        std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
+        std::uniform_real_distribution<> dis(leftBound, rightBound);
+
+        return dis(gen);
         //we genereren een random nummer tussen 1 en 50 dit als we dan de right bound hier door delen krijgen we een float
-        int number = rand() % 5;
-        number+=1; //om 0 te voorkomen
+//        int number = rand() % 100;
+//        number+=1; //om 0 te voorkomen
+//
+//        return leftBound + (rightBound/number);
 
-        return leftBound + (rightBound/number);
 
+    }
 
+    bool Random::createBonus() {
+        //ToDo: dit nog afstellen op score
+
+        int number = rand() % 10;
+
+        if (number > 8) return true;
+        return false;
     }
 }

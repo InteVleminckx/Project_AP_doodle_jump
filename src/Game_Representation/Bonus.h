@@ -23,6 +23,8 @@ namespace representation {
 
         Bonus(shared_ptr<logic::Bonus_L>& bonus, string& image);
 
+
+
     };
 
     class Spring : public Bonus {

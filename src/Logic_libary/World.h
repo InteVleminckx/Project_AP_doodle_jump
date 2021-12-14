@@ -36,15 +36,19 @@ namespace logic {
         float belowLogicY{};
         float renderTop{};
 
+        //entityMeasurements
+        float m_playerHeight{}, m_platformHeight{}, m_springHeight{}, m_rocketHeight{};
+        float m_playerWidth{}, m_platformWidth{}, m_springWidth{}, m_rocketWidth{};
+
     public:
 
         World();
 
-        void createPlayer(shared_ptr<EntityFactory> &factory, float width, float height);
+        void createPlayer(shared_ptr<EntityFactory> &factory);
 
-        void createPlatform(shared_ptr<EntityFactory> &factory, float x, float y, float width, float height);
+        void createPlatform(shared_ptr<EntityFactory> &factory, float x, float y);
 
-        void createBonus(shared_ptr<EntityFactory> &factory, float width, float height);
+        void createBonus(shared_ptr<EntityFactory> &factory, float x, float y);
 
         void createBG_Tile(shared_ptr<EntityFactory> &factory, float width, float height);
 
@@ -58,12 +62,14 @@ namespace logic {
 
         bool playerTouchesPlatform();
 
+        void playerTouchesBoost();
+
         //------------ Player ------------//
 
 
         //----------- Platform -----------//
 
-        void createAplatform(float width, float height, shared_ptr<EntityFactory> &factory, bool begin = false);
+        void createAplatform(shared_ptr<EntityFactory> &factory, bool begin = false);
 
         //----------- Platform -----------//
 

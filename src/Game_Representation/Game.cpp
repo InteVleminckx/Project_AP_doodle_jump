@@ -14,12 +14,10 @@ namespace representation {
 
     void Game::beginGame() {
 
-        float playerHeight = .125f; float playerWidth = .1f;
-        float platformHeight = 0.035f; float platformWidth = .15f;
         shared_ptr<logic::EntityFactory> factory = make_shared<Representation::ConcreteFactory>();
-        m_world.createAplatform(platformWidth, platformHeight, factory, true);
+        m_world.createAplatform(factory, true);
 
-        m_world.createPlayer(factory, playerWidth, playerHeight);
+        m_world.createPlayer(factory);
 
         while (Window::Instance()->isOpen())
         {
@@ -28,6 +26,7 @@ namespace representation {
             {
                 Window::Instance()->getWindow()->clear(sf::Color(122,122,122));
                 m_world.updateEntities();
+                m_world.createAplatform(factory);
                 Window::Instance()->getWindow()->display();
                 logic::Stopwatch::Instance()->Reset();
 //                cout << 1 / logic::Stopwatch::Instance()->GetDeltaTime() << endl;
@@ -35,7 +34,6 @@ namespace representation {
                 if (Window::Instance()->isPressedRight()) m_world.movePlayerRight();
 //                sf::sleep(sf::seconds(0.1f));
 
-                m_world.createAplatform(platformWidth, platformHeight, factory);
             }
             Window::Instance()->update();
         }

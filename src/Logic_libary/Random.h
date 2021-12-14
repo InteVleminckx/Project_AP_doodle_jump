@@ -24,6 +24,8 @@ namespace logic {
 
         bool createPlatform();
 
+        bool createBonus();
+
         float giveRandomX(float leftBound, float rightBound);
 
         void Reset();

@@ -19,7 +19,7 @@ namespace logic {
 
     class Player_L : public EntityModel {
 
-        float m_jumpforce{0.5f};
+        float m_jumpforce{.75f};
         /**
          * Is een constructor.
          */
@@ -52,6 +52,8 @@ namespace logic {
 
 
         void jump();
+
+        void powerup(float power);
 
     };
 

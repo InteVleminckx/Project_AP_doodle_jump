@@ -21,6 +21,8 @@ namespace logic {
         Bonus_L();
     public:
         Bonus_L(float posX, float posY, float width, float height);
+
+        float getForce();
     };
 
     class Spring_L : public Bonus_L {

@@ -15,7 +15,7 @@ namespace logic {
         setX(posX); setY(posY);
         setXprev(posX); setYprev(posY);
         setVelocityX(1.f);
-        setGravity(1.5f);
+        setGravity(3.f);
         setWidth(width); setHeight(height);
     }
 
@@ -48,6 +48,8 @@ namespace logic {
     }
 
     void Player_L::jump() { setVelocityY(sqrt(2.0f * getGravity() * m_jumpforce));}
+
+    void Player_L::powerup(float power) {setVelocityY(sqrt(2.0f * getGravity() * power));}
 
 
 }
