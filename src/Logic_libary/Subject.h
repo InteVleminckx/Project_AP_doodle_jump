@@ -24,7 +24,6 @@ using namespace std;
 namespace logic {
     class Observer;
     class Subject {
-    public: //ToDo: Nog protected/private maken en hiervoor nog een getFunctie voor makes als dit nodig is
         vector<shared_ptr<Observer>> m_observers; /** Een vector die alle observers van het subject bevat*/
 
     public:
@@ -59,6 +58,14 @@ namespace logic {
          * Verwijderd alle observers uit zijn vector.
          */
         void emptyObserver();
+
+        /**
+         * Function: getObservers()
+         * Geeft een vector van observers terug die behoren tot het subject.
+         * @return: vector<shared_ptr<Observer>>
+         */
+        vector<shared_ptr<Observer>> getObservers();
+
 
 
     };

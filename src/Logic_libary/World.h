@@ -30,21 +30,27 @@ namespace logic {
         vector<shared_ptr<BG_Tile_L>> m_BGtiles;
         shared_ptr<Player_L> m_player;
 
+        //world boundries
+        float leftLogicX{};
+        float rightLogicX{};
+        float belowLogicY{};
+        float renderTop{};
+
     public:
 
         World();
 
-        void createPlayer(shared_ptr<EntityFactory> &factory);
+        void createPlayer(shared_ptr<EntityFactory> &factory, float width, float height);
 
-        void createPlatform(shared_ptr<EntityFactory> &factory, float y);
+        void createPlatform(shared_ptr<EntityFactory> &factory, float x, float y, float width, float height);
 
-        void createBonus(shared_ptr<EntityFactory> &factory);
+        void createBonus(shared_ptr<EntityFactory> &factory, float width, float height);
 
-        void createBG_Tile(shared_ptr<EntityFactory> &factory);
+        void createBG_Tile(shared_ptr<EntityFactory> &factory, float width, float height);
 
         void removePlatform(shared_ptr<Platform_L>& platform);
 
-        //----------- Player -----------//
+        //----------- Player ------------//
 
         void movePlayerRight();
 
@@ -52,7 +58,14 @@ namespace logic {
 
         bool playerTouchesPlatform();
 
-        //------------ Player -----------//
+        //------------ Player ------------//
+
+
+        //----------- Platform -----------//
+
+        void createAplatform(float width, float height, shared_ptr<EntityFactory> &factory, bool begin = false);
+
+        //----------- Platform -----------//
 
         void updateEntities();
 

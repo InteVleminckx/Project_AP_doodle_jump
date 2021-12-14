@@ -27,20 +27,12 @@ namespace logic {
         //ToDo: dit nog afstellen op score, in het begin veel meer kans op static platforms
         //Nadien eigenlijk zien wat score is en zo meer kans geven op andere soorten platforms
 
-        int number = rand() % 4;
+        int number = rand() % 101;
 
-        switch (number) {
-            case 0:
-                return Static;
-            case 1:
-                return Vertical;
-            case 2:
-                return Horizontal;
-            case 3:
-                return Temporary;
-        }
-
-        return Static;
+        if (number < 70) return Static;
+        if (number < 80) return Vertical;
+        if (number < 90) return Horizontal;
+        return Temporary;
     }
 
     _Bonus Random::getBonusType() {
@@ -48,13 +40,28 @@ namespace logic {
 
         int number = rand() % 2;
 
-        switch (number) {
-            case 0:
-                return Spring;
-            case 1:
-                return Rocket;
-        }
+        if (number == 0) return Spring;
+        return Rocket;
+    }
 
-        return Spring;
+    bool Random::createPlatform() {
+        //ToDo: dit nog afstellen op score, in het begin veel meer kans op platforms
+
+        int number = rand() % 10;
+
+        if (number < 8) return true;
+        return false;
+
+    }
+
+    float Random::giveRandomX(float leftBound, float rightBound) {
+
+        //we genereren een random nummer tussen 1 en 50 dit als we dan de right bound hier door delen krijgen we een float
+        int number = rand() % 5;
+        number+=1; //om 0 te voorkomen
+
+        return leftBound + (rightBound/number);
+
+
     }
 }

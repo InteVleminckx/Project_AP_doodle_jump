@@ -46,7 +46,7 @@ namespace logic {
     float EntityModel::getGravity() const {return m_gravity;}
 
     void EntityModel::Notify() {
-        for (auto& ob : m_observers){
+        for (auto& ob : getObservers()){
             projectPointsToPixels();
             ob->update();
         }

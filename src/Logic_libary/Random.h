@@ -22,6 +22,10 @@ namespace logic {
 
         _Bonus getBonusType();
 
+        bool createPlatform();
+
+        float giveRandomX(float leftBound, float rightBound);
+
         void Reset();
 
     private:

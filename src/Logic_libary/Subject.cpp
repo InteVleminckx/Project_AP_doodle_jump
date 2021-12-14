@@ -20,5 +20,7 @@ namespace logic {
     }
     void Subject::emptyObserver() {m_observers.clear();}
 
+    vector<shared_ptr<Observer>> Subject::getObservers() {return m_observers;}
+
 
 }
