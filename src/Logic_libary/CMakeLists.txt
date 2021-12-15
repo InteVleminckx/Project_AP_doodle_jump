@@ -9,4 +9,4 @@ add_library(logic
         Subject.cpp
         World.cpp
         EntityFactory.cpp
-        Random.cpp Random.h Camera.cpp Camera.h)
+        Random.cpp Random.h Camera.cpp Camera.h Score.cpp Score.h)

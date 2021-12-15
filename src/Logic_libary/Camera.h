@@ -11,7 +11,7 @@
 #define DOODLE_JUMP_CAMERA_H
 
 #include <iostream>
-
+#include <cmath>
 
 using namespace std;
 
@@ -31,6 +31,8 @@ namespace logic {
         static void Release();
 
         projectedPixels projectToPixel(float x, float y);
+
+        int reproduceScore(float score);
 
         bool visibleInView(float x, float y);
 

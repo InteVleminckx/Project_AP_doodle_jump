@@ -28,6 +28,7 @@ namespace Representation {
         void createBG_Tile(shared_ptr<logic::BG_Tile_L> &subject) override;
         void createPlatform(shared_ptr<logic::Platform_L> &subject, _Platform type) override;
         void createBonus(shared_ptr<logic::Bonus_L> &subject, _Bonus type) override;
+        void createScore(shared_ptr<logic::Player_L> &subject, shared_ptr<logic::Score>& score) override;
 
     };
 }

@@ -19,6 +19,7 @@
 #include "Random.h"
 #include <memory>
 #include "Camera.h"
+#include "Score.h"
 
 using namespace std;
 
@@ -29,6 +30,7 @@ namespace logic {
         vector<shared_ptr<Platform_L>> m_platforms;
         vector<shared_ptr<BG_Tile_L>> m_BGtiles;
         shared_ptr<Player_L> m_player;
+        shared_ptr<Score> m_score;
 
         //world boundries
         float leftLogicX{};
@@ -52,6 +54,8 @@ namespace logic {
 
         void createBG_Tile(shared_ptr<EntityFactory> &factory, float width, float height);
 
+        void createScore(shared_ptr<EntityFactory> &factory);
+
         void removePlatform(shared_ptr<Platform_L>& platform);
 
         //----------- Player ------------//
@@ -72,6 +76,12 @@ namespace logic {
         void createAplatform(shared_ptr<EntityFactory> &factory, bool begin = false);
 
         //----------- Platform -----------//
+
+        //------------- Score ------------//
+
+        int getScore();
+
+        //------------- Score ------------//
 
         void updateEntities();
 

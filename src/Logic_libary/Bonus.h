@@ -18,11 +18,16 @@ namespace logic {
     class Bonus_L : public EntityModel {
     protected:
         float m_bonusforce{};
+        bool m_involmsVeloctiy; //bepaald of de bonus gepakt kan worden als we nog omhoog aan het gaan zijn of niet
+
         Bonus_L();
     public:
         Bonus_L(float posX, float posY, float width, float height);
 
         float getForce();
+
+        bool getInvolmsVelocity();
+
     };
 
     class Spring_L : public Bonus_L {

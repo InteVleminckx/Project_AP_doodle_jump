@@ -51,4 +51,10 @@ namespace logic {
     void Camera::setOffset(float y) {
         if (y >= 0 && y > m_offset) m_offset = y;
     }
+
+    int Camera::reproduceScore(float score) {
+
+        return ceil(score*m_height);
+
+    }
 }

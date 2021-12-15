@@ -21,6 +21,14 @@ namespace representation {
 
     Window::Window(int width, int height, string title) : m_window(sf::VideoMode(width, height), title) {
         m_isOpen = true;
+
+        if (!m_font.loadFromFile("../Fonts/secrcode.ttf"))
+        {
+            cout << "error" << endl;
+        }
+        m_textScore.setFont(m_font);
+        m_textScore.setCharacterSize(26);
+        m_textScore.setFillColor(sf::Color::Black);
     }
 
     Window::~Window() {}
@@ -29,7 +37,7 @@ namespace representation {
         return &m_window;
     }
 
-    void Window::update() {
+    void Window::update(int score) {
         sf::Event event{};
 
         while (m_window.pollEvent(event)) {
@@ -38,6 +46,9 @@ namespace representation {
                 m_isOpen = false;
             }
         }
+        m_textScore.setString(to_string(score));
+        m_window.draw(m_textScore);
+
     }
 
     bool Window::isOpen() {

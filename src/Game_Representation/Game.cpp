@@ -16,8 +16,8 @@ namespace representation {
 
         shared_ptr<logic::EntityFactory> factory = make_shared<Representation::ConcreteFactory>();
         m_world.createAplatform(factory, true);
-
         m_world.createPlayer(factory);
+        m_world.createScore(factory);
 
         while (Window::Instance()->isOpen())
         {
@@ -27,7 +27,6 @@ namespace representation {
                 Window::Instance()->getWindow()->clear(sf::Color(122,122,122));
                 m_world.updateEntities();
                 m_world.createAplatform(factory);
-                Window::Instance()->getWindow()->display();
                 logic::Stopwatch::Instance()->Reset();
 //                cout << 1 / logic::Stopwatch::Instance()->GetDeltaTime() << endl;
                 if (Window::Instance()->isPressedLeft()) m_world.movePlayerLeft();
@@ -35,7 +34,8 @@ namespace representation {
 //                sf::sleep(sf::seconds(0.1f));
 
             }
-            Window::Instance()->update();
+            Window::Instance()->update(m_world.getScore());
+            Window::Instance()->getWindow()->display();
         }
     }
 

@@ -20,6 +20,9 @@ namespace logic {
     }
 
     void Player_L::gravity() {
+
+        if (getVelocityY() < 0 && m_bonusActive) m_bonusActive = false;
+
         setVelocityY(getVelocityY() - getGravity() * Stopwatch::Instance()->GetDeltaTime());
         setYprev(getY());
         setY(getY() + (getVelocityY() * Stopwatch::Instance()->GetDeltaTime()));
@@ -49,7 +52,13 @@ namespace logic {
 
     void Player_L::jump() { setVelocityY(sqrt(2.0f * getGravity() * m_jumpforce));}
 
-    void Player_L::powerup(float power) {setVelocityY(sqrt(2.0f * getGravity() * power));}
+    void Player_L::powerup(float power) {
+        if (!m_bonusActive)
+        {
+            m_bonusActive = true;
+            setVelocityY(sqrt(2.0f * getGravity() * power));
+        }
+    }
 
 
 }

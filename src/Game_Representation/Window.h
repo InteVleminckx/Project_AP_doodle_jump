@@ -14,6 +14,8 @@ namespace representation {
     class Window {
         static Window* s_instance;
         sf::RenderWindow m_window;
+        sf::Text m_textScore;
+        sf::Font m_font;
         bool m_isOpen;
 
     public:
@@ -24,7 +26,7 @@ namespace representation {
 
         sf::RenderWindow* getWindow();
 
-        void update();
+        void update(int score);
 
         bool isOpen();
 

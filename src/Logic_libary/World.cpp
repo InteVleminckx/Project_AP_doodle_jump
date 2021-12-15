@@ -73,6 +73,10 @@ namespace logic {
         m_BGtiles.push_back(tile);
     }
 
+    void World::createScore(shared_ptr<EntityFactory> &factory) {
+        factory->createScore(m_player, m_score);
+    }
+
     void World::updateEntities() {
 
         m_player->gravity();
@@ -149,8 +153,10 @@ namespace logic {
     }
 
     void World::playerTouchesBoost() {
-//        if (m_player->getVelocityY() > 0) return false;
+        if (m_player->getVelocityY() <= 0)
+        {
 
+        }
         vector<pair<float, float>> leftPlayer, rightPlayer;
         getPointsBetweenFrames(leftPlayer, rightPlayer, m_player);
 
@@ -163,8 +169,18 @@ namespace logic {
                     float bonus_X0 = bonus->getX();
                     float bonus_X1 = bonus->getX() + bonus->getWidth();
 
-                    if ((bonus_X0 <= leftPlayer[i].first && leftPlayer[i].first <= bonus_X1) || (bonus_X0 <= rightPlayer[i].first && rightPlayer[i].first <= bonus_X1)) {
-                        m_player->powerup(bonus->getForce());
+
+                    // TODO: nog onderscheid maken tussen player.w > bonus.w && bonus.w > player.w
+                    if (( leftPlayer[i].first <= bonus_X0  && bonus_X0 <=  rightPlayer[i].first) || ( leftPlayer[i].first <= bonus_X1  && bonus_X1 <=  rightPlayer[i].first)) {
+
+                        if (bonus->getInvolmsVelocity() && m_player->getVelocityY() <= 0)
+                        {
+                            m_player->powerup(bonus->getForce());
+                        }
+                        else if (! bonus->getInvolmsVelocity()){
+                            m_player->powerup(bonus->getForce());
+                        }
+
                     }
                 }
             }
@@ -274,5 +290,9 @@ namespace logic {
 
         }
 
+    }
+
+    int World::getScore() {
+        return Camera::Instance()->reproduceScore(m_score->getScore());
     }
 }

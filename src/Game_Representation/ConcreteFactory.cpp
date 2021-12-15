@@ -1,5 +1,7 @@
 #include "ConcreteFactory.h"
 
+#include <memory>
+
 void Representation::ConcreteFactory::createPlayer(shared_ptr<logic::Player_L> &player) {
     player->addObserver(shared_ptr<logic::Observer> (
             new representation::Player(player, "../Sprites/Doodle_player2.png")));
@@ -41,4 +43,9 @@ void Representation::ConcreteFactory::createBonus(shared_ptr<logic::Bonus_L> &bo
             bonus->addObserver(shared_ptr<logic::Observer> (
                     new representation::Rocket(bonus, "../Sprites/Rocket.png")));
     }
+}
+
+void Representation::ConcreteFactory::createScore(shared_ptr<logic::Player_L> &subject, shared_ptr<logic::Score>& score) {
+    score = std::make_shared<logic::Score>(subject);
+    subject->addObserver(score);
 }
