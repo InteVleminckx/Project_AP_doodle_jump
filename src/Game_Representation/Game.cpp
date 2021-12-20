@@ -18,13 +18,15 @@ namespace representation {
         m_world.createAplatform(factory, true);
         m_world.createPlayer(factory);
         m_world.createScore(factory);
+        m_world.createBG_Tile(factory, false);
+        m_world.createBG_Tile(factory, true);
 
         while (Window::Instance()->isOpen())
         {
             logic::Stopwatch::Instance()->Tick();
             if (logic::Stopwatch::Instance()->GetDeltaTime() >= 1/m_frameRate)
             {
-                Window::Instance()->getWindow()->clear(sf::Color(122,122,122));
+                Window::Instance()->getWindow()->clear();
                 m_world.updateEntities();
                 m_world.createAplatform(factory);
                 logic::Stopwatch::Instance()->Reset();

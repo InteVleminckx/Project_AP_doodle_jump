@@ -39,8 +39,8 @@ namespace logic {
         float renderTop{};
 
         //entityMeasurements
-        float m_playerHeight{}, m_platformHeight{}, m_springHeight{}, m_rocketHeight{};
-        float m_playerWidth{}, m_platformWidth{}, m_springWidth{}, m_rocketWidth{};
+        float m_playerHeight{}, m_platformHeight{}, m_springHeight{}, m_rocketHeight{}, m_bgTileHeight{};
+        float m_playerWidth{}, m_platformWidth{}, m_springWidth{}, m_rocketWidth{}, m_bgTileWidth{};
 
     public:
 
@@ -52,7 +52,7 @@ namespace logic {
 
         void createBonus(shared_ptr<EntityFactory> &factory, float x, float y);
 
-        void createBG_Tile(shared_ptr<EntityFactory> &factory, float width, float height);
+        void createBG_Tile(shared_ptr<EntityFactory> &factory,bool second);
 
         void createScore(shared_ptr<EntityFactory> &factory);
 
@@ -82,6 +82,14 @@ namespace logic {
         int getScore();
 
         //------------- Score ------------//
+
+        //------------ BgTile ------------//
+
+        void tileOutOfView();
+
+        //------------ BgTile ------------//
+
+
 
         void updateEntities();
 

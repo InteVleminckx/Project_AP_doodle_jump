@@ -12,11 +12,12 @@ namespace logic {
         m_platformHeight = 0.035f; m_platformWidth = .15f;
         m_springHeight = .05f; m_springWidth = .05f;
         m_rocketHeight = .075f; m_rocketWidth = .075f;
+        m_bgTileHeight = abs(belowLogicY) * 3; m_bgTileWidth = abs(leftLogicX) + abs(rightLogicX);
     }
 
     void World::createPlayer(shared_ptr<EntityFactory> &factory)
     {
-        m_player = std::make_shared<logic::Player_L> (leftLogicX/2, belowLogicY, m_playerWidth, m_playerHeight);
+        m_player = std::make_shared<logic::Player_L> ((leftLogicX + rightLogicX)/2, belowLogicY, m_playerWidth, m_playerHeight);
         factory->createPlayer(m_player);
         m_player->jump();
     }
@@ -50,7 +51,6 @@ namespace logic {
         shared_ptr<logic::Bonus_L> bonus;
         _Bonus type  = Random::Instance()->getBonusType();
         float x1;
-        //TODO: de posities moeten hier nog random gemaakt worden
 
         switch (type) {
             case Spring:
@@ -66,9 +66,15 @@ namespace logic {
         m_bonussen.push_back(bonus);
     }
 
-    void World::createBG_Tile(shared_ptr<EntityFactory> &factory, float width, float height)
+    void World::createBG_Tile(shared_ptr<EntityFactory> &factory, bool second)
     {
-        shared_ptr<logic::BG_Tile_L> tile = std::make_shared<logic::BG_Tile_L> ();
+        shared_ptr<logic::BG_Tile_L> tile;
+        if (second) {
+            tile = std::make_shared<logic::BG_Tile_L>(leftLogicX, (abs(belowLogicY)*2) - abs(belowLogicY), m_bgTileWidth, m_bgTileHeight);
+        }
+        else {
+            tile = std::make_shared<logic::BG_Tile_L>(leftLogicX, belowLogicY, m_bgTileWidth, m_bgTileHeight);
+        }
         factory->createBG_Tile(tile);
         m_BGtiles.push_back(tile);
     }
@@ -79,14 +85,14 @@ namespace logic {
 
     void World::updateEntities() {
 
+        tileOutOfView();
+        for (const auto& entity : m_BGtiles) entity->Notify();
+
         m_player->gravity();
         playerTouchesBoost();
         if (playerTouchesPlatform()) m_player->jump();
         m_player->Notify();
-
         logic::Camera::Instance()->projectToPixel(m_player->getX(), m_player->getY());
-
-        for (const auto& entity : m_BGtiles) entity->Notify();
 
         bool removedPlatform = true;
         while(removedPlatform)
@@ -101,7 +107,6 @@ namespace logic {
                     removedPlatform = true;
                     break;
                 }
-
                 entity->Notify();
             }
         }
@@ -117,11 +122,11 @@ namespace logic {
     }
 
     void World::movePlayerRight() {
-        m_player->moveRight();
+        m_player->moveRight(leftLogicX, rightLogicX);
     }
 
     void World::movePlayerLeft() {
-        m_player->moveLeft();
+        m_player->moveLeft(leftLogicX, rightLogicX);
     }
 
     bool World::playerTouchesPlatform() {
@@ -169,8 +174,6 @@ namespace logic {
                     float bonus_X0 = bonus->getX();
                     float bonus_X1 = bonus->getX() + bonus->getWidth();
 
-
-                    // TODO: nog onderscheid maken tussen player.w > bonus.w && bonus.w > player.w
                     if (( leftPlayer[i].first <= bonus_X0  && bonus_X0 <=  rightPlayer[i].first) || ( leftPlayer[i].first <= bonus_X1  && bonus_X1 <=  rightPlayer[i].first)) {
 
                         if (bonus->getInvolmsVelocity() && m_player->getVelocityY() <= 0)
@@ -294,5 +297,20 @@ namespace logic {
 
     int World::getScore() {
         return Camera::Instance()->reproduceScore(m_score->getScore());
+    }
+
+    void World::tileOutOfView() {
+
+        for (auto& tile : m_BGtiles){
+
+            if (tile->getY() + tile->getHeight() <= m_player->getY() - (abs(belowLogicY)*2))
+            {
+                tile->setY(tile->getY() + (2*m_bgTileHeight));
+            }
+
+
+        }
+
+
     }
 }

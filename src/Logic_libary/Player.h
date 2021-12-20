@@ -42,16 +42,20 @@ namespace logic {
         void gravity();
 
         /**
-         * Function: moveRight()
+         * Function: moveRight(float leftBound, float rightBound)
          * Verplaatst de player naar rechts.
+         * @param: float
+         * @param: float
          */
-        void moveRight();
+        void moveRight(float leftBound, float rightBound);
 
         /**
-         * Function: moveLeft()
+         * Function: moveLeft(float leftBound, float rightBound)
          * Verplaatst de player naar links.
+         * @param: float
+         * @param: float
          */
-        void moveLeft();
+        void moveLeft(float leftBound, float rightBound);
 
 
         void jump();

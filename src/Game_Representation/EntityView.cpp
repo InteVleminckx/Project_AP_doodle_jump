@@ -57,7 +57,7 @@ namespace representation {
     }
 
     shared_ptr<logic::EntityModel> EntityView::getEntityModel() {
-        return this->m_entityModel;
+        return m_entityModel;
     }
 
     void EntityView::update() {

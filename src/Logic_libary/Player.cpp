@@ -29,23 +29,21 @@ namespace logic {
         logic::Camera::Instance()->setOffset(getY());
     }
 
-    void Player_L::moveRight() {
+    void Player_L::moveRight(float leftBound, float rightBound) {
 
         float newPos = getX() + (getVelocityX() * Stopwatch::Instance()->GetDeltaTime());
 
-        if (newPos >= 1.f)
-            newPos = 0.f;
-//            newPos = -1.f;
+        if (newPos >= rightBound)
+            newPos = leftBound;
         setXprev(getX());
         setX(newPos);
 
     }
 
-    void Player_L::moveLeft() {
+    void Player_L::moveLeft(float leftBound, float rightBound) {
         float newPos = getX() - (getVelocityX() * Stopwatch::Instance()->GetDeltaTime());
-//        if (newPos <= -1.f)
-        if (newPos <= 0.f)
-            newPos = 1.f;
+        if (newPos <= leftBound)
+            newPos = rightBound;
         setXprev(getX());
         setX(newPos);
     }
