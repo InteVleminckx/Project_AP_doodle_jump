@@ -6,9 +6,7 @@ using namespace std;
 int main() {
 
     representation::Game game;
-    game.beginGame();
-    game.stopGame();
-
+    game.displayFullGame();
     return 0;
 
 }

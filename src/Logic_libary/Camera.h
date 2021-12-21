@@ -42,6 +42,8 @@ namespace logic {
 
         void setOffset(float y);
 
+        float getOffset();
+
     private:
         Camera(int width, int height);
 

@@ -42,6 +42,8 @@ namespace logic {
         float m_playerHeight{}, m_platformHeight{}, m_springHeight{}, m_rocketHeight{}, m_bgTileHeight{};
         float m_playerWidth{}, m_platformWidth{}, m_springWidth{}, m_rocketWidth{}, m_bgTileWidth{};
 
+        bool isGamePlaying = false;
+
     public:
 
         World();
@@ -68,8 +70,10 @@ namespace logic {
 
         void playerTouchesBoost();
 
-        //------------ Player ------------//
+        void playerOutOfScope();
 
+
+        //------------ Player ------------//
 
         //----------- Platform -----------//
 
@@ -87,9 +91,12 @@ namespace logic {
 
         void tileOutOfView();
 
+
         //------------ BgTile ------------//
 
+        void changeGameStatus();
 
+        bool getGameStatus();
 
         void updateEntities();
 

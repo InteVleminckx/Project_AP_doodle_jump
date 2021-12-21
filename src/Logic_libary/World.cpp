@@ -17,7 +17,7 @@ namespace logic {
 
     void World::createPlayer(shared_ptr<EntityFactory> &factory)
     {
-        m_player = std::make_shared<logic::Player_L> ((leftLogicX + rightLogicX)/2, belowLogicY, m_playerWidth, m_playerHeight);
+        m_player = std::make_shared<logic::Player_L> ((leftLogicX + rightLogicX)/2, belowLogicY+m_playerHeight, m_playerWidth, m_playerHeight);
         factory->createPlayer(m_player);
         m_player->jump();
     }
@@ -91,6 +91,7 @@ namespace logic {
         m_player->gravity();
         playerTouchesBoost();
         if (playerTouchesPlatform()) m_player->jump();
+        playerOutOfScope();
         m_player->Notify();
         logic::Camera::Instance()->projectToPixel(m_player->getX(), m_player->getY());
 
@@ -296,7 +297,14 @@ namespace logic {
     }
 
     int World::getScore() {
-        return Camera::Instance()->reproduceScore(m_score->getScore());
+
+        if (m_score != nullptr)
+        {
+            return Camera::Instance()->reproduceScore(m_score->getScore());
+        }
+
+        else return 0;
+
     }
 
     void World::tileOutOfView() {
@@ -307,10 +315,20 @@ namespace logic {
             {
                 tile->setY(tile->getY() + (2*m_bgTileHeight));
             }
-
-
         }
+    }
 
+    void World::changeGameStatus() {
+        if (isGamePlaying) isGamePlaying = false;
+        else isGamePlaying = true;
 
+    }
+
+    bool World::getGameStatus() {
+        return isGamePlaying;
+    }
+
+    void World::playerOutOfScope() {
+        if (m_player->getY() < Camera::Instance()->getOffset() - abs(belowLogicY) ) isGamePlaying = false;
     }
 }

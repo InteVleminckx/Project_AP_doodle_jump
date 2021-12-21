@@ -57,4 +57,8 @@ namespace logic {
         return ceil(score*m_height);
 
     }
+
+    float Camera::getOffset() {
+        return m_offset;
+    }
 }

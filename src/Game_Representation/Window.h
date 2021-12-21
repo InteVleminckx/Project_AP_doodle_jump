@@ -121,6 +121,14 @@ namespace representation {
         bool isPressedRight();
 
         /****************************************************************************************************
+         * @function bool isPressedSpace()
+         * @brief Controlleerd of de speler op de spatiebalk heeft gedrukt op het toetsenbord, zoja gaat
+         * deze true weergeven anders false.
+         * @return een bool.
+         ****************************************************************************************************/
+        bool isPressedSpace();
+
+        /****************************************************************************************************
          * @function ~Window()
          * @brief Is een default destructor.
          ****************************************************************************************************/

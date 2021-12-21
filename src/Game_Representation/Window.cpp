@@ -22,6 +22,7 @@ namespace representation {
     Window::Window(int width, int height, string title) : m_window(sf::VideoMode(width, height), title) {
         m_isOpen = true;
 
+        //TODO: nog met try en catch doen
         if (!m_font.loadFromFile("../Fonts/secrcode.ttf"))
         {
             cout << "error" << endl;
@@ -63,6 +64,11 @@ namespace representation {
 
     bool Window::isPressedRight() {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) return true;
+        return false;
+    }
+
+    bool Window::isPressedSpace() {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) return true;
         return false;
     }
 
