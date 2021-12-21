@@ -31,7 +31,7 @@ namespace representation {
         m_textScore.setFillColor(sf::Color::Black);
     }
 
-    Window::~Window() {}
+    Window::~Window() = default;
 
     sf::RenderWindow *Window::getWindow() {
         return &m_window;
@@ -48,6 +48,7 @@ namespace representation {
         }
         m_textScore.setString(to_string(score));
         m_window.draw(m_textScore);
+        m_window.display();
 
     }
 

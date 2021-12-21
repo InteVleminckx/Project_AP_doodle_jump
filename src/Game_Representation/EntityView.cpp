@@ -5,10 +5,10 @@ namespace representation {
 
     EntityView::EntityView() = default;
 
-    EntityView::EntityView(float width, float height, string& image){
+    EntityView::EntityView(float width, float height, const string& filepath){
         setWidth(width * logic::Camera::Instance()->getCameraWidth());
         setHeight(height * logic::Camera::Instance()->getCameraHeight());
-        createSprite(image);
+        createSprite(filepath);
         getSprite().setScale(getWidth()/getTexture().getSize().x, getHeight()/getTexture().getSize().y);
     }
 

@@ -2,50 +2,52 @@
 
 #include <memory>
 
-void Representation::ConcreteFactory::createPlayer(shared_ptr<logic::Player_L> &player) {
+representation::ConcreteFactory::ConcreteFactory() = default;
+
+void representation::ConcreteFactory::createPlayer(shared_ptr<logic::Player_L> &player) {
     player->addObserver(shared_ptr<logic::Observer> (
             new representation::Player(player, "../Sprites/Doodle_player2.png")));
 }
 
-void Representation::ConcreteFactory::createBG_Tile(shared_ptr<logic::BG_Tile_L> &BG_tile) {
+void representation::ConcreteFactory::createBG_Tile(shared_ptr<logic::BG_Tile_L> &BG_tile) {
     BG_tile->addObserver(shared_ptr<logic::Observer> (
             new representation::BG_Tile(BG_tile, "../Sprites/BG_tile.png")));
 }
 
-void Representation::ConcreteFactory::createPlatform(shared_ptr<logic::Platform_L> &platform, _Platform type) {
+void representation::ConcreteFactory::createPlatform(shared_ptr<logic::Platform_L> &platform, PlatformType type) {
 
     switch (type) {
-        case Static:
+        case Static_:
             platform->addObserver(shared_ptr<logic::Observer> (
                     new representation::Platform_static(platform, "../Sprites/Static_platforms.png")));
             break;
-        case Horizontal:
+        case Horizontal_:
             platform->addObserver(shared_ptr<logic::Observer> (
                     new representation::Platform_horizontal(platform, "../Sprites/Horizontal_platforms.png")));
             break;
-        case Vertical:
+        case Vertical_:
             platform->addObserver(shared_ptr<logic::Observer> (
                     new representation::Platform_vertical(platform, "../Sprites/Vertical_platforms.png")));
             break;
-        case Temporary:
+        case Temporary_:
             platform->addObserver(shared_ptr<logic::Observer> (
                     new representation::Platform_temporary(platform, "../Sprites/Temporary_platforms.png")));
     }
 }
 
-void Representation::ConcreteFactory::createBonus(shared_ptr<logic::Bonus_L> &bonus, _Bonus type) {
+void representation::ConcreteFactory::createBonus(shared_ptr<logic::Bonus_L> &bonus, BonusType type) {
     switch (type) {
-        case Spring:
+        case Spring_:
             bonus->addObserver(shared_ptr<logic::Observer> (
                     new representation::Spring(bonus, "../Sprites/Spring.png")));
             break;
-        case Rocket:
+        case Rocket_:
             bonus->addObserver(shared_ptr<logic::Observer> (
                     new representation::Rocket(bonus, "../Sprites/Rocket.png")));
     }
 }
 
-void Representation::ConcreteFactory::createScore(shared_ptr<logic::Player_L> &subject, shared_ptr<logic::Score>& score) {
+void representation::ConcreteFactory::createScore(shared_ptr<logic::Player_L> &subject, shared_ptr<logic::Score>& score) {
     score = std::make_shared<logic::Score>(subject);
     subject->addObserver(score);
 }

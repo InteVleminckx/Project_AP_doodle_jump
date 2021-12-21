@@ -14,7 +14,7 @@ namespace representation {
 
     void Game::beginGame() {
 
-        shared_ptr<logic::EntityFactory> factory = make_shared<Representation::ConcreteFactory>();
+        shared_ptr<logic::EntityFactory> factory = make_shared<representation::ConcreteFactory>();
         m_world.createAplatform(factory, true);
         m_world.createPlayer(factory);
         m_world.createScore(factory);
@@ -37,7 +37,6 @@ namespace representation {
 
             }
             Window::Instance()->update(m_world.getScore());
-            Window::Instance()->getWindow()->display();
         }
     }
 

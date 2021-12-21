@@ -1,10 +1,13 @@
-/**
- * Naam: Inte Vleminckx
- * Studentennummer: 20201844
- * Datum:
- * Version: V1.0
- * Description:
- */
+/****************************************************************************************************
+ * @author Inte Vleminckx
+ * @Studentennummer 20201844
+ * @Datum
+ * @Class EntityView
+ * @BaseClass Observer
+ * @SubClasses Player, Platform, BG_Tile, Bonus
+ * @Namespace representation
+ * @brief Is een subclass van EntityView.
+ ****************************************************************************************************/
 
 #ifndef DOODLE_JUMP_ENTITYVIEW_H
 #define DOODLE_JUMP_ENTITYVIEW_H
@@ -25,86 +28,161 @@ using namespace std;
 
 namespace representation {
 class EntityView : public logic::Observer{
+
+        /****************************************************************************************************
+         * @brief De sprite van een Entity.
+         * @type sf::Sprite
+         * @var m_modelSprite
+         ****************************************************************************************************/
         sf::Sprite m_modelSprite;
-        sf::Texture m_modelTexture; //* Toevoegen anders raakt texture kwijt en krijg je white square*/
+
+        /****************************************************************************************************
+         * @brief Het model van een Entity, moet bijgehouden worden anders verdwijnt deze.
+         * @type sf::Texture
+         * @var m_modelTexture
+         ****************************************************************************************************/
+        sf::Texture m_modelTexture;
+
+        /****************************************************************************************************
+         * @brief De breedte van de Entity.
+         * @type float
+         * @var m_width
+         ****************************************************************************************************/
         float m_width;
+
+        /****************************************************************************************************
+         * @brief De hoogte van de Entity.
+         * @type float
+         * @var m_width
+         ****************************************************************************************************/
         float m_height;
+
+        /****************************************************************************************************
+         * @brief Een shared pointer naar een entityModel dat een afleiding is van een subject.
+         * @type shared_ptr<logic::EntityModel>
+         * @var m_entityModel
+         ****************************************************************************************************/
         shared_ptr<logic::EntityModel> m_entityModel;
 
     protected:
 
+        /****************************************************************************************************
+         * @function EntityView()
+         * @brief Default constructor
+         ****************************************************************************************************/
         EntityView();
 
+        /****************************************************************************************************
+         * @function void createSprite(const string& filepath)
+         * @brief Laadt een afbeelding in en die wordt gebruikt als texture voor de entity.
+         * @param filepath: een const string& wat de filepath is naar de afbeelding.
+         ****************************************************************************************************/
         void createSprite(const string& filepath);
 
     public:
 
-        EntityView(float width, float height, string &image);
+        /****************************************************************************************************
+         * @function EntityView(float width, float height, string &image)
+         * @brief De hoogte en breedte worden hier aan de entity toegewijd. De sprite wordt hier ook gemaakt.
+         * @param width: is een float wat de breedte van de entity wordt.
+         * @param height: is een float wat de hoogte van de entity wordt.
+         * @param filepath: is een const string& wat de filepath is naar de afbeelding.
+         ****************************************************************************************************/
+        EntityView(float width, float height, const string &filepath);
 
+        /****************************************************************************************************
+         * @function void update() override
+         * @brief Update de entity zijn view naar zijn nieuwe huidige staat.
+         ****************************************************************************************************/
         void update() override;
 
-        /**
-        * Function: setSprite(sf::Sprite sprite)
-        * geeft een sprite aan de entity.
+        /****************************************************************************************************
+        * @function setSprite(sf::Sprite sprite)
+        * @brief Geeft een sprite aan de entity.
         * @param sprite: is een sf::Sprite.
-        */
+         ****************************************************************************************************/
         void setSprite(sf::Sprite& sprite);
 
-        /**
-         * Function: setTexture(sf::Texture texture)
-         * Geeft een texture aan de entity.
+        /****************************************************************************************************
+         * @function setTexture(sf::Texture texture)
+         * @brief Geeft een texture aan de entity.
          * @param texture: is een sf::Texture.
-         */
+         ****************************************************************************************************/
         void setTexture(sf::Texture& texture);
 
-        /**
-        * Function: setheight(float height)
-        * Geeft de entity een hoogte.
+        /****************************************************************************************************
+        * @function setheight(float height)
+        * @brief Geeft de entity een hoogte.
         * @param height: is een float.
-        */
+         ****************************************************************************************************/
         void setHeight(float height);
 
-        /**
-         * Function: setWidth(float width)
-         * Geeft de entity een breedte.
+        /****************************************************************************************************
+         * @function setWidth(float width)
+         * @brief Geeft de entity een breedte.
          * @param width: is een float.
-         */
+         ****************************************************************************************************/
         void setWidth(float width);
 
+        /****************************************************************************************************
+         * @brief Initialiseerd de data member m_entityModel door deze gelijk te stellen aan een object van zijn subclass.
+         * @function setEntityModel(shared_ptr<logic::Player_L>& player)
+         * @param player: is een shared pointer van Player_L
+         ****************************************************************************************************/
         void setEntityModel(shared_ptr<logic::Player_L>& player);
 
+        /****************************************************************************************************
+         * @brief Initialiseerd de data member m_entityModel door deze gelijk te stellen aan een object van zijn subclass.
+         * @function setEntityModel(shared_ptr<logic::Platform_L>& platform)
+         * @param platform: is een shared pointer van Platform_L
+         ****************************************************************************************************/
         void setEntityModel(shared_ptr<logic::Platform_L>& platform);
 
+        /****************************************************************************************************
+         * @brief Initialiseerd de data member m_entityModel door deze gelijk te stellen aan een object van zijn subclass.
+         * @function setEntityModel(shared_ptr<logic::Bonus_L>& bonus)
+         * @param bonus: is een shared pointer van Bonus_L
+         ****************************************************************************************************/
         void setEntityModel(shared_ptr<logic::Bonus_L>& bonus);
 
+        /****************************************************************************************************
+         * @brief Initialiseerd de data member m_entityModel door deze gelijk te stellen aan een object van zijn subclass.
+         * @function setEntityModel(shared_ptr<logic::BG_Tile_L>& bg_tile)
+         * @param bg_tile: is een shared pointer van BG_Tile_L
+         ****************************************************************************************************/
         void setEntityModel(shared_ptr<logic::BG_Tile_L>& bg_tile);
 
-        /**
-        * Function: getSprite()
-        * geeft de sprite van de entity.
-        */
+        /****************************************************************************************************
+        * @function getSprite()
+        * @brief geeft de sprite van de entity.
+         ****************************************************************************************************/
         sf::Sprite& getSprite();
 
-        /**
-         * Function: getTexture()
-         * Geeft de texture van de entity.
-         */
+        /****************************************************************************************************
+         * @function getTexture()
+         * @brief Geeft de texture van de entity.
+         ****************************************************************************************************/
         sf::Texture& getTexture();
 
-        /**
-         * Function: getHeight()
-         * Geeft de hoogte van de entity terug.
+        /****************************************************************************************************
+         * @function getHeight()
+         * @brief Geeft de hoogte van de entity terug.
          * @return float
-         */
+         ****************************************************************************************************/
         float getHeight() const;
 
-        /**
-         * Function: getWidth()
-         * Geeft de breedte van de entity terug.
+        /****************************************************************************************************
+         * @function getWidth()
+         * @brief Geeft de breedte van de entity terug.
          * @return float
-         */
+         ****************************************************************************************************/
         float getWidth() const;
 
+        /****************************************************************************************************
+         * @function getEntityModel()
+         * @brief Geeft de entityModel terug.
+         * @return shared_ptr<logic::EntityModel>
+         ****************************************************************************************************/
         shared_ptr<logic::EntityModel> getEntityModel();
 
 

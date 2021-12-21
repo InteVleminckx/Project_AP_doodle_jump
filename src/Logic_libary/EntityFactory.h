@@ -14,8 +14,8 @@
 
 using namespace std;
 
-enum _Platform{Static, Horizontal, Vertical, Temporary};
-enum _Bonus {Rocket, Spring};
+enum PlatformType{Static_, Horizontal_, Vertical_, Temporary_};
+enum BonusType {Rocket_, Spring_};
 
 namespace logic {
     class EntityFactory {
@@ -25,9 +25,9 @@ namespace logic {
         EntityFactory();
 
         virtual void createPlayer(shared_ptr<Player_L>& subject) = 0;
-        virtual void createPlatform(shared_ptr<Platform_L>& subject, _Platform type) = 0;
+        virtual void createPlatform(shared_ptr<Platform_L>& subject, PlatformType type) = 0;
         virtual void createBG_Tile(shared_ptr<BG_Tile_L>& subject) = 0;
-        virtual void createBonus(shared_ptr<Bonus_L>& subject, _Bonus type) = 0;
+        virtual void createBonus(shared_ptr<Bonus_L>& subject, BonusType type) = 0;
         virtual void createScore(shared_ptr<Player_L>& subject, shared_ptr<Score>& score) = 0;
 
     };

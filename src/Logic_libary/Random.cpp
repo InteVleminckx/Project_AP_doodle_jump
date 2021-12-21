@@ -22,26 +22,26 @@ namespace logic {
 
     void Random::Reset() { srand(time(0)); }
 
-    _Platform Random::getPlatformType() {
+    PlatformType Random::getPlatformType() {
 
         //ToDo: dit nog afstellen op score, in het begin veel meer kans op static platforms
         //Nadien eigenlijk zien wat score is en zo meer kans geven op andere soorten platforms
 
         int number = rand() % 101;
 
-        if (number < 70) return Static;
-        if (number < 80) return Vertical;
-        if (number < 90) return Horizontal;
-        return Temporary;
+        if (number < 70) return Static_;
+        if (number < 80) return Vertical_;
+        if (number < 90) return Horizontal_;
+        return Temporary_;
     }
 
-    _Bonus Random::getBonusType() {
+    BonusType Random::getBonusType() {
         //ToDo: dit nog afstellen op score, in het begin veel meer kans op bonussen
 
         int number = rand() % 2;
 
-        if (number == 0) return Spring;
-        return Rocket;
+        if (number == 0) return Spring_;
+        return Rocket_;
     }
 
     bool Random::createPlatform() {

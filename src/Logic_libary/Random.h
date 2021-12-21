@@ -18,9 +18,9 @@ namespace logic {
 
         static void Release();
 
-        _Platform getPlatformType();
+        PlatformType getPlatformType();
 
-        _Bonus getBonusType();
+        BonusType getBonusType();
 
         bool createPlatform();
 

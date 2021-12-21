@@ -26,20 +26,20 @@ namespace logic {
     {
         shared_ptr<logic::Platform_L> platform;
 
-        _Platform type  = Random::Instance()->getPlatformType();
+        PlatformType type  = Random::Instance()->getPlatformType();
 
         switch (type) {
-            case Static:
+            case Static_:
                 if (Random::Instance()->createBonus()) createBonus(factory, x, y);
                 platform = make_shared<logic::Platform_L_static>(x, y, m_platformWidth, m_platformHeight);
                 break;
-            case Horizontal:
+            case Horizontal_:
                  platform = std::make_shared<logic::Platform_L_horizontal> (x, y, m_platformWidth, m_platformHeight);
                 break;
-            case Vertical:
+            case Vertical_:
                 platform = std::make_shared<logic::Platform_L_vertical> (x, y, m_platformWidth, m_platformHeight);
                 break;
-            case Temporary:
+            case Temporary_:
                 platform = std::make_shared<logic::Platform_L_temporary> (x, y, m_platformWidth,m_platformHeight);
         }
         factory->createPlatform(platform, type);
@@ -49,15 +49,15 @@ namespace logic {
     void World::createBonus(shared_ptr<EntityFactory> &factory, float x, float y)
     {
         shared_ptr<logic::Bonus_L> bonus;
-        _Bonus type  = Random::Instance()->getBonusType();
+        BonusType type  = Random::Instance()->getBonusType();
         float x1;
 
         switch (type) {
-            case Spring:
+            case Spring_:
                 x1 = x + (m_platformWidth/2) - (m_springWidth/2);
                 bonus = make_shared<logic::Spring_L>(x1, y+m_platformHeight, m_springWidth, m_springHeight);
                 break;
-            case Rocket:
+            case Rocket_:
                 x1 = x + (m_platformWidth/2) - (m_rocketWidth/2);
                 bonus = std::make_shared<logic::Rocket_L> (x1, y+m_platformHeight, m_rocketWidth, m_rocketHeight);
         }
