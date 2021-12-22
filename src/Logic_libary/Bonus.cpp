@@ -2,11 +2,6 @@
 
 namespace logic {
 
-    Bonus_L::Bonus_L() = default;
-
-    Spring_L::Spring_L() = default;
-
-    Rocket_L::Rocket_L() = default;
 
     Bonus_L::Bonus_L(float posX, float posY, float width, float height) {
         setX(posX); setY(posY);

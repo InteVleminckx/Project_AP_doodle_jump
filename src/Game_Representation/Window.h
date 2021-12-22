@@ -132,6 +132,8 @@ namespace representation {
          * @function ~Window()
          * @brief Is een default destructor.
          ****************************************************************************************************/
+
+    private:
         ~Window();
 
     };

@@ -38,12 +38,6 @@ namespace logic {
 
     }
 
-    bool Camera::visibleInView(float x, float y) {
-
-        if (0 <= x && x <= m_width && 0 + (m_offset*m_height/2) <= y && y <= m_height + (m_offset*m_height/2)) return true;
-        return false;
-    }
-
     int Camera::getCameraWidth() {return m_width;}
 
     int Camera::getCameraHeight() {return m_width;}

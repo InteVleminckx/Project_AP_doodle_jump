@@ -1,10 +1,13 @@
-/**
- * Naam: Inte Vleminckx
- * Studentennummer: 20201844
- * Datum:
- * Version: V1.0
- * Description:
- */
+/****************************************************************************************************
+ * @Naam Inte Vleminckx
+ * @Studentennummer 20201844
+ * @Datum
+ * @Class EntityModel
+ * @BaseClass Subject
+ * @SubClasses Player_L, Platform_L, Bonus_L, BG_Tile_L
+ * @Namespace logic
+ * @brief Is een subclass van Subject.&
+ ****************************************************************************************************/
 
 #ifndef DOODLE_JUMP_ENTITYMODEL_H
 #define DOODLE_JUMP_ENTITYMODEL_H
@@ -20,166 +23,211 @@ using namespace std;
 namespace logic {
 
     class EntityModel : public Subject {
-        float m_x{}, m_y{}, m_xPrev{}, m_yPrev{}, m_velocityX{}, m_velocityY{}, m_height{}, m_width{}, m_gravity{};
+
+        /****************************************************************************************************
+         * @brief Is de postie van een entity.
+         * @type float
+         * @var m_x, m_y
+         ****************************************************************************************************/
+        float m_x{}, m_y{};
+
+        /****************************************************************************************************
+         * @brief Is de positie van de entity op zijn vorige frame.
+         * @type float
+         * @var m_xPrev, m_yPrev
+         ****************************************************************************************************/
+        float m_xPrev{}, m_yPrev{};
+
+        /****************************************************************************************************
+         * @brief Is de velocity van de entity.
+         * @type float
+         * @var m_velocityX, m_velocityY
+         ****************************************************************************************************/
+        float m_velocityX{}, m_velocityY{};
+
+        /****************************************************************************************************
+         * @brief Zijn de afmetingen van de entity.
+         * @type float
+         * @var m_width, m_height
+         ****************************************************************************************************/
+        float m_width{}, m_height{};
+
+        /****************************************************************************************************
+         * @brief Is de zwaartekracht die inwerkt op de entity.
+         * @type float
+         * @var m_gravity
+         ****************************************************************************************************/
+        float m_gravity{};
+
+        /****************************************************************************************************
+         * @brief Zijn de geprojecteerde coördinaten van de entity.
+         * @type int
+         * @var m_projectedX, m_projectedY
+         ****************************************************************************************************/
         int m_projectedX{}, m_projectedY{};
+
     public:
 
-        /**
-         * Is een constructor.
-         */
+        /****************************************************************************************************
+         * @function EntityModel()
+         * @brief Is een default constructor.
+         ****************************************************************************************************/
         EntityModel();
 
-        /**
-         * Function: setX(float x)
-         * Geeft een x waarde aan de entity
-         * @param x: is een float
-         */
-        void setX(float x);
-
-        /**
-         * Function: setY(float y)
-         * Geeft een y waarde aan de entity
-         * @param y: is een float
-         */
-        void setY(float y);
-
-        /**
-         * Function: setX(float x)
-         * Geeft een x waarde aan de entity
-         * @param x: is een float
-         */
-        void setXprev(float x);
-
-        /**
-         * Function: setY(float y)
-         * Geeft een y waarde aan de entity
-         * @param y: is een float
-         */
-        void setYprev(float y);
-
-        /**
-         * Function: projectPointsToPixels()
-         * Zet de huidige punten om naar pixels.
-         */
+        /****************************************************************************************************
+         * @function void projectPointsToPixels()
+         * @brief Zet de huidige punten om naar pixels.
+         ****************************************************************************************************/
         void projectPointsToPixels();
 
-        /**
-         * Function: setVelocityX(float velocityX)
-         * Geeft een velocity in de x richting aan de entity
+        /****************************************************************************************************
+         * @function void Notify() override
+         * @brief Roept de update functie op van zijn observers.
+         ****************************************************************************************************/
+        void Notify() override;
+
+        /****************************************************************************************************
+         * @function void setX(float x)
+         * @brief Geeft een x waarde aan de entity
+         * @param x: is een float
+         ****************************************************************************************************/
+
+        void setX(float x);
+
+        /****************************************************************************************************
+         * @function void setY(float y)
+         * @brief Geeft een y waarde aan de entity
+         * @param y: is een float
+         ****************************************************************************************************/
+
+        void setY(float y);
+
+        /****************************************************************************************************
+         * @function void setX(float x)
+         * @brief Geeft een x waarde aan de entity
+         * @param x: is een float
+         ****************************************************************************************************/
+        void setXprev(float x);
+
+        /****************************************************************************************************
+         * @function void setY(float y)
+         * @brief Geeft een y waarde aan de entity
+         * @param y: is een float
+         ****************************************************************************************************/
+        void setYprev(float y);
+
+        /****************************************************************************************************
+         * @function void setVelocityX(float velocityX)
+         * @brief Geeft een velocity in de x richting aan de entity
          * @param velocityX: is een float
-         */
+         ****************************************************************************************************/
         void setVelocityX(float velocityX);
 
-        /**
-         * Function: setVelocityY(float velocityY)
-         * Geeft een velocity in de y richting aan de entity
+        /****************************************************************************************************
+         * @function void setVelocityY(float velocityY)
+         * @brief Geeft een velocity in de y richting aan de entity
          * @param velocityY: is een float
-         */
+         ****************************************************************************************************/
         void setVelocityY(float velocityY);
 
-        /**
-         * Function: setheight(float height)
-         * Geeft de entity een hoogte.
-         * @param height: is een float.
-         */
-        void setHeight(float height);
-
-        /**
-         * Function: setWidth(float width)
-         * Geeft de entity een breedte.
+        /****************************************************************************************************
+         * @function void setWidth(float width)
+         * @brief Geeft de entity een breedte.
          * @param width: is een float.
-         */
+         ****************************************************************************************************/
         void setWidth(float width);
 
-        /**
-         * Function: setGravity(float gravity)
-         * Geeft een waarde aan de gravity.
+        /****************************************************************************************************
+         * @function void setheight(float height)
+         * @brief Geeft de entity een hoogte.
+         * @param height: is een float.
+         ****************************************************************************************************/
+        void setHeight(float height);
+
+        /****************************************************************************************************
+         * @function void setGravity(float gravity)
+         * @brief Geeft een waarde aan de gravity.
          * @param gravity: is een float.
-         */
+         ****************************************************************************************************/
         void setGravity(float gravity);
 
-        /**
-         * Function: getX()
-         * Geeft de x waarde van de entity terug.
-         * @return float
-         */
+        /****************************************************************************************************
+         * @function float getX()
+         * @brief Geeft de x waarde van de entity terug.
+         * @return is een float die de x waarde teruggeeft.
+         ****************************************************************************************************/
         float getX() const;
 
-        /**
-         * Function: getY()
-         * Geeft de y waarde van de entity terug.
-         * @return float
-         */
+        /****************************************************************************************************
+         * @function float getY()
+         * @brief Geeft de y waarde van de entity terug.
+         * @return is een float die de y waarde teruggeeft.
+         ****************************************************************************************************/
         float getY() const;
 
-        /**
-         * Function: getX()
-         * Geeft de x waarde van de entity terug.
-         * @return float
-         */
+        /****************************************************************************************************
+         * @function float getX()
+         * @brief Geeft de vorige frame x waarde van de entity terug.
+         * @return is een float die de vorige frame x waarde teruggeeft.
+         ****************************************************************************************************/
         float getXprev() const;
 
-        /**
-         * Function: getY()
-         * Geeft de y waarde van de entity terug.
-         * @return float
-         */
+        /****************************************************************************************************
+         * @function float getY()
+         * @brief Geeft de vorige frame y waarde van de entity terug.
+         * @return is een float die vorige frame y waarde terugggeeft.
+         ****************************************************************************************************/
         float getYprev() const;
 
-        /**
-         * Function: getProjectedX()
-         * Geeft de geprojecteerde x waarde van de entity terug.
-         * @return int
-         */
-        int getProjectedX() const;
+        /****************************************************************************************************
+         * @function float getVelocityX()
+         * @brief Geeft de velocityX waarde van de entity terug.
+         * @return is een float die de velocity in x richting teruggeeft.
+         ****************************************************************************************************/
+        float getVelocityX() const;
 
-        /**
-         * Function: getProjectedY()
-         * Geeft de geprojecteerde y waarde van de entity terug.
-         * @return int
-         */
-        int getProjectedY() const;
-
-        /**
-         * Function: getVelocityX()
-         * Geeft de velocityX waarde van de entity terug.
-         * @return float
-         */
-        float getVelocityX() const ;
-
-        /**
-         * Function: getVelocityY()
-         * Geeft de velocityY waarde van de entity terug.
-         * @return float
-         */
+        /****************************************************************************************************
+         * @function float getVelocityY()
+         * @brief Geeft de velocityY waarde van de entity terug.
+         * @return is een float die de velocity in de y richting teruggeeft.
+         ****************************************************************************************************/
         float getVelocityY() const;
 
-        /**
-         * Function: getHeight()
-         * Geeft de hoogte van de entity terug.
-         * @return float
-         */
+        /****************************************************************************************************
+         * @function float getHeight()
+         * @brief Geeft de hoogte van de entity terug.
+         * @return is een float die de hoogte teruggeeft.
+         ****************************************************************************************************/
         float getHeight() const;
 
-        /**
-         * Function: getWidth()
-         * Geeft de breedte van de entity terug.
-         * @return float
-         */
+        /****************************************************************************************************
+         * @function float getWidth()
+         * @brief Geeft de breedte van de entity terug.
+         * @return is een float die de breedte teruggeeft.
+         ****************************************************************************************************/
         float getWidth() const;
 
-        /**
-         * Function: getGravity()
-         * Geeft de waarde van de gravity terug.
-         * @return float
-         */
+        /****************************************************************************************************
+         * @function float getGravity()
+         * @brief Geeft de waarde van de gravity terug.
+         * @return is een float die de zwaartekracht teruggeeft.
+         ****************************************************************************************************/
         float getGravity() const;
 
-        void Notify() override;
+        /****************************************************************************************************
+         * @function int getProjectedX()
+         * @brief Geeft de geprojecteerde x waarde van de entity terug.
+         * @return is een int die de geprojecteerde x waarde teruggeeft.
+         ****************************************************************************************************/
+        int getProjectedX() const;
+
+        /****************************************************************************************************
+         * @function int getProjectedY()
+         * @brief Geeft de geprojecteerde y waarde van de entity terug.
+         * @return is een int die de geprojecteerde y waarde teruggeeft.
+         ****************************************************************************************************/
+        int getProjectedY() const;
 
     };
 }
-
-
-
 #endif //DOODLE_JUMP_ENTITYMODEL_H
