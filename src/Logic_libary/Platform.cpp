@@ -23,6 +23,10 @@ namespace logic {
 
     Platform_L_static::Platform_L_static(float posX, float posY, float width, float height) : Platform_L(posX, posY, width, height) {}
 
+    void Platform_L_static::movePlatform() {}
+
+    void Platform_L_static::changeDirection() {}
+
     Platform_L_vertical::Platform_L_vertical(float posX, float posY, float width, float height) : Platform_L(posX, posY, width, height) {
         setVelocityY(.2f);
         setStartPostionY(posY);
@@ -60,4 +64,8 @@ namespace logic {
     }
 
     Platform_L_temporary::Platform_L_temporary(float posX, float posY, float width, float height) : Platform_L(posX, posY, width, height) {setTemporary(true);}
+
+    void Platform_L_temporary::movePlatform() {}
+
+    void Platform_L_temporary::changeDirection() {}
 }

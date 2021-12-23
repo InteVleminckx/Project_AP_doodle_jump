@@ -21,7 +21,6 @@ namespace logic {
 
     Stopwatch::Stopwatch() {
         Reset();
-        m_timeScale = 1.0f;
         m_deltaTime = chrono::duration<float>(0.0f);
     }
 
@@ -33,14 +32,6 @@ namespace logic {
 
     float Stopwatch::GetDeltaTime() {
         return m_deltaTime.count();
-    }
-
-    void Stopwatch::SetTimeScale(float t) {
-        m_timeScale = t;
-    }
-
-    float Stopwatch::GetTimeScale() {
-        return m_timeScale;
     }
 
     void Stopwatch::Tick() {

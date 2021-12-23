@@ -4,20 +4,22 @@ namespace logic {
 
 
     World::World() {
-        leftLogicX = 0;
-        rightLogicX = 1.f;
-        belowLogicY = -1.f;
+        m_leftLogicX = 0;
+        m_rightLogicX = 1.f;
+        m_belowLogicY = -1.f;
 
         m_playerHeight = .125f; m_playerWidth = .1f;
         m_platformHeight = 0.035f; m_platformWidth = .15f;
         m_springHeight = .05f; m_springWidth = .05f;
         m_rocketHeight = .075f; m_rocketWidth = .075f;
-        m_bgTileHeight = abs(belowLogicY) * 3; m_bgTileWidth = abs(leftLogicX) + abs(rightLogicX);
+        m_bgTileHeight = abs(m_belowLogicY) * 3; m_bgTileWidth = abs(m_leftLogicX) + abs(m_rightLogicX);
+
+        m_isGamePlaying = false;
     }
 
     void World::createPlayer(shared_ptr<EntityFactory> &factory)
     {
-        m_player = std::make_shared<logic::Player_L> ((leftLogicX + rightLogicX)/2, belowLogicY+m_playerHeight, m_playerWidth, m_playerHeight);
+        m_player = std::make_shared<logic::Player_L> ((m_leftLogicX + m_rightLogicX) / 2, m_belowLogicY + m_playerHeight, m_playerWidth, m_playerHeight);
         factory->createPlayer(m_player);
         m_player->jump();
     }
@@ -70,10 +72,10 @@ namespace logic {
     {
         shared_ptr<logic::BG_Tile_L> tile;
         if (second) {
-            tile = std::make_shared<logic::BG_Tile_L>(leftLogicX, (abs(belowLogicY)*2) - abs(belowLogicY), m_bgTileWidth, m_bgTileHeight);
+            tile = std::make_shared<logic::BG_Tile_L>(m_leftLogicX, (abs(m_belowLogicY) * 2) - abs(m_belowLogicY), m_bgTileWidth, m_bgTileHeight);
         }
         else {
-            tile = std::make_shared<logic::BG_Tile_L>(leftLogicX, belowLogicY, m_bgTileWidth, m_bgTileHeight);
+            tile = std::make_shared<logic::BG_Tile_L>(m_leftLogicX, m_belowLogicY, m_bgTileWidth, m_bgTileHeight);
         }
         factory->createBG_Tile(tile);
         m_BGtiles.push_back(tile);
@@ -103,7 +105,7 @@ namespace logic {
             {
                 entity->movePlatform();
 
-                if (entity->getY() < m_player->getY() - abs(belowLogicY)){
+                if (entity->getY() < m_player->getY() - abs(m_belowLogicY)){
                     removePlatform(entity);
                     removedPlatform = true;
                     break;
@@ -123,11 +125,11 @@ namespace logic {
     }
 
     void World::movePlayerRight() {
-        m_player->moveRight(leftLogicX, rightLogicX);
+        m_player->moveRight(m_leftLogicX, m_rightLogicX);
     }
 
     void World::movePlayerLeft() {
-        m_player->moveLeft(leftLogicX, rightLogicX);
+        m_player->moveLeft(m_leftLogicX, m_rightLogicX);
     }
 
     bool World::playerTouchesPlatform() {
@@ -261,18 +263,18 @@ namespace logic {
 
         if (begin)
         {
-            renderTop = belowLogicY + (abs(belowLogicY) * 2);
+            renderTop = m_belowLogicY + (abs(m_belowLogicY) * 2);
 
-            int aantalPlatforms = ceil((abs(belowLogicY) * 2)/(m_platformHeight*3.5));
+            int aantalPlatforms = ceil((abs(m_belowLogicY) * 2) / (m_platformHeight * 3.5));
 
             for (int i = 0; i < aantalPlatforms+1; ++i)
             {
                 if (Random::Instance()->createPlatform())
                 {
-                    float y = belowLogicY + (i * m_platformHeight * 3.5);
-                    float x = Random::Instance()->giveRandomX(leftLogicX, rightLogicX);
+                    float y = m_belowLogicY + (i * m_platformHeight * 3.5);
+                    float x = Random::Instance()->giveRandomX(m_leftLogicX, m_rightLogicX);
 
-                    if (x > rightLogicX - m_platformWidth) x = rightLogicX - m_platformWidth;
+                    if (x > m_rightLogicX - m_platformWidth) x = m_rightLogicX - m_platformWidth;
 
                     createPlatform(factory, x, y);
                 }
@@ -281,13 +283,13 @@ namespace logic {
         }
 
         else{
-            if (m_player->getY() + (abs(belowLogicY) * 2) > renderTop + (m_platformHeight*2.5))
+            if (m_player->getY() + (abs(m_belowLogicY) * 2) > renderTop + (m_platformHeight * 2.5))
             {
-                renderTop = m_player->getY() + (abs(belowLogicY) * 2);
+                renderTop = m_player->getY() + (abs(m_belowLogicY) * 2);
                 if (Random::Instance()->createPlatform())
                 {
-                    float x = Random::Instance()->giveRandomX(leftLogicX, rightLogicX);
-                    if (x > rightLogicX - m_platformWidth) x = rightLogicX - m_platformWidth;
+                    float x = Random::Instance()->giveRandomX(m_leftLogicX, m_rightLogicX);
+                    if (x > m_rightLogicX - m_platformWidth) x = m_rightLogicX - m_platformWidth;
                     createPlatform(factory, x, renderTop);
                 }
             }
@@ -311,7 +313,7 @@ namespace logic {
 
         for (auto& tile : m_BGtiles){
 
-            if (tile->getY() + tile->getHeight() <= m_player->getY() - (abs(belowLogicY)*2))
+            if (tile->getY() + tile->getHeight() <= m_player->getY() - (abs(m_belowLogicY) * 2))
             {
                 tile->setY(tile->getY() + (2*m_bgTileHeight));
             }
@@ -319,16 +321,16 @@ namespace logic {
     }
 
     void World::changeGameStatus() {
-        if (isGamePlaying) isGamePlaying = false;
-        else isGamePlaying = true;
+        if (m_isGamePlaying) m_isGamePlaying = false;
+        else m_isGamePlaying = true;
 
     }
 
     bool World::getGameStatus() {
-        return isGamePlaying;
+        return m_isGamePlaying;
     }
 
     void World::playerOutOfScope() {
-        if (m_player->getY() < Camera::Instance()->getOffset() - abs(belowLogicY) ) isGamePlaying = false;
+        if (m_player->getY() < Camera::Instance()->getOffset() - abs(m_belowLogicY) ) m_isGamePlaying = false;
     }
 }

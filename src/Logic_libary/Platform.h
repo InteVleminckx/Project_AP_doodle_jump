@@ -101,6 +101,19 @@ namespace logic {
          * @param height: is een float, het is de hoogte van de Platform_static.
          ****************************************************************************************************/
         Platform_L_static(float posX, float posY, float width, float height);
+
+        /****************************************************************************************************
+         * @function virtual void movePlatfrom() override
+         * @brief De functie is niet nodig maar moet wel override worden omdat deze in de base class pure virtual is.
+         ****************************************************************************************************/
+        void movePlatform() override;
+
+        /****************************************************************************************************
+         * @function virtual void changeDirection() override
+         * @brief De functie is niet nodig maar moet wel override worden omdat deze in de base class pure virtual is.
+         ****************************************************************************************************/
+        void changeDirection() override;
+
     };
 
     class Platform_L_vertical : public  Platform_L {
@@ -124,7 +137,7 @@ namespace logic {
         void movePlatform() override;
 
         /****************************************************************************************************
-         * @function virtual void changeDirection()
+         * @function virtual void changeDirection() override
          * @brief Veranderd de bewegingsrichting van het platform.
          ****************************************************************************************************/
         void changeDirection() override;
@@ -151,7 +164,7 @@ namespace logic {
         void movePlatform() override;
 
         /****************************************************************************************************
-         * @function virtual void changeDirection()
+         * @function virtual void changeDirection() override
          * @brief Veranderd de bewegingsrichting van het platform.
          ****************************************************************************************************/
         void changeDirection() override;
@@ -170,6 +183,18 @@ namespace logic {
          * @param height: is een float, het is de hoogte van de Platform_temporary.
          ****************************************************************************************************/
         Platform_L_temporary(float posX, float posY, float width, float height);
+
+        /****************************************************************************************************
+         * @function virtual void movePlatfrom() override
+         * @brief De functie is niet nodig maar moet wel override worden omdat deze in de base class pure virtual is.
+         ****************************************************************************************************/
+         void movePlatform() override;
+
+        /****************************************************************************************************
+         * @function virtual void changeDirection() override
+         * @brief De functie is niet nodig maar moet wel override worden omdat deze in de base class pure virtual is.
+         ****************************************************************************************************/
+        void changeDirection() override;
     };
 }
 

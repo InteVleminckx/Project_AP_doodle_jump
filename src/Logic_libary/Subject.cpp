@@ -14,7 +14,6 @@ namespace logic {
             if (m_observers[i] == observer)
             {
                m_observers.erase(m_observers.begin()+i);
-               cout << "observer erased" << endl;
             }
         }
     }

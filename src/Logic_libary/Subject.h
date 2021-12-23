@@ -1,16 +1,17 @@
-/**
- * Naam: Inte Vleminckx
- * Studentennummer: 20201844
- * Datum:
- * Version: V1.0
- * Description:
- * Is Observeerbaar, er kunnen dus 0 of meer observers gelinkt zijn aan een subject
- * Heeft drie functionaliteiten:
- * 1) Add: voegt een observer toe aan het subject
- * 2) Remove: verwijdert een observer
- * 3) Notify: roept de observer aan wanneer nodig
- */
-
+/****************************************************************************************************
+ * @Naam Inte Vleminckx
+ * @Studentennummer 20201844
+ * @Datum
+ * @Class Subject
+ * @BaseClass none
+ * @SubClasses EntityModel
+ * @Namespace logic
+ * @brief  Is Observeerbaar, er kunnen dus 0 of meer observers gelinkt zijn aan een subject
+ Heeft drie functionaliteiten:
+ 1) Add: voegt een observer toe aan het subject
+ 2) Remove: verwijdert een observer
+ 3) Notify: roept de observer aan wanneer nodig
+ ****************************************************************************************************/
 #ifndef DOODLE_JUMP_SUBJECT_H
 #define DOODLE_JUMP_SUBJECT_H
 
@@ -24,46 +25,55 @@ using namespace std;
 namespace logic {
     class Observer;
     class Subject {
-        vector<shared_ptr<Observer>> m_observers; /** Een vector die alle observers van het subject bevat*/
+
+        /****************************************************************************************************
+         * @brief Een vector die alle observers van het subject bevat
+         * @type vector<shared_ptr<Observer>>
+         * @var m_observers
+         ****************************************************************************************************/
+        vector<shared_ptr<Observer>> m_observers;
 
     public:
 
-        /**
-         * Een constructor.
-         */
+        /****************************************************************************************************
+         * @function Subject()
+         * @brief Een default constructor.
+         ****************************************************************************************************/
         Subject();
 
-        /**
-         * Function: addObserver(Observer observer)
-         * Voegt een observer toe aan de vector van observers van het subject.
-         * @param observer: een observer
-         */
+        /****************************************************************************************************
+         * @function void addObserver(const shared_ptr<Observer>& observer)
+         * @brief Voegt een observer toe aan de vector van observers van het subject.
+         * @param observer: is een const shared_ptr naar een observer die wordt toegevoegd.
+         ****************************************************************************************************/
         void addObserver(const shared_ptr<Observer>& observer);
 
-        /**
-         * Function: removeObserver(Observer observer)
-         * Verwijdert een observer uit de vector van observers van het subject.
-         * @param observer: een observer
-         */
+        /****************************************************************************************************
+         * @function void removeObserver(const shared_ptr<Observer>& observer)
+         * @brief Verwijdert een observer uit de vector van observers van het subject.
+         * @param observer: is een const shared_ptr die uit de vector wordt verwijderd.
+         ****************************************************************************************************/
         void removeObserver(const shared_ptr<Observer>& observer);
 
-        /**
-         * Function: Notify()
-         * Gaat over alle observer van het subject en roept hier de update function op aan.
-         */
+        /****************************************************************************************************
+         * @function virtual void Notify()
+         * @brief Gaat over alle observer van het subject en roept hier de update function op aan.
+         * Het is een pure virtual void en wordt in de EntityModel class overschreven.
+         ****************************************************************************************************/
         virtual void Notify() = 0;
 
-        /**
-         * Function: emptyObserver()
-         * Verwijderd alle observers uit zijn vector.
-         */
+        /****************************************************************************************************
+         * @function void emptyObserver()
+         * @brief Verwijderd alle observers uit zijn vector.
+         ****************************************************************************************************/
         void emptyObserver();
 
-        /**
-         * Function: getObservers()
-         * Geeft een vector van observers terug die behoren tot het subject.
-         * @return: vector<shared_ptr<Observer>>
-         */
+        /****************************************************************************************************
+         * @function vector<shared_ptr<Observer>> getObservers()
+         * @brief Geeft een vector van observers terug die behoren tot het subject.
+         * @return: vector<shared_ptr<Observer>> wat alle observers van het subject bevat.
+         * @return: vector<shared_ptr<Observer>> wat alle observers van het subject bevat.
+         ****************************************************************************************************/
         vector<shared_ptr<Observer>> getObservers();
 
 

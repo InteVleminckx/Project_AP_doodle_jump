@@ -2,8 +2,6 @@
 
 namespace logic {
 
-    Player_L::Player_L() = default;
-
     Player_L::Player_L(float posX, float posY, float width, float height) {
         /**
         We werken in het logic gedeelte tussen -1 en 1 in de x-as en -1 en +inf in de y-as
