@@ -107,47 +107,6 @@ namespace logic {
         World();
 
         /****************************************************************************************************
-         * @function void createPlayer(shared_ptr<EntityFactory> &factory)
-         * @brief Maakt een player aan.
-         * @param factory: is een shared_ptr naar een EntityFactory wat de factory die gebruikt wordt om de player aan te maken.
-         ****************************************************************************************************/
-        void createPlayer(shared_ptr<EntityFactory> &factory);
-
-        /****************************************************************************************************
-         * @function void createPlatform(shared_ptr<EntityFactory> &factory, float x, float y)
-         * @brief Maakt een platform aan op de plaats van de meegeven coördinaten.
-         * @param factory: is een shared_ptr naar een EntityFactory wat de factory die gebruikt wordt om de platform aan te maken.
-         * @param x: is een float, de x coördinaat.
-         * @param y: is een float, de y coördinaat.
-         ****************************************************************************************************/
-        void createPlatform(shared_ptr<EntityFactory> &factory, float x, float y);
-
-        /****************************************************************************************************
-         * @function void createBonus(shared_ptr<EntityFactory> &factory, float x, float y)
-         * @brief Maakt een bonus aan op de plaats van de meegeven coördinaten.
-         * @param factory: is een shared_ptr naar een EntityFactory wat de factory die gebruikt wordt om de bonus aan te maken.
-         * @param x: is een float, de x coördinaat.
-         * @param y: is een float, de y coördinaat.
-         ****************************************************************************************************/
-        void createBonus(shared_ptr<EntityFactory> &factory, float x, float y);
-
-        /****************************************************************************************************
-         * @function void createBG_Tile(shared_ptr<EntityFactory> &factory, bool second)
-         * @brief Maakt een bg_tile aan.
-         * @param factory: is een shared_ptr naar een EntityFactory wat de factory die gebruikt wordt om de bonus aan te maken.
-         * @param second: is een bool, omdat we werken met 2 platformen kunnen we dit aanduiden met een boolean.
-         * En zo al een bg_tile aan te maken met een offset.
-         ****************************************************************************************************/
-        void createBG_Tile(shared_ptr<EntityFactory> &factory, bool second);
-
-        /****************************************************************************************************
-         * @function void createScore(shared_ptr<EntityFactory> &factory)
-         * @brief Maakt een score aan.
-         * @param factory: is een shared_ptr naar een EntityFactory wat de factory die gebruikt wordt om de score aan te maken.
-         ****************************************************************************************************/
-        void createScore(shared_ptr<EntityFactory> &factory);
-
-        /****************************************************************************************************
          * @function bool getGameStatus()
          * @brief Geeft de status van de game terug als een boolean.
          * @return Een boolean wat de gamestatus voorstelt.
@@ -177,7 +136,21 @@ namespace logic {
          ****************************************************************************************************/
         void getPointsBetweenFrames(vector<pair<float, float>>& left, vector<pair<float, float>>& right, const shared_ptr<Player_L>& player);
 
+
+        /****************************************************************************************************
+        * @function void changeGameStatus()
+        * @brief Past de gamestatus aan naar het tegenovergestelde dat het al is.
+        ****************************************************************************************************/
+        void changeGameStatus();
+
         /*BEGIN**************************************** Player ****************************************BEGIN*/
+
+        /****************************************************************************************************
+         * @function void createPlayer(shared_ptr<EntityFactory> &factory)
+         * @brief Maakt een player aan.
+         * @param factory: is een shared_ptr naar een EntityFactory wat de factory die gebruikt wordt om de player aan te maken.
+         ****************************************************************************************************/
+        void createPlayer(shared_ptr<EntityFactory> &factory);
 
         /****************************************************************************************************
          * @function void movePlayerRight()
@@ -216,6 +189,15 @@ namespace logic {
         /*BEGIN*************************************** Platform ***************************************BEGIN*/
 
         /****************************************************************************************************
+         * @function void createPlatform(shared_ptr<EntityFactory> &factory, float x, float y)
+         * @brief Maakt een platform aan op de plaats van de meegeven coördinaten.
+         * @param factory: is een shared_ptr naar een EntityFactory wat de factory die gebruikt wordt om de platform aan te maken.
+         * @param x: is een float, de x coördinaat.
+         * @param y: is een float, de y coördinaat.
+         ****************************************************************************************************/
+        void createPlatform(shared_ptr<EntityFactory> &factory, float x, float y);
+
+        /****************************************************************************************************
          * @function void createAplatform(shared_ptr<EntityFactory> &factory, bool begin = false)
          * @brief Controlleerd of er een platform gemaakt moet worden, als dat zo is dan dan wordt de createPlatform
          * functie aangeroepen.
@@ -237,6 +219,13 @@ namespace logic {
         /*BEGIN**************************************** Score *****************************************BEGIN*/
 
         /****************************************************************************************************
+         * @function void createScore(shared_ptr<EntityFactory> &factory)
+         * @brief Maakt een score aan.
+         * @param factory: is een shared_ptr naar een EntityFactory wat de factory die gebruikt wordt om de score aan te maken.
+         ****************************************************************************************************/
+        void createScore(shared_ptr<EntityFactory> &factory);
+
+        /****************************************************************************************************
          * @function int getScore()
          * @brief Het geeft de score terug van het spel terug "geschaald" naar een duidelijkere score.
          * @return Een integer wat de score is.
@@ -248,6 +237,15 @@ namespace logic {
         /*BEGIN*************************************** bg_tile ****************************************BEGIN*/
 
         /****************************************************************************************************
+         * @function void createBG_Tile(shared_ptr<EntityFactory> &factory, bool second)
+         * @brief Maakt een bg_tile aan.
+         * @param factory: is een shared_ptr naar een EntityFactory wat de factory die gebruikt wordt om de bonus aan te maken.
+         * @param second: is een bool, omdat we werken met 2 platformen kunnen we dit aanduiden met een boolean.
+         * En zo al een bg_tile aan te maken met een offset.
+         ****************************************************************************************************/
+        void createBG_Tile(shared_ptr<EntityFactory> &factory, bool second);
+
+        /****************************************************************************************************
          * @function void tileOutOfView()
          * @brief Kijkt of de tile out of scope is als da zo is dan wordt deze terug boven de andere tile geplaatst.
          ****************************************************************************************************/
@@ -256,7 +254,18 @@ namespace logic {
         /*END***************************************** bg_tile ******************************************END*/
 
 
-        void changeGameStatus();
+        /*BEGIN**************************************** Bonus *****************************************BEGIN*/
+
+        /****************************************************************************************************
+         * @function void createBonus(shared_ptr<EntityFactory> &factory, float x, float y)
+         * @brief Maakt een bonus aan op de plaats van de meegeven coördinaten.
+         * @param factory: is een shared_ptr naar een EntityFactory wat de factory die gebruikt wordt om de bonus aan te maken.
+         * @param x: is een float, de x coördinaat.
+         * @param y: is een float, de y coördinaat.
+         ****************************************************************************************************/
+        void createBonus(shared_ptr<EntityFactory> &factory, float x, float y);
+
+        /*END****************************************** Bonus *******************************************END*/
     };
 }
 
