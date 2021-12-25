@@ -15,106 +15,45 @@ namespace logic {
         m_bgTileHeight = abs(m_belowLogicY) * 3; m_bgTileWidth = abs(m_leftLogicX) + abs(m_rightLogicX);
 
         m_isGamePlaying = false;
+
+
     }
 
-    void World::createPlayer(shared_ptr<EntityFactory> &factory)
-    {
-        m_player = std::make_shared<logic::Player_L> ((m_leftLogicX + m_rightLogicX) / 2, m_belowLogicY + m_playerHeight, m_playerWidth, m_playerHeight);
-        factory->createPlayer(m_player);
-        m_player->jump();
+    void World::setFactory(shared_ptr<EntityFactory> &factory) {
+        m_entityFactory = move(factory);
     }
 
-    void World::createPlatform(shared_ptr<EntityFactory> &factory, float x, float y)
-    {
-        shared_ptr<logic::Platform_L> platform;
+    void World::setupWorld() {
 
-        PlatformType type  = Random::Instance()->getPlatformType();
+        //In het logic gedeelte hebben we enkel de stopwatch en random nodig
+        //om het spel zijn functionaliteit te gevev.
+        logic::Stopwatch::Instance();
+        logic::Random::Instance();
 
-        switch (type) {
-            case Static_:
-                if (Random::Instance()->createBonus()) createBonus(factory, x, y);
-                platform = make_shared<logic::Platform_L_static>(x, y, m_platformWidth, m_platformHeight);
-                break;
-            case Horizontal_:
-                 platform = std::make_shared<logic::Platform_L_horizontal> (x, y, m_platformWidth, m_platformHeight);
-                break;
-            case Vertical_:
-                platform = std::make_shared<logic::Platform_L_vertical> (x, y, m_platformWidth, m_platformHeight);
-                break;
-            case Temporary_:
-                platform = std::make_shared<logic::Platform_L_temporary> (x, y, m_platformWidth,m_platformHeight);
-        }
-        factory->createPlatform(platform, type);
-        m_platforms.push_back(platform);
+        createPlayer(m_entityFactory);
+
+        createAplatform(m_entityFactory, true);
+
+        createScore(m_entityFactory);
+
+        createBG_Tile(m_entityFactory, false);
+        createBG_Tile(m_entityFactory, true);
     }
 
-    void World::createBonus(shared_ptr<EntityFactory> &factory, float x, float y)
-    {
-        shared_ptr<logic::Bonus_L> bonus;
-        BonusType type  = Random::Instance()->getBonusType();
-        float x1;
-
-        switch (type) {
-            case Spring_:
-                x1 = x + (m_platformWidth/2) - (m_springWidth/2);
-                bonus = make_shared<logic::Spring_L>(x1, y+m_platformHeight, m_springWidth, m_springHeight);
-                break;
-            case Rocket_:
-                x1 = x + (m_platformWidth/2) - (m_rocketWidth/2);
-                bonus = std::make_shared<logic::Rocket_L> (x1, y+m_platformHeight, m_rocketWidth, m_rocketHeight);
-        }
-
-        factory->createBonus(bonus, type);
-        m_bonussen.push_back(bonus);
-    }
-
-    void World::createBG_Tile(shared_ptr<EntityFactory> &factory, bool second)
-    {
-        shared_ptr<logic::BG_Tile_L> tile;
-        if (second) {
-            tile = std::make_shared<logic::BG_Tile_L>(m_leftLogicX, (abs(m_belowLogicY) * 2) - abs(m_belowLogicY), m_bgTileWidth, m_bgTileHeight);
-        }
-        else {
-            tile = std::make_shared<logic::BG_Tile_L>(m_leftLogicX, m_belowLogicY, m_bgTileWidth, m_bgTileHeight);
-        }
-        factory->createBG_Tile(tile);
-        m_BGtiles.push_back(tile);
-    }
-
-    void World::createScore(shared_ptr<EntityFactory> &factory) {
-        factory->createScore(m_player, m_score);
+    bool World::getGameStatus() {
+        return m_isGamePlaying;
     }
 
     void World::updateEntities() {
 
-        tileOutOfView();
-        for (const auto& entity : m_BGtiles) entity->Notify();
+        refreshBg_Tile();
+        refreshPlayer();
+        refreshPlatform();
+        refreshBonus();
 
-        m_player->gravity();
-        playerTouchesBoost();
-        if (playerTouchesPlatform()) m_player->jump();
-        playerOutOfScope();
-        m_player->Notify();
-        logic::Camera::Instance()->projectToPixel(m_player->getX(), m_player->getY());
+        //Als alle entities zijn gerefreshed resetten we de clock.
+        logic::Stopwatch::Instance()->Reset();
 
-        bool removedPlatform = true;
-        while(removedPlatform)
-        {
-            removedPlatform = false;
-            for (auto& entity : m_platforms)
-            {
-                entity->movePlatform();
-
-                if (entity->getY() < m_player->getY() - abs(m_belowLogicY)){
-                    removePlatform(entity);
-                    removedPlatform = true;
-                    break;
-                }
-                entity->Notify();
-            }
-        }
-
-        for (const auto& entity : m_bonussen) entity->Notify();
     }
 
     void World::releaseObservers() {
@@ -122,75 +61,6 @@ namespace logic {
         for (const auto& entity : m_BGtiles) entity->emptyObserver();
         for (const auto& entity : m_platforms) entity->emptyObserver();
         for (const auto& entity : m_bonussen) entity->emptyObserver();
-    }
-
-    void World::movePlayerRight() {
-        m_player->moveRight(m_leftLogicX, m_rightLogicX);
-    }
-
-    void World::movePlayerLeft() {
-        m_player->moveLeft(m_leftLogicX, m_rightLogicX);
-    }
-
-    bool World::playerTouchesPlatform() {
-
-        if (m_player->getVelocityY() > 0) return false;
-
-        vector<pair<float, float>> leftPlayer, rightPlayer;
-        getPointsBetweenFrames(leftPlayer, rightPlayer, m_player);
-
-        for (auto &platform : m_platforms) {
-            for (int i = 0; i < leftPlayer.size(); i++) {
-                float platform_Y0 = platform->getY();
-                float platform_Y1 = platform->getY() + platform->getHeight();
-
-                //static, controller of de y-waarde van de player tussen het platform ligt
-                if (platform_Y0 <= leftPlayer[i].second && leftPlayer[i].second <= platform_Y1) {
-                    float platform_X0 = platform->getX();
-                    float platform_X1 = platform->getX() + platform->getWidth();
-                    // nu nog controlleren of de x-waarde ertussen zit zodat de player effectief het platform geraakt heeft
-                    if ((platform_X0 <= leftPlayer[i].first && leftPlayer[i].first <= platform_X1) || (platform_X0 <= rightPlayer[i].first && rightPlayer[i].first <= platform_X1)) {
-                        if (platform->isTemporary())removePlatform(platform);
-                        return true;
-                    }
-                }
-            }
-        }
-
-        return false;
-    }
-
-    void World::playerTouchesBoost() {
-        if (m_player->getVelocityY() <= 0)
-        {
-
-        }
-        vector<pair<float, float>> leftPlayer, rightPlayer;
-        getPointsBetweenFrames(leftPlayer, rightPlayer, m_player);
-
-        for (auto &bonus : m_bonussen) {
-            for (int i = 0; i < leftPlayer.size(); i++) {
-                float bonus_Y0 = bonus->getY();
-                float bonus_Y1 = bonus->getY() + bonus->getHeight();
-
-                if (bonus_Y0 <= leftPlayer[i].second && leftPlayer[i].second <= bonus_Y1) {
-                    float bonus_X0 = bonus->getX();
-                    float bonus_X1 = bonus->getX() + bonus->getWidth();
-
-                    if (( leftPlayer[i].first <= bonus_X0  && bonus_X0 <=  rightPlayer[i].first) || ( leftPlayer[i].first <= bonus_X1  && bonus_X1 <=  rightPlayer[i].first)) {
-
-                        if (bonus->getInvolmsVelocity() && m_player->getVelocityY() <= 0)
-                        {
-                            m_player->powerup(bonus->getForce());
-                        }
-                        else if (! bonus->getInvolmsVelocity()){
-                            m_player->powerup(bonus->getForce());
-                        }
-
-                    }
-                }
-            }
-        }
     }
 
     void World::getPointsBetweenFrames(vector<pair<float, float>> &left, vector<pair<float, float>> &right, const shared_ptr<Player_L>& subject) {
@@ -244,16 +114,174 @@ namespace logic {
         }
     }
 
-    void World::removePlatform(shared_ptr<Platform_L>& platform) {
+    void World::changeGameStatus() {
+        if (m_isGamePlaying) m_isGamePlaying = false;
+        else m_isGamePlaying = true;
 
-        for (int i = 0; i<m_platforms.size(); i++) {
-            if (platform == m_platforms[i])
-            {
-                m_platforms.erase(m_platforms.begin() + i);
-                break;
+    }
+
+    /*BEGIN**************************************** Player ****************************************BEGIN*/
+
+    void World::createPlayer(shared_ptr<EntityFactory> &factory)
+    {
+        m_player = std::make_shared<logic::Player_L> ((m_leftLogicX + m_rightLogicX) / 2, m_belowLogicY + m_playerHeight, m_playerWidth, m_playerHeight);
+        factory->createPlayer(m_player);
+        m_player->jump();
+    }
+
+    void World::refreshPlayer() {
+
+        //Controleren eerst of de speler links of rechts wilt bewegen.
+        if (representation::Window::Instance()->isPressedLeft()) movePlayerLeft();
+        if (representation::Window::Instance()->isPressedRight()) movePlayerRight();
+
+        //Passen de zwaartekracht toe op de speler.
+        m_player->gravity();
+
+        //Controleren op een collision met een boost.
+        playerTouchesBoost();
+
+        //Controleren op een collision met een platform, zoja springt de speler.
+        if (playerTouchesPlatform()) m_player->jump();
+
+        //Controleert of de speler uit het scherm is van onder, zoja eindigt het spel.
+        playerOutOfScope();
+
+        m_player->Notify();
+    }
+
+    void World::movePlayerRight() {
+        m_player->moveRight(m_leftLogicX, m_rightLogicX);
+    }
+
+    void World::movePlayerLeft() {
+        m_player->moveLeft(m_leftLogicX, m_rightLogicX);
+    }
+
+    bool World::playerTouchesPlatform() {
+
+        if (m_player->getVelocityY() > 0) return false;
+
+        vector<pair<float, float>> leftPlayer, rightPlayer;
+        getPointsBetweenFrames(leftPlayer, rightPlayer, m_player);
+
+        for (auto &platform : m_platforms) {
+            for (int i = 0; i < leftPlayer.size(); i++) {
+                float platform_Y0 = platform->getY();
+                float platform_Y1 = platform->getY() + platform->getHeight();
+
+                //static, controller of de y-waarde van de player tussen het platform ligt
+                if (platform_Y0 <= leftPlayer[i].second && leftPlayer[i].second <= platform_Y1) {
+                    float platform_X0 = platform->getX();
+                    float platform_X1 = platform->getX() + platform->getWidth();
+                    // nu nog controlleren of de x-waarde ertussen zit zodat de player effectief het platform geraakt heeft
+                    if ((platform_X0 <= leftPlayer[i].first && leftPlayer[i].first <= platform_X1) || (platform_X0 <= rightPlayer[i].first && rightPlayer[i].first <= platform_X1)) {
+                        if (platform->isTemporary())removePlatform(platform);
+                        return true;
+                    }
+                }
             }
         }
 
+        return false;
+    }
+
+    void World::playerTouchesBoost() {
+        vector<pair<float, float>> leftPlayer, rightPlayer;
+        getPointsBetweenFrames(leftPlayer, rightPlayer, m_player);
+
+        for (auto &bonus : m_bonussen) {
+            for (int i = 0; i < leftPlayer.size(); i++) {
+                float bonus_Y0 = bonus->getY();
+                float bonus_Y1 = bonus->getY() + bonus->getHeight();
+
+                if (bonus_Y0 <= leftPlayer[i].second && leftPlayer[i].second <= bonus_Y1) {
+                    float bonus_X0 = bonus->getX();
+                    float bonus_X1 = bonus->getX() + bonus->getWidth();
+
+                    if (( leftPlayer[i].first <= bonus_X0  && bonus_X0 <=  rightPlayer[i].first) || ( leftPlayer[i].first <= bonus_X1  && bonus_X1 <=  rightPlayer[i].first)) {
+
+                        if (bonus->getInvolmsVelocity() && m_player->getVelocityY() <= 0)
+                        {
+                            m_player->powerup(bonus->getForce());
+                        }
+                        else if (! bonus->getInvolmsVelocity()){
+                            m_player->powerup(bonus->getForce());
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+    /*END***************************************** bg_tile ******************************************END*/
+
+    void World::playerCollision(vector<shared_ptr<EntityModel>>& entities) {
+
+
+
+    }
+
+    void World::playerOutOfScope() {
+        if (m_player->getY() < Camera::Instance()->getOffset() - abs(m_belowLogicY) ) m_isGamePlaying = false;
+    }
+
+    /*END****************************************** Player ******************************************END*/
+
+    /*BEGIN*************************************** Platform ***************************************BEGIN*/
+
+    void World::createPlatform(shared_ptr<EntityFactory> &factory, float x, float y)
+    {
+        shared_ptr<logic::Platform_L> platform;
+
+        PlatformType type  = Random::Instance()->getPlatformType();
+
+        switch (type) {
+            case Static_:
+                if (Random::Instance()->createBonus()) createBonus(factory, x, y);
+                platform = make_shared<logic::Platform_L_static>(x, y, m_platformWidth, m_platformHeight);
+                break;
+            case Horizontal_:
+                platform = std::make_shared<logic::Platform_L_horizontal> (x, y, m_platformWidth, m_platformHeight);
+                break;
+            case Vertical_:
+                platform = std::make_shared<logic::Platform_L_vertical> (x, y, m_platformWidth, m_platformHeight);
+                break;
+            case Temporary_:
+                platform = std::make_shared<logic::Platform_L_temporary> (x, y, m_platformWidth,m_platformHeight);
+        }
+        factory->createPlatform(platform, type);
+        m_platforms.push_back(platform);
+    }
+
+    void World::refreshPlatform() {
+
+        //we gaan ook eerst nog controleren of er een platform aangemaakt moet worden.
+        createAplatform(m_entityFactory);
+
+        bool removedPlatform = true;
+
+        //telkens als er een platform verwijderd wordt, wordt de lijst van platforms aangepast.
+        //Daarom gaan we als we een platform verwijderen de while loop onderbreken en terug opnieuw beginnen.
+        //Zolang er een platform verwijderd wordt.
+
+        while(removedPlatform)
+        {
+            removedPlatform = false;
+            for (auto& entity : m_platforms)
+            {
+                entity->movePlatform();
+
+                if (entity->getY() < m_player->getY() - abs(m_belowLogicY)){
+                    removePlatform(entity);
+                    removedPlatform = true;
+                    break;
+                }
+                entity->Notify();
+            }
+
+        }
     }
 
     void World::createAplatform(shared_ptr<EntityFactory> &factory, bool begin) {
@@ -298,6 +326,27 @@ namespace logic {
 
     }
 
+    void World::removePlatform(shared_ptr<Platform_L>& platform) {
+
+        for (int i = 0; i<m_platforms.size(); i++) {
+            if (platform == m_platforms[i])
+            {
+                m_platforms.erase(m_platforms.begin() + i);
+                break;
+            }
+        }
+
+    }
+
+    /*END***************************************** Platform *****************************************END*/
+
+    /*BEGIN**************************************** Score *****************************************BEGIN*/
+
+    void World::createScore(shared_ptr<EntityFactory> &factory) {
+        factory->createScore(m_player, m_score);
+
+    }
+
     int World::getScore() {
 
         if (m_score != nullptr)
@@ -307,6 +356,28 @@ namespace logic {
 
         else return 0;
 
+    }
+
+    /*END****************************************** Score *******************************************END*/
+
+    /*BEGIN*************************************** bg_tile ****************************************BEGIN*/
+
+    void World::createBG_Tile(shared_ptr<EntityFactory> &factory, bool second)
+    {
+        shared_ptr<logic::BG_Tile_L> tile;
+        if (second) {
+            tile = std::make_shared<logic::BG_Tile_L>(m_leftLogicX, (abs(m_belowLogicY) * 2) - abs(m_belowLogicY), m_bgTileWidth, m_bgTileHeight);
+        }
+        else {
+            tile = std::make_shared<logic::BG_Tile_L>(m_leftLogicX, m_belowLogicY, m_bgTileWidth, m_bgTileHeight);
+        }
+        factory->createBG_Tile(tile);
+        m_BGtiles.push_back(tile);
+    }
+
+    void World::refreshBg_Tile() {
+        tileOutOfView();
+        for (const auto& entity : m_BGtiles) entity->Notify();
     }
 
     void World::tileOutOfView() {
@@ -320,17 +391,33 @@ namespace logic {
         }
     }
 
-    void World::changeGameStatus() {
-        if (m_isGamePlaying) m_isGamePlaying = false;
-        else m_isGamePlaying = true;
+    /*BEGIN**************************************** Bonus *****************************************BEGIN*/
 
+    void World::createBonus(shared_ptr<EntityFactory> &factory, float x, float y)
+    {
+        shared_ptr<logic::Bonus_L> bonus;
+        BonusType type  = Random::Instance()->getBonusType();
+        float x1;
+
+        switch (type) {
+            case Spring_:
+                x1 = x + (m_platformWidth/2) - (m_springWidth/2);
+                bonus = make_shared<logic::Spring_L>(x1, y+m_platformHeight, m_springWidth, m_springHeight);
+                break;
+            case Rocket_:
+                x1 = x + (m_platformWidth/2) - (m_rocketWidth/2);
+                bonus = std::make_shared<logic::Rocket_L> (x1, y+m_platformHeight, m_rocketWidth, m_rocketHeight);
+        }
+
+        factory->createBonus(bonus, type);
+        m_bonussen.push_back(bonus);
     }
 
-    bool World::getGameStatus() {
-        return m_isGamePlaying;
+    void World::refreshBonus() {
+
+        for (const auto& entity : m_bonussen) entity->Notify();
     }
 
-    void World::playerOutOfScope() {
-        if (m_player->getY() < Camera::Instance()->getOffset() - abs(m_belowLogicY) ) m_isGamePlaying = false;
-    }
+    /*END****************************************** Bonus *******************************************END*/
+
 }

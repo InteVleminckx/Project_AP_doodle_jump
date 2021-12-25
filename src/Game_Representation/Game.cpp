@@ -8,23 +8,28 @@ namespace representation {
         m_frameRate = 60.0f;
     }
 
+    void Game::setupWorld() {
+        shared_ptr<logic::EntityFactory> factory = make_shared<representation::ConcreteFactory>();
+        m_world.setFactory(factory);
+        m_world.setupWorld();
+    }
+
+
+
     void Game::displayFullGame() {
 
+        //Camera en window zijn nodig voor het opzetten en displayen van de logic world.
         representation::Window::Instance(m_windowWidth, m_windowHeight, m_gameTitle);
-        logic::Stopwatch::Instance();
-        logic::Random::Instance();
         logic::Camera::Instance(m_windowWidth, m_windowHeight);
 
         while ( Window::Instance()->isOpen())
         {
             if (m_world.getGameStatus()){
+                setupWorld();
                 beginGame();
                 stopGame();
             }
-            else
-            {
-                displayMenu();
-            }
+            else displayMenu();
         }
 
         logic::Stopwatch::Release();
@@ -33,17 +38,7 @@ namespace representation {
         Window::Release();
     }
 
-
-
     void Game::beginGame() {
-
-        logic::Stopwatch::Instance()->Reset();
-        shared_ptr<logic::EntityFactory> factory = make_shared<representation::ConcreteFactory>();
-        m_world.createPlayer(factory);
-        m_world.createAplatform(factory, true);
-        m_world.createScore(factory);
-        m_world.createBG_Tile(factory, false);
-        m_world.createBG_Tile(factory, true);
 
         while (Window::Instance()->isOpen())
         {
@@ -52,13 +47,8 @@ namespace representation {
             {
                 Window::Instance()->getWindow()->clear();
                 m_world.updateEntities();
-                m_world.createAplatform(factory);
-                logic::Stopwatch::Instance()->Reset();
-//                cout << 1 / logic::Stopwatch::Instance()->GetDeltaTime() << endl;
-                if (Window::Instance()->isPressedLeft()) m_world.movePlayerLeft();
-                if (Window::Instance()->isPressedRight()) m_world.movePlayerRight();
+
                 if (!m_world.getGameStatus()) break;
-//                sf::sleep(sf::seconds(0.1f));
 
             }
             Window::Instance()->update(m_world.getScore());
@@ -70,13 +60,10 @@ namespace representation {
         m_world.releaseObservers();
         m_world = logic::World();
 
+        //Omdat deze enkel nodig zijn in het logic gedeelte.
+        //Gaan we deze momenteel releasen want deze zijn niet meer nodig in het menu.
         logic::Stopwatch::Release();
         logic::Random::Release();
-        logic::Camera::Release();
-        logic::Stopwatch::Instance();
-        logic::Random::Instance();
-        logic::Camera::Instance(m_windowWidth, m_windowHeight);
-
 
     }
 
@@ -124,7 +111,6 @@ namespace representation {
             Window::Instance()->getWindow()->draw(textInstr);
             Window::Instance()->getWindow()->draw(score);
             Window::Instance()->getWindow()->display();
-
             Window::Instance()->update(m_world.getScore());
 
         }

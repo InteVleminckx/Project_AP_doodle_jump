@@ -76,6 +76,12 @@ namespace representation {
         Game();
 
         /****************************************************************************************************
+         * @function setupWorld()
+         * @brief Zorgt dat de world correct wordt ingesteld.
+         ****************************************************************************************************/
+        void setupWorld();
+
+        /****************************************************************************************************
          * @function displayFullGame()
          * @brief Geeft het game scherm weer. Waarbij geswitched kan worden door het menu en de game zelf.
          ****************************************************************************************************/

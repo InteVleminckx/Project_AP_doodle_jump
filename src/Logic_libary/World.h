@@ -15,7 +15,7 @@
 
 #include <iostream>
 #include "Stopwatch.h"
-#include "EntityFactory.h"
+#include "../Game_Representation/ConcreteFactory.h"
 #include "Player.h"
 #include "Platform.h"
 #include "BG_Tile.h"
@@ -28,6 +28,7 @@
 using namespace std;
 
 namespace logic {
+
     class World {
 
         /****************************************************************************************************
@@ -98,6 +99,13 @@ namespace logic {
          ****************************************************************************************************/
         bool m_isGamePlaying;
 
+        /****************************************************************************************************
+         * @brief Is de factory waar alle entities ingemaakt worden.
+         * @type shared_ptr<EntityFactory>
+         * @var m_entityFactory
+         ****************************************************************************************************/
+        shared_ptr<EntityFactory> m_entityFactory;
+
     public:
 
         /****************************************************************************************************
@@ -105,6 +113,20 @@ namespace logic {
          * @brief Een constructor waar alle data members worden ingesteld.
          ****************************************************************************************************/
         World();
+
+
+        /****************************************************************************************************
+         * @function setFactory()
+         * @brief Initialiseerd de factory voor de world class.
+         * @param factory Is een shared pointer van een EntityFactory.
+         ****************************************************************************************************/
+        void setFactory(shared_ptr<EntityFactory>& factory);
+
+        /****************************************************************************************************
+         * @function setupWorld()
+         * @brief Alle nodig entities die in het begin nodig zijn worden hier aangemaakt.
+         ****************************************************************************************************/
+        void setupWorld();
 
         /****************************************************************************************************
          * @function bool getGameStatus()
@@ -136,7 +158,6 @@ namespace logic {
          ****************************************************************************************************/
         void getPointsBetweenFrames(vector<pair<float, float>>& left, vector<pair<float, float>>& right, const shared_ptr<Player_L>& player);
 
-
         /****************************************************************************************************
         * @function void changeGameStatus()
         * @brief Past de gamestatus aan naar het tegenovergestelde dat het al is.
@@ -151,6 +172,13 @@ namespace logic {
          * @param factory: is een shared_ptr naar een EntityFactory wat de factory die gebruikt wordt om de player aan te maken.
          ****************************************************************************************************/
         void createPlayer(shared_ptr<EntityFactory> &factory);
+
+
+        /****************************************************************************************************
+         * @function void refreshPlayer()
+         * @brief Refreshed alle eigenschappen van de speler en zorgt ervoor dat deze geupdate wordt.
+         ****************************************************************************************************/
+        void refreshPlayer();
 
         /****************************************************************************************************
          * @function void movePlayerRight()
@@ -177,7 +205,7 @@ namespace logic {
          * @return Een boolean wat zegt of de speler het bonus raakt of niet
          ****************************************************************************************************/
         void playerTouchesBoost();
-
+        
         /****************************************************************************************************
          * @function void playerOutOfScope()
          * @brief Als de speler out of scope is zal het, het spel eindigen.
@@ -196,6 +224,12 @@ namespace logic {
          * @param y: is een float, de y coördinaat.
          ****************************************************************************************************/
         void createPlatform(shared_ptr<EntityFactory> &factory, float x, float y);
+
+        /****************************************************************************************************
+         * @function void refreshPlatform()
+         * @brief Refreshed alle eigenschappen van het platform en zorgt ervoor dat deze geupdate wordt.
+         ****************************************************************************************************/
+        void refreshPlatform();
 
         /****************************************************************************************************
          * @function void createAplatform(shared_ptr<EntityFactory> &factory, bool begin = false)
@@ -246,13 +280,18 @@ namespace logic {
         void createBG_Tile(shared_ptr<EntityFactory> &factory, bool second);
 
         /****************************************************************************************************
+         * @function void refreshBg_Tile()
+         * @brief Refreshed alle eigenschappen van de bg_tile en zorgt ervoor dat deze geupdate wordt.
+         ****************************************************************************************************/
+        void refreshBg_Tile();
+
+        /****************************************************************************************************
          * @function void tileOutOfView()
          * @brief Kijkt of de tile out of scope is als da zo is dan wordt deze terug boven de andere tile geplaatst.
          ****************************************************************************************************/
         void tileOutOfView();
 
         /*END***************************************** bg_tile ******************************************END*/
-
 
         /*BEGIN**************************************** Bonus *****************************************BEGIN*/
 
@@ -264,6 +303,12 @@ namespace logic {
          * @param y: is een float, de y coördinaat.
          ****************************************************************************************************/
         void createBonus(shared_ptr<EntityFactory> &factory, float x, float y);
+
+        /****************************************************************************************************
+         * @function void refreshBonus()
+         * @brief Refreshed alle eigenschappen van de bonus en zorgt ervoor dat deze geupdate wordt.
+         ****************************************************************************************************/
+        void refreshBonus();
 
         /*END****************************************** Bonus *******************************************END*/
     };
