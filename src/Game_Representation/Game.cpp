@@ -46,7 +46,7 @@ namespace representation {
             if (logic::Stopwatch::Instance()->GetDeltaTime() >= 1/m_frameRate)
             {
                 Window::Instance()->getWindow()->clear();
-                m_world.updateEntities();
+                m_world.updateWorld();
 
                 if (!m_world.getGameStatus()) break;
 

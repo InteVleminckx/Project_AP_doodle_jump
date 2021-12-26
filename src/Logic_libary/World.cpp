@@ -44,7 +44,7 @@ namespace logic {
         return m_isGamePlaying;
     }
 
-    void World::updateEntities() {
+    void World::updateWorld() {
 
         refreshBg_Tile();
         refreshPlayer();
@@ -54,6 +54,8 @@ namespace logic {
         //Als alle entities zijn gerefreshed resetten we de clock.
         logic::Stopwatch::Instance()->Reset();
 
+        //Veranderd de moeilijkheidsgraad als dit nodig is.
+        logic::Random::Instance()->refreshDifficulty(logic::Camera::Instance()->reproduceScore(m_score->getScore()));
     }
 
     void World::releaseObservers() {
@@ -65,7 +67,8 @@ namespace logic {
 
     void World::getPointsBetweenFrames(vector<pair<float, float>> &left, vector<pair<float, float>> &right, const shared_ptr<Player_L>& subject) {
 
-        //TODO: reference naar Computer graphics neerzetten
+
+        //Code gehaald uit project van vorig jaar voor het Project Computer Graphics.
 
         float x0 = subject->getXprev();
         float x1 = subject->getX();
@@ -138,11 +141,8 @@ namespace logic {
         //Passen de zwaartekracht toe op de speler.
         m_player->gravity();
 
-        //Controleren op een collision met een boost.
-        playerTouchesBoost();
-
-        //Controleren op een collision met een platform, zoja springt de speler.
-        if (playerTouchesPlatform()) m_player->jump();
+        //Controleren op een collision.
+        playerCollision();
 
         //Controleert of de speler uit het scherm is van onder, zoja eindigt het spel.
         playerOutOfScope();
@@ -158,12 +158,9 @@ namespace logic {
         m_player->moveLeft(m_leftLogicX, m_rightLogicX);
     }
 
-    bool World::playerTouchesPlatform() {
+    void World::playerTouchesPlatform(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer) {
 
-        if (m_player->getVelocityY() > 0) return false;
-
-        vector<pair<float, float>> leftPlayer, rightPlayer;
-        getPointsBetweenFrames(leftPlayer, rightPlayer, m_player);
+        if (m_player->getVelocityY() > 0) return;
 
         for (auto &platform : m_platforms) {
             for (int i = 0; i < leftPlayer.size(); i++) {
@@ -176,19 +173,16 @@ namespace logic {
                     float platform_X1 = platform->getX() + platform->getWidth();
                     // nu nog controlleren of de x-waarde ertussen zit zodat de player effectief het platform geraakt heeft
                     if ((platform_X0 <= leftPlayer[i].first && leftPlayer[i].first <= platform_X1) || (platform_X0 <= rightPlayer[i].first && rightPlayer[i].first <= platform_X1)) {
-                        if (platform->isTemporary())removePlatform(platform);
-                        return true;
+                        m_player->jump();
+                        if (platform->isTemporary()) {removePlatform(platform);}
+                        return;
                     }
                 }
             }
         }
-
-        return false;
     }
 
-    void World::playerTouchesBoost() {
-        vector<pair<float, float>> leftPlayer, rightPlayer;
-        getPointsBetweenFrames(leftPlayer, rightPlayer, m_player);
+    void World::playerTouchesBoost(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer) {
 
         for (auto &bonus : m_bonussen) {
             for (int i = 0; i < leftPlayer.size(); i++) {
@@ -217,9 +211,11 @@ namespace logic {
 
     /*END***************************************** bg_tile ******************************************END*/
 
-    void World::playerCollision(vector<shared_ptr<EntityModel>>& entities) {
-
-
+    void World::playerCollision() {
+        vector<pair<float, float>> leftPlayer, rightPlayer;
+        getPointsBetweenFrames(leftPlayer, rightPlayer, m_player);
+        playerTouchesBoost(leftPlayer, rightPlayer);
+        playerTouchesPlatform(leftPlayer, rightPlayer);
 
     }
 
@@ -297,14 +293,15 @@ namespace logic {
 
             for (int i = 0; i < aantalPlatforms+1; ++i)
             {
-                if (Random::Instance()->createPlatform())
+                float y = m_belowLogicY + (i * m_platformHeight * 3.5);
+                if (Random::Instance()->createPlatform(m_prevPlatform,y))
                 {
-                    float y = m_belowLogicY + (i * m_platformHeight * 3.5);
                     float x = Random::Instance()->giveRandomX(m_leftLogicX, m_rightLogicX);
 
                     if (x > m_rightLogicX - m_platformWidth) x = m_rightLogicX - m_platformWidth;
 
                     createPlatform(factory, x, y);
+                    m_prevPlatform = y;
                 }
             }
 
@@ -314,11 +311,12 @@ namespace logic {
             if (m_player->getY() + (abs(m_belowLogicY) * 2) > renderTop + (m_platformHeight * 2.5))
             {
                 renderTop = m_player->getY() + (abs(m_belowLogicY) * 2);
-                if (Random::Instance()->createPlatform())
+                if (Random::Instance()->createPlatform(m_prevPlatform, renderTop))
                 {
                     float x = Random::Instance()->giveRandomX(m_leftLogicX, m_rightLogicX);
                     if (x > m_rightLogicX - m_platformWidth) x = m_rightLogicX - m_platformWidth;
                     createPlatform(factory, x, renderTop);
+                    m_prevPlatform = renderTop;
                 }
             }
 

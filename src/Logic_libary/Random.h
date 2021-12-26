@@ -30,6 +30,22 @@ namespace logic {
         static Random* s_instance;
 
         /****************************************************************************************************
+         * @brief Een moeilijkheidsgraad die van 1 tot 10 gaat met 10 als hoogste.
+         * Hiermee kunnen we de game moeilijker en moeilijker laten gaan tot een bepaald niveau.
+         * @type int
+         * @var m_difficultyNiveau
+         ****************************************************************************************************/
+        int m_difficultyNiveau;
+
+        /****************************************************************************************************
+         * @brief Houdt bij of er wel een platform is gegenereerd binnen een x afstand zodat er toch zeker
+         * altijd een weg is naar boven.
+         * @type bool
+         * @var m_hasGeneratedPlatform
+         ****************************************************************************************************/
+        bool m_hasGeneratedPlatform;
+
+        /****************************************************************************************************
          * @function Random()
          * @brief Wanneer er een random object wordt aangemaakt wordt eerst de seed opnieuw ingesteld.
          ****************************************************************************************************/
@@ -68,7 +84,7 @@ namespace logic {
          * @brief Zegt of er een platform gegenereerd moet worden op basis van de score.
          * @return Een boolean die zegt of het gegenereerd moet worden of niet?
          ****************************************************************************************************/
-        bool createPlatform();
+        bool createPlatform(float prevPlatform, float possiblePlatform);
 
         /****************************************************************************************************
          * @function bool createBonus()
@@ -91,6 +107,12 @@ namespace logic {
          * @brief Reset de time als seed voor de random functie.
          ****************************************************************************************************/
         void Reset();
+
+        /****************************************************************************************************
+         * @function void refreshDifficulty()
+         * @brief Kijkt naar de score en ziet of de moeilijkheidsgraad moet verhoogt worden.
+         ****************************************************************************************************/
+        void refreshDifficulty(int score);
 
     private:
 

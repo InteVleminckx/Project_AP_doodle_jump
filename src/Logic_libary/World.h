@@ -92,11 +92,19 @@ namespace logic {
         float m_rocketHeight{}, m_rocketWidth{};
         float m_bgTileHeight{}, m_bgTileWidth{};
 
+
         /****************************************************************************************************
-         * @brief Zegt of de game actief is of niet. Als het false is zitten we in het menu anders in de game.
-         * @type bool
-         * @var m_isGamePlaying
-         ****************************************************************************************************/
+        * @brief De y waarde van de laatst gegenereerde y platform
+        * @type float
+        * @var m_prevPlatform
+        ****************************************************************************************************/
+        float m_prevPlatform;
+
+       /****************************************************************************************************
+        * @brief Zegt of de game actief is of niet. Als het false is zitten we in het menu anders in de game.
+        * @type bool
+        * @var m_isGamePlaying
+        ****************************************************************************************************/
         bool m_isGamePlaying;
 
         /****************************************************************************************************
@@ -136,10 +144,10 @@ namespace logic {
         bool getGameStatus();
 
         /****************************************************************************************************
-         * @function void updateEntities()
-         * @brief Zorgt dat alle entities worden geupdate. En roept hun notify functies aan.
+         * @function void updateWorld()
+         * @brief Zorgt dat alles in de wereld wordt geupdate. En roept hun notify functies aan.
          ****************************************************************************************************/
-        void updateEntities();
+        void updateWorld();
 
         /****************************************************************************************************
          * @function void releaseObservers()
@@ -193,18 +201,20 @@ namespace logic {
         void movePlayerLeft();
 
         /****************************************************************************************************
-         * @function bool playerTouchesPlatform()
+         * @function void playerTouchesPlatform(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer)
          * @brief Controlleerd of de speler collision heeft met een platform.
-         * @return Een boolean wat zegt of de speler het platform raakt of niet
+         * @param leftPlayer is een vector van een pair die 2 floats bevat, wat de linkerboundry coordinaten zijn.
+         * @param rightPlayer is een vector van een pair die 2 floats bevat, wat de rechterboundry coordinaten zijn.
          ****************************************************************************************************/
-        bool playerTouchesPlatform();
+        void playerTouchesPlatform(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer);
 
         /****************************************************************************************************
-         * @function void playerTouchesBoost()
+         * @function void playerTouchesBoost(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer)
          * @brief Controlleerd of de speler collision heeft met een bonus.
-         * @return Een boolean wat zegt of de speler het bonus raakt of niet
+         * @param leftPlayer is een vector van een pair die 2 floats bevat, wat de linkerboundry coordinaten zijn.
+         * @param rightPlayer is een vector van een pair die 2 floats bevat, wat de rechterboundry coordinaten zijn.
          ****************************************************************************************************/
-        void playerTouchesBoost();
+        void playerTouchesBoost(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer);
         
         /****************************************************************************************************
          * @function void playerOutOfScope()
@@ -311,6 +321,7 @@ namespace logic {
         void refreshBonus();
 
         /*END****************************************** Bonus *******************************************END*/
+        void playerCollision();
     };
 }
 

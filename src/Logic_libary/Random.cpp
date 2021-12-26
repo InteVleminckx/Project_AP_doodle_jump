@@ -15,6 +15,9 @@ namespace logic {
     }
 
     Random::Random() {
+
+        m_difficultyNiveau = 1;
+
         Reset();
     }
 
@@ -44,12 +47,32 @@ namespace logic {
         return Rocket_;
     }
 
-    bool Random::createPlatform() {
+    bool Random::createPlatform(float prevPlatform, float possiblePlatform) {
         //ToDo: dit nog afstellen op score, in het begin veel meer kans op platforms
 
-        int number = rand() % 10;
+        //het is zo dat we minstens om de zoveel keer we deze functie hebben aangeroepen toch zeker 1 platform moeten creëeren
+        //Want anders als het moeilijker en moeilijker wordt dan gaan we misschien niet meer aan het volgende programma geraken.
 
-        if (number < 8) return true;
+        //Als we zeggen dat we maximaal 15 platforms willen genereren op 1 window
+        //Dan zeggen we dat bij niveau 1 de kans op platforms 14/15 is
+        //bij niveau 2 dan 13/14 enzovoort tot bij niveau 10 hebben we dan 5/15
+        //Wat zegt dat de kans dat we telkens een platform willen genereren 33% is
+
+        int maxPlatforms = 15.f;
+        int maxPlatsNiveau = maxPlatforms - m_difficultyNiveau;
+        float chance = (float)maxPlatsNiveau / (float) maxPlatforms;
+
+        //bron: https://en.cppreference.com/w/cpp/numeric/random/uniform_real_distribution
+        std::random_device rd;  // Will be used to obtain a seed for the random number engine
+        std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
+        std::uniform_real_distribution<> dis(0, 1);
+
+        if (chance > dis(gen) || (possiblePlatform - prevPlatform > 0.5f))
+        {
+            return true;
+        }
+
+
         return false;
 
     }
@@ -60,14 +83,7 @@ namespace logic {
         std::random_device rd;  // Will be used to obtain a seed for the random number engine
         std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
         std::uniform_real_distribution<> dis(leftBound, rightBound);
-
         return dis(gen);
-        //we genereren een random nummer tussen 1 en 50 dit als we dan de right bound hier door delen krijgen we een float
-//        int number = rand() % 100;
-//        number+=1; //om 0 te voorkomen
-//
-//        return leftBound + (rightBound/number);
-
 
     }
 
@@ -78,5 +94,20 @@ namespace logic {
 
         if (number > 8) return true;
         return false;
+    }
+
+    void Random::refreshDifficulty(int score) {
+
+        int possibleDifficulty = ceil(score / 10000);
+
+        //We zetten de max moeilijkheidsgraad op 10
+        if (possibleDifficulty > 10) return;
+
+        //als de moeilijkheidsgraad kleiner is dan de graad die het kan worden wordt het dit.
+        if (m_difficultyNiveau < possibleDifficulty) {
+            m_difficultyNiveau = possibleDifficulty;
+            cout << m_difficultyNiveau << endl;
+        }
+
     }
 }
