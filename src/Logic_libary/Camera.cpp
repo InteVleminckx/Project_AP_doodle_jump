@@ -17,7 +17,7 @@ namespace logic {
 
     Camera::Camera(int width, int height) : m_height(height), m_width(width){}
 
-    Camera::~Camera() {}
+    Camera::~Camera() {cout << "delete Camera" << endl;}
 
     projectedPixels Camera::projectToPixel(float x, float y) {
 

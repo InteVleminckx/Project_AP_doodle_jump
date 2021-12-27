@@ -24,7 +24,7 @@ namespace logic {
         m_deltaTime = chrono::duration<float>(0.0f);
     }
 
-    Stopwatch::~Stopwatch() {}
+    Stopwatch::~Stopwatch() {cout << "delete Stopwatch"  << endl;}
 
     void Stopwatch::Reset() {
         m_startTime = chrono::system_clock::now();

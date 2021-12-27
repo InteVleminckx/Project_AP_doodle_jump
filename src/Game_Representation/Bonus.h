@@ -38,6 +38,8 @@ namespace representation {
          ****************************************************************************************************/
         Bonus(shared_ptr<logic::Bonus_L>& bonus, string& image);
 
+        ~Bonus() override;
+
     };
 
     class Spring : public Bonus {
@@ -57,6 +59,8 @@ namespace representation {
          * @param image: Een afbeelding die toegewijd wordt aan het object.
          ****************************************************************************************************/
         Spring(shared_ptr<logic::Bonus_L>& bonus, string image);
+
+        ~Spring() override;
     };
 
     class Rocket : public Bonus {
@@ -76,6 +80,8 @@ namespace representation {
          * @param image: Een afbeelding die toegewijd wordt aan het object.
          ****************************************************************************************************/
         Rocket(shared_ptr<logic::Bonus_L>& bonus, string image);
+
+        ~Rocket() override;
     };
 }
 

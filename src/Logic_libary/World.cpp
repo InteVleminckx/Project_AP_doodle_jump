@@ -60,9 +60,15 @@ namespace logic {
 
     void World::releaseObservers() {
         m_player->emptyObserver();
+
         for (const auto& entity : m_BGtiles) entity->emptyObserver();
         for (const auto& entity : m_platforms) entity->emptyObserver();
         for (const auto& entity : m_bonussen) entity->emptyObserver();
+
+        m_BGtiles.clear();
+        m_platforms.clear();
+        m_bonussen.clear();
+
     }
 
     void World::getPointsBetweenFrames(vector<pair<float, float>> &left, vector<pair<float, float>> &right, const shared_ptr<Player_L>& subject) {
@@ -127,7 +133,7 @@ namespace logic {
 
     void World::createPlayer(shared_ptr<EntityFactory> &factory)
     {
-        m_player = std::make_shared<logic::Player_L> ((m_leftLogicX + m_rightLogicX) / 2, m_belowLogicY + m_playerHeight, m_playerWidth, m_playerHeight);
+        m_player = move(std::make_shared<logic::Player_L> ((m_leftLogicX + m_rightLogicX) / 2, m_belowLogicY + m_playerHeight, m_playerWidth, m_playerHeight));
         factory->createPlayer(m_player);
         m_player->jump();
     }
@@ -236,19 +242,19 @@ namespace logic {
         switch (type) {
             case Static_:
                 if (Random::Instance()->createBonus()) createBonus(factory, x, y);
-                platform = make_shared<logic::Platform_L_static>(x, y, m_platformWidth, m_platformHeight);
+                platform = move(make_shared<logic::Platform_L_static>(x, y, m_platformWidth, m_platformHeight));
                 break;
             case Horizontal_:
-                platform = std::make_shared<logic::Platform_L_horizontal> (x, y, m_platformWidth, m_platformHeight);
+                platform = move(make_shared<logic::Platform_L_horizontal> (x, y, m_platformWidth, m_platformHeight));
                 break;
             case Vertical_:
-                platform = std::make_shared<logic::Platform_L_vertical> (x, y, m_platformWidth, m_platformHeight);
+                platform = move(make_shared<logic::Platform_L_vertical> (x, y, m_platformWidth, m_platformHeight));
                 break;
             case Temporary_:
-                platform = std::make_shared<logic::Platform_L_temporary> (x, y, m_platformWidth,m_platformHeight);
+                platform = move(make_shared<logic::Platform_L_temporary> (x, y, m_platformWidth,m_platformHeight));
         }
         factory->createPlatform(platform, type);
-        m_platforms.push_back(platform);
+        m_platforms.push_back(move(platform));
     }
 
     void World::refreshPlatform() {
@@ -287,7 +293,7 @@ namespace logic {
 
         if (begin)
         {
-            renderTop = m_belowLogicY + (abs(m_belowLogicY) * 2);
+            m_renderTop = m_belowLogicY + (abs(m_belowLogicY) * 2);
 
             int aantalPlatforms = ceil((abs(m_belowLogicY) * 2) / (m_platformHeight * 3.5));
 
@@ -308,15 +314,15 @@ namespace logic {
         }
 
         else{
-            if (m_player->getY() + (abs(m_belowLogicY) * 2) > renderTop + (m_platformHeight * 2.5))
+            if (m_player->getY() + (abs(m_belowLogicY) * 2) > m_renderTop + (m_platformHeight * 2.5))
             {
-                renderTop = m_player->getY() + (abs(m_belowLogicY) * 2);
-                if (Random::Instance()->createPlatform(m_prevPlatform, renderTop))
+                m_renderTop = m_player->getY() + (abs(m_belowLogicY) * 2);
+                if (Random::Instance()->createPlatform(m_prevPlatform, m_renderTop))
                 {
                     float x = Random::Instance()->giveRandomX(m_leftLogicX, m_rightLogicX);
                     if (x > m_rightLogicX - m_platformWidth) x = m_rightLogicX - m_platformWidth;
-                    createPlatform(factory, x, renderTop);
-                    m_prevPlatform = renderTop;
+                    createPlatform(factory, x, m_renderTop);
+                    m_prevPlatform = m_renderTop;
                 }
             }
 
@@ -329,6 +335,7 @@ namespace logic {
         for (int i = 0; i<m_platforms.size(); i++) {
             if (platform == m_platforms[i])
             {
+                platform->emptyObserver();
                 m_platforms.erase(m_platforms.begin() + i);
                 break;
             }
@@ -341,8 +348,8 @@ namespace logic {
     /*BEGIN**************************************** Score *****************************************BEGIN*/
 
     void World::createScore(shared_ptr<EntityFactory> &factory) {
+        m_score = move(make_shared<logic::Score>());
         factory->createScore(m_player, m_score);
-
     }
 
     int World::getScore() {
@@ -364,13 +371,13 @@ namespace logic {
     {
         shared_ptr<logic::BG_Tile_L> tile;
         if (second) {
-            tile = std::make_shared<logic::BG_Tile_L>(m_leftLogicX, (abs(m_belowLogicY) * 2) - abs(m_belowLogicY), m_bgTileWidth, m_bgTileHeight);
+            tile = move(std::make_shared<logic::BG_Tile_L>(m_leftLogicX, (abs(m_belowLogicY) * 2) - abs(m_belowLogicY), m_bgTileWidth, m_bgTileHeight));
         }
         else {
-            tile = std::make_shared<logic::BG_Tile_L>(m_leftLogicX, m_belowLogicY, m_bgTileWidth, m_bgTileHeight);
+            tile = move(std::make_shared<logic::BG_Tile_L>(m_leftLogicX, m_belowLogicY, m_bgTileWidth, m_bgTileHeight));
         }
         factory->createBG_Tile(tile);
-        m_BGtiles.push_back(tile);
+        m_BGtiles.push_back(move(tile));
     }
 
     void World::refreshBg_Tile() {
@@ -400,20 +407,25 @@ namespace logic {
         switch (type) {
             case Spring_:
                 x1 = x + (m_platformWidth/2) - (m_springWidth/2);
-                bonus = make_shared<logic::Spring_L>(x1, y+m_platformHeight, m_springWidth, m_springHeight);
+                bonus = move(make_shared<logic::Spring_L>(x1, y+m_platformHeight, m_springWidth, m_springHeight));
                 break;
             case Rocket_:
                 x1 = x + (m_platformWidth/2) - (m_rocketWidth/2);
-                bonus = std::make_shared<logic::Rocket_L> (x1, y+m_platformHeight, m_rocketWidth, m_rocketHeight);
+                bonus = move(std::make_shared<logic::Rocket_L> (x1, y+m_platformHeight, m_rocketWidth, m_rocketHeight));
         }
 
         factory->createBonus(bonus, type);
-        m_bonussen.push_back(bonus);
+        m_bonussen.push_back(move(bonus));
     }
 
     void World::refreshBonus() {
 
         for (const auto& entity : m_bonussen) entity->Notify();
+    }
+
+    World::~World() {
+
+        cout << "delete World"  << endl;
     }
 
     /*END****************************************** Bonus *******************************************END*/

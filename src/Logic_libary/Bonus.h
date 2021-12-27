@@ -63,6 +63,8 @@ namespace logic {
          ****************************************************************************************************/
         bool getInvolmsVelocity();
 
+        ~Bonus_L() override;
+
     };
 
     class Spring_L : public Bonus_L {
@@ -77,6 +79,8 @@ namespace logic {
          * @param height: is een float, het is de hoogte van de Spring.
          ****************************************************************************************************/
         Spring_L(float posX, float posY, float width, float height);
+
+        ~Spring_L() override;
     };
 
     class Rocket_L : public Bonus_L {
@@ -91,6 +95,8 @@ namespace logic {
          * @param height: is een float, het is de hoogte van de Rocket.
          ****************************************************************************************************/
         Rocket_L(float posX, float posY, float width, float height);
+
+        ~Rocket_L() override;
     };
 }
 

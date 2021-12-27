@@ -23,6 +23,7 @@ using namespace std;
 
 namespace representation {
     class ConcreteFactory : public logic::EntityFactory{
+
     public:
 
         /****************************************************************************************************
@@ -73,6 +74,8 @@ namespace representation {
          * @param score: een shared_ptr naar een Score wat een afleiding is van een Observer.
          ****************************************************************************************************/
         void createScore(shared_ptr<logic::Player_L> &player, shared_ptr<logic::Score>& score) override;
+
+        ~ConcreteFactory() override;
 
     };
 }

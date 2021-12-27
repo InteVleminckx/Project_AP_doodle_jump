@@ -37,6 +37,8 @@ namespace representation {
          * @param image: Een afbeelding die toegewijd wordt aan het object.
          ****************************************************************************************************/
         Platform(shared_ptr<logic::Platform_L>& platform, string& image);
+
+        ~Platform() override;
     };
 
     class Platform_static : public Platform {
@@ -61,6 +63,8 @@ namespace representation {
          * @param image: Een afbeelding die toegewijd wordt aan het object.
          ****************************************************************************************************/
         Platform_vertical(shared_ptr<logic::Platform_L>& platform, string image);
+
+        ~Platform_vertical() override;
     };
 
     class Platform_horizontal : public Platform {
@@ -73,6 +77,8 @@ namespace representation {
          * @param image: Een afbeelding die toegewijd wordt aan het object.
          ****************************************************************************************************/
         Platform_horizontal(shared_ptr<logic::Platform_L>& platform, string image);
+
+        ~Platform_horizontal() override;
     };
 
     class Platform_temporary : public Platform {
@@ -85,6 +91,8 @@ namespace representation {
          * @param image: Een afbeelding die toegewijd wordt aan het object.
          ****************************************************************************************************/
         Platform_temporary(shared_ptr<logic::Platform_L>& subject, string image);
+
+        ~Platform_temporary() override;
     };
 
 }

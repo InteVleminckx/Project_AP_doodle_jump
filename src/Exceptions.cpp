@@ -4,10 +4,11 @@
 
 #include "Exceptions.h"
 
-InputException::InputException() {
 
+const char *InputImageException::what() const noexcept {
+    return "Can't open the input image with path: ";
 }
 
-const char *InputException::what() const noexcept {
-    return "Can't open the input file with path: ";
+const char *InputFontException::what() const noexcept {
+    return "Can't open the input font with path: ";
 }

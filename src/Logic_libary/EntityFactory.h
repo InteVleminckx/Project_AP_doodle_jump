@@ -90,7 +90,9 @@ namespace logic {
          * @param player: een shared_ptr naar een Player_L wat een afleiding is van een EnityModel.
          * @param score: een shared_ptr naar een Score wat een afleiding is van een Observer.
          ****************************************************************************************************/
-        virtual void createScore(shared_ptr<Player_L>& subject, shared_ptr<Score>& score) = 0;
+        virtual void createScore(shared_ptr<Player_L>& subject, shared_ptr<logic::Score>& score) = 0;
+
+        virtual ~EntityFactory();
 
     };
 }

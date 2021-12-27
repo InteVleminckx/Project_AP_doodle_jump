@@ -9,4 +9,6 @@ namespace representation {
     {
         setEntityModel(BG_tile);
     }
+
+    BG_Tile::~BG_Tile() {cout << "delete BG_Tile observer" << endl;}
 }

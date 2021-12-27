@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "../Exceptions.h"
 
 using namespace std;
 
@@ -63,7 +64,7 @@ namespace representation {
          * @param height: is een int wat de hoogte van de window wordt.
          * @param title: is een string wat de title van de window wordt.
          ****************************************************************************************************/
-        Window(int width, int height, string title);
+        Window(int width, int height, const string& title);
 
     public:
 
@@ -88,14 +89,15 @@ namespace representation {
          * @brief Geeft de renderwindow terug zodat hier aanpassing op gedaan kunnen worden.
          * @return sf::RenderWindow* is een pointer naar de RenderWindow.
          ****************************************************************************************************/
-        sf::RenderWindow* getWindow();
+        sf::RenderWindow& getWindow();
 
         /****************************************************************************************************
          * @function void update(int score)
          * @brief Update de RenderWindow van de game, controlleerd op events en drawed de score.
          * @param score: is een int wat de score van de game bevat.
+         * @param inGame: is een bool die zegt of we in het spel zitten of niet.
          ****************************************************************************************************/
-        void update(int score);
+        void update(int score, bool inGame);
 
         /****************************************************************************************************
          * @function bool isOpen()

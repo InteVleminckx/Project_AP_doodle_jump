@@ -33,6 +33,8 @@ namespace logic {
          ****************************************************************************************************/
         BG_Tile_L(float posX, float posY, float width, float height);
 
+        ~BG_Tile_L() override;
+
     };
 
 }

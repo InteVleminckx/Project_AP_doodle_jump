@@ -67,12 +67,6 @@ class EntityView : public logic::Observer{
     protected:
 
         /****************************************************************************************************
-         * @function EntityView()
-         * @brief Default constructor
-         ****************************************************************************************************/
-        EntityView();
-
-        /****************************************************************************************************
          * @function void createSprite(const string& filepath)
          * @brief Laadt een afbeelding in en die wordt gebruikt als texture voor de entity.
          * @param filepath: een const string& wat de filepath is naar de afbeelding.
@@ -184,6 +178,14 @@ class EntityView : public logic::Observer{
          * @return shared_ptr<logic::EntityModel>
          ****************************************************************************************************/
         shared_ptr<logic::EntityModel> getEntityModel();
+
+        ~EntityView() override;
+
+    /****************************************************************************************************
+     * @function EntityView()
+     * @brief Default constructor
+     ****************************************************************************************************/
+    EntityView();
 
 
     };

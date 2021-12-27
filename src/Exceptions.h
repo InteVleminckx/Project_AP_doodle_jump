@@ -10,13 +10,18 @@
 
 using namespace std;
 
-class InputException : exception{
+class InputImageException : exception{
 public:
 
-    InputException();
-
+    InputImageException() = default;
     const char * what() const noexcept override;
+};
 
+class InputFontException : exception{
+public:
+
+    InputFontException() = default;
+    const char * what() const noexcept override;
 };
 
 

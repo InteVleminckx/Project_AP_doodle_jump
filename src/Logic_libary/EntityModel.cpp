@@ -59,6 +59,11 @@ namespace logic {
         m_projectedY = pixels.y;
     }
 
+    EntityModel::~EntityModel() {
+        cout << "delete EntityModel"  << endl;
+
+    }
+
 
 }
 

@@ -56,6 +56,11 @@ namespace logic {
         }
     }
 
+    Player_L::~Player_L() {
+        cout << "delete Player_L"  << endl;
+
+    }
+
 
 }
 

@@ -86,6 +86,8 @@ namespace logic {
          ****************************************************************************************************/
         virtual void changeDirection() = 0;
 
+        ~Platform_L() override;
+
     };
 
     class Platform_L_static : public  Platform_L {
@@ -114,6 +116,8 @@ namespace logic {
          ****************************************************************************************************/
         void changeDirection() override;
 
+        ~Platform_L_static() override;
+
     };
 
     class Platform_L_vertical : public  Platform_L {
@@ -141,6 +145,8 @@ namespace logic {
          * @brief Veranderd de bewegingsrichting van het platform.
          ****************************************************************************************************/
         void changeDirection() override;
+
+        ~Platform_L_vertical() override;
     };
 
     class Platform_L_horizontal : public  Platform_L {
@@ -168,6 +174,8 @@ namespace logic {
          * @brief Veranderd de bewegingsrichting van het platform.
          ****************************************************************************************************/
         void changeDirection() override;
+
+        ~Platform_L_horizontal() override;
     };
 
     class Platform_L_temporary : public  Platform_L {
@@ -195,6 +203,8 @@ namespace logic {
          * @brief De functie is niet nodig maar moet wel override worden omdat deze in de base class pure virtual is.
          ****************************************************************************************************/
         void changeDirection() override;
+
+        ~Platform_L_temporary() override;
     };
 }
 

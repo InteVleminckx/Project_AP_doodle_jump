@@ -16,10 +16,10 @@ namespace representation {
     {
         try {
             if (!m_modelTexture.loadFromFile(filepath))
-                throw InputException();
+                throw InputImageException();
         }
-        catch (InputException& exception) {
-            cout << exception.what() << filepath;
+        catch (InputImageException& exception) {
+            cout << exception.what() << filepath << endl;
             exit(1);
         }
 
@@ -62,8 +62,10 @@ namespace representation {
 
     void EntityView::update() {
         getSprite().setPosition(m_entityModel->getProjectedX(), m_entityModel->getProjectedY() - getHeight());
-        representation::Window::Instance()->getWindow()->draw(getSprite());
+        representation::Window::Instance()->getWindow().draw(getSprite());
     }
+
+    EntityView::~EntityView() {cout << "delete EntityView observer" << endl;}
 
 
 }

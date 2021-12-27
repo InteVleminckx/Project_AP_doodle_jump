@@ -42,7 +42,7 @@ namespace logic {
         Subject();
 
         /****************************************************************************************************
-         * @function void addObserver(const shared_ptr<Observer>& observer)
+         * @function void const addObserver(shared_ptr<Observer>& observer)
          * @brief Voegt een observer toe aan de vector van observers van het subject.
          * @param observer: is een const shared_ptr naar een observer die wordt toegevoegd.
          ****************************************************************************************************/
@@ -75,6 +75,8 @@ namespace logic {
          * @return: vector<shared_ptr<Observer>> wat alle observers van het subject bevat.
          ****************************************************************************************************/
         vector<shared_ptr<Observer>> getObservers();
+
+        virtual ~Subject();
 
 
 

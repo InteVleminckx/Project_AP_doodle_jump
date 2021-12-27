@@ -36,6 +36,8 @@ namespace representation {
          ****************************************************************************************************/
         BG_Tile(shared_ptr<logic::BG_Tile_L>& BG_tile, string image);
 
+        ~BG_Tile() override;
+
     };
 }
 

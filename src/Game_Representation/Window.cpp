@@ -9,6 +9,9 @@ namespace representation {
     Window* Window::s_instance = nullptr;
 
     Window* Window::Instance(int width, int height, string title) {
+
+//        static Window instance(width, height, title);
+//        return instance;
         if (s_instance == nullptr)
             s_instance = new Window(width, height, title);
         return s_instance;
@@ -19,26 +22,38 @@ namespace representation {
         s_instance = nullptr;
     }
 
-    Window::Window(int width, int height, string title) : m_window(sf::VideoMode(width, height), title) {
+    Window::Window(int width, int height, const string& title) : m_window(sf::VideoMode( width,  height), title) {
         m_isOpen = true;
 
-        //TODO: nog met try en catch doen
-        if (!m_font.loadFromFile("../Fonts/secrcode.ttf"))
-        {
-            cout << "error" << endl;
+        string fontPath = "../Fonts/secrcode.ttf";
+
+        bool fontLoaded = true;
+
+        try {
+            if (!m_font.loadFromFile(fontPath))
+                throw InputFontException();
         }
-        m_textScore.setFont(m_font);
-        m_textScore.setCharacterSize(26);
-        m_textScore.setFillColor(sf::Color::Black);
+        catch (InputFontException& exception) {
+            cout << exception.what() << fontPath << endl;
+            fontLoaded = false;
+        }
+
+        if (fontLoaded)
+        {
+            m_textScore.setFont(m_font);
+            m_textScore.setCharacterSize(26);
+            m_textScore.setFillColor(sf::Color::Black);
+        }
+
     }
 
-    Window::~Window() = default;
+    Window::~Window() {cout << "delete Window" << endl;};
 
-    sf::RenderWindow *Window::getWindow() {
-        return &m_window;
+    sf::RenderWindow& Window::getWindow() {
+        return m_window;
     }
 
-    void Window::update(int score) {
+    void Window::update(int score, bool inGame) {
         sf::Event event{};
 
         while (m_window.pollEvent(event)) {
@@ -47,6 +62,9 @@ namespace representation {
                 m_isOpen = false;
             }
         }
+
+        if (!inGame) return;
+
         m_textScore.setString(to_string(score));
         m_window.draw(m_textScore);
         m_window.display();

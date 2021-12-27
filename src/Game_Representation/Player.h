@@ -34,6 +34,8 @@ namespace representation {
          * @param image: Een afbeelding die toegewijd wordt aan het object.
          ****************************************************************************************************/
         Player(shared_ptr<logic::Player_L> &player, string image);
+
+        ~Player() override;
     };
 }
 

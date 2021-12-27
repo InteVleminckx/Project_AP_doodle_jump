@@ -16,15 +16,27 @@ namespace logic {
         return m_involmsVeloctiy;
     }
 
+    Bonus_L::~Bonus_L() {
+        cout << "delete Bonus Logic";
+    }
+
     Spring_L::Spring_L(float posX, float posY, float width, float height) : Bonus_L(posX, posY, width, height) {
         // 5x zo groot als normaal
         m_bonusforce = 5*0.75f;
         m_involmsVeloctiy = true;
     }
 
+    Spring_L::~Spring_L() {
+        cout << "delete Spring Logic";
+    }
+
     Rocket_L::Rocket_L(float posX, float posY, float width, float height) : Bonus_L(posX, posY, width, height) {
         //zelf te kiezen
         m_bonusforce = 5.f;
         m_involmsVeloctiy = false;
+    }
+
+    Rocket_L::~Rocket_L() {
+        cout << "delete Rocket Logic" << endl;
     }
 }

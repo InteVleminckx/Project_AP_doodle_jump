@@ -38,14 +38,6 @@ namespace logic {
         int m_difficultyNiveau;
 
         /****************************************************************************************************
-         * @brief Houdt bij of er wel een platform is gegenereerd binnen een x afstand zodat er toch zeker
-         * altijd een weg is naar boven.
-         * @type bool
-         * @var m_hasGeneratedPlatform
-         ****************************************************************************************************/
-        bool m_hasGeneratedPlatform;
-
-        /****************************************************************************************************
          * @function Random()
          * @brief Wanneer er een random object wordt aangemaakt wordt eerst de seed opnieuw ingesteld.
          ****************************************************************************************************/

@@ -77,9 +77,9 @@ namespace logic {
         /****************************************************************************************************
          * @brief Is de plaats waar nieuw een nieuw platform gemaakt moet worden.
          * @type float
-         * @var renderTop
+         * @var m_renderTop
          ****************************************************************************************************/
-        float renderTop{};
+        float m_renderTop{};
 
         /****************************************************************************************************
          * @brief Zijn alle afmetingen voor de entities.
@@ -98,7 +98,7 @@ namespace logic {
         * @type float
         * @var m_prevPlatform
         ****************************************************************************************************/
-        float m_prevPlatform;
+        float m_prevPlatform{-1.f};
 
        /****************************************************************************************************
         * @brief Zegt of de game actief is of niet. Als het false is zitten we in het menu anders in de game.
@@ -322,6 +322,8 @@ namespace logic {
 
         /*END****************************************** Bonus *******************************************END*/
         void playerCollision();
+
+        ~World();
     };
 }
 

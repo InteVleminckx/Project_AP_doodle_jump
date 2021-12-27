@@ -41,7 +41,10 @@ namespace logic {
          * @brief Een constructor die de player initialiseerd.
          * @param Een shared_ptr naar een player die de data member zal initialiseren.
          ****************************************************************************************************/
-        Score(shared_ptr<Player_L>& player);
+        Score();
+
+
+        void setPlayer(const shared_ptr<Player_L>& player);
 
         /****************************************************************************************************
          * @function void update() override
@@ -56,6 +59,8 @@ namespace logic {
          * @return Is een float wat de score is.
          ****************************************************************************************************/
         float getScore();
+
+        ~Score() override;
 
     };
 }

@@ -228,6 +228,8 @@ namespace logic {
          ****************************************************************************************************/
         int getProjectedY() const;
 
+        ~EntityModel() override;
+
     };
 }
 #endif //DOODLE_JUMP_ENTITYMODEL_H

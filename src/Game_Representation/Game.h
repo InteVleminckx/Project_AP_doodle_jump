@@ -104,6 +104,8 @@ namespace representation {
          * @brief Stopt het spel en verwijderd alle pointers die aangemaakt zijn.
          ****************************************************************************************************/
         void stopGame();
+
+        ~Game();
     };
 }
 
