@@ -69,14 +69,15 @@ namespace representation {
 
     void Game::displayMenu() {
 
-        sf::Font font;
         sf::Text textMen;
         sf::Text textInstr;
         sf::Text Highscore;
         sf::Text Prevscore;
-        string fontPath = "../Fonts/secrcode.ttf";
 
         bool fontLoaded = true;
+
+        string fontPath = "../Fonts/secrcode.ttf";
+        sf::Font font;
 
         try {
             if (!font.loadFromFile(fontPath))
@@ -87,32 +88,29 @@ namespace representation {
             fontLoaded = false;
         }
 
-        if (fontLoaded)
-        {
-            textMen.setFont(font);
-            textInstr.setFont(font);
-            Highscore.setFont(font);
-            Prevscore.setFont(font);
-            textMen.setCharacterSize(45);
-            textInstr.setCharacterSize(35);
-            Highscore.setCharacterSize(25);
-            Prevscore.setCharacterSize(25);
-            textMen.setFillColor(sf::Color::Green);
-            textInstr.setFillColor(sf::Color::White);
-            Highscore.setFillColor(sf::Color::Green);
-            textMen.setString("DOODLE JUMP");
-            textInstr.setString("PRESS SPACE TO START");
+        textMen.setFont(font);
+        textInstr.setFont(font);
+        Highscore.setFont(font);
+        Prevscore.setFont(font);
+        textMen.setCharacterSize(45);
+        textInstr.setCharacterSize(35);
+        Highscore.setCharacterSize(25);
+        Prevscore.setCharacterSize(25);
+        textMen.setFillColor(sf::Color::Green);
+        textInstr.setFillColor(sf::Color::White);
+        Highscore.setFillColor(sf::Color::Green);
+        textMen.setString("DOODLE JUMP");
+        textInstr.setString("PRESS SPACE TO START");
 
-            string texthighScore = "Highscore: " + to_string(m_world.getHighScore());
-            string textprevScore = "Previous score: " + to_string(m_world.getScore());
-            Highscore.setString(texthighScore);
-            Prevscore.setString(textprevScore);
+        string texthighScore = "Highscore: " + to_string(m_world.getHighScore());
+        string textprevScore = "Previous score: " + to_string(m_world.getScore());
+        Highscore.setString(texthighScore);
+        Prevscore.setString(textprevScore);
 
-            textMen.setPosition((float) Window::Instance()->getWindow().getSize().x/2 - textMen.getLocalBounds().width/2, (float) Window::Instance()->getWindow().getSize().y/2 - textMen.getLocalBounds().height*2);
-            textInstr.setPosition((float) Window::Instance()->getWindow().getSize().x/2 - textInstr.getLocalBounds().width/2, (float) Window::Instance()->getWindow().getSize().y/2);
-            Highscore.setPosition((float) Window::Instance()->getWindow().getSize().x/2 - Highscore.getLocalBounds().width/2, (float) Window::Instance()->getWindow().getSize().y/2 + Highscore.getLocalBounds().height*4);
-            Prevscore.setPosition((float) Window::Instance()->getWindow().getSize().x/2 - Prevscore.getLocalBounds().width/2, (float) Window::Instance()->getWindow().getSize().y/2 + Prevscore.getLocalBounds().height*8);
-        }
+        textMen.setPosition((float) Window::Instance()->getWindow().getSize().x/2 - textMen.getLocalBounds().width/2, (float) Window::Instance()->getWindow().getSize().y/2 - textMen.getLocalBounds().height*2);
+        textInstr.setPosition((float) Window::Instance()->getWindow().getSize().x/2 - textInstr.getLocalBounds().width/2, (float) Window::Instance()->getWindow().getSize().y/2);
+        Highscore.setPosition((float) Window::Instance()->getWindow().getSize().x/2 - Highscore.getLocalBounds().width/2, (float) Window::Instance()->getWindow().getSize().y/2 + Highscore.getLocalBounds().height*4);
+        Prevscore.setPosition((float) Window::Instance()->getWindow().getSize().x/2 - Prevscore.getLocalBounds().width/2, (float) Window::Instance()->getWindow().getSize().y/2 + Prevscore.getLocalBounds().height*8);
 
         while (!m_world.getGameStatus() && Window::Instance()->isOpen())
         {

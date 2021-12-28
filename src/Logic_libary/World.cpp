@@ -57,6 +57,11 @@ namespace logic {
     }
 
     void World::releaseObservers() {
+
+        shared_ptr<Subject> subject;
+
+        Controlling::control(subject, "World", "releaseObservers()");
+
         m_player->emptyObserver();
 
         for (const auto& entity : m_BGtiles) entity->emptyObserver();
@@ -125,6 +130,15 @@ namespace logic {
         if (m_isGamePlaying) m_isGamePlaying = false;
         else m_isGamePlaying = true;
 
+    }
+
+    bool World::checkOutOfScope(const shared_ptr<EntityModel>& model) {
+
+        if (model->getY() < m_player->getY() - abs(m_belowLogicY)){
+            return true;
+        }
+        model->Notify();
+        return false;
     }
 
     /*BEGIN**************************************** Player ****************************************BEGIN*/
@@ -272,15 +286,12 @@ namespace logic {
             for (auto& entity : m_platforms)
             {
                 entity->movePlatform();
-
-                if (entity->getY() < m_player->getY() - abs(m_belowLogicY)){
+                if (checkOutOfScope(entity)){
                     removePlatform(entity);
                     removedPlatform = true;
                     break;
                 }
-                entity->Notify();
             }
-
         }
     }
 
@@ -349,10 +360,6 @@ namespace logic {
         factory->createScore(m_player);
     }
 
-    int World::getScore() {
-        return m_score;
-    }
-
     int World::getHighScore() {
         return m_highScore;
     }
@@ -388,8 +395,11 @@ namespace logic {
 
     }
 
-    /*END****************************************** Score *******************************************END*/
+    int World::getScore() {
+        return m_score;
+    }
 
+    /*END****************************************** Score *******************************************END*/
 
 
     /*BEGIN*************************************** bg_tile ****************************************BEGIN*/
@@ -447,8 +457,38 @@ namespace logic {
 
     void World::refreshBonus() {
 
-        for (const auto& entity : m_bonussen) entity->Notify();
+        bool removedBonus = true;
+
+        //telkens als er een bonus verwijderd wordt, wordt de lijst van bonussen aangepast.
+        //Daarom gaan we als we een bonus verwijderen de while loop onderbreken en terug opnieuw beginnen.
+        //Zolang er een bonus verwijderd wordt.
+
+        while(removedBonus)
+        {
+            removedBonus = false;
+            for (auto& entity : m_bonussen)
+            {
+                if (checkOutOfScope(entity)){
+                    removeBonus(entity);
+                    removedBonus = true;
+                    break;
+                }
+            }
+        }
     }
+
+    void World::removeBonus(shared_ptr<Bonus_L>& bonus) {
+
+        for (int i = 0; i<m_bonussen.size(); i++) {
+            if (bonus == m_bonussen[i])
+            {
+                bonus->emptyObserver();
+                m_bonussen.erase(m_bonussen.begin() + i);
+                break;
+            }
+        }
+    }
+
 
     World::~World() {
 

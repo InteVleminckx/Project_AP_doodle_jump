@@ -67,25 +67,11 @@ namespace representation {
          ****************************************************************************************************/
         int m_highScore{};
 
-    public:
-
-        /****************************************************************************************************
-         * @function Game()
-         * @brief De construct van Game waar waardes voor het spel worden ingesteld.
-         ****************************************************************************************************/
-        Game();
-
         /****************************************************************************************************
          * @function setupWorld()
          * @brief Zorgt dat de world correct wordt ingesteld.
          ****************************************************************************************************/
         void setupWorld();
-
-        /****************************************************************************************************
-         * @function displayFullGame()
-         * @brief Geeft het game scherm weer. Waarbij geswitched kan worden door het menu en de game zelf.
-         ****************************************************************************************************/
-        void displayFullGame();
 
         /****************************************************************************************************
          * @function displayMenu()
@@ -104,6 +90,20 @@ namespace representation {
          * @brief Stopt het spel en verwijderd alle pointers die aangemaakt zijn.
          ****************************************************************************************************/
         void stopGame();
+
+    public:
+
+        /****************************************************************************************************
+         * @function Game()
+         * @brief De construct van Game waar waardes voor het spel worden ingesteld.
+         ****************************************************************************************************/
+        Game();
+
+        /****************************************************************************************************
+         * @function displayFullGame()
+         * @brief Geeft het game scherm weer. Waarbij geswitched kan worden door het menu en de game zelf.
+         ****************************************************************************************************/
+        void displayFullGame();
 
         ~Game();
     };

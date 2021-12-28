@@ -31,5 +31,14 @@ public:
     const char * what() const noexcept override;
 };
 
+class nullptrException : exception{
+    string m_className;
+    string m_functionName;
+public:
+
+    nullptrException(string className, string functionName);
+    string what_() const;
+};
+
 
 #endif //DOODLE_JUMP_EXCEPTIONS_H

@@ -24,6 +24,7 @@
 #include <memory>
 #include "Camera.h"
 #include "Score_L.h"
+#include "Controlling.h"
 
 #include <fstream>
 #include "../json.hpp"
@@ -88,7 +89,6 @@ namespace logic {
         float m_springHeight{}, m_springWidth{};
         float m_rocketHeight{}, m_rocketWidth{};
         float m_bgTileHeight{}, m_bgTileWidth{};
-
 
         /****************************************************************************************************
         * @brief De y waarde van de laatst gegenereerde y platform
@@ -171,6 +171,14 @@ namespace logic {
         * @brief Past de gamestatus aan naar het tegenovergestelde dat het al is.
         ****************************************************************************************************/
         void changeGameStatus();
+
+        /****************************************************************************************************
+        * @function bool checkOutOfScope(const shared_ptr<EntityModel>& model)
+        * @brief Kijkt of een entity out of view is, zoja wordt true gereturned.
+        * @param model:  const shared_ptr<EntityModel>& de entity die gecontroleert wordt.
+        * @return boolean wat zegt of de entity out of scope is of niet.
+        ****************************************************************************************************/
+        bool checkOutOfScope(const shared_ptr<EntityModel>& model);
 
         /*BEGIN**************************************** Player ****************************************BEGIN*/
 
@@ -269,10 +277,24 @@ namespace logic {
          ****************************************************************************************************/
         void createScore(shared_ptr<EntityFactory> &factory);
 
+        /****************************************************************************************************
+         * @function int getScore()
+         * @brief Geeft de score terug.
+         * @return Is een integer wat de net behaalde score is.
+         ****************************************************************************************************/
         int getScore();
 
+        /****************************************************************************************************
+         * @function int getHighScore()
+         * @brief Geeft de al time highscore terug.
+         * @return Is een integer wat de al time highscore is.
+         ****************************************************************************************************/
         int getHighScore();
 
+        /****************************************************************************************************
+         * @function void readSavedScoreFile()
+         * @brief Leest een file in en zet de highscore en score.
+         ****************************************************************************************************/
         void readSavedScoreFile();
 
         /*END****************************************** Score *******************************************END*/
@@ -318,6 +340,13 @@ namespace logic {
          * @brief Refreshed alle eigenschappen van de bonus en zorgt ervoor dat deze geupdate wordt.
          ****************************************************************************************************/
         void refreshBonus();
+
+        /****************************************************************************************************
+         * @function void removeBonus(shared_ptr<Bonus_L>& bonus)
+         * @brief Verwijderd een bonus als deze out of scope is.
+         * @param bonus: is een shared_ptr naar een Bonus_L en is de bonus dat verwijderd moet worden.
+         ****************************************************************************************************/
+        void removeBonus(shared_ptr<Bonus_L>& bonus);
 
         /*END****************************************** Bonus *******************************************END*/
         void playerCollision();
