@@ -1,0 +1,1 @@
+In deze folder wordt een json file opgeslagen met data over de score en highscore
