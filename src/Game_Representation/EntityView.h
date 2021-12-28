@@ -23,6 +23,7 @@
 #include "../Logic_libary/BG_Tile.h"
 #include "../Logic_libary/Bonus.h"
 #include "../Logic_libary/Platform.h"
+#include "../Logic_libary/ControllingPointers.h"
 
 using namespace std;
 

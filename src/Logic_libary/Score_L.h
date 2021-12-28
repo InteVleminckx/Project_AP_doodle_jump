@@ -15,6 +15,7 @@
 #include "Player.h"
 #include <fstream>
 #include "../json.hpp"
+#include "ControllingPointers.h"
 
 using json = nlohmann::json;
 
@@ -58,14 +59,12 @@ namespace logic {
          ****************************************************************************************************/
         void setScore(float score);
 
-
         /****************************************************************************************************
          * @function void update() override
          * @brief Zal de update functie overschrijven zodat de score altijd geupdate worden want hier moet niet
          * een afbeelding getoont worden maar de text van de score wordt wel geupdate.
          ****************************************************************************************************/
         void update() override;
-
 
         /****************************************************************************************************
          * @function void updateScore()

@@ -10,6 +10,7 @@ namespace representation {
 
     Bonus::Bonus(shared_ptr<logic::Bonus_L> bonus, string& image): EntityView(bonus->getWidth(), bonus->getHeight(), image)
     {
+        ControllingPointers::control(bonus, "Bonus", "Bonus(shared_ptr<logic::Bonus_L> bonus, string& image)");
         setEntityModel(move(bonus));
     }
 

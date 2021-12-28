@@ -33,7 +33,7 @@ namespace representation {
          * @param player: shared_ptr van een Player_L wat een afleiding is van een EntityModel.
          * @param image: Een afbeelding die toegewijd wordt aan het object.
          ****************************************************************************************************/
-        Player(shared_ptr<logic::Player_L> player, string image);
+        Player(shared_ptr<logic::Player_L> player, const string& image);
 
         ~Player() override;
     };

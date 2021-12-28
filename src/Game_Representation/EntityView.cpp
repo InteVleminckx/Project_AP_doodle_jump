@@ -44,23 +44,24 @@ namespace representation {
     float EntityView::getWidth() const {return m_width;}
 
     void EntityView::setEntityModel(shared_ptr<logic::Player_L> player){
+        ControllingPointers::control(player, "EntityView", "setEntityModel(shared_ptr<logic::Player_L> platform)");
         m_entityModel = move(player);
     }
     void EntityView::setEntityModel(shared_ptr<logic::Platform_L> platform){
+        ControllingPointers::control(platform, "EntityView", "setEntityModel(shared_ptr<logic::Platform_L> platform)");
         m_entityModel = move(platform);
     }
     void EntityView::setEntityModel(shared_ptr<logic::Bonus_L> bonus){
+        ControllingPointers::control(bonus, "EntityView", "setEntityModel(shared_ptr<logic::Bonus_L> platform)");
         m_entityModel = move(bonus);
     }
     void EntityView::setEntityModel(shared_ptr<logic::BG_Tile_L> bg_tile){
+        ControllingPointers::control(bg_tile, "EntityView", "setEntityModel(shared_ptr<logic::BG_Tile_L> platform)");
         m_entityModel = move(bg_tile);
     }
 
-//    shared_ptr<logic::EntityModel> EntityView::getEntityModel() {
-//        return m_entityModel;
-//    }
-
     void EntityView::update() {
+        ControllingPointers::control(m_entityModel, "EntityView", "update()");
         getSprite().setPosition(m_entityModel->getProjectedX(), m_entityModel->getProjectedY() - getHeight());
         representation::Window::Instance()->getWindow().draw(getSprite());
     }

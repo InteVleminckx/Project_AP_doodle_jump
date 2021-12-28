@@ -3,8 +3,8 @@
 
 namespace logic {
 
-
     Score_L::Score_L(shared_ptr<Player_L> player) {
+        ControllingPointers::control(player, "Score_L", "Score_L(shared_ptr<Player_L> player) ");
         m_player = move(player);
     };
 

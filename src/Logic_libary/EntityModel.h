@@ -17,6 +17,7 @@
 #include "Observer.h"
 #include "Camera.h"
 #include "Stopwatch.h"
+#include "ControllingPointers.h"
 
 using namespace std;
 

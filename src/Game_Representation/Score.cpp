@@ -1,7 +1,3 @@
-//
-// Created by inte_vleminckx on 28.12.21.
-//
-
 #include "Score.h"
 
 namespace representation{

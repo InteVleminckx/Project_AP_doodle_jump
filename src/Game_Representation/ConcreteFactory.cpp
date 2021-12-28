@@ -5,18 +5,21 @@
 representation::ConcreteFactory::ConcreteFactory() = default;
 
 void representation::ConcreteFactory::createPlayer(const shared_ptr<logic::Player_L> &player) {
+    ControllingPointers::control(player, "ConcreteFactory", "createPlayer(const shared_ptr<logic::Player_L> &player)");
 
     unique_ptr<logic::Observer> player_O = move(make_unique<representation::Player>(player, "../Sprites/Doodle_player2.png"));
     player->addObserver(move(player_O));
 }
 
 void representation::ConcreteFactory::createBG_Tile(const shared_ptr<logic::BG_Tile_L> &BG_tile) {
+    ControllingPointers::control(BG_tile, "ConcreteFactory", "createBG_Tile(const shared_ptr<logic::BG_Tile_L> &player)");
 
     unique_ptr<logic::Observer> BG_tile_O = move(make_unique<representation::BG_Tile>(BG_tile, "../Sprites/BG_tile.png"));
     BG_tile->addObserver(move(BG_tile_O));
 }
 
 void representation::ConcreteFactory::createPlatform(const shared_ptr<logic::Platform_L> &platform, PlatformType type) {
+    ControllingPointers::control(platform, "ConcreteFactory", "createPlatform(const shared_ptr<logic::Platform_L> &player)");
 
     unique_ptr<logic::Observer> platform_O;
 
@@ -41,6 +44,7 @@ void representation::ConcreteFactory::createPlatform(const shared_ptr<logic::Pla
 }
 
 void representation::ConcreteFactory::createBonus(const shared_ptr<logic::Bonus_L> &bonus, BonusType type) {
+    ControllingPointers::control(bonus, "ConcreteFactory", "createBonus(const shared_ptr<logic::Bonus_L> &player)");
 
     unique_ptr<logic::Observer> bonus_O;
 
@@ -56,6 +60,8 @@ void representation::ConcreteFactory::createBonus(const shared_ptr<logic::Bonus_
 }
 
 void representation::ConcreteFactory::createScore(const shared_ptr<logic::Player_L> &subject) {
+    ControllingPointers::control(subject, "ConcreteFactory", "createScore(const shared_ptr<logic::Player_L> &player)");
+
     unique_ptr<logic::Observer> score_o = move(make_unique<representation::Score>(subject));
     subject->addObserver(move(score_o));
 }

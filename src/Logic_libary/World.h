@@ -24,7 +24,7 @@
 #include <memory>
 #include "Camera.h"
 #include "Score_L.h"
-#include "Controlling.h"
+#include "ControllingPointers.h"
 
 #include <fstream>
 #include "../json.hpp"

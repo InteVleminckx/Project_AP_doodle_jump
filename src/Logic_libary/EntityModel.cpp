@@ -48,6 +48,7 @@ namespace logic {
     void EntityModel::Notify() {
         for (auto& ob : getObservers()){
             projectPointsToPixels();
+            ControllingPointers::control(ob, "EntityModel", "Notify()");
             ob->update();
         }
 

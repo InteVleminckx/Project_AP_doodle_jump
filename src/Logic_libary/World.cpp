@@ -58,15 +58,22 @@ namespace logic {
 
     void World::releaseObservers() {
 
-        shared_ptr<Subject> subject;
-
-        Controlling::control(subject, "World", "releaseObservers()");
-
+        ControllingPointers::control(m_player, "World", "releaseObservers()");
         m_player->emptyObserver();
 
-        for (const auto& entity : m_BGtiles) entity->emptyObserver();
-        for (const auto& entity : m_platforms) entity->emptyObserver();
-        for (const auto& entity : m_bonussen) entity->emptyObserver();
+        for (const auto& entity : m_BGtiles)
+        {
+            ControllingPointers::control(entity, "World", "releaseObservers()");
+            entity->emptyObserver();
+        }
+        for (const auto& entity : m_platforms) {
+            ControllingPointers::control(entity, "World", "releaseObservers()");
+            entity->emptyObserver();
+        }
+        for (const auto& entity : m_bonussen) {
+            ControllingPointers::control(entity, "World", "releaseObservers()");
+            entity->emptyObserver();
+        }
 
         m_BGtiles.clear();
         m_platforms.clear();
@@ -76,6 +83,8 @@ namespace logic {
 
     void World::getPointsBetweenFrames(vector<pair<float, float>> &left, vector<pair<float, float>> &right, const shared_ptr<Player_L>& subject) {
 
+        ControllingPointers::control(m_player, "World", "getPointsBetweenFrames(vector<pair<float, float>> &left, vector<pair<float, float>> &right, const shared_ptr<Player_L>& subject)");
+        ControllingPointers::control(subject, "World", "getPointsBetweenFrames(vector<pair<float, float>> &left, vector<pair<float, float>> &right, const shared_ptr<Player_L>& subject)");
 
         //Code gehaald uit project van vorig jaar voor het Project Computer Graphics.
 
@@ -133,6 +142,8 @@ namespace logic {
     }
 
     bool World::checkOutOfScope(const shared_ptr<EntityModel>& model) {
+        ControllingPointers::control(model, "World", "checkOutOfScope(const shared_ptr<EntityModel>& model)");
+        ControllingPointers::control(m_player, "World", "checkOutOfScope(const shared_ptr<EntityModel>& model)");
 
         if (model->getY() < m_player->getY() - abs(m_belowLogicY)){
             return true;
@@ -145,12 +156,19 @@ namespace logic {
 
     void World::createPlayer(shared_ptr<EntityFactory> &factory)
     {
+
         m_player = move(std::make_shared<logic::Player_L> ((m_leftLogicX + m_rightLogicX) / 2, m_belowLogicY + m_playerHeight, m_playerWidth, m_playerHeight));
+
+        ControllingPointers::control(factory, "World", "createPlayer(shared_ptr<EntityFactory> &factory)");
+        ControllingPointers::control(m_player, "World", "createPlayer(shared_ptr<EntityFactory> &factory)");
+
         factory->createPlayer(m_player);
+
         m_player->jump();
     }
 
     void World::refreshPlayer() {
+        ControllingPointers::control(m_player, "World", "refreshPlayer()");
 
         //Controleren eerst of de speler links of rechts wilt bewegen.
         if (representation::Window::Instance()->isPressedLeft()) movePlayerLeft();
@@ -169,18 +187,26 @@ namespace logic {
     }
 
     void World::movePlayerRight() {
+        ControllingPointers::control(m_player, "World", "movePlayerRight()");
+
         m_player->moveRight(m_leftLogicX, m_rightLogicX);
     }
 
     void World::movePlayerLeft() {
+        ControllingPointers::control(m_player, "World", "movePlayerRight()");
+
         m_player->moveLeft(m_leftLogicX, m_rightLogicX);
     }
 
     void World::playerTouchesPlatform(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer) {
+        ControllingPointers::control(m_player, "World", "playerTouchesPlatform(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer)");
 
         if (m_player->getVelocityY() > 0) return;
 
         for (auto &platform : m_platforms) {
+
+            ControllingPointers::control(platform, "World", "playerTouchesPlatform(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer)");
+
             for (int i = 0; i < leftPlayer.size(); i++) {
                 float platform_Y0 = platform->getY();
                 float platform_Y1 = platform->getY() + platform->getHeight();
@@ -201,8 +227,12 @@ namespace logic {
     }
 
     void World::playerTouchesBoost(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer) {
+        ControllingPointers::control(m_player, "World", "playerTouchesBoost(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer)");
 
         for (auto &bonus : m_bonussen) {
+
+            ControllingPointers::control(bonus, "World", "playerTouchesBoost(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer)");
+
             for (int i = 0; i < leftPlayer.size(); i++) {
                 float bonus_Y0 = bonus->getY();
                 float bonus_Y1 = bonus->getY() + bonus->getHeight();
@@ -238,6 +268,8 @@ namespace logic {
     }
 
     void World::playerOutOfScope() {
+        ControllingPointers::control(m_player, "World", "playerOutOfScope()");
+
         if (m_player->getY() < Camera::Instance()->getOffset() - abs(m_belowLogicY) ) m_isGamePlaying = false;
     }
 
@@ -245,8 +277,10 @@ namespace logic {
 
     /*BEGIN*************************************** Platform ***************************************BEGIN*/
 
-    void World::createPlatform(shared_ptr<EntityFactory> &factory, float x, float y)
-    {
+    void World::createPlatform(shared_ptr<EntityFactory> &factory, float x, float y){
+        ControllingPointers::control(factory, "World", "createPlatform(shared_ptr<EntityFactory> &factory, float x, float y)");
+
+
         shared_ptr<logic::Platform_L> platform;
 
         PlatformType type  = Random::Instance()->getPlatformType();
@@ -285,6 +319,8 @@ namespace logic {
             removedPlatform = false;
             for (auto& entity : m_platforms)
             {
+                ControllingPointers::control(entity, "World", "refreshPlatform()");
+
                 entity->movePlatform();
                 if (checkOutOfScope(entity)){
                     removePlatform(entity);
@@ -296,6 +332,11 @@ namespace logic {
     }
 
     void World::createAplatform(shared_ptr<EntityFactory> &factory, bool begin) {
+
+        ControllingPointers::control(factory, "World", "createAplatform(shared_ptr<EntityFactory> &factory, bool begin)");
+        ControllingPointers::control(m_player, "World", "createAplatform(shared_ptr<EntityFactory> &factory, bool begin)");
+
+
         //We controlleren of er een nieuw platform moet gemaakt worden.
         //op elke lijn staat er eigl maximaal 1 platform
         //We kijken dus of binnen een range van de player of er op een lijn een platform gegenereerd moet worden.
@@ -340,6 +381,7 @@ namespace logic {
     }
 
     void World::removePlatform(shared_ptr<Platform_L>& platform) {
+        ControllingPointers::control(platform, "World", "removePlatform(shared_ptr<Platform_L>& platform)");
 
         for (int i = 0; i<m_platforms.size(); i++) {
             if (platform == m_platforms[i])
@@ -357,6 +399,8 @@ namespace logic {
     /*BEGIN**************************************** Score *****************************************BEGIN*/
 
     void World::createScore(shared_ptr<EntityFactory> &factory) {
+        ControllingPointers::control(factory, "World", "createScore(shared_ptr<EntityFactory> &factory)");
+
         factory->createScore(m_player);
     }
 
@@ -406,6 +450,8 @@ namespace logic {
 
     void World::createBG_Tile(shared_ptr<EntityFactory> &factory, bool second)
     {
+        ControllingPointers::control(factory, "World", "createBG_Tile(shared_ptr<EntityFactory> &factory, bool second)");
+
         shared_ptr<logic::BG_Tile_L> tile;
         if (second) {
             tile = move(std::make_shared<logic::BG_Tile_L>(m_leftLogicX, (abs(m_belowLogicY) * 2) - abs(m_belowLogicY), m_bgTileWidth, m_bgTileHeight));
@@ -419,12 +465,17 @@ namespace logic {
 
     void World::refreshBg_Tile() {
         tileOutOfView();
-        for (const auto& entity : m_BGtiles) entity->Notify();
+        for (const auto& entity : m_BGtiles) {
+
+            ControllingPointers::control(entity, "World", "refreshBg_Tile()");
+            entity->Notify();
+        }
     }
 
     void World::tileOutOfView() {
 
         for (auto& tile : m_BGtiles){
+            ControllingPointers::control(tile, "World", "tileOutOfView()");
 
             if (tile->getY() + tile->getHeight() <= m_player->getY() - (abs(m_belowLogicY) * 2))
             {
@@ -437,6 +488,8 @@ namespace logic {
 
     void World::createBonus(shared_ptr<EntityFactory> &factory, float x, float y)
     {
+        ControllingPointers::control(factory, "World", "createBonus(shared_ptr<EntityFactory> &factory, float x, float y)");
+
         shared_ptr<logic::Bonus_L> bonus;
         BonusType type  = Random::Instance()->getBonusType();
         float x1;
@@ -468,6 +521,8 @@ namespace logic {
             removedBonus = false;
             for (auto& entity : m_bonussen)
             {
+                ControllingPointers::control(entity, "World", "refreshBonus()");
+
                 if (checkOutOfScope(entity)){
                     removeBonus(entity);
                     removedBonus = true;
@@ -478,6 +533,7 @@ namespace logic {
     }
 
     void World::removeBonus(shared_ptr<Bonus_L>& bonus) {
+        ControllingPointers::control(bonus, "World", "removeBonus(shared_ptr<Bonus_L>& bonus)");
 
         for (int i = 0; i<m_bonussen.size(); i++) {
             if (bonus == m_bonussen[i])

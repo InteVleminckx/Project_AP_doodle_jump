@@ -34,7 +34,7 @@ namespace representation {
          * @param BG_tile: shared_ptr van een BG_Tile_L wat een afleiding is van een EntityModel.
          * @param image: Een afbeelding die toegewijd wordt aan het object.
          ****************************************************************************************************/
-        BG_Tile(shared_ptr<logic::BG_Tile_L> BG_tile, string image);
+        BG_Tile(shared_ptr<logic::BG_Tile_L> BG_tile, const string& image);
 
         ~BG_Tile() override;
 

@@ -13,11 +13,7 @@
 #define DOODLE_JUMP_ENTITYFACTORY_H
 
 #include <iostream>
-#include "../Logic_libary/Platform.h"
-#include "../Logic_libary/Player.h"
-#include "../Logic_libary/BG_Tile.h"
-#include "../Logic_libary/Bonus.h"
-#include "../Logic_libary/Score_L.h"
+#include <memory>
 
 using namespace std;
 
@@ -34,6 +30,11 @@ enum PlatformType {Static_, Horizontal_, Vertical_, Temporary_};
 enum BonusType {Rocket_, Spring_};
 
 namespace logic {
+
+    class Player_L;
+    class Platform_L;
+    class Bonus_L;
+    class BG_Tile_L;
 
     class EntityFactory {
     public:

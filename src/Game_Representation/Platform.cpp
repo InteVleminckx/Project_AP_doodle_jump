@@ -6,6 +6,7 @@ namespace representation {
 
     Platform::Platform(shared_ptr<logic::Platform_L> platform, string& image) : EntityView(platform->getWidth(), platform->getHeight(), image)
     {
+        ControllingPointers::control(platform, "Platform", "Platform(shared_ptr<logic::Platform_L> platform, string& image)");
         setEntityModel(move(platform));
     }
 
