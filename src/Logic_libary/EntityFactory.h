@@ -17,7 +17,7 @@
 #include "../Logic_libary/Player.h"
 #include "../Logic_libary/BG_Tile.h"
 #include "../Logic_libary/Bonus.h"
-#include "../Logic_libary/Score.h"
+#include "../Logic_libary/Score_L.h"
 
 using namespace std;
 
@@ -25,7 +25,7 @@ using namespace std;
  * @enum PlatformType
  * @brief Bevat alle soorten platforms.
 ****************************************************************************************************/
-enum PlatformType{Static_, Horizontal_, Vertical_, Temporary_};
+enum PlatformType {Static_, Horizontal_, Vertical_, Temporary_};
 
 /****************************************************************************************************
  * @enum BonusType
@@ -51,7 +51,7 @@ namespace logic {
          * Deze functie wordt overschreven uit de base class EntityFactory.
          * @param player: een shared_ptr naar een Player_L wat een afleiding is van een EnityModel.
          ****************************************************************************************************/
-        virtual void createPlayer(shared_ptr<Player_L>& subject) = 0;
+        virtual void createPlayer(const shared_ptr<Player_L>& subject) = 0;
 
         /****************************************************************************************************
          * @function void createBG_Tile(shared_ptr<logic::BG_Tile_L> &bg_tile)
@@ -60,7 +60,7 @@ namespace logic {
          * Deze functie wordt overschreven uit de base class EntityFactory.
          * @param bg_tile: een shared_ptr naar een BG_Tile_L wat een afleiding is van een EnityModel.
          ****************************************************************************************************/
-        virtual void createPlatform(shared_ptr<Platform_L>& subject, PlatformType type) = 0;
+        virtual void createPlatform(const shared_ptr<Platform_L>& subject, PlatformType type) = 0;
 
         /****************************************************************************************************
          * @function void createPlatform(shared_ptr<logic::Platform_L> &platform, _Platform type) override
@@ -70,7 +70,7 @@ namespace logic {
          * @param platform: een shared_ptr naar een Platform_L wat een afleiding is van een EnityModel.
          * @param type: bevat het de soort van het platform dat aangemaakt moet worden. (Static, Horizontal, Vertical, Temporary)
          ****************************************************************************************************/
-        virtual void createBG_Tile(shared_ptr<BG_Tile_L>& subject) = 0;
+        virtual void createBG_Tile(const shared_ptr<BG_Tile_L>& subject) = 0;
 
         /****************************************************************************************************
          * @function void createBonus(shared_ptr<logic::Bonus_L> &bonus, _Bonus type)
@@ -80,7 +80,7 @@ namespace logic {
          * @param bonus: een shared_ptr naar een Bonus_L wat een afleiding is van een EnityModel.
          * @param type: bevat het de soort van de bonus dat aangemaakt moet worden. (Spring, Rocket)
          ****************************************************************************************************/
-        virtual void createBonus(shared_ptr<Bonus_L>& subject, BonusType type) = 0;
+        virtual void createBonus(const shared_ptr<Bonus_L>& subject, BonusType type) = 0;
 
         /****************************************************************************************************
          * @function void createScore(shared_ptr<logic::Player_L> &player, shared_ptr<logic::Score>& score)
@@ -88,9 +88,8 @@ namespace logic {
          * Deze functie is pure virtual void function.
          * Deze functie wordt overschreven uit de base class EntityFactory.
          * @param player: een shared_ptr naar een Player_L wat een afleiding is van een EnityModel.
-         * @param score: een shared_ptr naar een Score wat een afleiding is van een Observer.
          ****************************************************************************************************/
-        virtual void createScore(shared_ptr<Player_L>& subject, shared_ptr<logic::Score>& score) = 0;
+        virtual void createScore(const shared_ptr<Player_L>& subject) = 0;
 
         virtual ~EntityFactory();
 

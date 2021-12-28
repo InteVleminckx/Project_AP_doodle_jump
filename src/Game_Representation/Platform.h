@@ -36,7 +36,7 @@ namespace representation {
          * @param platform: shared_ptr van een Platform_L wat een afleiding is van een EntityModel.
          * @param image: Een afbeelding die toegewijd wordt aan het object.
          ****************************************************************************************************/
-        Platform(shared_ptr<logic::Platform_L>& platform, string& image);
+        Platform(shared_ptr<logic::Platform_L> platform, string& image);
 
         ~Platform() override;
     };
@@ -50,7 +50,7 @@ namespace representation {
          * @param platform: shared_ptr van een Platform_L wat een afleiding is van een EntityModel.
          * @param image: Een afbeelding die toegewijd wordt aan het object.
          ****************************************************************************************************/
-        Platform_static(shared_ptr<logic::Platform_L>& platform, string image);
+        Platform_static(shared_ptr<logic::Platform_L> platform, string image);
     };
 
     class Platform_vertical : public Platform {
@@ -62,7 +62,7 @@ namespace representation {
          * @param platform: shared_ptr van een Platform_L wat een afleiding is van een EntityModel.
          * @param image: Een afbeelding die toegewijd wordt aan het object.
          ****************************************************************************************************/
-        Platform_vertical(shared_ptr<logic::Platform_L>& platform, string image);
+        Platform_vertical(shared_ptr<logic::Platform_L> platform, string image);
 
         ~Platform_vertical() override;
     };
@@ -76,7 +76,7 @@ namespace representation {
          * @param platform: shared_ptr van een Platform_L wat een afleiding is van een EntityModel.
          * @param image: Een afbeelding die toegewijd wordt aan het object.
          ****************************************************************************************************/
-        Platform_horizontal(shared_ptr<logic::Platform_L>& platform, string image);
+        Platform_horizontal(shared_ptr<logic::Platform_L> platform, string image);
 
         ~Platform_horizontal() override;
     };
@@ -90,7 +90,7 @@ namespace representation {
          * @param platform: shared_ptr van een Platform_L wat een afleiding is van een EntityModel.
          * @param image: Een afbeelding die toegewijd wordt aan het object.
          ****************************************************************************************************/
-        Platform_temporary(shared_ptr<logic::Platform_L>& subject, string image);
+        Platform_temporary(shared_ptr<logic::Platform_L> subject, string image);
 
         ~Platform_temporary() override;
     };

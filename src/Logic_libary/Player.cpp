@@ -60,8 +60,6 @@ namespace logic {
         cout << "delete Player_L"  << endl;
 
     }
-
-
 }
 
 

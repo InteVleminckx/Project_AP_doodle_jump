@@ -30,7 +30,7 @@ add_subdirectory(src/Game_Representation)
 INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR})
 
 # The program we're compiling with the sources set above
-ADD_EXECUTABLE(doodle_jump src/main.cpp src/Exceptions.cpp)
+ADD_EXECUTABLE(doodle_jump src/main.cpp src/Exceptions.cpp src/json.hpp)
 
 target_link_libraries(doodle_jump representation logic)
 

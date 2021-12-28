@@ -16,6 +16,7 @@ namespace logic {
 
         m_isGamePlaying = false;
 
+        readSavedScoreFile();
 
     }
 
@@ -53,9 +54,6 @@ namespace logic {
 
         //Als alle entities zijn gerefreshed resetten we de clock.
         logic::Stopwatch::Instance()->Reset();
-
-        //Veranderd de moeilijkheidsgraad als dit nodig is.
-        logic::Random::Instance()->refreshDifficulty(logic::Camera::Instance()->reproduceScore(m_score->getScore()));
     }
 
     void World::releaseObservers() {
@@ -348,22 +346,51 @@ namespace logic {
     /*BEGIN**************************************** Score *****************************************BEGIN*/
 
     void World::createScore(shared_ptr<EntityFactory> &factory) {
-        m_score = move(make_shared<logic::Score>());
-        factory->createScore(m_player, m_score);
+        factory->createScore(m_player);
     }
 
     int World::getScore() {
+        return m_score;
+    }
 
-        if (m_score != nullptr)
-        {
-            return Camera::Instance()->reproduceScore(m_score->getScore());
+    int World::getHighScore() {
+        return m_highScore;
+    }
+
+    void World::readSavedScoreFile() {
+        string pathSavedFile = "../Save/highscore.json";
+
+        ifstream highscoreJSONFile(pathSavedFile);
+        json highScoreJson;
+
+        ofstream newHighscoreFile;
+
+        try {
+            if(!highscoreJSONFile){
+                throw InputSaveFileException();
+            }
+        }
+        catch (InputSaveFileException& exception){
+            cout << exception.what() << pathSavedFile << endl;
+            cout << "File highscore.json wordt aangemaakt in de directory Save" << endl;
+            newHighscoreFile.open("../Save/highscore.json");
+            highScoreJson["highscore"] = 0;
+            highScoreJson["score"] = 0;
+            newHighscoreFile << highScoreJson << endl;
+            newHighscoreFile.close();
+            highscoreJSONFile.open(pathSavedFile);
         }
 
-        else return 0;
+        highscoreJSONFile >> highScoreJson;
+
+        m_score = highScoreJson["score"];
+        m_highScore = highScoreJson["highscore"];
 
     }
 
     /*END****************************************** Score *******************************************END*/
+
+
 
     /*BEGIN*************************************** bg_tile ****************************************BEGIN*/
 

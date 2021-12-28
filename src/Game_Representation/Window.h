@@ -37,20 +37,6 @@ namespace representation {
         sf::RenderWindow m_window;
 
         /****************************************************************************************************
-         * @brief Is de text die de score displayed.
-         * @type sf::Text
-         * @var m_textScore
-         ****************************************************************************************************/
-        sf::Text m_textScore;
-
-        /****************************************************************************************************
-         * @brief Is de font die aan een text wordt toegewijd
-         * @type sf::Font
-         * @var m_font
-         ****************************************************************************************************/
-        sf::Font m_font;
-
-        /****************************************************************************************************
          * @brief Geeft aan of de window geopend is of niet.
          * @type bool
          * @var m_open
@@ -93,11 +79,9 @@ namespace representation {
 
         /****************************************************************************************************
          * @function void update(int score)
-         * @brief Update de RenderWindow van de game, controlleerd op events en drawed de score.
-         * @param score: is een int wat de score van de game bevat.
-         * @param inGame: is een bool die zegt of we in het spel zitten of niet.
+         * @brief Update de RenderWindow van de game, controleert op events.
          ****************************************************************************************************/
-        void update(int score, bool inGame);
+        void update();
 
         /****************************************************************************************************
          * @function bool isOpen()

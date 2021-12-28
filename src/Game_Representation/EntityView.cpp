@@ -43,22 +43,22 @@ namespace representation {
 
     float EntityView::getWidth() const {return m_width;}
 
-    void EntityView::setEntityModel(shared_ptr<logic::Player_L>& player){
-        m_entityModel = player;
+    void EntityView::setEntityModel(shared_ptr<logic::Player_L> player){
+        m_entityModel = move(player);
     }
-    void EntityView::setEntityModel(shared_ptr<logic::Platform_L>& platform){
-        m_entityModel = platform;
+    void EntityView::setEntityModel(shared_ptr<logic::Platform_L> platform){
+        m_entityModel = move(platform);
     }
-    void EntityView::setEntityModel(shared_ptr<logic::Bonus_L>& bonus){
-        m_entityModel = bonus;
+    void EntityView::setEntityModel(shared_ptr<logic::Bonus_L> bonus){
+        m_entityModel = move(bonus);
     }
-    void EntityView::setEntityModel(shared_ptr<logic::BG_Tile_L>& bg_tile){
-        m_entityModel = bg_tile;
+    void EntityView::setEntityModel(shared_ptr<logic::BG_Tile_L> bg_tile){
+        m_entityModel = move(bg_tile);
     }
 
-    shared_ptr<logic::EntityModel> EntityView::getEntityModel() {
-        return m_entityModel;
-    }
+//    shared_ptr<logic::EntityModel> EntityView::getEntityModel() {
+//        return m_entityModel;
+//    }
 
     void EntityView::update() {
         getSprite().setPosition(m_entityModel->getProjectedX(), m_entityModel->getProjectedY() - getHeight());

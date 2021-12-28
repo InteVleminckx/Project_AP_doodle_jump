@@ -6,4 +6,4 @@ add_library(representation
         Bonus.cpp
         BG_Tile.cpp
         Platform.cpp
-        ConcreteFactory.cpp ConcreteFactory.h)
+        ConcreteFactory.cpp ConcreteFactory.h Score.cpp Score.h)

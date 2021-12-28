@@ -123,28 +123,28 @@ class EntityView : public logic::Observer{
          * @function setEntityModel(shared_ptr<logic::Player_L>& player)
          * @param player: is een shared pointer van Player_L
          ****************************************************************************************************/
-        void setEntityModel(shared_ptr<logic::Player_L>& player);
+        void setEntityModel(shared_ptr<logic::Player_L> player);
 
         /****************************************************************************************************
          * @brief Initialiseerd de data member m_entityModel door deze gelijk te stellen aan een object van zijn subclass.
          * @function setEntityModel(shared_ptr<logic::Platform_L>& platform)
          * @param platform: is een shared pointer van Platform_L
          ****************************************************************************************************/
-        void setEntityModel(shared_ptr<logic::Platform_L>& platform);
+        void setEntityModel(shared_ptr<logic::Platform_L> platform);
 
         /****************************************************************************************************
          * @brief Initialiseerd de data member m_entityModel door deze gelijk te stellen aan een object van zijn subclass.
          * @function setEntityModel(shared_ptr<logic::Bonus_L>& bonus)
          * @param bonus: is een shared pointer van Bonus_L
          ****************************************************************************************************/
-        void setEntityModel(shared_ptr<logic::Bonus_L>& bonus);
+        void setEntityModel(shared_ptr<logic::Bonus_L> bonus);
 
         /****************************************************************************************************
          * @brief Initialiseerd de data member m_entityModel door deze gelijk te stellen aan een object van zijn subclass.
          * @function setEntityModel(shared_ptr<logic::BG_Tile_L>& bg_tile)
          * @param bg_tile: is een shared pointer van BG_Tile_L
          ****************************************************************************************************/
-        void setEntityModel(shared_ptr<logic::BG_Tile_L>& bg_tile);
+        void setEntityModel(shared_ptr<logic::BG_Tile_L> bg_tile);
 
         /****************************************************************************************************
         * @function getSprite()
@@ -172,12 +172,12 @@ class EntityView : public logic::Observer{
          ****************************************************************************************************/
         float getWidth() const;
 
-        /****************************************************************************************************
-         * @function getEntityModel()
-         * @brief Geeft de entityModel terug.
-         * @return shared_ptr<logic::EntityModel>
-         ****************************************************************************************************/
-        shared_ptr<logic::EntityModel> getEntityModel();
+//        /****************************************************************************************************
+//         * @function getEntityModel()
+//         * @brief Geeft de entityModel terug.
+//         * @return shared_ptr<logic::EntityModel>
+//         ****************************************************************************************************/
+//        unique_ptr<logic::EntityModel> getEntityModel();
 
         ~EntityView() override;
 

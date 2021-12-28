@@ -31,7 +31,7 @@ namespace logic {
          * @type vector<shared_ptr<Observer>>
          * @var m_observers
          ****************************************************************************************************/
-        vector<shared_ptr<Observer>> m_observers;
+        vector<unique_ptr<Observer>> m_observers;
 
     public:
 
@@ -46,14 +46,14 @@ namespace logic {
          * @brief Voegt een observer toe aan de vector van observers van het subject.
          * @param observer: is een const shared_ptr naar een observer die wordt toegevoegd.
          ****************************************************************************************************/
-        void addObserver(const shared_ptr<Observer>& observer);
+        void addObserver(unique_ptr<Observer> observer);
 
         /****************************************************************************************************
          * @function void removeObserver(const shared_ptr<Observer>& observer)
          * @brief Verwijdert een observer uit de vector van observers van het subject.
          * @param observer: is een const shared_ptr die uit de vector wordt verwijderd.
          ****************************************************************************************************/
-        void removeObserver(const shared_ptr<Observer>& observer);
+        void removeObserver(const unique_ptr<Observer>& observer);
 
         /****************************************************************************************************
          * @function virtual void Notify()
@@ -74,7 +74,7 @@ namespace logic {
          * @return: vector<shared_ptr<Observer>> wat alle observers van het subject bevat.
          * @return: vector<shared_ptr<Observer>> wat alle observers van het subject bevat.
          ****************************************************************************************************/
-        vector<shared_ptr<Observer>> getObservers();
+        vector<unique_ptr<Observer>>& getObservers();
 
         virtual ~Subject();
 

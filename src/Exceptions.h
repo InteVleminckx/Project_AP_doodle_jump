@@ -24,5 +24,12 @@ public:
     const char * what() const noexcept override;
 };
 
+class InputSaveFileException : exception{
+public:
+
+    InputSaveFileException() = default;
+    const char * what() const noexcept override;
+};
+
 
 #endif //DOODLE_JUMP_EXCEPTIONS_H

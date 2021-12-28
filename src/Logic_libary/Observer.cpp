@@ -8,6 +8,7 @@ namespace logic {
         cout << "delete Observer"  << endl;
 
     }
+
 }
 
 

@@ -23,7 +23,12 @@
 #include "Random.h"
 #include <memory>
 #include "Camera.h"
-#include "Score.h"
+#include "Score_L.h"
+
+#include <fstream>
+#include "../json.hpp"
+
+using json = nlohmann::json;
 
 using namespace std;
 
@@ -58,14 +63,6 @@ namespace logic {
          * @var m_player
          ****************************************************************************************************/
         shared_ptr<Player_L> m_player;
-
-        /****************************************************************************************************
-         * @brief shared_ptr die de logische score bijhoudt.
-         * @type shared_ptr<Score>
-         * @var m_score
-         ****************************************************************************************************/
-        shared_ptr<Score> m_score;
-
 
         /****************************************************************************************************
          * @brief Zijn de world boundries in het logische coördinaat systeem
@@ -114,6 +111,10 @@ namespace logic {
          ****************************************************************************************************/
         shared_ptr<EntityFactory> m_entityFactory;
 
+        int m_score{};
+
+        int m_highScore{};
+
     public:
 
         /****************************************************************************************************
@@ -121,7 +122,6 @@ namespace logic {
          * @brief Een constructor waar alle data members worden ingesteld.
          ****************************************************************************************************/
         World();
-
 
         /****************************************************************************************************
          * @function setFactory()
@@ -269,12 +269,11 @@ namespace logic {
          ****************************************************************************************************/
         void createScore(shared_ptr<EntityFactory> &factory);
 
-        /****************************************************************************************************
-         * @function int getScore()
-         * @brief Het geeft de score terug van het spel terug "geschaald" naar een duidelijkere score.
-         * @return Een integer wat de score is.
-         ****************************************************************************************************/
         int getScore();
+
+        int getHighScore();
+
+        void readSavedScoreFile();
 
         /*END****************************************** Score *******************************************END*/
 

@@ -36,7 +36,7 @@ namespace representation {
          * @param bonus: shared_ptr van een Bonus_L wat een afleiding is van een EntityModel.
          * @param image: Een afbeelding die toegewijd wordt aan het object.
          ****************************************************************************************************/
-        Bonus(shared_ptr<logic::Bonus_L>& bonus, string& image);
+        Bonus(shared_ptr<logic::Bonus_L> bonus, string& image);
 
         ~Bonus() override;
 
@@ -58,7 +58,7 @@ namespace representation {
          * @param bonus: shared_ptr van een Bonus_L wat een afleiding is van een EntityModel.
          * @param image: Een afbeelding die toegewijd wordt aan het object.
          ****************************************************************************************************/
-        Spring(shared_ptr<logic::Bonus_L>& bonus, string image);
+        Spring(shared_ptr<logic::Bonus_L> bonus, string image);
 
         ~Spring() override;
     };
@@ -79,7 +79,7 @@ namespace representation {
          * @param bonus: shared_ptr van een Bonus_L wat een afleiding is van een EntityModel.
          * @param image: Een afbeelding die toegewijd wordt aan het object.
          ****************************************************************************************************/
-        Rocket(shared_ptr<logic::Bonus_L>& bonus, string image);
+        Rocket(shared_ptr<logic::Bonus_L> bonus, string image);
 
         ~Rocket() override;
     };

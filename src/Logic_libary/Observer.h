@@ -19,6 +19,7 @@ using namespace std;
 
 namespace logic {
     class Observer {
+
     protected:
 
         /****************************************************************************************************

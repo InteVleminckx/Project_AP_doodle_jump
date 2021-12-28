@@ -51,7 +51,7 @@ namespace representation {
                 if (!m_world.getGameStatus()) break;
 
             }
-            Window::Instance()->update(m_world.getScore(), true);
+            Window::Instance()->update();
         }
     }
 
@@ -72,7 +72,8 @@ namespace representation {
         sf::Font font;
         sf::Text textMen;
         sf::Text textInstr;
-        sf::Text score;
+        sf::Text Highscore;
+        sf::Text Prevscore;
         string fontPath = "../Fonts/secrcode.ttf";
 
         bool fontLoaded = true;
@@ -90,22 +91,27 @@ namespace representation {
         {
             textMen.setFont(font);
             textInstr.setFont(font);
-            score.setFont(font);
+            Highscore.setFont(font);
+            Prevscore.setFont(font);
             textMen.setCharacterSize(45);
             textInstr.setCharacterSize(35);
-            score.setCharacterSize(25);
+            Highscore.setCharacterSize(25);
+            Prevscore.setCharacterSize(25);
             textMen.setFillColor(sf::Color::Green);
             textInstr.setFillColor(sf::Color::White);
-            score.setFillColor(sf::Color::Green);
+            Highscore.setFillColor(sf::Color::Green);
             textMen.setString("DOODLE JUMP");
             textInstr.setString("PRESS SPACE TO START");
 
-            string textScore = "Highscore: " + to_string(m_highScore);
-            score.setString(textScore);
+            string texthighScore = "Highscore: " + to_string(m_world.getHighScore());
+            string textprevScore = "Previous score: " + to_string(m_world.getScore());
+            Highscore.setString(texthighScore);
+            Prevscore.setString(textprevScore);
 
             textMen.setPosition((float) Window::Instance()->getWindow().getSize().x/2 - textMen.getLocalBounds().width/2, (float) Window::Instance()->getWindow().getSize().y/2 - textMen.getLocalBounds().height*2);
             textInstr.setPosition((float) Window::Instance()->getWindow().getSize().x/2 - textInstr.getLocalBounds().width/2, (float) Window::Instance()->getWindow().getSize().y/2);
-            score.setPosition((float) Window::Instance()->getWindow().getSize().x/2 - score.getLocalBounds().width/2, (float) Window::Instance()->getWindow().getSize().y/2 + score.getLocalBounds().height*4);
+            Highscore.setPosition((float) Window::Instance()->getWindow().getSize().x/2 - Highscore.getLocalBounds().width/2, (float) Window::Instance()->getWindow().getSize().y/2 + Highscore.getLocalBounds().height*4);
+            Prevscore.setPosition((float) Window::Instance()->getWindow().getSize().x/2 - Prevscore.getLocalBounds().width/2, (float) Window::Instance()->getWindow().getSize().y/2 + Prevscore.getLocalBounds().height*8);
         }
 
         while (!m_world.getGameStatus() && Window::Instance()->isOpen())
@@ -121,10 +127,11 @@ namespace representation {
                 Window::Instance()->getWindow().clear();
                 Window::Instance()->getWindow().draw(textMen);
                 Window::Instance()->getWindow().draw(textInstr);
-                Window::Instance()->getWindow().draw(score);
+                Window::Instance()->getWindow().draw(Highscore);
+                Window::Instance()->getWindow().draw(Prevscore);
                 Window::Instance()->getWindow().display();
             }
-            Window::Instance()->update(m_world.getScore(), false);
+            Window::Instance()->update();
 
         }
     }

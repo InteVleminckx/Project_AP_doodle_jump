@@ -8,18 +8,18 @@ namespace representation {
 
     Rocket::Rocket() = default;
 
-    Bonus::Bonus(shared_ptr<logic::Bonus_L> &bonus, string& image): EntityView(bonus->getWidth(), bonus->getHeight(), image)
+    Bonus::Bonus(shared_ptr<logic::Bonus_L> bonus, string& image): EntityView(bonus->getWidth(), bonus->getHeight(), image)
     {
-        setEntityModel(bonus);
+        setEntityModel(move(bonus));
     }
 
     Bonus::~Bonus() {cout << "delete Bonus observer" << endl;}
 
-    Spring::Spring(shared_ptr<logic::Bonus_L> &bonus, string image) : Bonus(bonus, image) {}
+    Spring::Spring(shared_ptr<logic::Bonus_L> bonus, string image) : Bonus(move(bonus), image) {}
 
     Spring::~Spring() {cout << "delete Spring observer" << endl;}
 
-    Rocket::Rocket(shared_ptr<logic::Bonus_L> &bonus, string image) : Bonus(bonus, image){}
+    Rocket::Rocket(shared_ptr<logic::Bonus_L> bonus, string image) : Bonus(move(bonus), image){}
 
     Rocket::~Rocket() {cout << "delete Rocket observer" << endl;}
 }
