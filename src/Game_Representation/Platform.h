@@ -20,7 +20,6 @@ using namespace std;
 
 namespace representation {
     class Platform : public EntityView{
-    protected:
 
         /****************************************************************************************************
          * @function Platform()
@@ -38,6 +37,7 @@ namespace representation {
          ****************************************************************************************************/
         Platform(shared_ptr<logic::Platform_L> platform, string& image);
 
+
         ~Platform() override;
     };
 
@@ -51,6 +51,7 @@ namespace representation {
          * @param image: Een afbeelding die toegewijd wordt aan het object.
          ****************************************************************************************************/
         Platform_static(shared_ptr<logic::Platform_L> platform, string image);
+
     };
 
     class Platform_vertical : public Platform {

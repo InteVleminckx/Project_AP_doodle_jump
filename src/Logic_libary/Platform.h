@@ -34,6 +34,20 @@ namespace logic {
          ****************************************************************************************************/
         float m_startPositionY{};
 
+        /****************************************************************************************************
+         * @brief Is de waarde dat wordt afgetrokken van de score als de speler meerdere keren op het platform springt.
+         * @type int
+         * @var m_decreasingValue
+         ****************************************************************************************************/
+        int m_decreasingValue;
+
+        /****************************************************************************************************
+         * @brief Zegt als de speler al op het platform heeft gesprongen of niet.
+         * @type bool
+         * @var m_hasJumpedOn
+         ****************************************************************************************************/
+        bool m_hasJumpedOn;
+
     public:
 
         /****************************************************************************************************
@@ -85,6 +99,33 @@ namespace logic {
          * @brief Veranderd de bewegingsrichting van het platform. Is een pure virtual void function.
          ****************************************************************************************************/
         virtual void changeDirection() = 0;
+
+        /****************************************************************************************************
+         * @function void setDecreasingValue(int value)
+         * @brief Geeft een waarde als decreasing value.
+         * @param value: de waarde dat de decreasing value wordt.
+         ****************************************************************************************************/
+        void setDecreasingValue(int value);
+
+        /****************************************************************************************************
+         * @function void setJumpedOn()
+         * @brief Zorgt ervoor dat wanneer er op het platform is gesprongen dat de bool hiervoor op true komt te staan.
+         ****************************************************************************************************/
+        void setJumpedOn();
+
+        /****************************************************************************************************
+         * @function int getDecreasingValue()
+         * @brief Geeft de decreasing value terug.
+         * @return Een integer wat de decreasing value is
+         ****************************************************************************************************/
+        int getDecreasingValue();
+
+        /****************************************************************************************************
+         * @function bool isJumpedOn
+         * @brief Zegt of er al op het platform is gesprongen of niet.
+         * @return Een boolean die zegt of er op gesprongen is of niet.
+         ****************************************************************************************************/
+        bool isJumpedOn();
 
         ~Platform_L() override;
 

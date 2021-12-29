@@ -92,6 +92,12 @@ class EntityView : public logic::Observer{
         void update() override;
 
         /****************************************************************************************************
+         * @function void draw()
+         * @brief Zal de bijhorende afbeelding tekenen op de window.
+         ****************************************************************************************************/
+        void draw();
+
+        /****************************************************************************************************
         * @function setSprite(sf::Sprite sprite)
         * @brief Geeft een sprite aan de entity.
         * @param sprite: is een sf::Sprite.
@@ -172,13 +178,6 @@ class EntityView : public logic::Observer{
          * @return float
          ****************************************************************************************************/
         float getWidth() const;
-
-//        /****************************************************************************************************
-//         * @function getEntityModel()
-//         * @brief Geeft de entityModel terug.
-//         * @return shared_ptr<logic::EntityModel>
-//         ****************************************************************************************************/
-//        unique_ptr<logic::EntityModel> getEntityModel();
 
         ~EntityView() override;
 

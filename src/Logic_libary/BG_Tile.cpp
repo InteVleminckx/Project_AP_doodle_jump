@@ -7,7 +7,5 @@ namespace logic {
         setWidth(width); setHeight(height);
     }
 
-    BG_Tile_L::~BG_Tile_L() {
-        cout << "delete BG_tile Logic" << endl;
-    }
+    BG_Tile_L::~BG_Tile_L() {}
 }

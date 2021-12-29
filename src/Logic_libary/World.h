@@ -189,7 +189,6 @@ namespace logic {
          ****************************************************************************************************/
         void createPlayer(shared_ptr<EntityFactory> &factory);
 
-
         /****************************************************************************************************
          * @function void refreshPlayer()
          * @brief Refreshed alle eigenschappen van de speler en zorgt ervoor dat deze geupdate wordt.
@@ -265,6 +264,9 @@ namespace logic {
          * @param platform: is een shared_ptr naar een Platform_L en is het platform dat verwijderd moet worden.
          ****************************************************************************************************/
         void removePlatform(shared_ptr<Platform_L>& platform);
+
+        template<class T>
+        void NotifyAll(vector<shared_ptr<T>>& model);
 
         /*END***************************************** Platform *****************************************END*/
 

@@ -1,5 +1,19 @@
 #include "ControllingPointers.h"
 
+//template<typename T>
+//void ControllingPointers::control(const shared_ptr<T>& pointer, const string& className, const string& functionName) {
+//
+//    try {
+//        if(pointer == nullptr){
+//            throw nullptrException(className, functionName);
+//        }
+//    }
+//    catch (nullptrException& exception){
+//        cout << exception.what_() << endl;
+//        exit(1);
+//    }
+//
+//}
 
 void ControllingPointers::control(const shared_ptr<logic::Subject>& subject, const string& className, const string& functionName) {
 
@@ -15,7 +29,7 @@ void ControllingPointers::control(const shared_ptr<logic::Subject>& subject, con
 
 }
 
-void ControllingPointers::control(const unique_ptr<logic::Observer> &observer, const string &className, const string &functionName) {
+void ControllingPointers::control(const shared_ptr<logic::Observer> &observer, const string &className, const string &functionName) {
 
     try {
         if(observer == nullptr){
@@ -31,13 +45,12 @@ void ControllingPointers::control(const unique_ptr<logic::Observer> &observer, c
 void ControllingPointers::control(const shared_ptr<logic::EntityFactory> &factory, const string& className, const string& functionName) {
 
     try {
-        if(factory == nullptr){
+        if (factory == nullptr) {
             throw nullptrException(className, functionName);
         }
     }
-    catch (nullptrException& exception){
+    catch (nullptrException &exception) {
         cout << exception.what_() << endl;
         exit(1);
     }
-
 }

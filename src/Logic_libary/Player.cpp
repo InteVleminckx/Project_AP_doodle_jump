@@ -24,7 +24,8 @@ namespace logic {
         setVelocityY(getVelocityY() - getGravity() * Stopwatch::Instance()->GetDeltaTime());
         setYprev(getY());
         setY(getY() + (getVelocityY() * Stopwatch::Instance()->GetDeltaTime()));
-        logic::Camera::Instance()->setOffset(getY());
+
+        Notify();
     }
 
     void Player_L::moveRight(float leftBound, float rightBound) {
@@ -35,6 +36,7 @@ namespace logic {
             newPos = leftBound;
         setXprev(getX());
         setX(newPos);
+        Notify();
 
     }
 
@@ -44,21 +46,20 @@ namespace logic {
             newPos = rightBound;
         setXprev(getX());
         setX(newPos);
+        Notify();
     }
 
     void Player_L::jump() { setVelocityY(sqrt(2.0f * getGravity() * m_jumpforce));}
 
     void Player_L::powerup(float power) {
-        if (!m_bonusActive)
-        {
-            m_bonusActive = true;
-            setVelocityY(sqrt(2.0f * getGravity() * power));
-        }
+        m_bonusActive = true;
+        setVelocityY(sqrt(2.0f * getGravity() * power));
     }
 
-    Player_L::~Player_L() {
-        cout << "delete Player_L"  << endl;
+    Player_L::~Player_L() {}
 
+    bool Player_L::getBonusActive() {
+        return m_bonusActive;
     }
 }
 

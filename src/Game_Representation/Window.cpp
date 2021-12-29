@@ -26,7 +26,7 @@ namespace representation {
         m_isOpen = true;
     }
 
-    Window::~Window() {cout << "delete Window" << endl;};
+    Window::~Window() {}
 
     sf::RenderWindow& Window::getWindow() {
         return m_window;

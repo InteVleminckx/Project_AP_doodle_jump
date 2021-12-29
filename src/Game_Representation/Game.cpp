@@ -9,8 +9,11 @@ namespace representation {
     }
 
     void Game::setupWorld() {
-        shared_ptr<logic::EntityFactory> factory = move(make_shared<representation::ConcreteFactory>());
+
+        m_concreteFactory = move(make_shared<representation::ConcreteFactory>());
+        shared_ptr<logic::EntityFactory> factory = m_concreteFactory;
         m_world.setFactory(factory);
+
         m_world.setupWorld();
     }
 
@@ -43,14 +46,18 @@ namespace representation {
         while (Window::Instance()->isOpen())
         {
             logic::Stopwatch::Instance()->Tick();
-            if (logic::Stopwatch::Instance()->GetDeltaTime() >= 1/m_frameRate)
+            if (logic::Stopwatch::Instance()->GetDeltaTime() < 1/m_frameRate)
             {
-                Window::Instance()->getWindow().clear();
-                m_world.updateWorld();
-
-                if (!m_world.getGameStatus()) break;
-
+                chrono::milliseconds ms = chrono::milliseconds((int)(((1/m_frameRate) - logic::Stopwatch::Instance()->GetDeltaTime())*1000));
+                this_thread::sleep_for(ms);
             }
+            logic::Stopwatch::Instance()->Tick();
+            logic::Stopwatch::Instance()->Reset();
+
+            Window::Instance()->getWindow().clear();
+            m_world.updateWorld();
+            drawViews();
+            if (!m_world.getGameStatus()) break;
             Window::Instance()->update();
         }
     }
@@ -134,5 +141,56 @@ namespace representation {
         }
     }
 
-    Game::~Game() {cout << "delete Game" << endl; }
+    Game::~Game() {}
+
+    void Game::drawViews() {
+
+        for (int i = (int) m_concreteFactory->getBG_Tiles().size() - 1 ; i >= 0 ; --i) {
+
+            if (m_concreteFactory->getBG_Tiles()[i].use_count() == 1){
+                m_concreteFactory->getBG_Tiles().erase(m_concreteFactory->getBG_Tiles().begin()+i);
+            }
+            else {
+                m_concreteFactory->getBG_Tiles()[i]->draw();
+            }
+        }
+
+        for (int i = (int) m_concreteFactory->getPlatforms().size() - 1 ; i >= 0 ; --i) {
+
+            if (m_concreteFactory->getPlatforms()[i].use_count() == 1){
+                m_concreteFactory->getPlatforms().erase(m_concreteFactory->getPlatforms().begin()+i);
+            }
+            else {
+                m_concreteFactory->getPlatforms()[i]->draw();
+            }
+        }
+
+        for (int i = (int) m_concreteFactory->getBonussen().size() - 1 ; i >= 0 ; --i) {
+
+            if (m_concreteFactory->getBonussen()[i].use_count() == 1){
+                m_concreteFactory->getBonussen().erase(m_concreteFactory->getBonussen().begin()+i);
+            }
+            else {
+                m_concreteFactory->getBonussen()[i]->draw();
+            }
+        }
+
+        if (m_concreteFactory->getScore().use_count() == 1){
+            m_concreteFactory->getScore().reset();
+        }
+        else {
+            m_concreteFactory->getScore()->draw();
+        }
+
+        if (m_concreteFactory->getPlayer().use_count() == 1){
+            m_concreteFactory->getPlayer().reset();
+        }
+        else {
+            m_concreteFactory->getPlayer()->draw();
+        }
+
+
+
+
+    }
 }

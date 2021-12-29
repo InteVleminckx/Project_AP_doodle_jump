@@ -28,6 +28,9 @@ namespace representation{
     void Score::update() {
         updateScore();
         m_textScore.setString(to_string(getScore()));
+    }
+
+    void Score::draw() {
         representation::Window::Instance()->getWindow().draw(m_textScore);
     }
 

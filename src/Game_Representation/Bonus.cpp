@@ -14,13 +14,13 @@ namespace representation {
         setEntityModel(move(bonus));
     }
 
-    Bonus::~Bonus() {cout << "delete Bonus observer" << endl;}
+    Bonus::~Bonus() {}
 
     Spring::Spring(shared_ptr<logic::Bonus_L> bonus, string image) : Bonus(move(bonus), image) {}
 
-    Spring::~Spring() {cout << "delete Spring observer" << endl;}
+    Spring::~Spring() {}
 
     Rocket::Rocket(shared_ptr<logic::Bonus_L> bonus, string image) : Bonus(move(bonus), image){}
 
-    Rocket::~Rocket() {cout << "delete Rocket observer" << endl;}
+    Rocket::~Rocket() {}
 }

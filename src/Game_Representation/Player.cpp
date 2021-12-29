@@ -10,7 +10,5 @@ namespace representation {
         setEntityModel(move(player));
     }
 
-    Player::~Player() {
-        cout << "delete Player observer" << endl;
-    }
+    Player::~Player() {}
 }

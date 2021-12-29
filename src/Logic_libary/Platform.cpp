@@ -11,6 +11,8 @@ namespace logic {
         setX(posX); setY(posY);
         setXprev(posX); setYprev(posY);
         setWidth(width); setHeight(height);
+        m_decreasingValue = 0;
+        m_hasJumpedOn = false;
     }
 
     void Platform_L::setTemporary(bool temporary) {m_temporary = temporary;}
@@ -21,25 +23,38 @@ namespace logic {
 
     float Platform_L::getStartPositionY() {return m_startPositionY;}
 
-    Platform_L::~Platform_L() {
-        cout << "delete Platform_L"  << endl;
-
+    void Platform_L::setDecreasingValue(int value) {
+        m_decreasingValue = value;
     }
 
-    Platform_L_static::Platform_L_static(float posX, float posY, float width, float height) : Platform_L(posX, posY, width, height) {}
+    int Platform_L::getDecreasingValue() {
+        return m_decreasingValue;
+    }
+
+    void Platform_L::setJumpedOn() {
+        m_hasJumpedOn = true;
+    }
+
+    bool Platform_L::isJumpedOn() {
+        return m_hasJumpedOn;
+    }
+
+    Platform_L::~Platform_L() {}
+
+    Platform_L_static::Platform_L_static(float posX, float posY, float width, float height) : Platform_L(posX, posY, width, height) {
+        setDecreasingValue(500);
+    }
 
     void Platform_L_static::movePlatform() {}
 
     void Platform_L_static::changeDirection() {}
 
-    Platform_L_static::~Platform_L_static() {
-        cout << "delete Platform_L_static"  << endl;
-
-    }
+    Platform_L_static::~Platform_L_static() {}
 
     Platform_L_vertical::Platform_L_vertical(float posX, float posY, float width, float height) : Platform_L(posX, posY, width, height) {
         setVelocityY(.2f);
         setStartPostionY(posY);
+        setDecreasingValue(400);
     }
 
     void Platform_L_vertical::movePlatform() {
@@ -49,6 +64,7 @@ namespace logic {
         setY(newPos);
 
         if (abs(getY() - getStartPositionY()) >= 0.25f) changeDirection();
+        Notify();
 
     }
 
@@ -56,13 +72,11 @@ namespace logic {
         setVelocityY(-getVelocityY());
     }
 
-    Platform_L_vertical::~Platform_L_vertical() {
-        cout << "delete Platform_L_vertical"  << endl;
-
-    }
+    Platform_L_vertical::~Platform_L_vertical() {}
 
     Platform_L_horizontal::Platform_L_horizontal(float posX, float posY, float width, float height) : Platform_L(posX, posY, width, height) {
         setVelocityX(.2f);
+        setDecreasingValue(300);
     }
 
     void Platform_L_horizontal::movePlatform() {
@@ -72,25 +86,22 @@ namespace logic {
 
         if (getX() <= 0) changeDirection();
         else if (getX() + getWidth() >= 1) changeDirection();
+        Notify();
     }
 
     void Platform_L_horizontal::changeDirection() {
         setVelocityX(-getVelocityX());
     }
 
-    Platform_L_horizontal::~Platform_L_horizontal() {
-        cout << "delete Observer"  << endl;
+    Platform_L_horizontal::~Platform_L_horizontal() {}
 
+    Platform_L_temporary::Platform_L_temporary(float posX, float posY, float width, float height) : Platform_L(posX, posY, width, height) {
+        setTemporary(true);
     }
-
-    Platform_L_temporary::Platform_L_temporary(float posX, float posY, float width, float height) : Platform_L(posX, posY, width, height) {setTemporary(true);}
 
     void Platform_L_temporary::movePlatform() {}
 
     void Platform_L_temporary::changeDirection() {}
 
-    Platform_L_temporary::~Platform_L_temporary() {
-        cout << "delete Platform_L_temporary"  << endl;
-
-    }
+    Platform_L_temporary::~Platform_L_temporary() {}
 }

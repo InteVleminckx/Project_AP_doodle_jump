@@ -25,6 +25,12 @@ using namespace std;
 namespace representation {
     class ConcreteFactory : public logic::EntityFactory{
 
+        vector<shared_ptr<Platform>> m_platforms;
+        vector<shared_ptr<Bonus>> m_bonussen;
+        vector<shared_ptr<BG_Tile>> m_BG_Tiles;
+        shared_ptr<Player> m_player;
+        shared_ptr<Score> m_score;
+
     public:
 
         /****************************************************************************************************
@@ -74,6 +80,41 @@ namespace representation {
          * @param player: een shared_ptr naar een Player_L wat een afleiding is van een EnityModel.
          ****************************************************************************************************/
         void createScore(const shared_ptr<logic::Player_L> &player) override;
+
+        /****************************************************************************************************
+         * @function shared_ptr<Player> getPlayer()
+         * @brief Zal de view van de player teruggeven.
+         * @return Een shared_ptr<Player> wat een pointer naar de player is.
+         ****************************************************************************************************/
+        shared_ptr<Player>& getPlayer();
+
+        /****************************************************************************************************
+         * @function shared_ptr<Score> getScore()
+         * @brief Zal de score teruggeven.
+         * @return Een shared_ptr<Score> wat een pointer naar de score is.
+         ****************************************************************************************************/
+        shared_ptr<Score>& getScore();
+
+        /****************************************************************************************************
+         * @function vector<shared_ptr<Platform>> getPlatforms()
+         * @brief Zal een vector van views teruggeven dat platformen zijn.
+         * @return Een vector<shared_ptr<Platform>> wat een vector van pointers naar de platformen zijn.
+         ****************************************************************************************************/
+        vector<shared_ptr<Platform>>& getPlatforms();
+
+        /****************************************************************************************************
+         * @function vector<shared_ptr<BG_Tile>> getBG_Tiles()
+         * @brief Zal een vector van views teruggeven dat bg_tiles zijn.
+         * @return Een vector<shared_ptr<BG_Tile>> wat een vector van pointers naar de bg_tiles zijn.
+         ****************************************************************************************************/
+        vector<shared_ptr<BG_Tile>>& getBG_Tiles();
+
+        /****************************************************************************************************
+         * @function vector<shared_ptr<Bonus>> getBonussen()
+         * @brief Zal een vector van views teruggeven dat bonussen zijn.
+         * @return Een vector<shared_ptr<Bonus>> wat een vector van pointers naar de bonussen zijn.
+         ****************************************************************************************************/
+        vector<shared_ptr<Bonus>>& getBonussen();
 
         ~ConcreteFactory() override;
 

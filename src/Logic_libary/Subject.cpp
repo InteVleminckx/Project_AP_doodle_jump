@@ -5,12 +5,12 @@
 namespace logic {
     Subject::Subject() = default;
 
-    void Subject::addObserver(unique_ptr<Observer> observer){
+    void Subject::addObserver(const shared_ptr<Observer>& observer){
         ControllingPointers::control(observer, "Subject", "addObserver(unique_ptr<Observer> observer)");
-        m_observers.push_back(move(observer));
+        m_observers.push_back(observer);
     }
 
-    void Subject::removeObserver(const unique_ptr<Observer>& observer)
+    void Subject::removeObserver(const shared_ptr<Observer>& observer)
     {
         ControllingPointers::control(observer, "Subject", "removeObserver(const unique_ptr<Observer>& observer)");
 
@@ -24,11 +24,9 @@ namespace logic {
     }
     void Subject::emptyObserver() {m_observers.clear();}
 
-    vector<unique_ptr<Observer>>& Subject::getObservers() {return m_observers;}
+    vector<shared_ptr<Observer>>& Subject::getObservers() {return m_observers;}
 
-    Subject::~Subject() {
-        cout << "delete Subject"  << endl;
-    }
+    Subject::~Subject() {}
 
 
 }

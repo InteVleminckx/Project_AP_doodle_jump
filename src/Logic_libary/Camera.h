@@ -109,11 +109,12 @@ namespace logic {
         float getOffset();
 
         /****************************************************************************************************
-         * @function void setOffset(float y)
+         * @function bool setOffset(float y)
          * @brief Veranderd de offset door deze gelijk te stellen aan het argument dat meegeven wordt.
          * @param y: is een float, wat de nieuwe offset zal worden.
+         * @return Een boolean die zegt of de offset gewijzigd is.
          ****************************************************************************************************/
-        void setOffset(float y);
+        bool setOffset(float y);
 
     private:
 

@@ -40,6 +40,19 @@ namespace logic {
          ****************************************************************************************************/
         shared_ptr<Player_L> m_player;
 
+        /****************************************************************************************************
+         * @brief Zijn punten die afgetrokken worden van de score.
+         * @type int
+         * @var m_negativesPoints
+         ****************************************************************************************************/
+        int m_negativesPoints;
+
+        /****************************************************************************************************
+         * @brief Zijn punten die extra worden opgeteld bij de score.
+         * @type int
+         * @var m_positivesPoints
+         ****************************************************************************************************/
+        int m_positivesPoints;
 
     public:
 
@@ -50,7 +63,6 @@ namespace logic {
          ****************************************************************************************************/
         Score_L(shared_ptr<Player_L> player);
 
-
         /****************************************************************************************************
          * @function void setScore(float score)
          * @brief Het zal een score binnen krijgen in een float getal en zal deze toekennen aan m_score, maar ook
@@ -58,6 +70,20 @@ namespace logic {
          * @param score: Is eeen float
          ****************************************************************************************************/
         void setScore(float score);
+
+        /****************************************************************************************************
+         * @function addNegativePoints(int points)
+         * @brief Voegt x aantal punten bij m_negativePoints toe.
+         * @param points: Een integer wat het aantal punten zijn die erbij worden geteld.
+         ****************************************************************************************************/
+        void addNegativePoints(int points);
+
+        /****************************************************************************************************
+         * @function void addPositivesPoints(int points)
+         * @brief Voegt x aantal punten bij m_positivePoints toe.
+         * @param points: Een integer wat het aantal punten zijn die erbij worden geteld.
+         ****************************************************************************************************/
+        void addPositivesPoints(int points);
 
         /****************************************************************************************************
          * @function void update() override

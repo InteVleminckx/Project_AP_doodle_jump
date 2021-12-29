@@ -47,8 +47,8 @@ namespace logic {
 
     void EntityModel::Notify() {
         for (auto& ob : getObservers()){
-            projectPointsToPixels();
             ControllingPointers::control(ob, "EntityModel", "Notify()");
+            projectPointsToPixels();
             ob->update();
         }
 
@@ -60,10 +60,7 @@ namespace logic {
         m_projectedY = pixels.y;
     }
 
-    EntityModel::~EntityModel() {
-        cout << "delete EntityModel"  << endl;
-
-    }
+    EntityModel::~EntityModel() {}
 
 
 }

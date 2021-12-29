@@ -37,6 +37,13 @@ namespace logic {
          ****************************************************************************************************/
         bool m_involmsVeloctiy;
 
+        /****************************************************************************************************
+         * @brief Is de waarde dat wordt bijgeteld op de score als de speler op een bonus springt.
+         * @type int
+         * @var m_increasingValue
+         ****************************************************************************************************/
+        int m_increasingValue;
+
     public:
 
         /****************************************************************************************************
@@ -62,6 +69,20 @@ namespace logic {
          * @return een bool, wat de m_involmsVelocity is.
          ****************************************************************************************************/
         bool getInvolmsVelocity();
+
+        /****************************************************************************************************
+         * @function void setIncreasingValue(int value)
+         * @brief Geeft een waarde als increasing value.
+         * @param value: de waarde dat de increasing value wordt.
+         ****************************************************************************************************/
+        void setIncreasingValue(int value);
+
+        /****************************************************************************************************
+         * @function int getIncreasingValue()
+         * @brief Geeft de increasing value terug.
+         * @return Een integer wat de increasing value is
+         ****************************************************************************************************/
+        int getIncreasingValue();
 
         ~Bonus_L() override;
 

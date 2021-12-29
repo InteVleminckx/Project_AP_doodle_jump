@@ -5,6 +5,9 @@ namespace logic {
 
     Score_L::Score_L(shared_ptr<Player_L> player) {
         ControllingPointers::control(player, "Score_L", "Score_L(shared_ptr<Player_L> player) ");
+
+        m_negativesPoints = 0;
+        m_positivesPoints = 0;
         m_player = move(player);
     };
 
@@ -17,7 +20,7 @@ namespace logic {
     }
 
     void Score_L::setScore(float score) {
-        m_score = Camera::Instance()->reproduceScore(score);
+        m_score = Camera::Instance()->reproduceScore(score)  - m_negativesPoints + m_positivesPoints;
     }
 
     shared_ptr<Player_L> Score_L::getPlayer() {
@@ -60,5 +63,13 @@ namespace logic {
         newHighscoreFile.open(pathSavedFile);
         newHighscoreFile << highScoreJson << endl;
 
+    }
+
+    void Score_L::addNegativePoints(int points) {
+        m_negativesPoints += points;
+    }
+
+    void Score_L::addPositivesPoints(int points) {
+        m_positivesPoints += points;
     }
 }

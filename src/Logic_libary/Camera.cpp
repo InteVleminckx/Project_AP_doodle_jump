@@ -17,7 +17,7 @@ namespace logic {
 
     Camera::Camera(int width, int height) : m_height(height), m_width(width){}
 
-    Camera::~Camera() {cout << "delete Camera" << endl;}
+    Camera::~Camera() {}
 
     projectedPixels Camera::projectToPixel(float x, float y) {
 
@@ -42,8 +42,13 @@ namespace logic {
 
     int Camera::getCameraHeight() {return m_width;}
 
-    void Camera::setOffset(float y) {
-        if (y >= 0 && y > m_offset) m_offset = y;
+    bool Camera::setOffset(float y) {
+        if (y >= 0 && y > m_offset)
+        {
+            m_offset = y;
+            return true;
+        }
+        return false;
     }
 
     int Camera::reproduceScore(float score) {

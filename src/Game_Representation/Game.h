@@ -19,10 +19,14 @@
 #include "ConcreteFactory.h"
 #include "../Logic_libary/Random.h"
 #include "../Logic_libary/Camera.h"
+#include <thread>
+
 
 using namespace std;
 
 namespace representation {
+
+
     class Game {
 
         /****************************************************************************************************
@@ -67,6 +71,8 @@ namespace representation {
          ****************************************************************************************************/
         int m_highScore{};
 
+        shared_ptr<ConcreteFactory> m_concreteFactory;
+
         /****************************************************************************************************
          * @function setupWorld()
          * @brief Zorgt dat de world correct wordt ingesteld.
@@ -91,6 +97,8 @@ namespace representation {
          ****************************************************************************************************/
         void stopGame();
 
+        void drawViews();
+
     public:
 
         /****************************************************************************************************
@@ -107,6 +115,8 @@ namespace representation {
 
         ~Game();
     };
+
+
 }
 
 

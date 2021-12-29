@@ -148,7 +148,7 @@ namespace logic {
         if (model->getY() < m_player->getY() - abs(m_belowLogicY)){
             return true;
         }
-        model->Notify();
+
         return false;
     }
 
@@ -163,7 +163,7 @@ namespace logic {
         ControllingPointers::control(m_player, "World", "createPlayer(shared_ptr<EntityFactory> &factory)");
 
         factory->createPlayer(m_player);
-
+        m_player->Notify();
         m_player->jump();
     }
 
@@ -176,14 +176,23 @@ namespace logic {
 
         //Passen de zwaartekracht toe op de speler.
         m_player->gravity();
+        if (logic::Camera::Instance()->setOffset(m_player->getY())){
+            NotifyAll(m_platforms);
+            NotifyAll(m_bonussen);
+        }
 
         //Controleren op een collision.
         playerCollision();
 
         //Controleert of de speler uit het scherm is van onder, zoja eindigt het spel.
         playerOutOfScope();
+    }
 
-        m_player->Notify();
+    template<class T>
+    void World::NotifyAll(vector<shared_ptr<T>>& models){
+        for (auto& model: models) {
+            model->Notify();
+        }
     }
 
     void World::movePlayerRight() {
@@ -218,6 +227,12 @@ namespace logic {
                     // nu nog controlleren of de x-waarde ertussen zit zodat de player effectief het platform geraakt heeft
                     if ((platform_X0 <= leftPlayer[i].first && leftPlayer[i].first <= platform_X1) || (platform_X0 <= rightPlayer[i].first && rightPlayer[i].first <= platform_X1)) {
                         m_player->jump();
+                        if (platform->isJumpedOn()) {
+                            cout << platform->getDecreasingValue() << endl;
+                        }
+                        else {
+                            platform->setJumpedOn();
+                        }
                         if (platform->isTemporary()) {removePlatform(platform);}
                         return;
                     }
@@ -243,12 +258,14 @@ namespace logic {
 
                     if (( leftPlayer[i].first <= bonus_X0  && bonus_X0 <=  rightPlayer[i].first) || ( leftPlayer[i].first <= bonus_X1  && bonus_X1 <=  rightPlayer[i].first)) {
 
-                        if (bonus->getInvolmsVelocity() && m_player->getVelocityY() <= 0)
+                        if (bonus->getInvolmsVelocity() && m_player->getVelocityY() <= 0 && !m_player->getBonusActive())
                         {
                             m_player->powerup(bonus->getForce());
+                            cout << bonus->getIncreasingValue() << endl;
                         }
-                        else if (! bonus->getInvolmsVelocity()){
+                        else if (! bonus->getInvolmsVelocity() && !m_player->getBonusActive()){
                             m_player->powerup(bonus->getForce());
+                            cout << bonus->getIncreasingValue() << endl;
                         }
 
                     }
@@ -256,8 +273,6 @@ namespace logic {
             }
         }
     }
-
-    /*END***************************************** bg_tile ******************************************END*/
 
     void World::playerCollision() {
         vector<pair<float, float>> leftPlayer, rightPlayer;
@@ -300,6 +315,7 @@ namespace logic {
                 platform = move(make_shared<logic::Platform_L_temporary> (x, y, m_platformWidth,m_platformHeight));
         }
         factory->createPlatform(platform, type);
+        platform->Notify();
         m_platforms.push_back(move(platform));
     }
 
@@ -460,16 +476,13 @@ namespace logic {
             tile = move(std::make_shared<logic::BG_Tile_L>(m_leftLogicX, m_belowLogicY, m_bgTileWidth, m_bgTileHeight));
         }
         factory->createBG_Tile(tile);
+        tile->Notify();
         m_BGtiles.push_back(move(tile));
     }
 
     void World::refreshBg_Tile() {
         tileOutOfView();
-        for (const auto& entity : m_BGtiles) {
 
-            ControllingPointers::control(entity, "World", "refreshBg_Tile()");
-            entity->Notify();
-        }
     }
 
     void World::tileOutOfView() {
@@ -483,6 +496,8 @@ namespace logic {
             }
         }
     }
+
+    /*END***************************************** bg_tile ******************************************END*/
 
     /*BEGIN**************************************** Bonus *****************************************BEGIN*/
 
@@ -505,7 +520,9 @@ namespace logic {
         }
 
         factory->createBonus(bonus, type);
+        bonus->Notify();
         m_bonussen.push_back(move(bonus));
+
     }
 
     void World::refreshBonus() {
@@ -546,10 +563,7 @@ namespace logic {
     }
 
 
-    World::~World() {
-
-        cout << "delete World"  << endl;
-    }
+    World::~World() {}
 
     /*END****************************************** Bonus *******************************************END*/
 

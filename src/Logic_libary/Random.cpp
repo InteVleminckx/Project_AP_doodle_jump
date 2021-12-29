@@ -21,7 +21,7 @@ namespace logic {
         Reset();
     }
 
-    Random::~Random() {cout << "delete Random"  << endl;}
+    Random::~Random() {}
 
     void Random::Reset() { srand(time(0)); }
 

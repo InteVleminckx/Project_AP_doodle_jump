@@ -12,11 +12,15 @@
 
 class ControllingPointers {
 public:
+
+//    template<typename T>
+//    static void control(const shared_ptr<T>& pointer, const string& className, const string& functionName);
     static void control(const shared_ptr<logic::Subject>& subject, const string& className, const string& functionName);
 
-    static void control(const unique_ptr<logic::Observer>& observer, const string& className, const string& functionName);
+    static void control(const shared_ptr<logic::Observer>& observer, const string& className, const string& functionName);
 
     static void control(const shared_ptr<logic::EntityFactory>& factory, const string& className, const string& functionName);
+
 
 };
 

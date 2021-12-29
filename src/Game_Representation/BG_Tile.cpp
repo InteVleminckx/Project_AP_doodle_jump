@@ -9,7 +9,8 @@ namespace representation {
     {
         ControllingPointers::control(BG_tile, "BG_Tile", "BG_Tile(shared_ptr<logic::BG_Tile_L> BG_tile, const string& image)");
         setEntityModel(move(BG_tile));
+
     }
 
-    BG_Tile::~BG_Tile() {cout << "delete BG_Tile observer" << endl;}
+    BG_Tile::~BG_Tile() {}
 }
