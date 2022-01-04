@@ -14,6 +14,11 @@
 
 #include <iostream>
 #include <memory>
+#include "../Logic_libary/Player.h"
+#include "../Logic_libary/Platform.h"
+#include "../Logic_libary/Score_L.h"
+#include "../Logic_libary/Bonus.h"
+#include "../Logic_libary/BG_Tile.h"
 
 using namespace std;
 
@@ -31,12 +36,11 @@ enum BonusType {Rocket_, Spring_};
 
 namespace logic {
 
-    class Player_L;
-    class Platform_L;
-    class Bonus_L;
-    class BG_Tile_L;
-
     class EntityFactory {
+
+    /****************************************************************************************************
+     * @publicsection
+     ****************************************************************************************************/
     public:
 
         /****************************************************************************************************
@@ -90,8 +94,12 @@ namespace logic {
          * Deze functie wordt overschreven uit de base class EntityFactory.
          * @param player: een shared_ptr naar een Player_L wat een afleiding is van een EnityModel.
          ****************************************************************************************************/
-        virtual void createScore(const shared_ptr<Player_L>& subject) = 0;
+        virtual void createScore(const shared_ptr<Player_L>& subject, shared_ptr<Score_L>& score) = 0;
 
+        /****************************************************************************************************
+         * @function ~EntityFactory()
+         * @brief Is een virtual destructor;
+         ****************************************************************************************************/
         virtual ~EntityFactory();
 
     };

@@ -26,7 +26,7 @@ namespace representation {
         m_isOpen = true;
     }
 
-    Window::~Window() {}
+    Window::~Window() = default;
 
     sf::RenderWindow& Window::getWindow() {
         return m_window;

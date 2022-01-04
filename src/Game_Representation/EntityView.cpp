@@ -6,10 +6,10 @@ namespace representation {
     EntityView::EntityView() = default;
 
     EntityView::EntityView(float width, float height, const string& filepath){
-        setWidth(width * logic::Camera::Instance()->getCameraWidth());
-        setHeight(height * logic::Camera::Instance()->getCameraHeight());
+        m_width = width * logic::Camera::Instance()->getCameraWidth();
+        m_height = height * logic::Camera::Instance()->getCameraHeight();
         createSprite(filepath);
-        getSprite().setScale(getWidth()/getTexture().getSize().x, getHeight()/getTexture().getSize().y);
+        m_modelSprite.setScale(m_width/m_modelTexture.getSize().x, m_height/m_modelTexture.getSize().y);
     }
 
     void EntityView::createSprite(const string& filepath)
@@ -29,7 +29,7 @@ namespace representation {
 
     void EntityView::update() {
         ControllingPointers::control(m_entityModel, "EntityView", "update()");
-        m_modelSprite.setPosition((float) m_entityModel->getProjectedX(), (float) m_entityModel->getProjectedY() - getHeight());
+        m_modelSprite.setPosition((float) m_entityModel->getProjectedX(), (float) m_entityModel->getProjectedY() - m_height);
 
     }
 
@@ -37,20 +37,6 @@ namespace representation {
         representation::Window::Instance()->getWindow().draw(m_modelSprite);
     }
 
-    void EntityView::setSprite(sf::Sprite& sprite) {m_modelSprite = sprite;}
-
-    void EntityView::setTexture(sf::Texture& texture) {m_modelTexture = texture;}
-
-    void EntityView::setHeight(float height) {m_height = height;}
-
-    void EntityView::setWidth(float width) {m_width = width;}
-
-    sf::Sprite& EntityView::getSprite() { return m_modelSprite; }
-
-    sf::Texture& EntityView::getTexture() {return m_modelTexture;}
-
-    float EntityView::getHeight() const  {return m_height;}
-    float EntityView::getWidth() const {return m_width;}
     void EntityView::setEntityModel(shared_ptr<logic::Player_L> player){
         ControllingPointers::control(player, "EntityView", "setEntityModel(shared_ptr<logic::Player_L> platform)");
         m_entityModel = move(player);

@@ -7,5 +7,5 @@ namespace logic {
         setWidth(width); setHeight(height);
     }
 
-    BG_Tile_L::~BG_Tile_L() {}
+    BG_Tile_L::~BG_Tile_L() = default;
 }

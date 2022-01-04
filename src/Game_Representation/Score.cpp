@@ -27,12 +27,14 @@ namespace representation{
 
     void Score::update() {
         updateScore();
-        m_textScore.setString(to_string(getScore()));
     }
 
     void Score::draw() {
+        m_textScore.setString(to_string(getRecalculatedScore()));
         representation::Window::Instance()->getWindow().draw(m_textScore);
     }
+
+    Score::~Score() = default;
 
 
 }

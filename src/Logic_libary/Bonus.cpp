@@ -16,8 +16,6 @@ namespace logic {
         return m_involmsVeloctiy;
     }
 
-    Bonus_L::~Bonus_L() {}
-
     void Bonus_L::setIncreasingValue(int value) {
         m_increasingValue = value;
     }
@@ -33,8 +31,6 @@ namespace logic {
         setIncreasingValue(750);
     }
 
-    Spring_L::~Spring_L() {}
-
     Rocket_L::Rocket_L(float posX, float posY, float width, float height) : Bonus_L(posX, posY, width, height) {
         //zelf te kiezen
         m_bonusforce = 5.f;
@@ -42,5 +38,9 @@ namespace logic {
         setIncreasingValue(1500);
     }
 
-    Rocket_L::~Rocket_L() {}
+    Bonus_L::~Bonus_L() = default;
+
+    Spring_L::~Spring_L() = default;
+
+    Rocket_L::~Rocket_L() = default;
 }

@@ -26,7 +26,7 @@ namespace logic {
 
     vector<shared_ptr<Observer>>& Subject::getObservers() {return m_observers;}
 
-    Subject::~Subject() {}
+    Subject::~Subject() = default;
 
 
 }

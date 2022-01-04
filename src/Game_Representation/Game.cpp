@@ -9,11 +9,10 @@ namespace representation {
     }
 
     void Game::setupWorld() {
-
+//        sf::sleep(sf::seconds(3));
         m_concreteFactory = move(make_shared<representation::ConcreteFactory>());
         shared_ptr<logic::EntityFactory> factory = m_concreteFactory;
         m_world.setFactory(factory);
-
         m_world.setupWorld();
     }
 
@@ -43,6 +42,7 @@ namespace representation {
     }
 
     void Game::beginGame() {
+
         while (Window::Instance()->isOpen())
         {
             logic::Stopwatch::Instance()->Tick();
@@ -63,8 +63,8 @@ namespace representation {
     }
 
     void Game::stopGame() {
-        if (m_highScore < m_world.getScore()) m_highScore = m_world.getScore();
         m_world.releaseObservers();
+        m_world.saveScore();
         m_world = logic::World();
 
         //Omdat deze enkel nodig zijn in het logic gedeelte.
@@ -141,7 +141,7 @@ namespace representation {
         }
     }
 
-    Game::~Game() {}
+    Game::~Game() = default;
 
     void Game::drawViews() {
 
@@ -188,9 +188,5 @@ namespace representation {
         else {
             m_concreteFactory->getPlayer()->draw();
         }
-
-
-
-
     }
 }

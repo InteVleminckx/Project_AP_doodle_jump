@@ -24,13 +24,48 @@ using namespace std;
 
 namespace representation {
     class ConcreteFactory : public logic::EntityFactory{
+    /****************************************************************************************************
+     * @privatesection
+     ****************************************************************************************************/
 
+        /****************************************************************************************************
+         * @brief Een vector van shared_ptr die alle platform views bijhoudt.
+         * @type vector<shared_ptr<Platform>>
+         * @var m_platforms
+         ****************************************************************************************************/
         vector<shared_ptr<Platform>> m_platforms;
+
+        /****************************************************************************************************
+         * @brief Een vector van shared_ptr die alle bonus views bijhoudt.
+         * @type vector<shared_ptr<Bonus>>
+         * @var m_bonussen
+         ****************************************************************************************************/
         vector<shared_ptr<Bonus>> m_bonussen;
+
+        /****************************************************************************************************
+         * @brief Een vector van shared_ptr die alle platform views bijhoudt.
+         * @type vector<shared_ptr<Platform>>
+         * @var m_BG_Tiles
+         ****************************************************************************************************/
         vector<shared_ptr<BG_Tile>> m_BG_Tiles;
+
+        /****************************************************************************************************
+         * @brief Een shared_ptr die de player view bijhoudt.
+         * @type shared_ptr<Player>
+         * @var m_player
+         ****************************************************************************************************/
         shared_ptr<Player> m_player;
+
+        /****************************************************************************************************
+         * @brief Een shared_ptr die de score view bijhoudt.
+         * @type shared_ptr<Score>
+         * @var m_score
+         ****************************************************************************************************/
         shared_ptr<Score> m_score;
 
+    /****************************************************************************************************
+     * @publicsection
+     ****************************************************************************************************/
     public:
 
         /****************************************************************************************************
@@ -79,7 +114,7 @@ namespace representation {
          * Deze functie wordt overschreven uit de base class EntityFactory.
          * @param player: een shared_ptr naar een Player_L wat een afleiding is van een EnityModel.
          ****************************************************************************************************/
-        void createScore(const shared_ptr<logic::Player_L> &player) override;
+        void createScore(const shared_ptr<logic::Player_L> &player, shared_ptr<logic::Score_L>& score) override;
 
         /****************************************************************************************************
          * @function shared_ptr<Player> getPlayer()
@@ -116,6 +151,10 @@ namespace representation {
          ****************************************************************************************************/
         vector<shared_ptr<Bonus>>& getBonussen();
 
+        /****************************************************************************************************
+         * @function ~ConcreteFactory()
+         * @brief Default destructor
+         ****************************************************************************************************/
         ~ConcreteFactory() override;
 
     };

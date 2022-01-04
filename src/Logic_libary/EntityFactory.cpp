@@ -4,5 +4,5 @@ namespace logic {
 
     EntityFactory::EntityFactory() = default;
 
-    EntityFactory::~EntityFactory() {}
+    EntityFactory::~EntityFactory() = default;
 }

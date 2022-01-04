@@ -65,10 +65,11 @@ namespace representation {
         m_bonussen.push_back(move(bonus_O));
     }
 
-    void ConcreteFactory::createScore(const shared_ptr<logic::Player_L> &subject) {
+    void ConcreteFactory::createScore(const shared_ptr<logic::Player_L> &subject, shared_ptr<logic::Score_L>& score) {
         ControllingPointers::control(subject, "ConcreteFactory", "createScore(const shared_ptr<logic::Player_L> &player)");
 
         shared_ptr<Score> score_o = move(make_shared<Score>(subject));
+        score = score_o;
         subject->addObserver(score_o);
         m_score = move(score_o);
     }
@@ -93,7 +94,7 @@ namespace representation {
         return m_bonussen;
     }
 
-    ConcreteFactory::~ConcreteFactory() {}
+    ConcreteFactory::~ConcreteFactory() = default;
 }
 
 

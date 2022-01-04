@@ -36,6 +36,9 @@ using namespace std;
 namespace logic {
 
     class World {
+    /****************************************************************************************************
+     * @private
+     ****************************************************************************************************/
 
         /****************************************************************************************************
          * @brief Een vector van shared_ptr die alle logische bonussen bijhoudt.
@@ -64,6 +67,13 @@ namespace logic {
          * @var m_player
          ****************************************************************************************************/
         shared_ptr<Player_L> m_player;
+
+        /****************************************************************************************************
+         * @brief shared_ptr die de score bijhoudt.
+         * @type shared_ptr<Score_L>
+         * @var m_score
+         ****************************************************************************************************/
+        shared_ptr<Score_L> m_score;
 
         /****************************************************************************************************
          * @brief Zijn de world boundries in het logische coördinaat systeem
@@ -111,66 +121,29 @@ namespace logic {
          ****************************************************************************************************/
         shared_ptr<EntityFactory> m_entityFactory;
 
-        int m_score{};
+        /****************************************************************************************************
+         * @brief Houdt bij wat de vorige behaalde score was.
+         * @type int
+         * @var m_prevScore
+         ****************************************************************************************************/
+        int m_prevScore{};
 
+        /****************************************************************************************************
+         * @brief Houdt bij wat de highest score was in de game.
+         * @type int
+         * @var m_highScore
+         ****************************************************************************************************/
         int m_highScore{};
 
-    public:
 
         /****************************************************************************************************
-         * @function World()
-         * @brief Een constructor waar alle data members worden ingesteld.
-         ****************************************************************************************************/
-        World();
-
-        /****************************************************************************************************
-         * @function setFactory()
-         * @brief Initialiseerd de factory voor de world class.
-         * @param factory Is een shared pointer van een EntityFactory.
-         ****************************************************************************************************/
-        void setFactory(shared_ptr<EntityFactory>& factory);
-
-        /****************************************************************************************************
-         * @function setupWorld()
-         * @brief Alle nodig entities die in het begin nodig zijn worden hier aangemaakt.
-         ****************************************************************************************************/
-        void setupWorld();
-
-        /****************************************************************************************************
-         * @function bool getGameStatus()
-         * @brief Geeft de status van de game terug als een boolean.
-         * @return Een boolean wat de gamestatus voorstelt.
-         ****************************************************************************************************/
-        bool getGameStatus();
-
-        /****************************************************************************************************
-         * @function void updateWorld()
-         * @brief Zorgt dat alles in de wereld wordt geupdate. En roept hun notify functies aan.
-         ****************************************************************************************************/
-        void updateWorld();
-
-        /****************************************************************************************************
-         * @function void releaseObservers()
-         * @brief Maakt de vectors van alle entities leeg zodat er geen memory leaks onstaan. En als we een nieuw spel willen starten.
-         ****************************************************************************************************/
-        void releaseObservers();
-
-        /****************************************************************************************************
-         * @function void getPointsBetweenFrames(vector<pair<float, float>>& left, vector<pair<float, float>>& right, const shared_ptr<Player_L>& subject)
+         * @function void getPointsBetweenFrames(vector<pair<float, float>>& left, const shared_ptr<T>& subject)
          * @brief Trekt een lijn tussen de player zijn coördinaten tussen de huidige frame en de vorige frame.
          * @param left: Een vector<pair<float, float>>& left waar de linkerlijn in komt wat het pad is dat de player met zijn
          * uiterste linkse kant heeft afgelegd.
-         * @param right: Een vector<pair<float, float>>& right waar de rechterlijn in komt wat het pad is dat de player met zijn
-         * uiterste rechtse kant heeft afgelegd.
-         * @param player: Een const shared_ptr<Player_L> is de speler waar de lijnen van gemaakt moeten worden.
+         * @param subject: Een const shared_ptr<T> is het bewegende object waar de lijnen van gemaakt moeten worden.
          ****************************************************************************************************/
-        void getPointsBetweenFrames(vector<pair<float, float>>& left, vector<pair<float, float>>& right, const shared_ptr<Player_L>& player);
-
-        /****************************************************************************************************
-        * @function void changeGameStatus()
-        * @brief Past de gamestatus aan naar het tegenovergestelde dat het al is.
-        ****************************************************************************************************/
-        void changeGameStatus();
+        template<class T> void getPointsBetweenFrames(vector<pair<float, float>>& left, const shared_ptr<T>& subject);
 
         /****************************************************************************************************
         * @function bool checkOutOfScope(const shared_ptr<EntityModel>& model)
@@ -179,6 +152,27 @@ namespace logic {
         * @return boolean wat zegt of de entity out of scope is of niet.
         ****************************************************************************************************/
         bool checkOutOfScope(const shared_ptr<EntityModel>& model);
+
+        /****************************************************************************************************
+         * @funtion template<class T> void NotifyAll(vector<shared_ptr<T>>& model)
+         * @brief Kan over een lijst van entityModels gaan en op elk element een notify roepen.
+         * @tparam T: Voor deze functie mag dit eender welk EntityModel zijn.
+         * @param models: Zal een vector zijn van shared_ptr.
+        ****************************************************************************************************/
+        template<class T> void NotifyAll(vector<shared_ptr<T>>& models);
+
+        /****************************************************************************************************
+         * @function Collision(vector<pair<float, float>>& movedSubjectpath, const shared_ptr<A>& movedSubject, const shared_ptr<B>& subject, bool goesUp = false)
+         * @brief Check op collision tussen 2 objecten.
+         * @tparam A een template van een class
+         * @tparam B een template van een class
+         * @param movedSubjectpath Het path dat het subject heeft afgelegd.
+         * @param movedSubject Het subject dat beweegt.
+         * @param subject het "statische" subject.
+         * @param goesUp Geldt voor de verticale platformen als deze omhoog gaan moet er een andere y waarde genomen worden.
+         * @return Een boolean die zegt of er collision is of niet.
+         ****************************************************************************************************/
+        template<class A, class B> bool Collision(vector<pair<float, float>>& movedSubjectpath, const shared_ptr<A>& movedSubject, const shared_ptr<B>& subject, bool goesUp = false);
 
         /*BEGIN**************************************** Player ****************************************BEGIN*/
 
@@ -208,26 +202,30 @@ namespace logic {
         void movePlayerLeft();
 
         /****************************************************************************************************
-         * @function void playerTouchesPlatform(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer)
+         * @function void playerTouchesPlatform(vector<pair<float, float>>& playerPath)
          * @brief Controlleerd of de speler collision heeft met een platform.
-         * @param leftPlayer is een vector van een pair die 2 floats bevat, wat de linkerboundry coordinaten zijn.
-         * @param rightPlayer is een vector van een pair die 2 floats bevat, wat de rechterboundry coordinaten zijn.
+         * @param playerPath is een vector van een pair die 2 floats bevat, wat de coordineten zijn van de speler tussen de 2 frames.
          ****************************************************************************************************/
-        void playerTouchesPlatform(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer);
+        void playerTouchesPlatform(vector<pair<float, float>>& playerPath);
 
         /****************************************************************************************************
-         * @function void playerTouchesBoost(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer)
+         * @function void playerTouchesBoost(vector<pair<float, float>>& playerPath)
          * @brief Controlleerd of de speler collision heeft met een bonus.
-         * @param leftPlayer is een vector van een pair die 2 floats bevat, wat de linkerboundry coordinaten zijn.
-         * @param rightPlayer is een vector van een pair die 2 floats bevat, wat de rechterboundry coordinaten zijn.
+         * @param playerPath is een vector van een pair die 2 floats bevat, wat de coordineten zijn van de speler tussen de 2 frames.
          ****************************************************************************************************/
-        void playerTouchesBoost(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer);
-        
+        void playerTouchesBoost(vector<pair<float, float>>& playerPath);
+
         /****************************************************************************************************
          * @function void playerOutOfScope()
          * @brief Als de speler out of scope is zal het, het spel eindigen.
          ****************************************************************************************************/
         void playerOutOfScope();
+
+        /****************************************************************************************************
+         * @function void playerCollision()
+         * @brief Gaat testen op collisions.
+         ****************************************************************************************************/
+        void playerCollision();
 
         /*END****************************************** Player ******************************************END*/
 
@@ -265,8 +263,11 @@ namespace logic {
          ****************************************************************************************************/
         void removePlatform(shared_ptr<Platform_L>& platform);
 
-        template<class T>
-        void NotifyAll(vector<shared_ptr<T>>& model);
+        /****************************************************************************************************
+         * @function void platformTouchesPlatform()
+         * @brief Controleert of een platform met een ander platform bots, zoja veranderd het van richting.
+         ****************************************************************************************************/
+        void platformTouchesPlatform();
 
         /*END***************************************** Platform *****************************************END*/
 
@@ -278,20 +279,6 @@ namespace logic {
          * @param factory: is een shared_ptr naar een EntityFactory wat de factory die gebruikt wordt om de score aan te maken.
          ****************************************************************************************************/
         void createScore(shared_ptr<EntityFactory> &factory);
-
-        /****************************************************************************************************
-         * @function int getScore()
-         * @brief Geeft de score terug.
-         * @return Is een integer wat de net behaalde score is.
-         ****************************************************************************************************/
-        int getScore();
-
-        /****************************************************************************************************
-         * @function int getHighScore()
-         * @brief Geeft de al time highscore terug.
-         * @return Is een integer wat de al time highscore is.
-         ****************************************************************************************************/
-        int getHighScore();
 
         /****************************************************************************************************
          * @function void readSavedScoreFile()
@@ -351,9 +338,88 @@ namespace logic {
         void removeBonus(shared_ptr<Bonus_L>& bonus);
 
         /*END****************************************** Bonus *******************************************END*/
-        void playerCollision();
 
+
+    /****************************************************************************************************
+     * @public
+     ****************************************************************************************************/
+
+    public:
+
+        /****************************************************************************************************
+         * @function World()
+         * @brief Een constructor waar alle data members worden ingesteld.
+         ****************************************************************************************************/
+        World();
+
+        /****************************************************************************************************
+         * @function setFactory()
+         * @brief Initialiseerd de factory voor de world class.
+         * @param factory Is een shared pointer van een EntityFactory.
+         ****************************************************************************************************/
+        void setFactory(shared_ptr<EntityFactory>& factory);
+
+        /****************************************************************************************************
+         * @function setupWorld()
+         * @brief Alle nodig entities die in het begin nodig zijn worden hier aangemaakt.
+         ****************************************************************************************************/
+        void setupWorld();
+
+        /****************************************************************************************************
+         * @function bool getGameStatus()
+         * @brief Geeft de status van de game terug als een boolean.
+         * @return Een boolean wat de gamestatus voorstelt.
+         ****************************************************************************************************/
+        bool getGameStatus();
+
+        /****************************************************************************************************
+         * @function void updateWorld()
+         * @brief Zorgt dat alles in de wereld wordt geupdate. En roept hun notify functies aan.
+         ****************************************************************************************************/
+        void updateWorld();
+
+        /****************************************************************************************************
+         * @function void releaseObservers()
+         * @brief Maakt de vectors van alle entities leeg zodat er geen memory leaks onstaan. En als we een nieuw spel willen starten.
+         ****************************************************************************************************/
+        void releaseObservers();
+
+        /****************************************************************************************************
+        * @function void changeGameStatus()
+        * @brief Past de gamestatus aan naar het tegenovergestelde dat het al is.
+        ****************************************************************************************************/
+        void changeGameStatus();
+
+        /*BEGIN**************************************** Score *****************************************BEGIN*/
+
+        /****************************************************************************************************
+         * @function void saveScore()
+         * @brief Slaagt de score op in een bestand.
+         ****************************************************************************************************/
+        void saveScore();
+
+        /****************************************************************************************************
+         * @function int getScore()
+         * @brief Geeft de score terug.
+         * @return Is een integer wat de net behaalde score is.
+         ****************************************************************************************************/
+        int getScore();
+
+        /****************************************************************************************************
+         * @function int getHighScore()
+         * @brief Geeft de al time highscore terug.
+         * @return Is een integer wat de al time highscore is.
+         ****************************************************************************************************/
+        int getHighScore();
+
+        /*END****************************************** Score *******************************************END*/
+
+        /****************************************************************************************************
+         * @function ~World()
+         * @brief Default destructor
+         ****************************************************************************************************/
         ~World();
+
     };
 }
 

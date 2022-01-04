@@ -12,5 +12,5 @@ namespace representation {
 
     }
 
-    BG_Tile::~BG_Tile() {}
+    BG_Tile::~BG_Tile() = default;
 }

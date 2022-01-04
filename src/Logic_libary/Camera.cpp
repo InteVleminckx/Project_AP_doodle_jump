@@ -17,8 +17,6 @@ namespace logic {
 
     Camera::Camera(int width, int height) : m_height(height), m_width(width){}
 
-    Camera::~Camera() {}
-
     projectedPixels Camera::projectToPixel(float x, float y) {
 
         /*
@@ -60,4 +58,6 @@ namespace logic {
     float Camera::getOffset() {
         return m_offset;
     }
+
+    Camera::~Camera() = default;
 }

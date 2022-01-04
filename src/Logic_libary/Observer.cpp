@@ -4,7 +4,7 @@ namespace logic {
 
     Observer::Observer() = default;
 
-    Observer::~Observer() {}
+    Observer::~Observer() = default;
 
 }
 

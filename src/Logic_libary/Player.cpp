@@ -56,11 +56,11 @@ namespace logic {
         setVelocityY(sqrt(2.0f * getGravity() * power));
     }
 
-    Player_L::~Player_L() {}
-
     bool Player_L::getBonusActive() {
         return m_bonusActive;
     }
+
+    Player_L::~Player_L() = default;
 }
 
 

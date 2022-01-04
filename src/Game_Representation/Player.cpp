@@ -10,5 +10,5 @@ namespace representation {
         setEntityModel(move(player));
     }
 
-    Player::~Player() {}
+    Player::~Player() = default;
 }

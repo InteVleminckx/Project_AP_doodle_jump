@@ -60,7 +60,7 @@ namespace logic {
         m_projectedY = pixels.y;
     }
 
-    EntityModel::~EntityModel() {}
+    EntityModel::~EntityModel() = default;
 
 
 }

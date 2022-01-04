@@ -15,12 +15,8 @@ namespace logic {
         return m_score;
     }
 
-    Score_L::~Score_L() {
-        saveScore();
-    }
-
     void Score_L::setScore(float score) {
-        m_score = Camera::Instance()->reproduceScore(score)  - m_negativesPoints + m_positivesPoints;
+        m_score = Camera::Instance()->reproduceScore(score);
     }
 
     shared_ptr<Player_L> Score_L::getPlayer() {
@@ -37,34 +33,6 @@ namespace logic {
         if (Camera::Instance()->reproduceScore(getPlayer()->getY()) > getScore()) setScore(getPlayer()->getY());
     }
 
-    void Score_L::saveScore() {
-        string pathSavedFile = "../Save/highscore.json";
-        ifstream highscoreJSONFile(pathSavedFile);
-        json highScoreJson;
-        ofstream newHighscoreFile;
-
-        try {
-            if(!highscoreJSONFile){
-                throw InputSaveFileException();
-            }
-        }
-        catch (InputSaveFileException& exception){
-            cout << exception.what() << pathSavedFile << endl;
-        }
-
-        highscoreJSONFile >> highScoreJson;
-
-        int highscore = highScoreJson["highscore"];
-
-        highScoreJson["score"] = m_score;
-        if (m_score > highscore) highScoreJson["highscore"] = m_score;
-        else  highScoreJson["highscore"] = highscore;
-        newHighscoreFile.clear();
-        newHighscoreFile.open(pathSavedFile);
-        newHighscoreFile << highScoreJson << endl;
-
-    }
-
     void Score_L::addNegativePoints(int points) {
         m_negativesPoints += points;
     }
@@ -72,4 +40,12 @@ namespace logic {
     void Score_L::addPositivesPoints(int points) {
         m_positivesPoints += points;
     }
+
+    int Score_L::getRecalculatedScore() {
+        int result = m_score - m_negativesPoints + m_positivesPoints;
+        if (result < 0) return 0;
+        else return result;
+    }
+
+    Score_L::~Score_L() = default;
 }

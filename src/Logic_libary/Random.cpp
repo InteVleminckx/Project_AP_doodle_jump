@@ -21,8 +21,6 @@ namespace logic {
         Reset();
     }
 
-    Random::~Random() {}
-
     void Random::Reset() { srand(time(0)); }
 
     PlatformType Random::getPlatformType() {
@@ -53,11 +51,11 @@ namespace logic {
         std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
         std::uniform_real_distribution<> dis(0, 1);
 
+
         if (staticChance > dis(gen)) return Static_;
         else if (staticChance + horizontalChance > dis(gen)) return Horizontal_;
         else if (staticChance + horizontalChance + verticalChance > dis(gen)) return Vertical_;
         else return Temporary_;
-
     }
 
     BonusType Random::getBonusType() {
@@ -159,4 +157,6 @@ namespace logic {
         }
 
     }
+
+    Random::~Random() = default;
 }

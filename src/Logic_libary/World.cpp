@@ -81,9 +81,48 @@ namespace logic {
 
     }
 
-    void World::getPointsBetweenFrames(vector<pair<float, float>> &left, vector<pair<float, float>> &right, const shared_ptr<Player_L>& subject) {
+    template<class A, class B>
+    bool World::Collision(vector<pair<float, float>> &movedSubjectpath, const shared_ptr<A>& movedSubject, const shared_ptr<B>& subject, bool goesUp) {
+        ControllingPointers::control(subject, "World", "Collision(vector<pair<float, float>> &leftPlayer, vector<pair<float, float>> &rightPlayer, const shared_ptr<T>& subject)");
 
-        ControllingPointers::control(m_player, "World", "getPointsBetweenFrames(vector<pair<float, float>> &left, vector<pair<float, float>> &right, const shared_ptr<Player_L>& subject)");
+        for (int i = 0; i < movedSubjectpath.size(); i++) {
+            float subject_Y0 = subject->getY();
+            float subject_Y1 = subject->getY() + subject->getHeight();
+
+            float movedSubject_y = movedSubjectpath[i].second;
+            if (goesUp) movedSubject_y += movedSubject->getHeight();
+
+            if (subject_Y0 <= movedSubject_y && movedSubject_y <= subject_Y1) {
+                float smallest_X0, smallest_X1, biggest_X0, biggest_X1 ;
+
+                if (subject->getWidth() < movedSubject->getWidth()) {
+                    smallest_X0 = subject->getX();
+                    smallest_X1 = subject->getX() + subject->getWidth();
+
+                    biggest_X0 = movedSubject->getX();
+                    biggest_X1 = movedSubject->getX() + movedSubject->getWidth();
+                }
+
+                else {
+                    biggest_X0 = subject->getX();
+                    biggest_X1 = subject->getX() + subject->getWidth();
+                    smallest_X0 = movedSubject->getX();
+                    smallest_X1 = movedSubject->getX() + movedSubject->getWidth();
+                }
+
+                if ((biggest_X0 <= smallest_X0 && smallest_X0 <= biggest_X1) || (biggest_X0 <= smallest_X1 && smallest_X1 <= biggest_X1)) {
+                    return true;
+                }
+            }
+
+        }
+
+        return false;
+    }
+
+    template<class T>
+    void World::getPointsBetweenFrames(vector<pair<float, float>> &left, const shared_ptr<T>& subject) {
+
         ControllingPointers::control(subject, "World", "getPointsBetweenFrames(vector<pair<float, float>> &left, vector<pair<float, float>> &right, const shared_ptr<Player_L>& subject)");
 
         //Code gehaald uit project van vorig jaar voor het Project Computer Graphics.
@@ -98,13 +137,11 @@ namespace logic {
         if (x0 == x1) {
             for (float i = std::min(y0, y1); i <= std::max(y0, y1); i+=iterator) {
                 left.emplace_back(x0, i);
-                right.emplace_back(x0+m_player->getWidth(), i);
             }
         }
         else if (y0 == y1) {
             for (float i = std::min(x0, x1); i <= std::max(x0, x1); i+=iterator) {
                 left.emplace_back(i, y0);
-                right.emplace_back(i+m_player->getWidth(), y0);
             }
         }
         else {
@@ -117,19 +154,16 @@ namespace logic {
             if (-1.0 <= m && m <= 1.0) {
                 for (float i = 0; i <= (x1 - x0); i+=iterator) {
                     left.emplace_back(x0 + i,  (y0 + m * i));
-                    right.emplace_back(x0 + i + m_player->getWidth(),  (y0 + m * i));
                 }
             }
             else if (m > 1.0) {
                 for (float i = 0; i <= (y1 - y0); i+=iterator) {
                     left.emplace_back( (x0 + (i / m)), y0 + i);
-                    right.emplace_back( ((x0 + m_player->getWidth() )+ (i / m)), y0 + i);
                 }
             }
             else if (m < -1.0) {
                 for (float i = 0; i <= (y0 - y1); i+=iterator) {
                     left.emplace_back( (x0 - (i / m)), y0 - i);
-                    right.emplace_back( ((x0 + m_player->getWidth()) - (i / m)), y0 - i);
                 }
             }
         }
@@ -145,11 +179,21 @@ namespace logic {
         ControllingPointers::control(model, "World", "checkOutOfScope(const shared_ptr<EntityModel>& model)");
         ControllingPointers::control(m_player, "World", "checkOutOfScope(const shared_ptr<EntityModel>& model)");
 
-        if (model->getY() < m_player->getY() - abs(m_belowLogicY)){
+        if (model->getY()+model->getHeight() < m_player->getY() - abs(m_belowLogicY)){
             return true;
         }
 
         return false;
+    }
+
+    template<class T> void World::NotifyAll(vector<shared_ptr<T>>& models){
+        //controlen voor type
+        if (is_same<T, Player_L>::value || is_same<T, Platform_L>::value ||
+                is_same<T, BG_Tile_L>::value || is_same<T, Bonus_L>::value)
+        {
+            for (auto& model: models) {model->Notify();}
+        }
+
     }
 
     /*BEGIN**************************************** Player ****************************************BEGIN*/
@@ -188,13 +232,6 @@ namespace logic {
         playerOutOfScope();
     }
 
-    template<class T>
-    void World::NotifyAll(vector<shared_ptr<T>>& models){
-        for (auto& model: models) {
-            model->Notify();
-        }
-    }
-
     void World::movePlayerRight() {
         ControllingPointers::control(m_player, "World", "movePlayerRight()");
 
@@ -207,7 +244,7 @@ namespace logic {
         m_player->moveLeft(m_leftLogicX, m_rightLogicX);
     }
 
-    void World::playerTouchesPlatform(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer) {
+    void World::playerTouchesPlatform(vector<pair<float, float>>& playerPath) {
         ControllingPointers::control(m_player, "World", "playerTouchesPlatform(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer)");
 
         if (m_player->getVelocityY() > 0) return;
@@ -216,69 +253,46 @@ namespace logic {
 
             ControllingPointers::control(platform, "World", "playerTouchesPlatform(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer)");
 
-            for (int i = 0; i < leftPlayer.size(); i++) {
-                float platform_Y0 = platform->getY();
-                float platform_Y1 = platform->getY() + platform->getHeight();
-
-                //static, controller of de y-waarde van de player tussen het platform ligt
-                if (platform_Y0 <= leftPlayer[i].second && leftPlayer[i].second <= platform_Y1) {
-                    float platform_X0 = platform->getX();
-                    float platform_X1 = platform->getX() + platform->getWidth();
-                    // nu nog controlleren of de x-waarde ertussen zit zodat de player effectief het platform geraakt heeft
-                    if ((platform_X0 <= leftPlayer[i].first && leftPlayer[i].first <= platform_X1) || (platform_X0 <= rightPlayer[i].first && rightPlayer[i].first <= platform_X1)) {
-                        m_player->jump();
-                        if (platform->isJumpedOn()) {
-                            cout << platform->getDecreasingValue() << endl;
-                        }
-                        else {
-                            platform->setJumpedOn();
-                        }
-                        if (platform->isTemporary()) {removePlatform(platform);}
-                        return;
-                    }
+            if (Collision(playerPath, m_player, platform)){
+                m_player->jump();
+                if (platform->isJumpedOn()) {
+                    m_score->addNegativePoints(platform->getDecreasingValue());
                 }
+                else {
+                    platform->setJumpedOn();
+                }
+                if (platform->isTemporary()) {removePlatform(platform);}
+                return;
+
             }
         }
     }
 
-    void World::playerTouchesBoost(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer) {
+    void World::playerTouchesBoost(vector<pair<float, float>>& playerPath) {
         ControllingPointers::control(m_player, "World", "playerTouchesBoost(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer)");
 
         for (auto &bonus : m_bonussen) {
-
             ControllingPointers::control(bonus, "World", "playerTouchesBoost(vector<pair<float, float>>& leftPlayer, vector<pair<float, float>>& rightPlayer)");
 
-            for (int i = 0; i < leftPlayer.size(); i++) {
-                float bonus_Y0 = bonus->getY();
-                float bonus_Y1 = bonus->getY() + bonus->getHeight();
-
-                if (bonus_Y0 <= leftPlayer[i].second && leftPlayer[i].second <= bonus_Y1) {
-                    float bonus_X0 = bonus->getX();
-                    float bonus_X1 = bonus->getX() + bonus->getWidth();
-
-                    if (( leftPlayer[i].first <= bonus_X0  && bonus_X0 <=  rightPlayer[i].first) || ( leftPlayer[i].first <= bonus_X1  && bonus_X1 <=  rightPlayer[i].first)) {
-
-                        if (bonus->getInvolmsVelocity() && m_player->getVelocityY() <= 0 && !m_player->getBonusActive())
-                        {
-                            m_player->powerup(bonus->getForce());
-                            cout << bonus->getIncreasingValue() << endl;
-                        }
-                        else if (! bonus->getInvolmsVelocity() && !m_player->getBonusActive()){
-                            m_player->powerup(bonus->getForce());
-                            cout << bonus->getIncreasingValue() << endl;
-                        }
-
-                    }
+            if (Collision(playerPath, m_player, bonus)){
+                if (bonus->getInvolmsVelocity() && m_player->getVelocityY() <= 0 && !m_player->getBonusActive())
+                {
+                    m_player->powerup(bonus->getForce());
+                    m_score->addPositivesPoints(bonus->getIncreasingValue());
+                }
+                else if (! bonus->getInvolmsVelocity() && !m_player->getBonusActive()){
+                    m_player->powerup(bonus->getForce());
+                    m_score->addPositivesPoints(bonus->getIncreasingValue());
                 }
             }
         }
     }
 
     void World::playerCollision() {
-        vector<pair<float, float>> leftPlayer, rightPlayer;
-        getPointsBetweenFrames(leftPlayer, rightPlayer, m_player);
-        playerTouchesBoost(leftPlayer, rightPlayer);
-        playerTouchesPlatform(leftPlayer, rightPlayer);
+        vector<pair<float, float>> leftPlayer;
+        getPointsBetweenFrames(leftPlayer, m_player);
+        playerTouchesBoost(leftPlayer);
+        playerTouchesPlatform(leftPlayer);
 
     }
 
@@ -323,6 +337,7 @@ namespace logic {
 
         //we gaan ook eerst nog controleren of er een platform aangemaakt moet worden.
         createAplatform(m_entityFactory);
+        platformTouchesPlatform();
 
         bool removedPlatform = true;
 
@@ -410,6 +425,27 @@ namespace logic {
 
     }
 
+    void World::platformTouchesPlatform() {
+
+        for (const auto &platform1 : m_platforms) {
+
+            vector<pair<float, float>> path;
+            getPointsBetweenFrames(path, platform1);
+            bool up = false;
+            if (platform1->getVelocityY() < 0) up = true;
+
+            for (const auto &platform2 : m_platforms) {
+
+                if (platform1 == platform2) continue;
+                if (Collision(path, platform1, platform2, up)){
+                    platform1->changeDirection();
+                    break;
+                }
+
+            }
+        }
+    }
+
     /*END***************************************** Platform *****************************************END*/
 
     /*BEGIN**************************************** Score *****************************************BEGIN*/
@@ -417,7 +453,7 @@ namespace logic {
     void World::createScore(shared_ptr<EntityFactory> &factory) {
         ControllingPointers::control(factory, "World", "createScore(shared_ptr<EntityFactory> &factory)");
 
-        factory->createScore(m_player);
+        factory->createScore(m_player, m_score);
     }
 
     int World::getHighScore() {
@@ -450,13 +486,40 @@ namespace logic {
 
         highscoreJSONFile >> highScoreJson;
 
-        m_score = highScoreJson["score"];
+        m_prevScore = highScoreJson["score"];
         m_highScore = highScoreJson["highscore"];
 
     }
 
     int World::getScore() {
-        return m_score;
+        return m_prevScore;
+    }
+
+    void World::saveScore() {
+        string pathSavedFile = "../Save/highscore.json";
+        ifstream highscoreJSONFile(pathSavedFile);
+        json highScoreJson;
+        ofstream newHighscoreFile;
+
+        try {
+            if(!highscoreJSONFile){
+                throw InputSaveFileException();
+            }
+        }
+        catch (InputSaveFileException& exception){
+            cout << exception.what() << pathSavedFile << endl;
+        }
+
+        highscoreJSONFile >> highScoreJson;
+
+        int highscore = highScoreJson["highscore"];
+
+        highScoreJson["score"] = m_score->getRecalculatedScore();
+        if (m_score->getRecalculatedScore() > highscore) highScoreJson["highscore"] = m_score->getRecalculatedScore();
+        else  highScoreJson["highscore"] = highscore;
+        newHighscoreFile.clear();
+        newHighscoreFile.open(pathSavedFile);
+        newHighscoreFile << highScoreJson << endl;
     }
 
     /*END****************************************** Score *******************************************END*/
@@ -562,9 +625,8 @@ namespace logic {
         }
     }
 
-
-    World::~World() {}
-
     /*END****************************************** Bonus *******************************************END*/
+
+    World::~World() = default;
 
 }
