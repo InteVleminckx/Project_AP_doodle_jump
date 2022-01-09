@@ -1,7 +1,7 @@
 /****************************************************************************************************
  * @Naam Inte Vleminckx
  * @Studentennummer 20201844
- * @Datum
+ * @Datum 09/01/2022
  * @Class EntityFactory
  * @BaseClass none
  * @SubClasses ConcreteFactory
@@ -12,37 +12,47 @@
 #ifndef DOODLE_JUMP_ENTITYFACTORY_H
 #define DOODLE_JUMP_ENTITYFACTORY_H
 
+#include "../Logic_libary/BG_Tile.h"
+#include "../Logic_libary/Bonus.h"
+#include "../Logic_libary/Platform.h"
+#include "../Logic_libary/Player.h"
+#include "../Logic_libary/Score_L.h"
 #include <iostream>
 #include <memory>
-#include "../Logic_libary/Player.h"
-#include "../Logic_libary/Platform.h"
-#include "../Logic_libary/Score_L.h"
-#include "../Logic_libary/Bonus.h"
-#include "../Logic_libary/BG_Tile.h"
 
 using namespace std;
 
 /****************************************************************************************************
  * @enum PlatformType
  * @brief Bevat alle soorten platforms.
-****************************************************************************************************/
-enum PlatformType {Static_, Horizontal_, Vertical_, Temporary_};
+ ****************************************************************************************************/
+enum PlatformType
+{
+        Static_,
+        Horizontal_,
+        Vertical_,
+        Temporary_
+};
 
 /****************************************************************************************************
  * @enum BonusType
  * @brief Bevat alle soorten bonussen.
-****************************************************************************************************/
-enum BonusType {Rocket_, Spring_};
+ ****************************************************************************************************/
+enum BonusType
+{
+        Rocket_,
+        Spring_
+};
 
 namespace logic {
 
-    class EntityFactory {
+class EntityFactory
+{
 
-    /****************************************************************************************************
-     * @publicsection
-     ****************************************************************************************************/
-    public:
-
+        /****************************************************************************************************
+         * @publicsection
+         ****************************************************************************************************/
+public:
         /****************************************************************************************************
          * @function EntityFactory()
          * @brief Default constructor.
@@ -69,19 +79,20 @@ namespace logic {
 
         /****************************************************************************************************
          * @function void createPlatform(shared_ptr<logic::Platform_L> &platform, _Platform type) override
-         * @brief Maakt een nieuw Platform aan naargelang het type, dat een observer is en wordt toegevoegd aan het subject platform.
-         * Deze functie is pure virtual void function.
-         * Deze functie wordt overschreven uit de base class EntityFactory.
+         * @brief Maakt een nieuw Platform aan naargelang het type, dat een observer is en wordt toegevoegd aan het
+         *subject platform. Deze functie is pure virtual void function. Deze functie wordt overschreven uit de base
+         *class EntityFactory.
          * @param platform: een shared_ptr naar een Platform_L wat een afleiding is van een EnityModel.
-         * @param type: bevat het de soort van het platform dat aangemaakt moet worden. (Static, Horizontal, Vertical, Temporary)
+         * @param type: bevat het de soort van het platform dat aangemaakt moet worden. (Static, Horizontal, Vertical,
+         *Temporary)
          ****************************************************************************************************/
         virtual void createBG_Tile(const shared_ptr<BG_Tile_L>& subject) = 0;
 
         /****************************************************************************************************
          * @function void createBonus(shared_ptr<logic::Bonus_L> &bonus, _Bonus type)
-         * @brief Maakt een nieuwe Bonus aan naargelang het type, dat een observer is en wordt toegevoegd aan de subject bonus.
-         * Deze functie is pure virtual void function.
-         * Deze functie wordt overschreven uit de base class EntityFactory.
+         * @brief Maakt een nieuwe Bonus aan naargelang het type, dat een observer is en wordt toegevoegd aan de subject
+         *bonus. Deze functie is pure virtual void function. Deze functie wordt overschreven uit de base class
+         *EntityFactory.
          * @param bonus: een shared_ptr naar een Bonus_L wat een afleiding is van een EnityModel.
          * @param type: bevat het de soort van de bonus dat aangemaakt moet worden. (Spring, Rocket)
          ****************************************************************************************************/
@@ -101,9 +112,7 @@ namespace logic {
          * @brief Is een virtual destructor;
          ****************************************************************************************************/
         virtual ~EntityFactory();
+};
+} // namespace logic
 
-    };
-}
-
-
-#endif //DOODLE_JUMP_ENTITYFACTORY_H
+#endif // DOODLE_JUMP_ENTITYFACTORY_H

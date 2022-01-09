@@ -1,7 +1,7 @@
 /****************************************************************************************************
  * @Naam Inte Vleminckx
  * @Studentennummer 20201844
- * @Datum
+ * @Datum 09/01/2022
  * @Class Score_L
  * @BaseClass Observer
  * @SubClasses none
@@ -11,23 +11,23 @@
 
 #ifndef DOODLE_JUMP_SCORE_L_H
 #define DOODLE_JUMP_SCORE_L_H
+#include "../json.hpp"
+#include "ControllingPointers.h"
 #include "Observer.h"
 #include "Player.h"
 #include <fstream>
-#include "../json.hpp"
-#include "ControllingPointers.h"
 
 using json = nlohmann::json;
 
-
 namespace logic {
 
-    class Random;
+class Random;
 
-    class Score_L : public Observer{
-    /****************************************************************************************************
-     * @privatesection
-     ****************************************************************************************************/
+class Score_L : public Observer
+{
+        /****************************************************************************************************
+         * @privatesection
+         ****************************************************************************************************/
 
         /****************************************************************************************************
          * @brief Is de score van het spel, wat op nul begint.
@@ -57,11 +57,10 @@ namespace logic {
          ****************************************************************************************************/
         int m_positivesPoints;
 
-    /****************************************************************************************************
-     * @publicsection
-     ****************************************************************************************************/
-    public:
-
+        /****************************************************************************************************
+         * @publicsection
+         ****************************************************************************************************/
+public:
         /****************************************************************************************************
          * @function Score(shared_ptr<Player_L>& player)
          * @brief Een constructor die de player initialiseerd.
@@ -130,9 +129,7 @@ namespace logic {
          * @brief Default destructor
          ****************************************************************************************************/
         ~Score_L() override;
+};
+} // namespace logic
 
-    };
-}
-
-
-#endif //DOODLE_JUMP_SCORE_L_H
+#endif // DOODLE_JUMP_SCORE_L_H

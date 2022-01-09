@@ -1,7 +1,7 @@
 /****************************************************************************************************
  * @Naam Inte Vleminckx
  * @Studentennummer 20201844
- * @Datum
+ * @Datum 09/01/2022
  * @Class Subject
  * @BaseClass none
  * @SubClasses EntityModel
@@ -15,20 +15,21 @@
 #ifndef DOODLE_JUMP_SUBJECT_H
 #define DOODLE_JUMP_SUBJECT_H
 
-#include <iostream>
-#include <vector>
-#include <memory>
 #include "../Game_Representation/Window.h"
+#include <iostream>
+#include <memory>
+#include <vector>
 
 using namespace std;
 
 namespace logic {
-    class Observer;
+class Observer;
 
-    class Subject {
-    /****************************************************************************************************
-     * @privatesection
-     ****************************************************************************************************/
+class Subject
+{
+        /****************************************************************************************************
+         * @privatesection
+         ****************************************************************************************************/
         /****************************************************************************************************
          * @brief Een vector die alle observers van het subject bevat
          * @type vector<shared_ptr<Observer>>
@@ -36,11 +37,10 @@ namespace logic {
          ****************************************************************************************************/
         vector<shared_ptr<Observer>> m_observers;
 
-    /****************************************************************************************************
-     * @publicsection
-     ****************************************************************************************************/
-    public:
-
+        /****************************************************************************************************
+         * @publicsection
+         ****************************************************************************************************/
+public:
         /****************************************************************************************************
          * @function Subject()
          * @brief Een default constructor.
@@ -87,11 +87,7 @@ namespace logic {
          * @brief Is een virtual destructor
          ****************************************************************************************************/
         virtual ~Subject();
+};
+} // namespace logic
 
-
-
-    };
-}
-
-
-#endif //DOODLE_JUMP_SUBJECT_H
+#endif // DOODLE_JUMP_SUBJECT_H

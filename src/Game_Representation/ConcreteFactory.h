@@ -1,7 +1,7 @@
 /****************************************************************************************************
  * @Naam Inte Vleminckx
  * @Studentennummer 20201844
- * @Datum
+ * @Datum 09/01/2022
  * @Class ConcreteFactory
  * @BaseClass EntityFactory
  * @SubClasses None
@@ -12,21 +12,22 @@
 #ifndef DOODLE_JUMP_CONCRETEFACTORY_H
 #define DOODLE_JUMP_CONCRETEFACTORY_H
 
-#include <iostream>
-#include "../Logic_libary/EntityFactory.h"
-#include "../Game_Representation/Player.h"
-#include "../Game_Representation/Platform.h"
 #include "../Game_Representation/BG_Tile.h"
 #include "../Game_Representation/Bonus.h"
+#include "../Game_Representation/Platform.h"
+#include "../Game_Representation/Player.h"
 #include "../Game_Representation/Score.h"
+#include "../Logic_libary/EntityFactory.h"
+#include <iostream>
 
 using namespace std;
 
 namespace representation {
-    class ConcreteFactory : public logic::EntityFactory{
-    /****************************************************************************************************
-     * @privatesection
-     ****************************************************************************************************/
+class ConcreteFactory : public logic::EntityFactory
+{
+        /****************************************************************************************************
+         * @privatesection
+         ****************************************************************************************************/
 
         /****************************************************************************************************
          * @brief Een vector van shared_ptr die alle platform views bijhoudt.
@@ -63,11 +64,10 @@ namespace representation {
          ****************************************************************************************************/
         shared_ptr<Score> m_score;
 
-    /****************************************************************************************************
-     * @publicsection
-     ****************************************************************************************************/
-    public:
-
+        /****************************************************************************************************
+         * @publicsection
+         ****************************************************************************************************/
+public:
         /****************************************************************************************************
          * @function ConcreteFactory()
          * @brief Default constructor.
@@ -80,7 +80,7 @@ namespace representation {
          * Deze functie wordt overschreven uit de base class EntityFactory.
          * @param player: een shared_ptr naar een Player_L wat een afleiding is van een EnityModel.
          ****************************************************************************************************/
-        void createPlayer(const shared_ptr<logic::Player_L> &player) override;
+        void createPlayer(const shared_ptr<logic::Player_L>& player) override;
 
         /****************************************************************************************************
          * @function void createBG_Tile(shared_ptr<logic::BG_Tile_L> &bg_tile) override
@@ -88,25 +88,26 @@ namespace representation {
          * Deze functie wordt overschreven uit de base class EntityFactory.
          * @param bg_tile: een shared_ptr naar een BG_Tile_L wat een afleiding is van een EnityModel.
          ****************************************************************************************************/
-        void createBG_Tile(const shared_ptr<logic::BG_Tile_L> &bg_tile) override;
+        void createBG_Tile(const shared_ptr<logic::BG_Tile_L>& bg_tile) override;
 
         /****************************************************************************************************
          * @function void createPlatform(shared_ptr<logic::Platform_L> &platform, _Platform type) override
-         * @brief Maakt een nieuw Platform aan naargelang het type, dat een observer is en wordt toegevoegd aan het subject platform.
-         * Deze functie wordt overschreven uit de base class EntityFactory.
+         * @brief Maakt een nieuw Platform aan naargelang het type, dat een observer is en wordt toegevoegd aan het
+         *subject platform. Deze functie wordt overschreven uit de base class EntityFactory.
          * @param platform: een shared_ptr naar een Platform_L wat een afleiding is van een EnityModel.
-         * @param type: bevat het de soort van het platform dat aangemaakt moet worden. (Static, Horizontal, Vertical, Temporary)
+         * @param type: bevat het de soort van het platform dat aangemaakt moet worden. (Static, Horizontal, Vertical,
+         *Temporary)
          ****************************************************************************************************/
-        void createPlatform(const shared_ptr<logic::Platform_L> &platform, PlatformType type) override;
+        void createPlatform(const shared_ptr<logic::Platform_L>& platform, PlatformType type) override;
 
         /****************************************************************************************************
          * @function void createBonus(shared_ptr<logic::Bonus_L> &bonus, _Bonus type) override
-         * @brief Maakt een nieuwe Bonus aan naargelang het type, dat een observer is en wordt toegevoegd aan de subject bonus.
-         * Deze functie wordt overschreven uit de base class EntityFactory.
+         * @brief Maakt een nieuwe Bonus aan naargelang het type, dat een observer is en wordt toegevoegd aan de subject
+         *bonus. Deze functie wordt overschreven uit de base class EntityFactory.
          * @param bonus: een shared_ptr naar een Bonus_L wat een afleiding is van een EnityModel.
          * @param type: bevat het de soort van de bonus dat aangemaakt moet worden. (Spring, Rocket)
          ****************************************************************************************************/
-        void createBonus(const shared_ptr<logic::Bonus_L> &bonus, BonusType type) override;
+        void createBonus(const shared_ptr<logic::Bonus_L>& bonus, BonusType type) override;
 
         /****************************************************************************************************
          * @function void createScore(shared_ptr<logic::Player_L> &player, shared_ptr<logic::Score>& score) override
@@ -114,7 +115,7 @@ namespace representation {
          * Deze functie wordt overschreven uit de base class EntityFactory.
          * @param player: een shared_ptr naar een Player_L wat een afleiding is van een EnityModel.
          ****************************************************************************************************/
-        void createScore(const shared_ptr<logic::Player_L> &player, shared_ptr<logic::Score_L>& score) override;
+        void createScore(const shared_ptr<logic::Player_L>& player, shared_ptr<logic::Score_L>& score) override;
 
         /****************************************************************************************************
          * @function shared_ptr<Player> getPlayer()
@@ -156,9 +157,7 @@ namespace representation {
          * @brief Default destructor
          ****************************************************************************************************/
         ~ConcreteFactory() override;
+};
+} // namespace representation
 
-    };
-}
-
-
-#endif //DOODLE_JUMP_CONCRETEFACTORY_H
+#endif // DOODLE_JUMP_CONCRETEFACTORY_H

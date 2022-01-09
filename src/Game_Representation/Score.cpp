@@ -1,40 +1,36 @@
 #include "Score.h"
 
-namespace representation{
+namespace representation {
 
-
-    Score::Score(shared_ptr<logic::Player_L> player) : logic::Score_L(move(player)) {
+Score::Score(shared_ptr<logic::Player_L> player) : logic::Score_L(move(player))
+{
         string fontPath = "../Fonts/secrcode.ttf";
 
         bool fontLoaded = true;
 
         try {
-            if (!m_font.loadFromFile(fontPath))
-                throw InputFontException();
-        }
-        catch (InputFontException& exception) {
-            cout << exception.what() << fontPath << endl;
-            fontLoaded = false;
+                if (!m_font.loadFromFile(fontPath))
+                        throw InputFontException();
+        } catch (InputFontException& exception) {
+                cout << exception.what() << fontPath << endl;
+                fontLoaded = false;
         }
 
-        if (fontLoaded)
-        {
-            m_textScore.setFont(m_font);
-            m_textScore.setCharacterSize(26);
-            m_textScore.setFillColor(sf::Color::Black);
+        if (fontLoaded) {
+                m_textScore.setFont(m_font);
+                m_textScore.setCharacterSize(26);
+                m_textScore.setFillColor(sf::Color::Black);
         }
-    }
+}
 
-    void Score::update() {
-        updateScore();
-    }
+void Score::update() { updateScore(); }
 
-    void Score::draw() {
+void Score::draw()
+{
         m_textScore.setString(to_string(getRecalculatedScore()));
         representation::Window::Instance()->getWindow().draw(m_textScore);
-    }
-
-    Score::~Score() = default;
-
-
 }
+
+Score::~Score() = default;
+
+} // namespace representation

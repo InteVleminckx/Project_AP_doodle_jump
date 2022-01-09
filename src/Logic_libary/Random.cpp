@@ -1,30 +1,33 @@
 #include "Random.h"
 
 namespace logic {
-    Random* Random::s_instance = nullptr;
+Random* Random::s_instance = nullptr;
 
-    Random* Random::Instance() {
+Random* Random::Instance()
+{
         if (s_instance == nullptr)
-            s_instance = new Random;
+                s_instance = new Random;
         return s_instance;
-    }
+}
 
-    void Random::Release() {
+void Random::Release()
+{
         delete s_instance;
         s_instance = nullptr;
-    }
+}
 
-    Random::Random() {
+Random::Random()
+{
 
         m_difficultyNiveau = 1;
 
         Reset();
-    }
+}
 
-    void Random::Reset() { srand(time(0)); }
+void Random::Reset() { srand(time(0)); }
 
-    PlatformType Random::getPlatformType() {
-
+PlatformType Random::getPlatformType()
+{
 
         /**
          * Chances per niveau:
@@ -41,36 +44,42 @@ namespace logic {
             10	    4,5	    6,5	    3,6	    5,4	    20		            22,50%	32,50%	18,00%	27,00%
          */
 
+        float staticChance = ((18.f) - (float)(1.5 * (m_difficultyNiveau - 1))) / 20;
+        float horizontalChance = ((2.f) + (float)(0.5 * (m_difficultyNiveau - 1))) / 20;
+        float verticalChance = ((0.f) + (float)(0.4 * (m_difficultyNiveau - 1))) / 20;
 
-        float staticChance = ((18.f) - (float) (1.5 * (m_difficultyNiveau-1))) / 20;
-        float horizontalChance = ((2.f) + (float) (0.5 * (m_difficultyNiveau-1))) / 20;
-        float verticalChance = ((0.f) + (float) (0.4 * (m_difficultyNiveau-1))) / 20;
-
-        //bron: https://en.cppreference.com/w/cpp/numeric/random/uniform_real_distribution
+        // bron: https://en.cppreference.com/w/cpp/numeric/random/uniform_real_distribution
         std::random_device rd;  // Will be used to obtain a seed for the random number engine
         std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
         std::uniform_real_distribution<> dis(0, 1);
 
+        if (staticChance > dis(gen))
+                return Static_;
+        else if (staticChance + horizontalChance > dis(gen))
+                return Horizontal_;
+        else if (staticChance + horizontalChance + verticalChance > dis(gen))
+                return Vertical_;
+        else
+                return Temporary_;
+}
 
-        if (staticChance > dis(gen)) return Static_;
-        else if (staticChance + horizontalChance > dis(gen)) return Horizontal_;
-        else if (staticChance + horizontalChance + verticalChance > dis(gen)) return Vertical_;
-        else return Temporary_;
-    }
-
-    BonusType Random::getBonusType() {
+BonusType Random::getBonusType()
+{
 
         // De kans op een Spring is groter dan de kans op een Rocket
 
         int number = rand() % 5;
 
-        if (number < 4) return Spring_;
+        if (number < 4)
+                return Spring_;
         return Rocket_;
-    }
+}
 
-    bool Random::createPlatform(float prevPlatform, float possiblePlatform) {
-        //het is zo dat we minstens om de zoveel keer we deze functie hebben aangeroepen toch zeker 1 platform moeten creëeren
-        //Want anders als het moeilijker en moeilijker wordt dan gaan we misschien niet meer aan het volgende programma geraken.
+bool Random::createPlatform(float prevPlatform, float possiblePlatform)
+{
+        // het is zo dat we minstens om de zoveel keer we deze functie hebben aangeroepen toch zeker 1 platform moeten
+        // creëeren Want anders als het moeilijker en moeilijker wordt dan gaan we misschien niet meer aan het volgende
+        // programma geraken.
 
         /**
          * platform spawn chance:
@@ -89,31 +98,32 @@ namespace logic {
 
         int maxPlatforms = 11.f;
         int maxPlatsNiveau = maxPlatforms - m_difficultyNiveau;
-        float chance = (float)maxPlatsNiveau / (float) maxPlatforms;
+        float chance = (float)maxPlatsNiveau / (float)maxPlatforms;
 
-        //bron: https://en.cppreference.com/w/cpp/numeric/random/uniform_real_distribution
+        // bron: https://en.cppreference.com/w/cpp/numeric/random/uniform_real_distribution
         std::random_device rd;  // Will be used to obtain a seed for the random number engine
         std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
         std::uniform_real_distribution<> dis(0, 1);
 
-        if (chance >= dis(gen) || (possiblePlatform - prevPlatform > 0.5f)) return true;
+        if (chance >= dis(gen) || (possiblePlatform - prevPlatform > 0.5f))
+                return true;
         return false;
+}
 
-    }
+float Random::giveRandomX(float leftBound, float rightBound)
+{
 
-    float Random::giveRandomX(float leftBound, float rightBound) {
-
-        //bron: https://en.cppreference.com/w/cpp/numeric/random/uniform_real_distribution
+        // bron: https://en.cppreference.com/w/cpp/numeric/random/uniform_real_distribution
         std::random_device rd;  // Will be used to obtain a seed for the random number engine
         std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
         std::uniform_real_distribution<> dis(leftBound, rightBound);
         return dis(gen);
+}
 
-    }
-
-    bool Random::createBonus() {
-        //In het begin kunnen we zeggen dat de kans op een Bonus 19/50 is
-        //Op het moeilijkste niveau kunnen we zeggen dat de kans dan 1/20 is.
+bool Random::createBonus()
+{
+        // In het begin kunnen we zeggen dat de kans op een Bonus 19/50 is
+        // Op het moeilijkste niveau kunnen we zeggen dat de kans dan 1/20 is.
 
         /**
          * Niveau	chance
@@ -131,32 +141,34 @@ namespace logic {
 
         int noemerChance = 50;
         int tellerChance = 20;
-        int difficultyTeller = tellerChance - (2*m_difficultyNiveau) + 1;
+        int difficultyTeller = tellerChance - (2 * m_difficultyNiveau) + 1;
 
-        float chance = (float) difficultyTeller / (float) noemerChance;
+        float chance = (float)difficultyTeller / (float)noemerChance;
 
-        //bron: https://en.cppreference.com/w/cpp/numeric/random/uniform_real_distribution
+        // bron: https://en.cppreference.com/w/cpp/numeric/random/uniform_real_distribution
         std::random_device rd;  // Will be used to obtain a seed for the random number engine
         std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
         std::uniform_real_distribution<> dis(0, 1);
 
-        if (chance >= dis(gen)) return true;
+        if (chance >= dis(gen))
+                return true;
         return false;
-    }
+}
 
-    void Random::refreshDifficulty(int score) {
+void Random::refreshDifficulty(int score)
+{
 
         int possibleDifficulty = ceil(score / 10000);
 
-        //We zetten de max moeilijkheidsgraad op 10
-        if (possibleDifficulty > 10) return;
+        // We zetten de max moeilijkheidsgraad op 10
+        if (possibleDifficulty > 10)
+                return;
 
-        //als de moeilijkheidsgraad kleiner is dan de graad die het kan worden wordt het dit.
+        // als de moeilijkheidsgraad kleiner is dan de graad die het kan worden wordt het dit.
         if (m_difficultyNiveau < possibleDifficulty) {
-            m_difficultyNiveau = possibleDifficulty;
+                m_difficultyNiveau = possibleDifficulty;
         }
-
-    }
-
-    Random::~Random() = default;
 }
+
+Random::~Random() = default;
+} // namespace logic

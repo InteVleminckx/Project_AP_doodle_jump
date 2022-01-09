@@ -1,7 +1,7 @@
 /****************************************************************************************************
  * @author Inte Vleminckx
  * @Studentennummer 20201844
- * @Datum
+ * @Datum 09/01/2022
  * @Class Platform_L
  * @BaseClass EntityModel
  * @SubClasses none
@@ -12,16 +12,17 @@
 #ifndef DOODLE_JUMP_PLATFORM_L_H
 #define DOODLE_JUMP_PLATFORM_L_H
 
-#include <iostream>
 #include "EntityModel.h"
+#include <iostream>
 
 using namespace std;
 
 namespace logic {
-    class Platform_L : public EntityModel {
-    /****************************************************************************************************
-     * @privatesection
-     ****************************************************************************************************/
+class Platform_L : public EntityModel
+{
+        /****************************************************************************************************
+         * @privatesection
+         ****************************************************************************************************/
 
         /****************************************************************************************************
          * @brief Zegt of het platform een temporary platform is of niet.
@@ -51,11 +52,10 @@ namespace logic {
          ****************************************************************************************************/
         bool m_hasJumpedOn;
 
-    /****************************************************************************************************
-     * @publicsection
-     ****************************************************************************************************/
-    public:
-
+        /****************************************************************************************************
+         * @publicsection
+         ****************************************************************************************************/
+public:
         /****************************************************************************************************
          * @function Platform_L(float posX, float posY, float width, float height)
          * @brief De construct van Platform_L waar de argumenten hiervan de informatie over de Platform zijn.
@@ -138,19 +138,19 @@ namespace logic {
          * @brief Default destructor
          ****************************************************************************************************/
         ~Platform_L() override;
+};
 
-    };
-
-    class Platform_L_static : public  Platform_L {
-
-    /****************************************************************************************************
-     * @publicsection
-     ****************************************************************************************************/
-    public:
+class Platform_L_static : public Platform_L
+{
 
         /****************************************************************************************************
+         * @publicsection
+         ****************************************************************************************************/
+public:
+        /****************************************************************************************************
          * @function Platform_L_static(float posX, float posY, float width, float height)
-         * @brief De construct van Platform_L_static waar de argumenten hiervan de informatie over de Platform_static zijn.
+         * @brief De construct van Platform_L_static waar de argumenten hiervan de informatie over de Platform_static
+         *zijn.
          * @param posX: is een float, het is de beginpositie in de x richting.
          * @param posY: is een float, het is de beginpositie in de y riching.
          * @param width: is een float, het is de breedte van de Platform_static.
@@ -175,19 +175,19 @@ namespace logic {
          * @brief Default destructor
          ****************************************************************************************************/
         ~Platform_L_static() override;
+};
 
-    };
-
-    class Platform_L_vertical : public  Platform_L {
-
-    /****************************************************************************************************
-     * @publicsection
-     ****************************************************************************************************/
-    public:
+class Platform_L_vertical : public Platform_L
+{
 
         /****************************************************************************************************
+         * @publicsection
+         ****************************************************************************************************/
+public:
+        /****************************************************************************************************
          * @function Platform_L_vertical(float posX, float posY, float width, float height)
-         * @brief De construct van Platform_L_vertical waar de argumenten hiervan de informatie over de Platform_vertical zijn.
+         * @brief De construct van Platform_L_vertical waar de argumenten hiervan de informatie over de
+         *Platform_vertical zijn.
          * @param posX: is een float, het is de beginpositie in de x richting.
          * @param posY: is een float, het is de beginpositie in de y riching.
          * @param width: is een float, het is de breedte van de Platform_vertical.
@@ -212,18 +212,19 @@ namespace logic {
          * @brief Default destructor
          ****************************************************************************************************/
         ~Platform_L_vertical() override;
-    };
+};
 
-    class Platform_L_horizontal : public  Platform_L {
-
-    /****************************************************************************************************
-     * @publicsection
-     ****************************************************************************************************/
-    public:
+class Platform_L_horizontal : public Platform_L
+{
 
         /****************************************************************************************************
+         * @publicsection
+         ****************************************************************************************************/
+public:
+        /****************************************************************************************************
          * @function Platform_L_horizontal(float posX, float posY, float width, float height)
-         * @brief De construct van Platform_L_horizontal waar de argumenten hiervan de informatie over de Platform_horizontal zijn.
+         * @brief De construct van Platform_L_horizontal waar de argumenten hiervan de informatie over de
+         *Platform_horizontal zijn.
          * @param posX: is een float, het is de beginpositie in de x richting.
          * @param posY: is een float, het is de beginpositie in de y riching.
          * @param width: is een float, het is de breedte van de Platform_horizontal.
@@ -248,18 +249,19 @@ namespace logic {
          * @brief Default destructor
          ****************************************************************************************************/
         ~Platform_L_horizontal() override;
-    };
+};
 
-    class Platform_L_temporary : public  Platform_L {
-
-    /****************************************************************************************************
-     * @publicsection
-     ****************************************************************************************************/
-    public:
+class Platform_L_temporary : public Platform_L
+{
 
         /****************************************************************************************************
+         * @publicsection
+         ****************************************************************************************************/
+public:
+        /****************************************************************************************************
          * @function Platform_L_temporary(float posX, float posY, float width, float height)
-         * @brief De construct van Platform_L_temporary waar de argumenten hiervan de informatie over de Platform_temporary zijn.
+         * @brief De construct van Platform_L_temporary waar de argumenten hiervan de informatie over de
+         *Platform_temporary zijn.
          * @param posX: is een float, het is de beginpositie in de x richting.
          * @param posY: is een float, het is de beginpositie in de y riching.
          * @param width: is een float, het is de breedte van de Platform_temporary.
@@ -271,7 +273,7 @@ namespace logic {
          * @function virtual void movePlatfrom() override
          * @brief De functie is niet nodig maar moet wel override worden omdat deze in de base class pure virtual is.
          ****************************************************************************************************/
-         void movePlatform() override;
+        void movePlatform() override;
 
         /****************************************************************************************************
          * @function virtual void changeDirection() override
@@ -284,9 +286,7 @@ namespace logic {
          * @brief Default destructor
          ****************************************************************************************************/
         ~Platform_L_temporary() override;
-    };
-}
+};
+} // namespace logic
 
-
-
-#endif //DOODLE_JUMP_PLATFORM_L_H
+#endif // DOODLE_JUMP_PLATFORM_L_H

@@ -1,7 +1,7 @@
 /****************************************************************************************************
  * @author Inte Vleminckx
  * @Studentennummer 20201844
- * @Datum
+ * @Datum 09/01/2022
  * @Class BG_Tile_L
  * @BaseClass EntityModel
  * @SubClasses none
@@ -12,20 +12,20 @@
 #ifndef DOODLE_JUMP_BG_TILE_L_H
 #define DOODLE_JUMP_BG_TILE_L_H
 
-#include <iostream>
 #include "EntityModel.h"
+#include <iostream>
 
 using namespace std;
 
 namespace logic {
 
-    class BG_Tile_L : public EntityModel {
+class BG_Tile_L : public EntityModel
+{
 
-    /****************************************************************************************************
-     * @publicsection
-     ****************************************************************************************************/
-    public:
-
+        /****************************************************************************************************
+         * @publicsection
+         ****************************************************************************************************/
+public:
         /****************************************************************************************************
          * @function BG_Tile_L(float posX, float posY, float width, float height)
          * @brief De construct van BG_Tile_L waar de argumenten hiervan de informatie over de BG_Tile zijn.
@@ -41,10 +41,8 @@ namespace logic {
          * @brief Default destructor
          ****************************************************************************************************/
         ~BG_Tile_L() override;
+};
 
-    };
+} // namespace logic
 
-}
-
-
-#endif //DOODLE_JUMP_BG_TILE_L_H
+#endif // DOODLE_JUMP_BG_TILE_L_H

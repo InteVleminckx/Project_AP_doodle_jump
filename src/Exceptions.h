@@ -1,6 +1,14 @@
-//
-// Created by inte on 11/22/21.
-//
+/****************************************************************************************************
+ * @Naam Inte Vleminckx
+ * @Studentennummer 20201844
+ * @Datum 09/01/2022
+ * @Class Exceptions
+ * @BaseClass exception
+ * @SubClasses none
+ * @Namespace none
+ * @brief Geeft gerichte exceptions weer.
+ ****************************************************************************************************/
+
 
 #ifndef DOODLE_JUMP_EXCEPTIONS_H
 #define DOODLE_JUMP_EXCEPTIONS_H

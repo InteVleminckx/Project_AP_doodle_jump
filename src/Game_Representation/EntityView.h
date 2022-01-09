@@ -1,7 +1,7 @@
 /****************************************************************************************************
  * @author Inte Vleminckx
  * @Studentennummer 20201844
- * @Datum
+ * @Datum 09/01/2022
  * @Class EntityView
  * @BaseClass Observer
  * @SubClasses Player, Platform, BG_Tile, Bonus
@@ -12,26 +12,27 @@
 #ifndef DOODLE_JUMP_ENTITYVIEW_H
 #define DOODLE_JUMP_ENTITYVIEW_H
 
-#include <iostream>
-#include <SFML/Graphics.hpp>
-#include "../Logic_libary/Observer.h"
 #include "../../src/Exceptions.h"
 #include "../Game_Representation/Window.h"
-#include "../Logic_libary/Camera.h"
-#include "../Logic_libary/EntityModel.h"
-#include "../Logic_libary/Player.h"
 #include "../Logic_libary/BG_Tile.h"
 #include "../Logic_libary/Bonus.h"
-#include "../Logic_libary/Platform.h"
+#include "../Logic_libary/Camera.h"
 #include "../Logic_libary/ControllingPointers.h"
+#include "../Logic_libary/EntityModel.h"
+#include "../Logic_libary/Observer.h"
+#include "../Logic_libary/Platform.h"
+#include "../Logic_libary/Player.h"
+#include <SFML/Graphics.hpp>
+#include <iostream>
 
 using namespace std;
 
 namespace representation {
-class EntityView : public logic::Observer{
-    /****************************************************************************************************
-     * @privatesection
-     ****************************************************************************************************/
+class EntityView : public logic::Observer
+{
+        /****************************************************************************************************
+         * @privatesection
+         ****************************************************************************************************/
 
         /****************************************************************************************************
          * @brief De sprite van een Entity.
@@ -75,11 +76,10 @@ class EntityView : public logic::Observer{
          ****************************************************************************************************/
         void createSprite(const string& filepath);
 
-    /****************************************************************************************************
-     * @protectedsection
-     ****************************************************************************************************/
-    protected:
-
+        /****************************************************************************************************
+         * @protectedsection
+         ****************************************************************************************************/
+protected:
         /****************************************************************************************************
          * @function EntityView()
          * @brief Default constructor
@@ -87,38 +87,41 @@ class EntityView : public logic::Observer{
         EntityView();
 
         /****************************************************************************************************
-        * @brief Initialiseerd de data member m_entityModel door deze gelijk te stellen aan een object van zijn subclass.
-        * @function setEntityModel(shared_ptr<logic::Player_L>& player)
-        * @param player: is een shared pointer van Player_L
-        ****************************************************************************************************/
+         * @brief Initialiseerd de data member m_entityModel door deze gelijk te stellen aan een object van zijn
+         *subclass.
+         * @function setEntityModel(shared_ptr<logic::Player_L>& player)
+         * @param player: is een shared pointer van Player_L
+         ****************************************************************************************************/
         void setEntityModel(shared_ptr<logic::Player_L> player);
 
         /****************************************************************************************************
-         * @brief Initialiseerd de data member m_entityModel door deze gelijk te stellen aan een object van zijn subclass.
+         * @brief Initialiseerd de data member m_entityModel door deze gelijk te stellen aan een object van zijn
+         *subclass.
          * @function setEntityModel(shared_ptr<logic::Platform_L>& platform)
          * @param platform: is een shared pointer van Platform_L
          ****************************************************************************************************/
         void setEntityModel(shared_ptr<logic::Platform_L> platform);
 
         /****************************************************************************************************
-         * @brief Initialiseerd de data member m_entityModel door deze gelijk te stellen aan een object van zijn subclass.
+         * @brief Initialiseerd de data member m_entityModel door deze gelijk te stellen aan een object van zijn
+         *subclass.
          * @function setEntityModel(shared_ptr<logic::Bonus_L>& bonus)
          * @param bonus: is een shared pointer van Bonus_L
          ****************************************************************************************************/
         void setEntityModel(shared_ptr<logic::Bonus_L> bonus);
 
         /****************************************************************************************************
-         * @brief Initialiseerd de data member m_entityModel door deze gelijk te stellen aan een object van zijn subclass.
+         * @brief Initialiseerd de data member m_entityModel door deze gelijk te stellen aan een object van zijn
+         *subclass.
          * @function setEntityModel(shared_ptr<logic::BG_Tile_L>& bg_tile)
          * @param bg_tile: is een shared pointer van BG_Tile_L
          ****************************************************************************************************/
         void setEntityModel(shared_ptr<logic::BG_Tile_L> bg_tile);
 
-    /****************************************************************************************************
-     * @publicsection
-     ****************************************************************************************************/
-    public:
-
+        /****************************************************************************************************
+         * @publicsection
+         ****************************************************************************************************/
+public:
         /****************************************************************************************************
          * @function EntityView(float width, float height, string &image)
          * @brief De hoogte en breedte worden hier aan de entity toegewijd. De sprite wordt hier ook gemaakt.
@@ -126,7 +129,7 @@ class EntityView : public logic::Observer{
          * @param height: is een float wat de hoogte van de entity wordt.
          * @param filepath: is een const string& wat de filepath is naar de afbeelding.
          ****************************************************************************************************/
-        EntityView(float width, float height, const string &filepath);
+        EntityView(float width, float height, const string& filepath);
 
         /****************************************************************************************************
          * @function void update() override
@@ -145,12 +148,8 @@ class EntityView : public logic::Observer{
          * @brief Default destructor
          ****************************************************************************************************/
         ~EntityView() override;
+};
 
+} // namespace representation
 
-    };
-
-}
-
-
-
-#endif //DOODLE_JUMP_ENTITYVIEW_H
+#endif // DOODLE_JUMP_ENTITYVIEW_H

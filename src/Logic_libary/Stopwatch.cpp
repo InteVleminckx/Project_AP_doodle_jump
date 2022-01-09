@@ -6,37 +6,33 @@
 
 namespace logic {
 
-    Stopwatch* Stopwatch::s_instance = nullptr;
+Stopwatch* Stopwatch::s_instance = nullptr;
 
-    Stopwatch* Stopwatch::Instance() {
+Stopwatch* Stopwatch::Instance()
+{
         if (s_instance == nullptr)
-            s_instance = new Stopwatch;
+                s_instance = new Stopwatch;
         return s_instance;
-    }
+}
 
-    void Stopwatch::Release() {
+void Stopwatch::Release()
+{
         delete s_instance;
         s_instance = nullptr;
-    }
+}
 
-    Stopwatch::Stopwatch() {
+Stopwatch::Stopwatch()
+{
         Reset();
         m_deltaTime = chrono::duration<float>(0.0f);
-    }
-
-    void Stopwatch::Reset() {
-        m_startTime = chrono::system_clock::now();
-    }
-
-    float Stopwatch::GetDeltaTime() {
-        return m_deltaTime.count();
-    }
-
-    void Stopwatch::Tick() {
-        m_deltaTime = chrono::system_clock::now() - m_startTime;
-    }
-
-    Stopwatch::~Stopwatch() = default;
-
-
 }
+
+void Stopwatch::Reset() { m_startTime = chrono::system_clock::now(); }
+
+float Stopwatch::GetDeltaTime() { return m_deltaTime.count(); }
+
+void Stopwatch::Tick() { m_deltaTime = chrono::system_clock::now() - m_startTime; }
+
+Stopwatch::~Stopwatch() = default;
+
+} // namespace logic

@@ -2,10 +2,8 @@
 
 namespace logic {
 
-    Observer::Observer() = default;
+Observer::Observer() = default;
 
-    Observer::~Observer() = default;
+Observer::~Observer() = default;
 
-}
-
-
+} // namespace logic

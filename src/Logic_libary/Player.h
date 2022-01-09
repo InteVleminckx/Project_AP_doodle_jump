@@ -1,7 +1,7 @@
 /****************************************************************************************************
  * @author Inte Vleminckx
  * @Studentennummer 20201844
- * @Datum
+ * @Datum 09/01/2022
  * @Class Player_L
  * @BaseClass EntityModel
  * @SubClasses none
@@ -11,18 +11,19 @@
 #ifndef DOODLE_JUMP_PLAYER_L_H
 #define DOODLE_JUMP_PLAYER_L_H
 
-#include <iostream>
 #include "EntityModel.h"
 #include <cmath>
+#include <iostream>
 
 using namespace std;
 
 namespace logic {
 
-    class Player_L : public EntityModel {
-    /****************************************************************************************************
-     * @privatesection
-     ****************************************************************************************************/
+class Player_L : public EntityModel
+{
+        /****************************************************************************************************
+         * @privatesection
+         ****************************************************************************************************/
 
         /****************************************************************************************************
          * @brief Is de kracht waarmee de speler springt.
@@ -38,11 +39,10 @@ namespace logic {
          ****************************************************************************************************/
         bool m_bonusActive = false;
 
-    /****************************************************************************************************
-     * @publicsection
-     ****************************************************************************************************/
-    public:
-
+        /****************************************************************************************************
+         * @publicsection
+         ****************************************************************************************************/
+public:
         /****************************************************************************************************
          * @function Player_L(float posX, float posY, float width, float height)
          * @brief De construct van Player_L waar de argumenten hiervan de informatie over de Player zijn.
@@ -100,11 +100,8 @@ namespace logic {
          * @brief Default destructor
          ****************************************************************************************************/
         ~Player_L() override;
-    };
+};
 
-}
+} // namespace logic
 
-
-
-
-#endif //DOODLE_JUMP_PLAYER_L_H
+#endif // DOODLE_JUMP_PLAYER_L_H

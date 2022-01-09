@@ -1,7 +1,7 @@
 /****************************************************************************************************
  * @author Inte Vleminckx
  * @Studentennummer 20201844
- * @Datum
+ * @Datum 09/01/2022
  * @Class Game
  * @BaseClass none
  * @SubClasses none
@@ -12,23 +12,23 @@
 #ifndef DOODLE_JUMP_GAME_H
 #define DOODLE_JUMP_GAME_H
 
-#include <iostream>
-#include <SFML/Graphics.hpp>
-#include "../Logic_libary/World.h"
-#include "Window.h"
-#include "ConcreteFactory.h"
-#include "../Logic_libary/Random.h"
 #include "../Logic_libary/Camera.h"
+#include "../Logic_libary/Random.h"
+#include "../Logic_libary/World.h"
+#include "ConcreteFactory.h"
+#include "Window.h"
+#include <SFML/Graphics.hpp>
+#include <iostream>
 #include <thread>
-
 
 using namespace std;
 
 namespace representation {
-    class Game {
-    /****************************************************************************************************
-     * @privatesection
-     ****************************************************************************************************/
+class Game
+{
+        /****************************************************************************************************
+         * @privatesection
+         ****************************************************************************************************/
 
         /****************************************************************************************************
          * @brief Is de world die het spel regelt.
@@ -102,11 +102,10 @@ namespace representation {
          ****************************************************************************************************/
         void drawViews();
 
-    /****************************************************************************************************
-     * @publicsection
-     ****************************************************************************************************/
-    public:
-
+        /****************************************************************************************************
+         * @publicsection
+         ****************************************************************************************************/
+public:
         /****************************************************************************************************
          * @function Game()
          * @brief De construct van Game waar waardes voor het spel worden ingesteld.
@@ -124,9 +123,8 @@ namespace representation {
          * @brief Default destructor
          ****************************************************************************************************/
         ~Game();
-    };
+};
 
-}
+} // namespace representation
 
-
-#endif //DOODLE_JUMP_GAME_H
+#endif // DOODLE_JUMP_GAME_H

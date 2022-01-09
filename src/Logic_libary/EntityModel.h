@@ -1,7 +1,7 @@
 /****************************************************************************************************
  * @Naam Inte Vleminckx
  * @Studentennummer 20201844
- * @Datum
+ * @Datum 09/01/2022
  * @Class EntityModel
  * @BaseClass Subject
  * @SubClasses Player_L, Platform_L, Bonus_L, BG_Tile_L
@@ -12,21 +12,22 @@
 #ifndef DOODLE_JUMP_ENTITYMODEL_H
 #define DOODLE_JUMP_ENTITYMODEL_H
 
-#include <iostream>
-#include "Subject.h"
-#include "Observer.h"
 #include "Camera.h"
-#include "Stopwatch.h"
 #include "ControllingPointers.h"
+#include "Observer.h"
+#include "Stopwatch.h"
+#include "Subject.h"
+#include <iostream>
 
 using namespace std;
 
 namespace logic {
 
-    class EntityModel : public Subject {
-    /****************************************************************************************************
-     * @privatesection
-     ****************************************************************************************************/
+class EntityModel : public Subject
+{
+        /****************************************************************************************************
+         * @privatesection
+         ****************************************************************************************************/
 
         /****************************************************************************************************
          * @brief Is de postie van een entity.
@@ -70,11 +71,10 @@ namespace logic {
          ****************************************************************************************************/
         int m_projectedX{}, m_projectedY{};
 
-    /****************************************************************************************************
-     * @publicsection
-     ****************************************************************************************************/
-    public:
-
+        /****************************************************************************************************
+         * @publicsection
+         ****************************************************************************************************/
+public:
         /****************************************************************************************************
          * @function EntityModel()
          * @brief Is een default constructor.
@@ -240,7 +240,6 @@ namespace logic {
          * @brief Default destructor
          ****************************************************************************************************/
         ~EntityModel() override;
-
-    };
-}
-#endif //DOODLE_JUMP_ENTITYMODEL_H
+};
+} // namespace logic
+#endif // DOODLE_JUMP_ENTITYMODEL_H

@@ -1,7 +1,7 @@
 /****************************************************************************************************
  * @Naam Inte Vleminckx
  * @Studentennummer 20201844
- * @Datum
+ * @Datum 09/01/2022
  * @Class Platform
  * @BaseClass EntityView
  * @SubClasses Platform_static, Platform_vertical, Platform_horizontal, PLatform_temporary
@@ -12,18 +12,18 @@
 #ifndef DOODLE_JUMP_PLATFORM_H
 #define DOODLE_JUMP_PLATFORM_H
 
-#include <iostream>
 #include "EntityView.h"
-
+#include <iostream>
 
 using namespace std;
 
 namespace representation {
-    class Platform : public EntityView{
+class Platform : public EntityView
+{
 
-    /****************************************************************************************************
-     * @privatesection
-     ****************************************************************************************************/
+        /****************************************************************************************************
+         * @privatesection
+         ****************************************************************************************************/
 
         /****************************************************************************************************
          * @function Platform()
@@ -31,11 +31,10 @@ namespace representation {
          ****************************************************************************************************/
         Platform();
 
-    /****************************************************************************************************
-     * @publicsection
-     ****************************************************************************************************/
-    public:
-
+        /****************************************************************************************************
+         * @publicsection
+         ****************************************************************************************************/
+public:
         /****************************************************************************************************
          * @function Platform(shared_ptr<logic::Platform_L>& platform, string& image)
          * @brief Roept de constructor van EntityView aan en initialiseerd m_entityModel met een set functie.
@@ -44,21 +43,20 @@ namespace representation {
          ****************************************************************************************************/
         Platform(shared_ptr<logic::Platform_L> platform, string& image);
 
-
         /****************************************************************************************************
          * @function ~Bonus()
          * @brief Default destructor
          ****************************************************************************************************/
         ~Platform() override;
-    };
+};
 
-    class Platform_static : public Platform {
+class Platform_static : public Platform
+{
 
-    /****************************************************************************************************
-     * @publicsection
-     ****************************************************************************************************/
-    public:
-
+        /****************************************************************************************************
+         * @publicsection
+         ****************************************************************************************************/
+public:
         /****************************************************************************************************
          * @function Platform_static(shared_ptr<logic::Platform_L>& platform, string image)
          * @brief Roept de constructor van EntityView aan en initialiseerd m_entityModel met een set functie.
@@ -72,16 +70,15 @@ namespace representation {
          * @brief Default destructor
          ****************************************************************************************************/
         ~Platform_static() override;
+};
 
-    };
+class Platform_vertical : public Platform
+{
 
-    class Platform_vertical : public Platform {
-
-    /****************************************************************************************************
-     * @publicsection
-     ****************************************************************************************************/
-    public:
-
+        /****************************************************************************************************
+         * @publicsection
+         ****************************************************************************************************/
+public:
         /****************************************************************************************************
          * @function Platform_vertical(shared_ptr<logic::Platform_L>& platform, string image)
          * @brief Roept de constructor van EntityView aan en initialiseerd m_entityModel met een set functie.
@@ -95,15 +92,15 @@ namespace representation {
          * @brief Default destructor
          ****************************************************************************************************/
         ~Platform_vertical() override;
-    };
+};
 
-    class Platform_horizontal : public Platform {
+class Platform_horizontal : public Platform
+{
 
-    /****************************************************************************************************
-     * @publicsection
-     ****************************************************************************************************/
-    public:
-
+        /****************************************************************************************************
+         * @publicsection
+         ****************************************************************************************************/
+public:
         /****************************************************************************************************
          * @function Platform_horizontal(shared_ptr<logic::Platform_L>& platform, string image)
          * @brief Roept de constructor van EntityView aan en initialiseerd m_entityModel met een set functie.
@@ -117,15 +114,15 @@ namespace representation {
          * @brief Default destructor
          ****************************************************************************************************/
         ~Platform_horizontal() override;
-    };
+};
 
-    class Platform_temporary : public Platform {
+class Platform_temporary : public Platform
+{
 
-    /****************************************************************************************************
-     * @publicsection
-     ****************************************************************************************************/
-    public:
-
+        /****************************************************************************************************
+         * @publicsection
+         ****************************************************************************************************/
+public:
         /****************************************************************************************************
          * @function Platform_temporary(shared_ptr<logic::Platform_L>& platform, string image)
          * @brief Roept de constructor van EntityView aan en initialiseerd m_entityModel met een set functie.
@@ -139,8 +136,8 @@ namespace representation {
          * @brief Default destructor
          ****************************************************************************************************/
         ~Platform_temporary() override;
-    };
+};
 
-}
+} // namespace representation
 
-#endif //DOODLE_JUMP_PLATFORM_H
+#endif // DOODLE_JUMP_PLATFORM_H

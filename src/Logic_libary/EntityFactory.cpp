@@ -2,7 +2,7 @@
 
 namespace logic {
 
-    EntityFactory::EntityFactory() = default;
+EntityFactory::EntityFactory() = default;
 
-    EntityFactory::~EntityFactory() = default;
-}
+EntityFactory::~EntityFactory() = default;
+} // namespace logic
