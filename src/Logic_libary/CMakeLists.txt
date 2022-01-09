@@ -9,4 +9,8 @@ add_library(logic
         Subject.cpp
         World.cpp
         EntityFactory.cpp
-        Random.cpp Random.h Camera.cpp Camera.h Score_L.cpp Score_L.h ControllingPointers.cpp ControllingPointers.h)
+        Random.cpp
+        Camera.cpp
+        Score_L.cpp
+        ControllingPointers.h
+        )
