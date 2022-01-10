@@ -1,0 +1,64 @@
+.TH "logic::Random" 3 "Mon Jan 10 2022" "Doxygen Test" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+logic::Random
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "PlatformType \fBgetPlatformType\fP ()"
+.br
+.ti -1c
+.RI "BonusType \fBgetBonusType\fP ()"
+.br
+.ti -1c
+.RI "bool \fBcreatePlatform\fP (float prevPlatform, float possiblePlatform)"
+.br
+.ti -1c
+.RI "bool \fBcreateBonus\fP ()"
+.br
+.ti -1c
+.RI "float \fBgiveRandomX\fP (float leftBound, float rightBound)"
+.br
+.ti -1c
+.RI "void \fBReset\fP ()"
+.br
+.ti -1c
+.RI "void \fBrefreshDifficulty\fP (int score)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBRandom\fP * \fBInstance\fP ()"
+.br
+.ti -1c
+.RI "static void \fBRelease\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 23 of file Random\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "bool logic::Random::createBonus ()"
+Niveau chance 1 38,00% 2 34,00% 3 30,00% 4 26,00% 5 22,00% 6 18,00% 7 14,00% 8 10,00% 9 6,00% 10 2,00%
+.PP
+Definition at line 123 of file Random\&.cpp\&.
+.SS "bool logic::Random::createPlatform (float prevPlatform, float possiblePlatform)"
+platform spawn chance: Niveau max plats: 11 per niveau chance 1 10 90,91% 2 9 81,82% 3 8 72,73% 4 7 63,64% 5 6 54,55% 6 5 45,45% 7 4 36,36% 8 3 27,27% 9 2 18,18% 10 1 9,09%
+.PP
+Definition at line 78 of file Random\&.cpp\&.
+.SS "PlatformType logic::Random::getPlatformType ()"
+Chances per niveau: Niveau static hori verti temp total chances: static hori verti temp 1 18 2 0 0 20 90,00% 10,00% 0,00% 0,00% 2 16,5 2,5 0,4 0,6 20 82,50% 12,50% 2,00% 3,00% 3 15 3 0,8 1,2 20 75,00% 15,00% 4,00% 6,00% 4 13,5 3,5 1,2 1,8 20 67,50% 17,50% 6,00% 9,00% 5 12 4 1,6 2,4 20 60,00% 20,00% 8,00% 12,00% 6 10,5 4,5 2 3 20 52,50% 22,50% 10,00% 15,00% 7 9 5 2,4 3,6 20 45,00% 25,00% 12,00% 18,00% 8 7,5 5,5 2,8 4,2 20 37,50% 27,50% 14,00% 21,00% 9 6 6 3,2 4,8 20 30,00% 30,00% 16,00% 24,00% 10 4,5 6,5 3,6 5,4 20 22,50% 32,50% 18,00% 27,00%
+.PP
+Definition at line 29 of file Random\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Doxygen Test from the source code\&.

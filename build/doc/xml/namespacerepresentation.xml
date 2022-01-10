@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacerepresentation" kind="namespace" language="C++">
+    <compoundname>representation</compoundname>
+    <innerclass refid="classrepresentation_1_1BG__Tile" prot="public">representation::BG_Tile</innerclass>
+    <innerclass refid="classrepresentation_1_1Bonus" prot="public">representation::Bonus</innerclass>
+    <innerclass refid="classrepresentation_1_1ConcreteFactory" prot="public">representation::ConcreteFactory</innerclass>
+    <innerclass refid="classrepresentation_1_1EntityView" prot="public">representation::EntityView</innerclass>
+    <innerclass refid="classrepresentation_1_1Game" prot="public">representation::Game</innerclass>
+    <innerclass refid="classrepresentation_1_1Platform" prot="public">representation::Platform</innerclass>
+    <innerclass refid="classrepresentation_1_1Platform__horizontal" prot="public">representation::Platform_horizontal</innerclass>
+    <innerclass refid="classrepresentation_1_1Platform__static" prot="public">representation::Platform_static</innerclass>
+    <innerclass refid="classrepresentation_1_1Platform__temporary" prot="public">representation::Platform_temporary</innerclass>
+    <innerclass refid="classrepresentation_1_1Platform__vertical" prot="public">representation::Platform_vertical</innerclass>
+    <innerclass refid="classrepresentation_1_1Player" prot="public">representation::Player</innerclass>
+    <innerclass refid="classrepresentation_1_1Rocket" prot="public">representation::Rocket</innerclass>
+    <innerclass refid="classrepresentation_1_1Spring" prot="public">representation::Spring</innerclass>
+    <innerclass refid="classrepresentation_1_1Window" prot="public">representation::Window</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/Game_Representation/BG_Tile.cpp" line="3" column="24"/>
+  </compounddef>
+</doxygen>

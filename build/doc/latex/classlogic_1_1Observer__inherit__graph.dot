@@ -1,0 +1,35 @@
+digraph "logic::Observer"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="logic::Observer",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="logic::Score_L",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classlogic_1_1Score__L.html",tooltip=" "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="representation::Score",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classrepresentation_1_1Score.html",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="representation::EntityView",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classrepresentation_1_1EntityView.html",tooltip=" "];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="representation::BG_Tile",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classrepresentation_1_1BG__Tile.html",tooltip=" "];
+  Node4 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="representation::Bonus",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classrepresentation_1_1Bonus.html",tooltip=" "];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="representation::Rocket",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classrepresentation_1_1Rocket.html",tooltip=" "];
+  Node6 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="representation::Spring",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classrepresentation_1_1Spring.html",tooltip=" "];
+  Node4 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="representation::Platform",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classrepresentation_1_1Platform.html",tooltip=" "];
+  Node9 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="representation::Platform\l_horizontal",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classrepresentation_1_1Platform__horizontal.html",tooltip=" "];
+  Node9 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="representation::Platform\l_static",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classrepresentation_1_1Platform__static.html",tooltip=" "];
+  Node9 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="representation::Platform\l_temporary",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classrepresentation_1_1Platform__temporary.html",tooltip=" "];
+  Node9 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="representation::Platform\l_vertical",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classrepresentation_1_1Platform__vertical.html",tooltip=" "];
+  Node4 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="representation::Player",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classrepresentation_1_1Player.html",tooltip=" "];
+}

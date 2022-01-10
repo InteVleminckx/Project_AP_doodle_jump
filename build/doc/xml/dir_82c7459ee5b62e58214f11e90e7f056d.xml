@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_82c7459ee5b62e58214f11e90e7f056d" kind="dir">
+    <compoundname>src/Game_Representation</compoundname>
+    <innerfile refid="Game__Representation_2BG__Tile_8cpp">BG_Tile.cpp</innerfile>
+    <innerfile refid="Game__Representation_2BG__Tile_8h">BG_Tile.h</innerfile>
+    <innerfile refid="Game__Representation_2Bonus_8cpp">Bonus.cpp</innerfile>
+    <innerfile refid="Game__Representation_2Bonus_8h">Bonus.h</innerfile>
+    <innerfile refid="ConcreteFactory_8cpp">ConcreteFactory.cpp</innerfile>
+    <innerfile refid="ConcreteFactory_8h">ConcreteFactory.h</innerfile>
+    <innerfile refid="EntityView_8cpp">EntityView.cpp</innerfile>
+    <innerfile refid="EntityView_8h">EntityView.h</innerfile>
+    <innerfile refid="Game_8cpp">Game.cpp</innerfile>
+    <innerfile refid="Game_8h">Game.h</innerfile>
+    <innerfile refid="Game__Representation_2Platform_8cpp">Platform.cpp</innerfile>
+    <innerfile refid="Game__Representation_2Platform_8h">Platform.h</innerfile>
+    <innerfile refid="Game__Representation_2Player_8cpp">Player.cpp</innerfile>
+    <innerfile refid="Game__Representation_2Player_8h">Player.h</innerfile>
+    <innerfile refid="Window_8cpp">Window.cpp</innerfile>
+    <innerfile refid="Window_8h">Window.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/Game_Representation/"/>
+  </compounddef>
+</doxygen>

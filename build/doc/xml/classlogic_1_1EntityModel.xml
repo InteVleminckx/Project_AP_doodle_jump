@@ -1,0 +1,636 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classlogic_1_1EntityModel" kind="class" language="C++" prot="public">
+    <compoundname>logic::EntityModel</compoundname>
+    <basecompoundref refid="classlogic_1_1Subject" prot="public" virt="non-virtual">logic::Subject</basecompoundref>
+    <derivedcompoundref refid="classlogic_1_1BG__Tile__L" prot="public" virt="non-virtual">logic::BG_Tile_L</derivedcompoundref>
+    <derivedcompoundref refid="classlogic_1_1Bonus__L" prot="public" virt="non-virtual">logic::Bonus_L</derivedcompoundref>
+    <derivedcompoundref refid="classlogic_1_1Platform__L" prot="public" virt="non-virtual">logic::Platform_L</derivedcompoundref>
+    <derivedcompoundref refid="classlogic_1_1Player__L" prot="public" virt="non-virtual">logic::Player_L</derivedcompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlogic_1_1EntityModel_1a819be8ea8a0caa94f5b79e00dfec6bc4" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float logic::EntityModel::m_x</definition>
+        <argsstring></argsstring>
+        <name>m_x</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="32" column="15" bodyfile="src/Logic_libary/EntityModel.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlogic_1_1EntityModel_1abe3ae90daeca16917fa46dfda8058706" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float logic::EntityModel::m_y</definition>
+        <argsstring></argsstring>
+        <name>m_y</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="32" column="19" bodyfile="src/Logic_libary/EntityModel.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlogic_1_1EntityModel_1aa293b3a0e5ef1bc9b65df9f877b0e146" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float logic::EntityModel::m_xPrev</definition>
+        <argsstring></argsstring>
+        <name>m_xPrev</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="39" column="15" bodyfile="src/Logic_libary/EntityModel.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlogic_1_1EntityModel_1aaad87e3869f2fd5d289e3f5e844c1995" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float logic::EntityModel::m_yPrev</definition>
+        <argsstring></argsstring>
+        <name>m_yPrev</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="39" column="23" bodyfile="src/Logic_libary/EntityModel.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlogic_1_1EntityModel_1a89e85138ba774554374d3a00855c992c" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float logic::EntityModel::m_velocityX</definition>
+        <argsstring></argsstring>
+        <name>m_velocityX</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="46" column="15" bodyfile="src/Logic_libary/EntityModel.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlogic_1_1EntityModel_1a5ab420b03929a2950852ad39e26295c3" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float logic::EntityModel::m_velocityY</definition>
+        <argsstring></argsstring>
+        <name>m_velocityY</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="46" column="27" bodyfile="src/Logic_libary/EntityModel.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlogic_1_1EntityModel_1a0eecf2ce358581ef75f75d86e70d4898" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float logic::EntityModel::m_width</definition>
+        <argsstring></argsstring>
+        <name>m_width</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="53" column="15" bodyfile="src/Logic_libary/EntityModel.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlogic_1_1EntityModel_1a35af62723db6692f51eef95f290d5dd6" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float logic::EntityModel::m_height</definition>
+        <argsstring></argsstring>
+        <name>m_height</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="53" column="23" bodyfile="src/Logic_libary/EntityModel.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlogic_1_1EntityModel_1a3c7595d66983cc31f0bbae8f504c2119" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float logic::EntityModel::m_gravity</definition>
+        <argsstring></argsstring>
+        <name>m_gravity</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="60" column="15" bodyfile="src/Logic_libary/EntityModel.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlogic_1_1EntityModel_1a70f5bd077a9d0865968186dc1314932a" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int logic::EntityModel::m_projectedX</definition>
+        <argsstring></argsstring>
+        <name>m_projectedX</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="67" column="13" bodyfile="src/Logic_libary/EntityModel.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlogic_1_1EntityModel_1af62b9f65f8341878735bf219950f5860" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int logic::EntityModel::m_projectedY</definition>
+        <argsstring></argsstring>
+        <name>m_projectedY</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="67" column="26" bodyfile="src/Logic_libary/EntityModel.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1af763d5b72c30f1d2f7f87f3f229ce362" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>logic::EntityModel::EntityModel</definition>
+        <argsstring>()</argsstring>
+        <name>EntityModel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="75" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1af718616ada27890e5bb2822d1075b31e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void logic::EntityModel::projectPointsToPixels</definition>
+        <argsstring>()</argsstring>
+        <name>projectPointsToPixels</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="81" column="14" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="56" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1aa59f06863fd2c1fcc8cb3c770c48b154" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void logic::EntityModel::Notify</definition>
+        <argsstring>() override</argsstring>
+        <name>Notify</name>
+        <reimplements refid="classlogic_1_1Subject_1aa4ae2ce3696c9b68f2574abf878e36e3">Notify</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function: <ref refid="classlogic_1_1EntityModel_1aa59f06863fd2c1fcc8cb3c770c48b154" kindref="member">Notify()</ref> Gaat over alle observer van het subject en roept hier de update function op aan. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="87" column="14" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="48" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1a5933386ef44716a683232ac81ccf1c44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void logic::EntityModel::setX</definition>
+        <argsstring>(float x)</argsstring>
+        <name>setX</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="95" column="14" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="8" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1a986759f16b5370d0c9739939e24c3911" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void logic::EntityModel::setY</definition>
+        <argsstring>(float y)</argsstring>
+        <name>setY</name>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="103" column="14" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="10" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1a66d735f627593382df076d213acb1eeb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void logic::EntityModel::setXprev</definition>
+        <argsstring>(float x)</argsstring>
+        <name>setXprev</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="110" column="14" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1a57e16a5755cb6fc14828e8403c672445" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void logic::EntityModel::setYprev</definition>
+        <argsstring>(float y)</argsstring>
+        <name>setYprev</name>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="117" column="14" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1a489b80a3d36e31b211e8f2d5fa9c0bf4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void logic::EntityModel::setVelocityX</definition>
+        <argsstring>(float velocityX)</argsstring>
+        <name>setVelocityX</name>
+        <param>
+          <type>float</type>
+          <declname>velocityX</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="124" column="14" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1afb3b0c9dd075b5f7cd9275e249219e5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void logic::EntityModel::setVelocityY</definition>
+        <argsstring>(float velocityY)</argsstring>
+        <name>setVelocityY</name>
+        <param>
+          <type>float</type>
+          <declname>velocityY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="131" column="14" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1a99c0c979c10a90eecf3620afc8ecbc12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void logic::EntityModel::setWidth</definition>
+        <argsstring>(float width)</argsstring>
+        <name>setWidth</name>
+        <param>
+          <type>float</type>
+          <declname>width</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="138" column="14" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1ad703de4900c6b276f824804bebfba006" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void logic::EntityModel::setHeight</definition>
+        <argsstring>(float height)</argsstring>
+        <name>setHeight</name>
+        <param>
+          <type>float</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="145" column="14" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1aab449973686d05ccdf4abd85b8a07b38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void logic::EntityModel::setGravity</definition>
+        <argsstring>(float gravity)</argsstring>
+        <name>setGravity</name>
+        <param>
+          <type>float</type>
+          <declname>gravity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="152" column="14" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1a5e1cf664811f6b2cbc51533c121db831" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float logic::EntityModel::getX</definition>
+        <argsstring>() const</argsstring>
+        <name>getX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="159" column="15" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1adcf2607a554db3c57e269ca06a6f1cec" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float logic::EntityModel::getY</definition>
+        <argsstring>() const</argsstring>
+        <name>getY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="166" column="15" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1aef1190be08b161449f23d6282c56d3e9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float logic::EntityModel::getXprev</definition>
+        <argsstring>() const</argsstring>
+        <name>getXprev</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="173" column="15" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1a519a82d3d753c5e5de976c02c75bfe7b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float logic::EntityModel::getYprev</definition>
+        <argsstring>() const</argsstring>
+        <name>getYprev</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="180" column="15" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1a087fa042697e865d4fbcc33705133d3d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float logic::EntityModel::getVelocityX</definition>
+        <argsstring>() const</argsstring>
+        <name>getVelocityX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="187" column="15" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1a9d1e0f5895fa842e731c6123056acf69" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float logic::EntityModel::getVelocityY</definition>
+        <argsstring>() const</argsstring>
+        <name>getVelocityY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="194" column="15" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1a7cdaafc31f97ab0ba835593046138c57" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float logic::EntityModel::getHeight</definition>
+        <argsstring>() const</argsstring>
+        <name>getHeight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="201" column="15" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1aa377acce5e474892230da31ee39bbbc9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float logic::EntityModel::getWidth</definition>
+        <argsstring>() const</argsstring>
+        <name>getWidth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="208" column="15" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1ad558f1ac809f8a27d99623fbf9612845" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float logic::EntityModel::getGravity</definition>
+        <argsstring>() const</argsstring>
+        <name>getGravity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="215" column="15" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1a814950c5a4ca411a616feca244c03bc9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int logic::EntityModel::getProjectedX</definition>
+        <argsstring>() const</argsstring>
+        <name>getProjectedX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="222" column="13" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityModel_1af3417d29102a8a3ffea94928d12b5bea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int logic::EntityModel::getProjectedY</definition>
+        <argsstring>() const</argsstring>
+        <name>getProjectedY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityModel.h" line="229" column="13" bodyfile="src/Logic_libary/EntityModel.cpp" bodystart="36" bodyend="36"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="6">
+        <label>logic::Spring_L</label>
+        <link refid="classlogic_1_1Spring__L"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>logic::Bonus_L</label>
+        <link refid="classlogic_1_1Bonus__L"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>logic::BG_Tile_L</label>
+        <link refid="classlogic_1_1BG__Tile__L"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>logic::Player_L</label>
+        <link refid="classlogic_1_1Player__L"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>logic::Subject</label>
+        <link refid="classlogic_1_1Subject"/>
+      </node>
+      <node id="1">
+        <label>logic::EntityModel</label>
+        <link refid="classlogic_1_1EntityModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>logic::Platform_L</label>
+        <link refid="classlogic_1_1Platform__L"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>logic::Platform_L_static</label>
+        <link refid="classlogic_1_1Platform__L__static"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>logic::Platform_L_vertical</label>
+        <link refid="classlogic_1_1Platform__L__vertical"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>logic::Platform_L_horizontal</label>
+        <link refid="classlogic_1_1Platform__L__horizontal"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>logic::Rocket_L</label>
+        <link refid="classlogic_1_1Rocket__L"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>logic::Platform_L_temporary</label>
+        <link refid="classlogic_1_1Platform__L__temporary"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>logic::Subject</label>
+        <link refid="classlogic_1_1Subject"/>
+      </node>
+      <node id="1">
+        <label>logic::EntityModel</label>
+        <link refid="classlogic_1_1EntityModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/Logic_libary/EntityModel.h" line="25" column="37" bodyfile="src/Logic_libary/EntityModel.h" bodystart="25" bodyend="231"/>
+    <listofallmembers>
+      <member refid="classlogic_1_1Subject_1aa7342ad5c11b6ca1afe108be5fbcdbfb" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>addObserver</name></member>
+      <member refid="classlogic_1_1Subject_1a6943fb87b97d9682a975f626b1718207" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>emptyObserver</name></member>
+      <member refid="classlogic_1_1EntityModel_1af763d5b72c30f1d2f7f87f3f229ce362" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>EntityModel</name></member>
+      <member refid="classlogic_1_1EntityModel_1ad558f1ac809f8a27d99623fbf9612845" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>getGravity</name></member>
+      <member refid="classlogic_1_1EntityModel_1a7cdaafc31f97ab0ba835593046138c57" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>getHeight</name></member>
+      <member refid="classlogic_1_1Subject_1a7e504db5db9ea2be86fd6b77d64807b0" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>getObservers</name></member>
+      <member refid="classlogic_1_1EntityModel_1a814950c5a4ca411a616feca244c03bc9" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>getProjectedX</name></member>
+      <member refid="classlogic_1_1EntityModel_1af3417d29102a8a3ffea94928d12b5bea" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>getProjectedY</name></member>
+      <member refid="classlogic_1_1EntityModel_1a087fa042697e865d4fbcc33705133d3d" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>getVelocityX</name></member>
+      <member refid="classlogic_1_1EntityModel_1a9d1e0f5895fa842e731c6123056acf69" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>getVelocityY</name></member>
+      <member refid="classlogic_1_1EntityModel_1aa377acce5e474892230da31ee39bbbc9" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>getWidth</name></member>
+      <member refid="classlogic_1_1EntityModel_1a5e1cf664811f6b2cbc51533c121db831" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>getX</name></member>
+      <member refid="classlogic_1_1EntityModel_1aef1190be08b161449f23d6282c56d3e9" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>getXprev</name></member>
+      <member refid="classlogic_1_1EntityModel_1adcf2607a554db3c57e269ca06a6f1cec" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>getY</name></member>
+      <member refid="classlogic_1_1EntityModel_1a519a82d3d753c5e5de976c02c75bfe7b" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>getYprev</name></member>
+      <member refid="classlogic_1_1EntityModel_1a3c7595d66983cc31f0bbae8f504c2119" prot="private" virt="non-virtual"><scope>logic::EntityModel</scope><name>m_gravity</name></member>
+      <member refid="classlogic_1_1EntityModel_1a35af62723db6692f51eef95f290d5dd6" prot="private" virt="non-virtual"><scope>logic::EntityModel</scope><name>m_height</name></member>
+      <member refid="classlogic_1_1EntityModel_1a70f5bd077a9d0865968186dc1314932a" prot="private" virt="non-virtual"><scope>logic::EntityModel</scope><name>m_projectedX</name></member>
+      <member refid="classlogic_1_1EntityModel_1af62b9f65f8341878735bf219950f5860" prot="private" virt="non-virtual"><scope>logic::EntityModel</scope><name>m_projectedY</name></member>
+      <member refid="classlogic_1_1EntityModel_1a89e85138ba774554374d3a00855c992c" prot="private" virt="non-virtual"><scope>logic::EntityModel</scope><name>m_velocityX</name></member>
+      <member refid="classlogic_1_1EntityModel_1a5ab420b03929a2950852ad39e26295c3" prot="private" virt="non-virtual"><scope>logic::EntityModel</scope><name>m_velocityY</name></member>
+      <member refid="classlogic_1_1EntityModel_1a0eecf2ce358581ef75f75d86e70d4898" prot="private" virt="non-virtual"><scope>logic::EntityModel</scope><name>m_width</name></member>
+      <member refid="classlogic_1_1EntityModel_1a819be8ea8a0caa94f5b79e00dfec6bc4" prot="private" virt="non-virtual"><scope>logic::EntityModel</scope><name>m_x</name></member>
+      <member refid="classlogic_1_1EntityModel_1aa293b3a0e5ef1bc9b65df9f877b0e146" prot="private" virt="non-virtual"><scope>logic::EntityModel</scope><name>m_xPrev</name></member>
+      <member refid="classlogic_1_1EntityModel_1abe3ae90daeca16917fa46dfda8058706" prot="private" virt="non-virtual"><scope>logic::EntityModel</scope><name>m_y</name></member>
+      <member refid="classlogic_1_1EntityModel_1aaad87e3869f2fd5d289e3f5e844c1995" prot="private" virt="non-virtual"><scope>logic::EntityModel</scope><name>m_yPrev</name></member>
+      <member refid="classlogic_1_1EntityModel_1aa59f06863fd2c1fcc8cb3c770c48b154" prot="public" virt="virtual"><scope>logic::EntityModel</scope><name>Notify</name></member>
+      <member refid="classlogic_1_1EntityModel_1af718616ada27890e5bb2822d1075b31e" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>projectPointsToPixels</name></member>
+      <member refid="classlogic_1_1Subject_1ad80222ad59f6ee6935d6f97f4cfdf5fc" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>removeObserver</name></member>
+      <member refid="classlogic_1_1EntityModel_1aab449973686d05ccdf4abd85b8a07b38" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>setGravity</name></member>
+      <member refid="classlogic_1_1EntityModel_1ad703de4900c6b276f824804bebfba006" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>setHeight</name></member>
+      <member refid="classlogic_1_1EntityModel_1a489b80a3d36e31b211e8f2d5fa9c0bf4" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>setVelocityX</name></member>
+      <member refid="classlogic_1_1EntityModel_1afb3b0c9dd075b5f7cd9275e249219e5a" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>setVelocityY</name></member>
+      <member refid="classlogic_1_1EntityModel_1a99c0c979c10a90eecf3620afc8ecbc12" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>setWidth</name></member>
+      <member refid="classlogic_1_1EntityModel_1a5933386ef44716a683232ac81ccf1c44" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>setX</name></member>
+      <member refid="classlogic_1_1EntityModel_1a66d735f627593382df076d213acb1eeb" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>setXprev</name></member>
+      <member refid="classlogic_1_1EntityModel_1a986759f16b5370d0c9739939e24c3911" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>setY</name></member>
+      <member refid="classlogic_1_1EntityModel_1a57e16a5755cb6fc14828e8403c672445" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>setYprev</name></member>
+      <member refid="classlogic_1_1Subject_1ae1277f400422f50b425c204b11dd8995" prot="public" virt="non-virtual"><scope>logic::EntityModel</scope><name>Subject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

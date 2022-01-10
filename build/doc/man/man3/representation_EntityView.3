@@ -1,0 +1,75 @@
+.TH "representation::EntityView" 3 "Wed Dec 22 2021" "Doxygen Test" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+representation::EntityView
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBlogic::Observer\fP\&.
+.PP
+Inherited by \fBrepresentation::BG_Tile\fP, \fBrepresentation::Bonus\fP, \fBrepresentation::Platform\fP, and \fBrepresentation::Player\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEntityView\fP (float width, float height, const string &filepath)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP () override"
+.br
+.ti -1c
+.RI "void \fBsetSprite\fP (sf::Sprite &sprite)"
+.br
+.ti -1c
+.RI "void \fBsetTexture\fP (sf::Texture &texture)"
+.br
+.ti -1c
+.RI "void \fBsetHeight\fP (float height)"
+.br
+.ti -1c
+.RI "void \fBsetWidth\fP (float width)"
+.br
+.ti -1c
+.RI "void \fBsetEntityModel\fP (shared_ptr< \fBlogic::Player_L\fP > &player)"
+.br
+.ti -1c
+.RI "void \fBsetEntityModel\fP (shared_ptr< \fBlogic::Platform_L\fP > &platform)"
+.br
+.ti -1c
+.RI "void \fBsetEntityModel\fP (shared_ptr< \fBlogic::Bonus_L\fP > &bonus)"
+.br
+.ti -1c
+.RI "void \fBsetEntityModel\fP (shared_ptr< \fBlogic::BG_Tile_L\fP > &bg_tile)"
+.br
+.ti -1c
+.RI "sf::Sprite & \fBgetSprite\fP ()"
+.br
+.ti -1c
+.RI "sf::Texture & \fBgetTexture\fP ()"
+.br
+.ti -1c
+.RI "float \fBgetHeight\fP () const"
+.br
+.ti -1c
+.RI "float \fBgetWidth\fP () const"
+.br
+.ti -1c
+.RI "shared_ptr< \fBlogic::EntityModel\fP > \fBgetEntityModel\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcreateSprite\fP (const string &filepath)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 30 of file EntityView\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Doxygen Test from the source code\&.

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceRepresentation" kind="namespace" language="C++">
+    <compoundname>Representation</compoundname>
+    <innerclass refid="classRepresentation_1_1ConcreteFactory" prot="public">Representation::ConcreteFactory</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/Game_Representation/ConcreteFactory.h" line="24" column="24"/>
+  </compounddef>
+</doxygen>

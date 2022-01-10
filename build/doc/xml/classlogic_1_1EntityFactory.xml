@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classlogic_1_1EntityFactory" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>logic::EntityFactory</compoundname>
+    <derivedcompoundref refid="classrepresentation_1_1ConcreteFactory" prot="public" virt="non-virtual">representation::ConcreteFactory</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlogic_1_1EntityFactory_1a7825e52b73296d28e4621b7bdfda849e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>logic::EntityFactory::EntityFactory</definition>
+        <argsstring>()</argsstring>
+        <name>EntityFactory</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityFactory.h" line="45" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityFactory_1af228fe31097965efb5709dc24ad22b06" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void logic::EntityFactory::createPlayer</definition>
+        <argsstring>(shared_ptr&lt; Player_L &gt; &amp;subject)=0</argsstring>
+        <name>createPlayer</name>
+        <reimplementedby refid="classrepresentation_1_1ConcreteFactory_1a5b8bba2b87fb7d319d92e798b6e9c1e2">createPlayer</reimplementedby>
+        <param>
+          <type>shared_ptr&lt; <ref refid="classlogic_1_1Player__L" kindref="compound">Player_L</ref> &gt; &amp;</type>
+          <declname>subject</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityFactory.h" line="54" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityFactory_1aae00cb6d71fb3f0954ff86fa29407e5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void logic::EntityFactory::createPlatform</definition>
+        <argsstring>(shared_ptr&lt; Platform_L &gt; &amp;subject, PlatformType type)=0</argsstring>
+        <name>createPlatform</name>
+        <reimplementedby refid="classrepresentation_1_1ConcreteFactory_1adf9de36ef5c139232b059e534af760f5">createPlatform</reimplementedby>
+        <param>
+          <type>shared_ptr&lt; <ref refid="classlogic_1_1Platform__L" kindref="compound">Platform_L</ref> &gt; &amp;</type>
+          <declname>subject</declname>
+        </param>
+        <param>
+          <type>PlatformType</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityFactory.h" line="63" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityFactory_1a3df331b31d8bb18dcc96346661ab7a0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void logic::EntityFactory::createBG_Tile</definition>
+        <argsstring>(shared_ptr&lt; BG_Tile_L &gt; &amp;subject)=0</argsstring>
+        <name>createBG_Tile</name>
+        <reimplementedby refid="classrepresentation_1_1ConcreteFactory_1ab41db894f221bdf4332165f8f5e87774">createBG_Tile</reimplementedby>
+        <param>
+          <type>shared_ptr&lt; <ref refid="classlogic_1_1BG__Tile__L" kindref="compound">BG_Tile_L</ref> &gt; &amp;</type>
+          <declname>subject</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityFactory.h" line="73" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityFactory_1a02b2c5157a6b0238c74c969ba249db16" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void logic::EntityFactory::createBonus</definition>
+        <argsstring>(shared_ptr&lt; Bonus_L &gt; &amp;subject, BonusType type)=0</argsstring>
+        <name>createBonus</name>
+        <reimplementedby refid="classrepresentation_1_1ConcreteFactory_1a544049028a33ae7047a7f6039ddd453a">createBonus</reimplementedby>
+        <param>
+          <type>shared_ptr&lt; <ref refid="classlogic_1_1Bonus__L" kindref="compound">Bonus_L</ref> &gt; &amp;</type>
+          <declname>subject</declname>
+        </param>
+        <param>
+          <type>BonusType</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityFactory.h" line="83" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1EntityFactory_1ae54b6c99bc109c3dfc776d00b47f90eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void logic::EntityFactory::createScore</definition>
+        <argsstring>(shared_ptr&lt; Player_L &gt; &amp;subject, shared_ptr&lt; Score &gt; &amp;score)=0</argsstring>
+        <name>createScore</name>
+        <reimplementedby refid="classrepresentation_1_1ConcreteFactory_1a2091b2ce54350cf1450b23c7e762fc92">createScore</reimplementedby>
+        <param>
+          <type>shared_ptr&lt; <ref refid="classlogic_1_1Player__L" kindref="compound">Player_L</ref> &gt; &amp;</type>
+          <declname>subject</declname>
+        </param>
+        <param>
+          <type>shared_ptr&lt; <ref refid="classlogic_1_1Score" kindref="compound">Score</ref> &gt; &amp;</type>
+          <declname>score</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/EntityFactory.h" line="93" column="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>logic::EntityFactory</label>
+        <link refid="classlogic_1_1EntityFactory"/>
+      </node>
+      <node id="2">
+        <label>representation::ConcreteFactory</label>
+        <link refid="classrepresentation_1_1ConcreteFactory"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="src/Logic_libary/EntityFactory.h" line="38" column="24" bodyfile="src/Logic_libary/EntityFactory.h" bodystart="38" bodyend="95"/>
+    <listofallmembers>
+      <member refid="classlogic_1_1EntityFactory_1a3df331b31d8bb18dcc96346661ab7a0b" prot="public" virt="pure-virtual"><scope>logic::EntityFactory</scope><name>createBG_Tile</name></member>
+      <member refid="classlogic_1_1EntityFactory_1a02b2c5157a6b0238c74c969ba249db16" prot="public" virt="pure-virtual"><scope>logic::EntityFactory</scope><name>createBonus</name></member>
+      <member refid="classlogic_1_1EntityFactory_1aae00cb6d71fb3f0954ff86fa29407e5e" prot="public" virt="pure-virtual"><scope>logic::EntityFactory</scope><name>createPlatform</name></member>
+      <member refid="classlogic_1_1EntityFactory_1af228fe31097965efb5709dc24ad22b06" prot="public" virt="pure-virtual"><scope>logic::EntityFactory</scope><name>createPlayer</name></member>
+      <member refid="classlogic_1_1EntityFactory_1ae54b6c99bc109c3dfc776d00b47f90eb" prot="public" virt="pure-virtual"><scope>logic::EntityFactory</scope><name>createScore</name></member>
+      <member refid="classlogic_1_1EntityFactory_1a7825e52b73296d28e4621b7bdfda849e" prot="public" virt="non-virtual"><scope>logic::EntityFactory</scope><name>EntityFactory</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

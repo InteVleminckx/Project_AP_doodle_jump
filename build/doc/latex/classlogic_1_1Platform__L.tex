@@ -1,0 +1,81 @@
+\hypertarget{classlogic_1_1Platform__L}{}\doxysubsection{logic\+::Platform\+\_\+L Class Reference}
+\label{classlogic_1_1Platform__L}\index{logic::Platform\_L@{logic::Platform\_L}}
+
+
+Inheritance diagram for logic\+::Platform\+\_\+L\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classlogic_1_1Platform__L__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for logic\+::Platform\+\_\+L\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classlogic_1_1Platform__L__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlogic_1_1Platform__L_a3cb378028f31826f4e9ac9a3d4696723}{Platform\+\_\+L}} (float posX, float posY, float width, float height)
+\item 
+\mbox{\Hypertarget{classlogic_1_1Platform__L_abb68c9b480bef6b27a5173005fe5213a}\label{classlogic_1_1Platform__L_abb68c9b480bef6b27a5173005fe5213a}} 
+void {\bfseries set\+Temporary} (bool temporary)
+\item 
+\mbox{\Hypertarget{classlogic_1_1Platform__L_ae653304199671d9bf127084f75cab2ba}\label{classlogic_1_1Platform__L_ae653304199671d9bf127084f75cab2ba}} 
+void {\bfseries set\+Start\+PostionY} (float y)
+\item 
+\mbox{\Hypertarget{classlogic_1_1Platform__L_ae9f9098715bb76cc0b1fce4cb79f51aa}\label{classlogic_1_1Platform__L_ae9f9098715bb76cc0b1fce4cb79f51aa}} 
+bool {\bfseries is\+Temporary} ()
+\item 
+\mbox{\Hypertarget{classlogic_1_1Platform__L_a080fbfe444d6426f1e4281c454cd553c}\label{classlogic_1_1Platform__L_a080fbfe444d6426f1e4281c454cd553c}} 
+float {\bfseries get\+Start\+PositionY} ()
+\item 
+\mbox{\Hypertarget{classlogic_1_1Platform__L_ae7d550f0090531051640fbedb2427184}\label{classlogic_1_1Platform__L_ae7d550f0090531051640fbedb2427184}} 
+virtual void {\bfseries move\+Platform} ()=0
+\item 
+\mbox{\Hypertarget{classlogic_1_1Platform__L_a63ade91214950efc031a026c4d34822a}\label{classlogic_1_1Platform__L_a63ade91214950efc031a026c4d34822a}} 
+virtual void {\bfseries change\+Direction} ()=0
+\item 
+\mbox{\Hypertarget{classlogic_1_1Platform__L_a66e59763b0f22ac5c91aa07337030ecc}\label{classlogic_1_1Platform__L_a66e59763b0f22ac5c91aa07337030ecc}} 
+void {\bfseries set\+Decreasing\+Value} (int value)
+\item 
+\mbox{\Hypertarget{classlogic_1_1Platform__L_a2e61c5adc1454dd113a439f4c061da0f}\label{classlogic_1_1Platform__L_a2e61c5adc1454dd113a439f4c061da0f}} 
+void {\bfseries set\+Jumped\+On} ()
+\item 
+\mbox{\Hypertarget{classlogic_1_1Platform__L_a97253006c29a910c367e2d49355f7308}\label{classlogic_1_1Platform__L_a97253006c29a910c367e2d49355f7308}} 
+int {\bfseries get\+Decreasing\+Value} ()
+\item 
+\mbox{\Hypertarget{classlogic_1_1Platform__L_acfe068d4c312e3df84079adb9a4d4969}\label{classlogic_1_1Platform__L_acfe068d4c312e3df84079adb9a4d4969}} 
+bool {\bfseries is\+Jumped\+On} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+
+
+Definition at line 21 of file Platform.\+h.
+
+
+
+\doxysubsubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlogic_1_1Platform__L_a3cb378028f31826f4e9ac9a3d4696723}\label{classlogic_1_1Platform__L_a3cb378028f31826f4e9ac9a3d4696723}} 
+\index{logic::Platform\_L@{logic::Platform\_L}!Platform\_L@{Platform\_L}}
+\index{Platform\_L@{Platform\_L}!logic::Platform\_L@{logic::Platform\_L}}
+\doxyparagraph{\texorpdfstring{Platform\_L()}{Platform\_L()}}
+{\footnotesize\ttfamily logic\+::\+Platform\+\_\+\+L\+::\+Platform\+\_\+L (\begin{DoxyParamCaption}\item[{float}]{posX,  }\item[{float}]{posY,  }\item[{float}]{width,  }\item[{float}]{height }\end{DoxyParamCaption})}
+
+We werken in het logic gedeelte tussen -\/1 en 1 in de x-\/as en -\/1 en +inf in de y-\/as De begin positie het platform moet dus tussen deze waarde te komen liggen Dit geldt dus ook voor de grote van ons platform
+
+Definition at line 5 of file Platform.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Logic\+\_\+libary/Platform.\+h\item 
+src/\+Logic\+\_\+libary/Platform.\+cpp\end{DoxyCompactItemize}

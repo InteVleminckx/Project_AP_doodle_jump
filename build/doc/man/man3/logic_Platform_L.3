@@ -1,0 +1,62 @@
+.TH "logic::Platform_L" 3 "Mon Jan 10 2022" "Doxygen Test" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+logic::Platform_L
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBlogic::EntityModel\fP\&.
+.PP
+Inherited by \fBlogic::Platform_L_horizontal\fP, \fBlogic::Platform_L_static\fP, \fBlogic::Platform_L_temporary\fP, and \fBlogic::Platform_L_vertical\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPlatform_L\fP (float posX, float posY, float width, float height)"
+.br
+.ti -1c
+.RI "void \fBsetTemporary\fP (bool temporary)"
+.br
+.ti -1c
+.RI "void \fBsetStartPostionY\fP (float y)"
+.br
+.ti -1c
+.RI "bool \fBisTemporary\fP ()"
+.br
+.ti -1c
+.RI "float \fBgetStartPositionY\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBmovePlatform\fP ()=0"
+.br
+.ti -1c
+.RI "virtual void \fBchangeDirection\fP ()=0"
+.br
+.ti -1c
+.RI "void \fBsetDecreasingValue\fP (int value)"
+.br
+.ti -1c
+.RI "void \fBsetJumpedOn\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetDecreasingValue\fP ()"
+.br
+.ti -1c
+.RI "bool \fBisJumpedOn\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 21 of file Platform\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "logic::Platform_L::Platform_L (float posX, float posY, float width, float height)"
+We werken in het logic gedeelte tussen -1 en 1 in de x-as en -1 en +inf in de y-as De begin positie het platform moet dus tussen deze waarde te komen liggen Dit geldt dus ook voor de grote van ons platform
+.PP
+Definition at line 5 of file Platform\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Doxygen Test from the source code\&.

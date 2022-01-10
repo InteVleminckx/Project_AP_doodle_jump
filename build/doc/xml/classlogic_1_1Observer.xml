@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classlogic_1_1Observer" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>logic::Observer</compoundname>
+    <derivedcompoundref refid="classlogic_1_1Score" prot="public" virt="non-virtual">logic::Score</derivedcompoundref>
+    <derivedcompoundref refid="classrepresentation_1_1EntityView" prot="public" virt="non-virtual">representation::EntityView</derivedcompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classlogic_1_1Observer_1a6c8e55f7a0cc16af2994520cbf6739d7" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>logic::Observer::Observer</definition>
+        <argsstring>()</argsstring>
+        <name>Observer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/Observer.h" line="28" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlogic_1_1Observer_1abde36ace3e49511c155687a32dd765e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void logic::Observer::update</definition>
+        <argsstring>()=0</argsstring>
+        <name>update</name>
+        <reimplementedby refid="classlogic_1_1Score_1a33f2bad5cc4c080f8e7c4382570609be">update</reimplementedby>
+        <reimplementedby refid="classrepresentation_1_1EntityView_1a609e08de8dbeec013659ab4a12df6601">update</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/Observer.h" line="37" column="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>logic::Observer</label>
+        <link refid="classlogic_1_1Observer"/>
+      </node>
+      <node id="3">
+        <label>representation::EntityView</label>
+        <link refid="classrepresentation_1_1EntityView"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>representation::Player</label>
+        <link refid="classrepresentation_1_1Player"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>representation::Platform</label>
+        <link refid="classrepresentation_1_1Platform"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>representation::Platform_horizontal</label>
+        <link refid="classrepresentation_1_1Platform__horizontal"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>representation::BG_Tile</label>
+        <link refid="classrepresentation_1_1BG__Tile"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>representation::Platform_temporary</label>
+        <link refid="classrepresentation_1_1Platform__temporary"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>representation::Platform_static</label>
+        <link refid="classrepresentation_1_1Platform__static"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>logic::Score</label>
+        <link refid="classlogic_1_1Score"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>representation::Spring</label>
+        <link refid="classrepresentation_1_1Spring"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>representation::Platform_vertical</label>
+        <link refid="classrepresentation_1_1Platform__vertical"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>representation::Bonus</label>
+        <link refid="classrepresentation_1_1Bonus"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>representation::Rocket</label>
+        <link refid="classrepresentation_1_1Rocket"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="src/Logic_libary/Observer.h" line="21" column="19" bodyfile="src/Logic_libary/Observer.h" bodystart="21" bodyend="40"/>
+    <listofallmembers>
+      <member refid="classlogic_1_1Observer_1a6c8e55f7a0cc16af2994520cbf6739d7" prot="protected" virt="non-virtual"><scope>logic::Observer</scope><name>Observer</name></member>
+      <member refid="classlogic_1_1Observer_1abde36ace3e49511c155687a32dd765e1" prot="public" virt="pure-virtual"><scope>logic::Observer</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

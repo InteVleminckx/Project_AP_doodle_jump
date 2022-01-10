@@ -1,0 +1,9 @@
+<map id="representation::Platform" name="representation::Platform">
+<area shape="rect" id="node1" title=" " alt="" coords="416,111,597,138"/>
+<area shape="rect" id="node4" href="$classrepresentation_1_1Platform__horizontal.html" title=" " alt="" coords="645,5,827,47"/>
+<area shape="rect" id="node5" href="$classrepresentation_1_1Platform__static.html" title=" " alt="" coords="645,71,827,112"/>
+<area shape="rect" id="node6" href="$classrepresentation_1_1Platform__temporary.html" title=" " alt="" coords="645,136,827,177"/>
+<area shape="rect" id="node7" href="$classrepresentation_1_1Platform__vertical.html" title=" " alt="" coords="645,201,827,243"/>
+<area shape="rect" id="node2" href="$classrepresentation_1_1EntityView.html" title=" " alt="" coords="173,111,368,138"/>
+<area shape="rect" id="node3" href="$classlogic_1_1Observer.html" title=" " alt="" coords="5,111,125,138"/>
+</map>

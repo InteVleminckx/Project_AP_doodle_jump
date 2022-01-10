@@ -1,0 +1,36 @@
+.TH "logic::EntityFactory" 3 "Mon Jan 10 2022" "Doxygen Test" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+logic::EntityFactory
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBrepresentation::ConcreteFactory\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual void \fBcreatePlayer\fP (const shared_ptr< \fBPlayer_L\fP > &subject)=0"
+.br
+.ti -1c
+.RI "virtual void \fBcreatePlatform\fP (const shared_ptr< \fBPlatform_L\fP > &subject, PlatformType type)=0"
+.br
+.ti -1c
+.RI "virtual void \fBcreateBG_Tile\fP (const shared_ptr< \fBBG_Tile_L\fP > &subject)=0"
+.br
+.ti -1c
+.RI "virtual void \fBcreateBonus\fP (const shared_ptr< \fBBonus_L\fP > &subject, BonusType type)=0"
+.br
+.ti -1c
+.RI "virtual void \fBcreateScore\fP (const shared_ptr< \fBPlayer_L\fP > &subject, shared_ptr< \fBScore_L\fP > &score)=0"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 49 of file EntityFactory\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Doxygen Test from the source code\&.
