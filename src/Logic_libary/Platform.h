@@ -85,14 +85,14 @@ public:
          * @brief Zegt of een platform temporary is of niet.
          * @return een bool, wat de informatie bevat dat een platorm temporary is of niet.
          ****************************************************************************************************/
-        bool isTemporary();
+        bool isTemporary() const;
 
         /****************************************************************************************************
          * @function float getStartPositionY()
          * @brief Geeft de startpositie in de y richting terug.
          * @return is een float, wat de startpositie in de y richting is.
          ****************************************************************************************************/
-        float getStartPositionY();
+        float getStartPositionY() const;
 
         /****************************************************************************************************
          * @function virtual void movePlatfrom()
@@ -124,14 +124,14 @@ public:
          * @brief Geeft de decreasing value terug.
          * @return Een integer wat de decreasing value is
          ****************************************************************************************************/
-        int getDecreasingValue();
+        int getDecreasingValue() const;
 
         /****************************************************************************************************
          * @function bool isJumpedOn
          * @brief Zegt of er al op het platform is gesprongen of niet.
          * @return Een boolean die zegt of er op gesprongen is of niet.
          ****************************************************************************************************/
-        bool isJumpedOn();
+        bool isJumpedOn() const;
 
         /****************************************************************************************************
          * @function ~Platform_L()

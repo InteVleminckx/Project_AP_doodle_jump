@@ -55,7 +55,7 @@ void EntityModel::Notify()
 
 void EntityModel::projectPointsToPixels()
 {
-        projectedPixels pixels = logic::Camera::Instance()->projectToPixel(getX(), getY());
+        projectedPixels pixels = logic::Camera::Instance().projectToPixel(getX(), getY());
         m_projectedX = pixels.x;
         m_projectedY = pixels.y;
 }

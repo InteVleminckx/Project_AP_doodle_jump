@@ -6,22 +6,10 @@
 
 namespace representation {
 
-Window* Window::s_instance = nullptr;
-
-Window* Window::Instance(int width, int height, string title)
+Window& Window::Instance(int width, int height, const string& title)
 {
-
-        //        static Window instance(width, height, title);
-        //        return instance;
-        if (s_instance == nullptr)
-                s_instance = new Window(width, height, title);
-        return s_instance;
-}
-
-void Window::Release()
-{
-        delete s_instance;
-        s_instance = nullptr;
+        static Window instance(width, height, title);
+        return instance;
 }
 
 Window::Window(int width, int height, const string& title) : m_window(sf::VideoMode(width, height), title)
@@ -46,7 +34,7 @@ void Window::update()
         m_window.display();
 }
 
-bool Window::isOpen() { return m_isOpen; }
+bool Window::isOpen() const { return m_isOpen; }
 
 bool Window::isPressedLeft()
 {

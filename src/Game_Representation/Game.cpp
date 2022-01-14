@@ -24,7 +24,7 @@ void Game::displayFullGame()
         // Camera en window zijn nodig voor het opzetten en displayen van de logic world.
         representation::Window::Instance(m_windowWidth, m_windowHeight, m_gameTitle);
 
-        while (Window::Instance()->isOpen()) {
+        while (Window::Instance().isOpen()) {
                 logic::Camera::Instance(m_windowWidth, m_windowHeight);
                 if (m_world.getGameStatus()) {
                         this->setupWorld();
@@ -33,33 +33,29 @@ void Game::displayFullGame()
                 } else
                         displayMenu();
         }
-
-        logic::Random::Release();
-        logic::Stopwatch::Release();
-        logic::Camera::Release();
-        Window::Release();
 }
 
 void Game::beginGame()
 {
 
-        while (Window::Instance()->isOpen()) {
-                logic::Stopwatch::Instance()->Tick();
-                if (logic::Stopwatch::Instance()->GetDeltaTime() < 1 / m_frameRate) {
+        while (Window::Instance().isOpen()) {
+                logic::Stopwatch::Instance().Reset();
+                logic::Stopwatch::Instance().Tick();
+                if (logic::Stopwatch::Instance().GetDeltaTime() < 1 / m_frameRate) {
                         chrono::milliseconds ms = chrono::milliseconds(
-                            (int)(((1 / m_frameRate) - logic::Stopwatch::Instance()->GetDeltaTime()) * 1000));
+                            (int)(((1 / m_frameRate) - logic::Stopwatch::Instance().GetDeltaTime()) * 1000));
                         this_thread::sleep_for(ms);
                 }
 
-                logic::Stopwatch::Instance()->Tick();
-                logic::Stopwatch::Instance()->Reset();
+                logic::Stopwatch::Instance().Tick();
+                logic::Stopwatch::Instance().Reset();
 
                 m_world.updateWorld();
-                Window::Instance()->getWindow().clear();
+                Window::Instance().getWindow().clear();
                 drawViews();
                 if (!m_world.getGameStatus())
                         break;
-                Window::Instance()->update();
+                Window::Instance().update();
         }
 }
 
@@ -71,9 +67,9 @@ void Game::stopGame()
 
         // Omdat deze enkel nodig zijn in het logic gedeelte.
         // Gaan we deze momenteel releasen want deze zijn niet meer nodig in het menu.
-        logic::Stopwatch::Release();
-        logic::Random::Release();
-        logic::Camera::Release();
+        //        logic::Stopwatch::Instance().Reset();
+        logic::Random::Instance().Reset();
+        logic::Camera::Instance().Reset();
 }
 
 void Game::displayMenu()
@@ -116,34 +112,34 @@ void Game::displayMenu()
         Highscore.setString(texthighScore);
         Prevscore.setString(textprevScore);
 
-        textMen.setPosition((float)Window::Instance()->getWindow().getSize().x / 2 - textMen.getLocalBounds().width / 2,
-                            (float)Window::Instance()->getWindow().getSize().y / 2 -
+        textMen.setPosition((float)Window::Instance().getWindow().getSize().x / 2 - textMen.getLocalBounds().width / 2,
+                            (float)Window::Instance().getWindow().getSize().y / 2 -
                                 textMen.getLocalBounds().height * 2);
-        textInstr.setPosition((float)Window::Instance()->getWindow().getSize().x / 2 -
+        textInstr.setPosition((float)Window::Instance().getWindow().getSize().x / 2 -
                                   textInstr.getLocalBounds().width / 2,
-                              (float)Window::Instance()->getWindow().getSize().y / 2);
+                              (float)Window::Instance().getWindow().getSize().y / 2);
         Highscore.setPosition(
-            (float)Window::Instance()->getWindow().getSize().x / 2 - Highscore.getLocalBounds().width / 2,
-            (float)Window::Instance()->getWindow().getSize().y / 2 + Highscore.getLocalBounds().height * 4);
+            (float)Window::Instance().getWindow().getSize().x / 2 - Highscore.getLocalBounds().width / 2,
+            (float)Window::Instance().getWindow().getSize().y / 2 + Highscore.getLocalBounds().height * 4);
         Prevscore.setPosition(
-            (float)Window::Instance()->getWindow().getSize().x / 2 - Prevscore.getLocalBounds().width / 2,
-            (float)Window::Instance()->getWindow().getSize().y / 2 + Prevscore.getLocalBounds().height * 8);
+            (float)Window::Instance().getWindow().getSize().x / 2 - Prevscore.getLocalBounds().width / 2,
+            (float)Window::Instance().getWindow().getSize().y / 2 + Prevscore.getLocalBounds().height * 8);
 
-        while (!m_world.getGameStatus() && Window::Instance()->isOpen()) {
-                if (Window::Instance()->isPressedSpace()) {
+        while (!m_world.getGameStatus() && Window::Instance().isOpen()) {
+                if (Window::Instance().isPressedSpace()) {
                         m_world.changeGameStatus();
                         break;
                 }
 
                 if (fontLoaded) {
-                        Window::Instance()->getWindow().clear();
-                        Window::Instance()->getWindow().draw(textMen);
-                        Window::Instance()->getWindow().draw(textInstr);
-                        Window::Instance()->getWindow().draw(Highscore);
-                        Window::Instance()->getWindow().draw(Prevscore);
-                        Window::Instance()->getWindow().display();
+                        Window::Instance().getWindow().clear();
+                        Window::Instance().getWindow().draw(textMen);
+                        Window::Instance().getWindow().draw(textInstr);
+                        Window::Instance().getWindow().draw(Highscore);
+                        Window::Instance().getWindow().draw(Prevscore);
+                        Window::Instance().getWindow().display();
                 }
-                Window::Instance()->update();
+                Window::Instance().update();
         }
 }
 

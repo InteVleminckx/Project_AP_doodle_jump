@@ -12,9 +12,9 @@ Score_L::Score_L(shared_ptr<Player_L> player)
         m_player = move(player);
 };
 
-int Score_L::getScore() { return m_score; }
+int Score_L::getScore() const { return m_score; }
 
-void Score_L::setScore(float score) { m_score = Camera::Instance()->reproduceScore(score); }
+void Score_L::setScore(float score) { m_score = Camera::Instance().reproduceScore(score); }
 
 shared_ptr<Player_L> Score_L::getPlayer() { return m_player; }
 
@@ -23,8 +23,8 @@ void Score_L::update() { updateScore(); }
 void Score_L::updateScore()
 {
         // Veranderd de moeilijkheidsgraad als dit nodig is.
-        logic::Random::Instance()->refreshDifficulty(m_score);
-        if (Camera::Instance()->reproduceScore(getPlayer()->getY()) > getScore())
+        logic::Random::Instance().refreshDifficulty(m_score);
+        if (Camera::Instance().reproduceScore(getPlayer()->getY()) > getScore())
                 setScore(getPlayer()->getY());
 }
 
@@ -32,7 +32,7 @@ void Score_L::addNegativePoints(int points) { m_negativesPoints += points; }
 
 void Score_L::addPositivesPoints(int points) { m_positivesPoints += points; }
 
-int Score_L::getRecalculatedScore()
+int Score_L::getRecalculatedScore() const
 {
         int result = m_score - m_negativesPoints + m_positivesPoints;
         if (result < 0)

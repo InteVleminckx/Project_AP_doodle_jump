@@ -27,13 +27,6 @@ class Window
          ****************************************************************************************************/
 
         /****************************************************************************************************
-         * @brief Een pointer naar het window object.
-         * @type static Window*
-         * @var m_instance
-         ****************************************************************************************************/
-        static Window* s_instance;
-
-        /****************************************************************************************************
          * @brief Is de window waar alles in getekend wordt.
          * @type sf::RenderWindow
          * @var m_window
@@ -61,20 +54,14 @@ class Window
          ****************************************************************************************************/
 public:
         /****************************************************************************************************
-         * @function static Window* Instance(int width = 0, int height = 0, string title = "")
+         * @function static Window& Instance(int width = 0, int height = 0, string title = "")
          * @brief Geeft de window terug, moest er nog geen bestaand wordt er 1 aangemaakt.
          * @param width: is een int wat de breedte van de window wordt.
          * @param height: is een int wat de hoogte van de window wordt.
          * @param title: is een string wat de title van de window wordt.
-         * @return static Window* de window.
+         * @return static Window& de window.
          ****************************************************************************************************/
-        static Window* Instance(int width = 0, int height = 0, string title = "");
-
-        /****************************************************************************************************
-         * @function static void Release()
-         * @brief Verwijderd de pointer naar de window.
-         ****************************************************************************************************/
-        static void Release();
+        static Window& Instance(int width = 0, int height = 0, const string& title = "");
 
         /****************************************************************************************************
          * @function sf::RenderWindow* getWindow()
@@ -94,7 +81,7 @@ public:
          * @brief Geeft een bool terug die zegt of de window open is of niet.
          * @return een bool.
          ****************************************************************************************************/
-        bool isOpen();
+        bool isOpen() const;
 
         /****************************************************************************************************
          * @function bool isPressedLeft()
@@ -102,7 +89,7 @@ public:
          * deze true weergeven anders false.
          * @return een bool.
          ****************************************************************************************************/
-        bool isPressedLeft();
+        static bool isPressedLeft();
 
         /****************************************************************************************************
          * @function bool isPressedRight()
@@ -110,7 +97,7 @@ public:
          * deze true weergeven anders false.
          * @return een bool.
          ****************************************************************************************************/
-        bool isPressedRight();
+        static bool isPressedRight();
 
         /****************************************************************************************************
          * @function bool isPressedSpace()
@@ -118,7 +105,7 @@ public:
          * deze true weergeven anders false.
          * @return een bool.
          ****************************************************************************************************/
-        bool isPressedSpace();
+        static bool isPressedSpace();
 
         /****************************************************************************************************
          * @privatesection

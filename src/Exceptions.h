@@ -9,44 +9,43 @@
  * @brief Geeft gerichte exceptions weer.
  ****************************************************************************************************/
 
-
 #ifndef DOODLE_JUMP_EXCEPTIONS_H
 #define DOODLE_JUMP_EXCEPTIONS_H
 
-#include <iostream>
 #include <exception>
+#include <iostream>
 
 using namespace std;
 
-class InputImageException : exception{
+class InputImageException : exception
+{
 public:
-
-    InputImageException() = default;
-    const char * what() const noexcept override;
+        InputImageException() = default;
+        const char* what() const noexcept override;
 };
 
-class InputFontException : exception{
+class InputFontException : exception
+{
 public:
-
-    InputFontException() = default;
-    const char * what() const noexcept override;
+        InputFontException() = default;
+        const char* what() const noexcept override;
 };
 
-class InputSaveFileException : exception{
+class InputSaveFileException : exception
+{
 public:
-
-    InputSaveFileException() = default;
-    const char * what() const noexcept override;
+        InputSaveFileException() = default;
+        const char* what() const noexcept override;
 };
 
-class nullptrException : exception{
-    string m_className;
-    string m_functionName;
-public:
+class nullptrException : exception
+{
+        string m_className;
+        string m_functionName;
 
-    nullptrException(string className, string functionName);
-    string what_() const;
+public:
+        nullptrException(string className, string functionName);
+        string what_() const;
 };
 
-
-#endif //DOODLE_JUMP_EXCEPTIONS_H
+#endif // DOODLE_JUMP_EXCEPTIONS_H

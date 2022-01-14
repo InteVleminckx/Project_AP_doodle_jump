@@ -27,19 +27,12 @@ class Random
          ****************************************************************************************************/
 
         /****************************************************************************************************
-         * @brief Een pointer naar het random object.
-         * @type static Random*
-         * @var m_instance
-         ****************************************************************************************************/
-        static Random* s_instance;
-
-        /****************************************************************************************************
          * @brief Een moeilijkheidsgraad die van 1 tot 10 gaat met 10 als hoogste.
          * Hiermee kunnen we de game moeilijker en moeilijker laten gaan tot een bepaald niveau.
          * @type int
          * @var m_difficultyNiveau
          ****************************************************************************************************/
-        int m_difficultyNiveau;
+        int m_difficultyNiveau{};
 
         /****************************************************************************************************
          * @function Random()
@@ -52,44 +45,38 @@ class Random
          ****************************************************************************************************/
 public:
         /****************************************************************************************************
-         * @function static Random* Instance()
-         * @return static Random* het random object.
+         * @function static Random& Instance()
+         * @return static Random& het random object.
          ****************************************************************************************************/
-        static Random* Instance();
-
-        /****************************************************************************************************
-         * @function static void Release()
-         * @brief Verwijderd de pointer naar het random object.
-         ****************************************************************************************************/
-        static void Release();
+        static Random& Instance();
 
         /****************************************************************************************************
          * @function PlatformType getPlatformType()
          * @brief Genereert een random platform op basis van de score.
          * @return Een platform type.
          ****************************************************************************************************/
-        PlatformType getPlatformType();
+        PlatformType getPlatformType() const;
 
         /****************************************************************************************************
          * @function BonusType getBonusType()
          * @brief Genereert een random bonus op basis van de score.
          * @return Een bonus type.
          ****************************************************************************************************/
-        BonusType getBonusType();
+        static BonusType getBonusType();
 
         /****************************************************************************************************
          * @function bool createPlatform()
          * @brief Zegt of er een platform gegenereerd moet worden op basis van de score.
          * @return Een boolean die zegt of het gegenereerd moet worden of niet?
          ****************************************************************************************************/
-        bool createPlatform(float prevPlatform, float possiblePlatform);
+        bool createPlatform(float prevPlatform, float possiblePlatform) const;
 
         /****************************************************************************************************
          * @function bool createBonus()
          * @brief Zegt of er een bonus gegenereerd moet worden op basis van de score.
          * @return Een boolean die zegt of het gegenereerd moet worden of niet?
          ****************************************************************************************************/
-        bool createBonus();
+        bool createBonus() const;
 
         /****************************************************************************************************
          * @function float giveRandomX(float leftBound, float rightBound)
@@ -98,7 +85,7 @@ public:
          * @param rightBound: is een float wat de grootste waarde is die gegenereerd kan worden.
          * @return Een float, wat de random waarde is.
          ****************************************************************************************************/
-        float giveRandomX(float leftBound, float rightBound);
+        static float giveRandomX(float leftBound, float rightBound);
 
         /****************************************************************************************************
          * @function void Reset()

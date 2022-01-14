@@ -10,13 +10,13 @@ Bonus_L::Bonus_L(float posX, float posY, float width, float height)
         setHeight(height);
 }
 
-float Bonus_L::getForce() { return m_bonusforce; }
+float Bonus_L::getForce() const { return m_bonusforce; }
 
-bool Bonus_L::getInvolmsVelocity() { return m_involmsVeloctiy; }
+bool Bonus_L::getInvolmsVelocity() const { return m_involmsVeloctiy; }
 
 void Bonus_L::setIncreasingValue(int value) { m_increasingValue = value; }
 
-int Bonus_L::getIncreasingValue() { return m_increasingValue; }
+int Bonus_L::getIncreasingValue() const { return m_increasingValue; }
 
 Spring_L::Spring_L(float posX, float posY, float width, float height) : Bonus_L(posX, posY, width, height)
 {

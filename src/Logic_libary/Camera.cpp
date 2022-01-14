@@ -2,24 +2,15 @@
 
 namespace logic {
 
-Camera* Camera::s_instance = nullptr;
-
-Camera* Camera::Instance(int width, int height)
+Camera& Camera::Instance(int width, int height)
 {
-        if (s_instance == nullptr)
-                s_instance = new Camera(width, height);
-        return s_instance;
-}
-
-void Camera::Release()
-{
-        delete s_instance;
-        s_instance = nullptr;
+        static Camera instance(width, height);
+        return instance;
 }
 
 Camera::Camera(int width, int height) : m_height(height), m_width(width) {}
 
-projectedPixels Camera::projectToPixel(float x, float y)
+projectedPixels Camera::projectToPixel(float x, float y) const
 {
 
         /*
@@ -38,9 +29,9 @@ projectedPixels Camera::projectToPixel(float x, float y)
         return pixels;
 }
 
-int Camera::getCameraWidth() { return m_width; }
+int Camera::getCameraWidth() const { return m_width; }
 
-int Camera::getCameraHeight() { return m_width; }
+int Camera::getCameraHeight() const { return m_width; }
 
 bool Camera::setOffset(float y)
 {
@@ -51,9 +42,11 @@ bool Camera::setOffset(float y)
         return false;
 }
 
-int Camera::reproduceScore(float score) { return ceil(score * m_height); }
+int Camera::reproduceScore(float score) const { return ceil(score * m_height); }
 
-float Camera::getOffset() { return m_offset; }
+float Camera::getOffset() const { return m_offset; }
+
+void Camera::Reset() { m_offset = 0; }
 
 Camera::~Camera() = default;
 } // namespace logic

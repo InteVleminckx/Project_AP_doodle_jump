@@ -108,7 +108,7 @@ public:
          * @brief Zal de score teruggeven.
          * @return Is een int wat de score is.
          ****************************************************************************************************/
-        int getScore();
+        int getScore() const;
 
         /****************************************************************************************************
          * @function shared_ptr<Player_L> getPlayer()
@@ -122,7 +122,7 @@ public:
          * @brief Geeft een herberekende score terug waarbij de min en plus punten zijn bij ingecalculeerd.
          * @return Is een integer
          ****************************************************************************************************/
-        int getRecalculatedScore();
+        int getRecalculatedScore() const;
 
         /****************************************************************************************************
          * @function ~Score_L()

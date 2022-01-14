@@ -21,6 +21,7 @@ void Subject::removeObserver(const shared_ptr<Observer>& observer)
                 }
         }
 }
+
 void Subject::emptyObserver() { m_observers.clear(); }
 
 vector<shared_ptr<Observer>>& Subject::getObservers() { return m_observers; }

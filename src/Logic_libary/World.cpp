@@ -55,7 +55,7 @@ void World::updateWorld()
         refreshBonus();
 
         // Als alle entities zijn gerefreshed resetten we de clock.
-        logic::Stopwatch::Instance()->Reset();
+        logic::Stopwatch::Instance().Reset();
 }
 
 void World::releaseObservers()
@@ -227,14 +227,14 @@ void World::refreshPlayer()
         ControllingPointers::control(m_player, "World", "refreshPlayer()");
 
         // Controleren eerst of de speler links of rechts wilt bewegen.
-        if (representation::Window::Instance()->isPressedLeft())
+        if (representation::Window::Instance().isPressedLeft())
                 movePlayerLeft();
-        if (representation::Window::Instance()->isPressedRight())
+        if (representation::Window::Instance().isPressedRight())
                 movePlayerRight();
 
         // Passen de zwaartekracht toe op de speler.
         m_player->gravity();
-        if (logic::Camera::Instance()->setOffset(m_player->getY())) {
+        if (logic::Camera::Instance().setOffset(m_player->getY())) {
                 NotifyAll(m_platforms);
                 NotifyAll(m_bonussen);
         }
@@ -326,7 +326,7 @@ void World::playerOutOfScope()
 {
         ControllingPointers::control(m_player, "World", "playerOutOfScope()");
 
-        if (m_player->getY() < Camera::Instance()->getOffset() - abs(m_belowLogicY))
+        if (m_player->getY() < Camera::Instance().getOffset() - abs(m_belowLogicY))
                 m_isGamePlaying = false;
 }
 
@@ -341,11 +341,11 @@ void World::createPlatform(shared_ptr<EntityFactory>& factory, float x, float y)
 
         shared_ptr<logic::Platform_L> platform;
 
-        PlatformType type = Random::Instance()->getPlatformType();
+        PlatformType type = Random::Instance().getPlatformType();
 
         switch (type) {
         case Static_:
-                if (Random::Instance()->createBonus())
+                if (Random::Instance().createBonus())
                         createBonus(factory, x, y);
                 platform = move(make_shared<logic::Platform_L_static>(x, y, m_platformWidth, m_platformHeight));
                 break;
@@ -410,8 +410,8 @@ void World::createAplatform(shared_ptr<EntityFactory>& factory, bool begin)
 
                 for (int i = 0; i < aantalPlatforms + 1; ++i) {
                         float y = m_belowLogicY + (i * m_platformHeight * 3.5);
-                        if (Random::Instance()->createPlatform(m_prevPlatform, y)) {
-                                float x = Random::Instance()->giveRandomX(m_leftLogicX, m_rightLogicX);
+                        if (Random::Instance().createPlatform(m_prevPlatform, y)) {
+                                float x = Random::Instance().giveRandomX(m_leftLogicX, m_rightLogicX);
 
                                 if (x > m_rightLogicX - m_platformWidth)
                                         x = m_rightLogicX - m_platformWidth;
@@ -426,8 +426,8 @@ void World::createAplatform(shared_ptr<EntityFactory>& factory, bool begin)
         else {
                 if (m_player->getY() + (abs(m_belowLogicY) * 2) > m_renderTop + (m_platformHeight * 2.5)) {
                         m_renderTop = m_player->getY() + (abs(m_belowLogicY) * 2);
-                        if (Random::Instance()->createPlatform(m_prevPlatform, m_renderTop)) {
-                                float x = Random::Instance()->giveRandomX(m_leftLogicX, m_rightLogicX);
+                        if (Random::Instance().createPlatform(m_prevPlatform, m_renderTop)) {
+                                float x = Random::Instance().giveRandomX(m_leftLogicX, m_rightLogicX);
                                 if (x > m_rightLogicX - m_platformWidth)
                                         x = m_rightLogicX - m_platformWidth;
                                 createPlatform(factory, x, m_renderTop);
@@ -593,7 +593,7 @@ void World::createBonus(shared_ptr<EntityFactory>& factory, float x, float y)
                                      "createBonus(shared_ptr<EntityFactory> &factory, float x, float y)");
 
         shared_ptr<logic::Bonus_L> bonus;
-        BonusType type = Random::Instance()->getBonusType();
+        BonusType type = Random::Instance().getBonusType();
         float x1;
 
         switch (type) {

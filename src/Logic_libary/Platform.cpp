@@ -21,19 +21,19 @@ Platform_L::Platform_L(float posX, float posY, float width, float height)
 
 void Platform_L::setTemporary(bool temporary) { m_temporary = temporary; }
 
-bool Platform_L::isTemporary() { return m_temporary; }
+bool Platform_L::isTemporary() const { return m_temporary; }
 
 void Platform_L::setStartPostionY(float y) { m_startPositionY = y; }
 
-float Platform_L::getStartPositionY() { return m_startPositionY; }
+float Platform_L::getStartPositionY() const { return m_startPositionY; }
 
 void Platform_L::setDecreasingValue(int value) { m_decreasingValue = value; }
 
-int Platform_L::getDecreasingValue() { return m_decreasingValue; }
+int Platform_L::getDecreasingValue() const { return m_decreasingValue; }
 
 void Platform_L::setJumpedOn() { m_hasJumpedOn = true; }
 
-bool Platform_L::isJumpedOn() { return m_hasJumpedOn; }
+bool Platform_L::isJumpedOn() const { return m_hasJumpedOn; }
 
 Platform_L_static::Platform_L_static(float posX, float posY, float width, float height)
     : Platform_L(posX, posY, width, height)
@@ -56,7 +56,7 @@ Platform_L_vertical::Platform_L_vertical(float posX, float posY, float width, fl
 void Platform_L_vertical::movePlatform()
 {
 
-        float newPos = getY() - (getVelocityY() * Stopwatch::Instance()->GetDeltaTime());
+        float newPos = getY() - (getVelocityY() * Stopwatch::Instance().GetDeltaTime());
         setYprev(getY());
         setY(newPos);
 
@@ -76,7 +76,7 @@ Platform_L_horizontal::Platform_L_horizontal(float posX, float posY, float width
 
 void Platform_L_horizontal::movePlatform()
 {
-        float newPos = getX() - (getVelocityX() * Stopwatch::Instance()->GetDeltaTime());
+        float newPos = getX() - (getVelocityX() * Stopwatch::Instance().GetDeltaTime());
         setXprev(getX());
         setX(newPos);
 

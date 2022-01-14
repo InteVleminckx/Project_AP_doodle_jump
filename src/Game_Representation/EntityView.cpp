@@ -6,8 +6,8 @@ EntityView::EntityView() = default;
 
 EntityView::EntityView(float width, float height, const string& filepath)
 {
-        m_width = width * (float)logic::Camera::Instance()->getCameraWidth();
-        m_height = height * (float)logic::Camera::Instance()->getCameraHeight();
+        m_width = width * (float)logic::Camera::Instance().getCameraWidth();
+        m_height = height * (float)logic::Camera::Instance().getCameraHeight();
         createSprite(filepath);
         m_modelSprite.setScale(m_width / (float)m_modelTexture.getSize().x,
                                m_height / (float)m_modelTexture.getSize().y);
@@ -33,7 +33,7 @@ void EntityView::update()
                                   (float)m_entityModel->getProjectedY() - m_height);
 }
 
-void EntityView::draw() { representation::Window::Instance()->getWindow().draw(m_modelSprite); }
+void EntityView::draw() { representation::Window::Instance().getWindow().draw(m_modelSprite); }
 
 void EntityView::setEntityModel(shared_ptr<logic::Player_L> player)
 {

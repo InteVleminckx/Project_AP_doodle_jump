@@ -66,14 +66,14 @@ public:
          * @brief Geeft de bonusforce terug.
          * @return een float, wat de m_bonusforce is.
          ****************************************************************************************************/
-        float getForce();
+        float getForce() const;
 
         /****************************************************************************************************
          * @function getInvolmsVelocity()
          * @brief Geeft een boolean terug die beslist of de bonus gepakt kan worden als de player omhoog gaat.
          * @return een bool, wat de m_involmsVelocity is.
          ****************************************************************************************************/
-        bool getInvolmsVelocity();
+        bool getInvolmsVelocity() const;
 
         /****************************************************************************************************
          * @function void setIncreasingValue(int value)
@@ -87,7 +87,7 @@ public:
          * @brief Geeft de increasing value terug.
          * @return Een integer wat de increasing value is
          ****************************************************************************************************/
-        int getIncreasingValue();
+        int getIncreasingValue() const;
 
         /****************************************************************************************************
          * @function ~Bonus_L()

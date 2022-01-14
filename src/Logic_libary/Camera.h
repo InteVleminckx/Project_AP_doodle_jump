@@ -32,13 +32,6 @@ class Camera
          ****************************************************************************************************/
 
         /****************************************************************************************************
-         * @brief Een pointer naar het camera object.
-         * @type static Camera*
-         * @var m_instance
-         ****************************************************************************************************/
-        static Camera* s_instance;
-
-        /****************************************************************************************************
          * @brief Zijn de hoogte en breedte van de camera scope.
          * @type int
          * @var m_width, m_height
@@ -65,19 +58,19 @@ class Camera
          ****************************************************************************************************/
 public:
         /****************************************************************************************************
-         * @function static Camera* Instance(int width = 0, int height = 0)
+         * @function static Camera& Instance(int width = 0, int height = 0)
          * @brief Geeft de camera terug, moest er nog geen bestaand wordt er 1 aangemaakt.
          * @param width: is een int wat de breedte van de camera scope wordt.
          * @param height: is een int wat de hoogte van de camera scope wordt.
-         * @return static Camera* de camera.
+         * @return static Camera& de camera.
          ****************************************************************************************************/
-        static Camera* Instance(int width = 0, int height = 0);
+        static Camera& Instance(int width = 0, int height = 0);
 
         /****************************************************************************************************
-         * @function static void Release()
-         * @brief Verwijderd de pointer naar de camera.
+         * @function void Reset()
+         * @brief Het reset de offset van de camera.
          ****************************************************************************************************/
-        static void Release();
+        void Reset();
 
         /****************************************************************************************************
          * @function projectedPixels projectToPixel(float x, float y)
@@ -86,7 +79,7 @@ public:
          * @param y: is een float, de logic y die geprojecteerd moet worden.
          * @return De geprojecteerde coördinaten.
          ****************************************************************************************************/
-        projectedPixels projectToPixel(float x, float y);
+        projectedPixels projectToPixel(float x, float y) const;
 
         /****************************************************************************************************
          * @function int reproduceScore(float score)
@@ -94,28 +87,28 @@ public:
          * @param score: de "huidige" score.
          * @return De nieuwe omgezette score als een integer.
          ****************************************************************************************************/
-        int reproduceScore(float score);
+        int reproduceScore(float score) const;
 
         /****************************************************************************************************
          * @function int getCameraWidth()
          * @brief Geeft de breedte van de camera terug.
          * @return is een integer, wat de breedte van de camera bevat
          ****************************************************************************************************/
-        int getCameraWidth();
+        int getCameraWidth() const;
 
         /****************************************************************************************************
          * @function int getCameraHeight()
          * @brief Geeft de hoogte van de camera terug.
          * @return is een integer, wat de hoogte van de camera bevat
          ****************************************************************************************************/
-        int getCameraHeight();
+        int getCameraHeight() const;
 
         /****************************************************************************************************
          * @function float getOffset()
          * @brief Geeft de offset van de camera terug.
          * @return is een float, wat de m_offset is.
          ****************************************************************************************************/
-        float getOffset();
+        float getOffset() const;
 
         /****************************************************************************************************
          * @function bool setOffset(float y)

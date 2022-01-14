@@ -1,32 +1,22 @@
 #include "Random.h"
 
 namespace logic {
-Random* Random::s_instance = nullptr;
 
-Random* Random::Instance()
+Random& Random::Instance()
 {
-        if (s_instance == nullptr)
-                s_instance = new Random;
-        return s_instance;
+        static Random instance;
+        return instance;
 }
 
-void Random::Release()
-{
-        delete s_instance;
-        s_instance = nullptr;
-}
+Random::Random() { Reset(); }
 
-Random::Random()
+void Random::Reset()
 {
-
         m_difficultyNiveau = 1;
-
-        Reset();
+        srand(time(0));
 }
 
-void Random::Reset() { srand(time(0)); }
-
-PlatformType Random::getPlatformType()
+PlatformType Random::getPlatformType() const
 {
 
         /**
@@ -75,7 +65,7 @@ BonusType Random::getBonusType()
         return Rocket_;
 }
 
-bool Random::createPlatform(float prevPlatform, float possiblePlatform)
+bool Random::createPlatform(float prevPlatform, float possiblePlatform) const
 {
         // het is zo dat we minstens om de zoveel keer we deze functie hebben aangeroepen toch zeker 1 platform moeten
         // creëeren Want anders als het moeilijker en moeilijker wordt dan gaan we misschien niet meer aan het volgende
@@ -120,7 +110,7 @@ float Random::giveRandomX(float leftBound, float rightBound)
         return dis(gen);
 }
 
-bool Random::createBonus()
+bool Random::createBonus() const
 {
         // In het begin kunnen we zeggen dat de kans op een Bonus 19/50 is
         // Op het moeilijkste niveau kunnen we zeggen dat de kans dan 1/20 is.

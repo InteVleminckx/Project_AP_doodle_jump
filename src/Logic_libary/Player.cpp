@@ -27,9 +27,9 @@ void Player_L::gravity()
         if (getVelocityY() < 0 && m_bonusActive)
                 m_bonusActive = false;
 
-        setVelocityY(getVelocityY() - getGravity() * Stopwatch::Instance()->GetDeltaTime());
+        setVelocityY(getVelocityY() - getGravity() * Stopwatch::Instance().GetDeltaTime());
         setYprev(getY());
-        setY(getY() + (getVelocityY() * Stopwatch::Instance()->GetDeltaTime()));
+        setY(getY() + (getVelocityY() * Stopwatch::Instance().GetDeltaTime()));
 
         Notify();
 }
@@ -37,7 +37,7 @@ void Player_L::gravity()
 void Player_L::moveRight(float leftBound, float rightBound)
 {
 
-        float newPos = getX() + (getVelocityX() * Stopwatch::Instance()->GetDeltaTime());
+        float newPos = getX() + (getVelocityX() * Stopwatch::Instance().GetDeltaTime());
 
         if (newPos >= rightBound)
                 newPos = leftBound;
@@ -48,7 +48,7 @@ void Player_L::moveRight(float leftBound, float rightBound)
 
 void Player_L::moveLeft(float leftBound, float rightBound)
 {
-        float newPos = getX() - (getVelocityX() * Stopwatch::Instance()->GetDeltaTime());
+        float newPos = getX() - (getVelocityX() * Stopwatch::Instance().GetDeltaTime());
         if (newPos <= leftBound)
                 newPos = rightBound;
         setXprev(getX());

@@ -28,7 +28,7 @@ void Score::update() { updateScore(); }
 void Score::draw()
 {
         m_textScore.setString(to_string(getRecalculatedScore()));
-        representation::Window::Instance()->getWindow().draw(m_textScore);
+        representation::Window::Instance().getWindow().draw(m_textScore);
 }
 
 Score::~Score() = default;

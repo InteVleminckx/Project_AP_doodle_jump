@@ -53,14 +53,14 @@ class EntityView : public logic::Observer
          * @type float
          * @var m_width
          ****************************************************************************************************/
-        float m_width;
+        float m_width{};
 
         /****************************************************************************************************
          * @brief De hoogte van de Entity.
          * @type float
          * @var m_width
          ****************************************************************************************************/
-        float m_height;
+        float m_height{};
 
         /****************************************************************************************************
          * @brief Een shared pointer naar een entityModel dat een afleiding is van een subject.
