@@ -1,7 +1,0 @@
-<map id="logic::Bonus_L" name="logic::Bonus_L">
-<area shape="rect" id="node1" title=" " alt="" coords="78,155,193,181"/>
-<area shape="rect" id="node4" href="$classlogic_1_1Rocket__L.html" title=" " alt="" coords="5,229,124,256"/>
-<area shape="rect" id="node5" href="$classlogic_1_1Spring__L.html" title=" " alt="" coords="148,229,264,256"/>
-<area shape="rect" id="node2" href="$classlogic_1_1EntityModel.html" title=" " alt="" coords="66,80,205,107"/>
-<area shape="rect" id="node3" href="$classlogic_1_1Subject.html" title=" " alt="" coords="81,5,190,32"/>
-</map>
