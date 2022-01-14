@@ -1,0 +1,295 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="ConcreteFactory_8cpp" kind="file" language="C++">
+    <compoundname>ConcreteFactory.cpp</compoundname>
+    <includes refid="ConcreteFactory_8h" local="yes">ConcreteFactory.h</includes>
+    <includes local="no">memory</includes>
+    <incdepgraph>
+      <node id="10">
+        <label>../Game_Representation/Window.h</label>
+        <link refid="Window_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>../Game_Representation/Platform.h</label>
+        <link refid="Game__Representation_2Platform_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>../Game_Representation/Bonus.h</label>
+        <link refid="Game__Representation_2Bonus_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+      <node id="22">
+        <label>EntityView.h</label>
+        <link refid="EntityView_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>../Logic_libary/Score.h</label>
+        <link refid="Score_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>../Logic_libary/Platform.h</label>
+        <link refid="Logic__libary_2Platform_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Subject.h</label>
+        <link refid="Subject_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>../Logic_libary/EntityFactory.h</label>
+        <link refid="EntityFactory_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>../Game_Representation/BG_Tile.h</label>
+        <link refid="Game__Representation_2BG__Tile_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>Stopwatch.h</label>
+        <link refid="Stopwatch_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/Game_Representation/ConcreteFactory.cpp</label>
+        <link refid="ConcreteFactory_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>cmath</label>
+      </node>
+      <node id="2">
+        <label>ConcreteFactory.h</label>
+        <link refid="ConcreteFactory_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>exception</label>
+      </node>
+      <node id="12">
+        <label>Observer.h</label>
+        <link refid="Observer_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>Camera.h</label>
+        <link refid="Camera_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>../Logic_libary/Bonus.h</label>
+        <link refid="Logic__libary_2Bonus_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>vector</label>
+      </node>
+      <node id="3">
+        <label>iostream</label>
+      </node>
+      <node id="18">
+        <label>../Logic_libary/BG_Tile.h</label>
+        <link refid="Logic__libary_2BG__Tile_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>chrono</label>
+      </node>
+      <node id="23">
+        <label>../../src/Exceptions.h</label>
+        <link refid="Exceptions_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>../Logic_libary/Player.h</label>
+        <link refid="Logic__libary_2Player_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>../Game_Representation/Player.h</label>
+        <link refid="Game__Representation_2Player_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>memory</label>
+      </node>
+      <node id="6">
+        <label>EntityModel.h</label>
+        <link refid="EntityModel_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;ConcreteFactory.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal">representation::ConcreteFactory::ConcreteFactory()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>representation::ConcreteFactory::createPlayer(shared_ptr&lt;logic::Player_L&gt;<sp/>&amp;player)<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>player-&gt;addObserver(shared_ptr&lt;logic::Observer&gt;<sp/>(</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classrepresentation_1_1Player" kindref="compound">representation::Player</ref>(player,<sp/></highlight><highlight class="stringliteral">&quot;../Sprites/Doodle_player2.png&quot;</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>representation::ConcreteFactory::createBG_Tile(shared_ptr&lt;logic::BG_Tile_L&gt;<sp/>&amp;BG_tile)<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>BG_tile-&gt;addObserver(shared_ptr&lt;logic::Observer&gt;<sp/>(</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classrepresentation_1_1BG__Tile" kindref="compound">representation::BG_Tile</ref>(BG_tile,<sp/></highlight><highlight class="stringliteral">&quot;../Sprites/BG_tile.png&quot;</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>representation::ConcreteFactory::createPlatform(shared_ptr&lt;logic::Platform_L&gt;<sp/>&amp;platform,<sp/>PlatformType<sp/>type)<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(type)<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>Static_:</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>platform-&gt;addObserver(shared_ptr&lt;logic::Observer&gt;<sp/>(</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classrepresentation_1_1Platform__static" kindref="compound">representation::Platform_static</ref>(platform,<sp/></highlight><highlight class="stringliteral">&quot;../Sprites/Static_platforms.png&quot;</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>Horizontal_:</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>platform-&gt;addObserver(shared_ptr&lt;logic::Observer&gt;<sp/>(</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classrepresentation_1_1Platform__horizontal" kindref="compound">representation::Platform_horizontal</ref>(platform,<sp/></highlight><highlight class="stringliteral">&quot;../Sprites/Horizontal_platforms.png&quot;</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>Vertical_:</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>platform-&gt;addObserver(shared_ptr&lt;logic::Observer&gt;<sp/>(</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classrepresentation_1_1Platform__vertical" kindref="compound">representation::Platform_vertical</ref>(platform,<sp/></highlight><highlight class="stringliteral">&quot;../Sprites/Vertical_platforms.png&quot;</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>Temporary_:</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>platform-&gt;addObserver(shared_ptr&lt;logic::Observer&gt;<sp/>(</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classrepresentation_1_1Platform__temporary" kindref="compound">representation::Platform_temporary</ref>(platform,<sp/></highlight><highlight class="stringliteral">&quot;../Sprites/Temporary_platforms.png&quot;</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>representation::ConcreteFactory::createBonus(shared_ptr&lt;logic::Bonus_L&gt;<sp/>&amp;bonus,<sp/>BonusType<sp/>type)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(type)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>Spring_:</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bonus-&gt;addObserver(shared_ptr&lt;logic::Observer&gt;<sp/>(</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classrepresentation_1_1Spring" kindref="compound">representation::Spring</ref>(bonus,<sp/></highlight><highlight class="stringliteral">&quot;../Sprites/Spring.png&quot;</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>Rocket_:</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bonus-&gt;addObserver(shared_ptr&lt;logic::Observer&gt;<sp/>(</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classrepresentation_1_1Rocket" kindref="compound">representation::Rocket</ref>(bonus,<sp/></highlight><highlight class="stringliteral">&quot;../Sprites/Rocket.png&quot;</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>representation::ConcreteFactory::createScore(shared_ptr&lt;logic::Player_L&gt;<sp/>&amp;subject,<sp/>shared_ptr&lt;logic::Score&gt;&amp;<sp/>score)<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>score<sp/>=<sp/>std::make_shared&lt;logic::Score&gt;(subject);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>subject-&gt;addObserver(score);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/Game_Representation/ConcreteFactory.cpp"/>
+  </compounddef>
+</doxygen>

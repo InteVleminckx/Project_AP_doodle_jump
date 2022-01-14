@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classrepresentation_1_1Game" kind="class" language="C++" prot="public">
+    <compoundname>representation::Game</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classrepresentation_1_1Game_1a2c9a764962ce48406c3bd75eea4bd4ce" prot="private" static="no" mutable="no">
+        <type><ref refid="classlogic_1_1World" kindref="compound">logic::World</ref></type>
+        <definition>logic::World representation::Game::m_world</definition>
+        <argsstring></argsstring>
+        <name>m_world</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Game_Representation/Game.h" line="33" column="22" bodyfile="src/Game_Representation/Game.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrepresentation_1_1Game_1aa6daaf2c3ad54c80ccfa1317df68badd" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float representation::Game::m_frameRate</definition>
+        <argsstring></argsstring>
+        <name>m_frameRate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Game_Representation/Game.h" line="40" column="15" bodyfile="src/Game_Representation/Game.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrepresentation_1_1Game_1a151929d5887f602036a3f7d5ce686ec0" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string representation::Game::m_gameTitle</definition>
+        <argsstring></argsstring>
+        <name>m_gameTitle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Game_Representation/Game.h" line="47" column="16" bodyfile="src/Game_Representation/Game.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrepresentation_1_1Game_1ae9937d855cc835a3ab598a695e5981b0" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int representation::Game::m_windowHeight</definition>
+        <argsstring></argsstring>
+        <name>m_windowHeight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Game_Representation/Game.h" line="54" column="13" bodyfile="src/Game_Representation/Game.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrepresentation_1_1Game_1a7effcb86a6b2ce5c527893643a98b9c5" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int representation::Game::m_windowWidth</definition>
+        <argsstring></argsstring>
+        <name>m_windowWidth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Game_Representation/Game.h" line="61" column="13" bodyfile="src/Game_Representation/Game.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrepresentation_1_1Game_1abfd6d6e85af9da7c1fa5dc39448feebc" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int representation::Game::m_highScore</definition>
+        <argsstring></argsstring>
+        <name>m_highScore</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Game_Representation/Game.h" line="68" column="13" bodyfile="src/Game_Representation/Game.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classrepresentation_1_1Game_1a7889375f7112234007bb9ba75be750d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>representation::Game::Game</definition>
+        <argsstring>()</argsstring>
+        <name>Game</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Game_Representation/Game.h" line="76" column="9" bodyfile="src/Game_Representation/Game.cpp" bodystart="5" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classrepresentation_1_1Game_1a23e237723cd2c28d24e756314f63c450" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void representation::Game::displayFullGame</definition>
+        <argsstring>()</argsstring>
+        <name>displayFullGame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Game_Representation/Game.h" line="82" column="14" bodyfile="src/Game_Representation/Game.cpp" bodystart="11" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classrepresentation_1_1Game_1abf073fb1f39f851be0003d4e223ae7c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void representation::Game::displayMenu</definition>
+        <argsstring>()</argsstring>
+        <name>displayMenu</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Game_Representation/Game.h" line="88" column="14" bodyfile="src/Game_Representation/Game.cpp" bodystart="83" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classrepresentation_1_1Game_1a1587472011934a660e4137016df27c1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void representation::Game::beginGame</definition>
+        <argsstring>()</argsstring>
+        <name>beginGame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Game_Representation/Game.h" line="94" column="14" bodyfile="src/Game_Representation/Game.cpp" bodystart="38" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classrepresentation_1_1Game_1abaf88ff388bf847f2d74e876b7ce80a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void representation::Game::stopGame</definition>
+        <argsstring>()</argsstring>
+        <name>stopGame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Game_Representation/Game.h" line="100" column="14" bodyfile="src/Game_Representation/Game.cpp" bodystart="68" bodyend="81"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/Game_Representation/Game.h" line="26" column="15" bodyfile="src/Game_Representation/Game.h" bodystart="26" bodyend="101"/>
+    <listofallmembers>
+      <member refid="classrepresentation_1_1Game_1a1587472011934a660e4137016df27c1d" prot="public" virt="non-virtual"><scope>representation::Game</scope><name>beginGame</name></member>
+      <member refid="classrepresentation_1_1Game_1a23e237723cd2c28d24e756314f63c450" prot="public" virt="non-virtual"><scope>representation::Game</scope><name>displayFullGame</name></member>
+      <member refid="classrepresentation_1_1Game_1abf073fb1f39f851be0003d4e223ae7c1" prot="public" virt="non-virtual"><scope>representation::Game</scope><name>displayMenu</name></member>
+      <member refid="classrepresentation_1_1Game_1a7889375f7112234007bb9ba75be750d8" prot="public" virt="non-virtual"><scope>representation::Game</scope><name>Game</name></member>
+      <member refid="classrepresentation_1_1Game_1aa6daaf2c3ad54c80ccfa1317df68badd" prot="private" virt="non-virtual"><scope>representation::Game</scope><name>m_frameRate</name></member>
+      <member refid="classrepresentation_1_1Game_1a151929d5887f602036a3f7d5ce686ec0" prot="private" virt="non-virtual"><scope>representation::Game</scope><name>m_gameTitle</name></member>
+      <member refid="classrepresentation_1_1Game_1abfd6d6e85af9da7c1fa5dc39448feebc" prot="private" virt="non-virtual"><scope>representation::Game</scope><name>m_highScore</name></member>
+      <member refid="classrepresentation_1_1Game_1ae9937d855cc835a3ab598a695e5981b0" prot="private" virt="non-virtual"><scope>representation::Game</scope><name>m_windowHeight</name></member>
+      <member refid="classrepresentation_1_1Game_1a7effcb86a6b2ce5c527893643a98b9c5" prot="private" virt="non-virtual"><scope>representation::Game</scope><name>m_windowWidth</name></member>
+      <member refid="classrepresentation_1_1Game_1a2c9a764962ce48406c3bd75eea4bd4ce" prot="private" virt="non-virtual"><scope>representation::Game</scope><name>m_world</name></member>
+      <member refid="classrepresentation_1_1Game_1abaf88ff388bf847f2d74e876b7ce80a9" prot="public" virt="non-virtual"><scope>representation::Game</scope><name>stopGame</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

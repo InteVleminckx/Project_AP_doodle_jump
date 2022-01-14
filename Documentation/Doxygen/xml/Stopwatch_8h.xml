@@ -1,0 +1,336 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="Stopwatch_8h" kind="file" language="C++">
+    <compoundname>Stopwatch.h</compoundname>
+    <includes local="no">iostream</includes>
+    <includes local="no">chrono</includes>
+    <includedby refid="EntityModel_8h" local="yes">src/Logic_libary/EntityModel.h</includedby>
+    <includedby refid="World_8h" local="yes">src/Logic_libary/World.h</includedby>
+    <includedby refid="Stopwatch_8cpp" local="yes">src/Logic_libary/Stopwatch.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/Logic_libary/Stopwatch.h</label>
+        <link refid="Stopwatch_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>iostream</label>
+      </node>
+      <node id="3">
+        <label>chrono</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="8">
+        <label>src/Game_Representation/Game.h</label>
+        <link refid="Game_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>src/Game_Representation/Platform.h</label>
+        <link refid="Game__Representation_2Platform_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>src/Game_Representation/Bonus.h</label>
+        <link refid="Game__Representation_2Bonus_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/Game_Representation/EntityView.h</label>
+        <link refid="EntityView_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>src/Logic_libary/Score.h</label>
+        <link refid="Score_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>src/Game_Representation/BG_Tile.cpp</label>
+        <link refid="Game__Representation_2BG__Tile_8cpp_source"/>
+      </node>
+      <node id="32">
+        <label>src/Logic_libary/Platform.h</label>
+        <link refid="Logic__libary_2Platform_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>src/Logic_libary/EntityFactory.h</label>
+        <link refid="EntityFactory_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/Game_Representation/BG_Tile.h</label>
+        <link refid="Game__Representation_2BG__Tile_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>src/Game_Representation/Player.cpp</label>
+        <link refid="Game__Representation_2Player_8cpp_source"/>
+      </node>
+      <node id="1">
+        <label>src/Logic_libary/Stopwatch.h</label>
+        <link refid="Stopwatch_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>src/Logic_libary/Bonus.cpp</label>
+        <link refid="Logic__libary_2Bonus_8cpp_source"/>
+      </node>
+      <node id="7">
+        <label>src/Game_Representation/ConcreteFactory.cpp</label>
+        <link refid="ConcreteFactory_8cpp_source"/>
+      </node>
+      <node id="33">
+        <label>src/Logic_libary/Platform.cpp</label>
+        <link refid="Logic__libary_2Platform_8cpp_source"/>
+      </node>
+      <node id="6">
+        <label>src/Game_Representation/ConcreteFactory.h</label>
+        <link refid="ConcreteFactory_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>src/Logic_libary/Random.h</label>
+        <link refid="Random_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>src/Logic_libary/EntityFactory.cpp</label>
+        <link refid="EntityFactory_8cpp_source"/>
+      </node>
+      <node id="17">
+        <label>src/Game_Representation/EntityView.cpp</label>
+        <link refid="EntityView_8cpp_source"/>
+      </node>
+      <node id="16">
+        <label>src/Game_Representation/Platform.cpp</label>
+        <link refid="Game__Representation_2Platform_8cpp_source"/>
+      </node>
+      <node id="30">
+        <label>src/Logic_libary/Bonus.h</label>
+        <link refid="Logic__libary_2Bonus_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>src/Logic_libary/BG_Tile.cpp</label>
+        <link refid="Logic__libary_2BG__Tile_8cpp_source"/>
+      </node>
+      <node id="10">
+        <label>src/main.cpp</label>
+        <link refid="main_8cpp_source"/>
+      </node>
+      <node id="28">
+        <label>src/Logic_libary/BG_Tile.h</label>
+        <link refid="Logic__libary_2BG__Tile_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>src/Game_Representation/Game.cpp</label>
+        <link refid="Game_8cpp_source"/>
+      </node>
+      <node id="34">
+        <label>src/Logic_libary/EntityModel.cpp</label>
+        <link refid="EntityModel_8cpp_source"/>
+      </node>
+      <node id="12">
+        <label>src/Game_Representation/Bonus.cpp</label>
+        <link refid="Game__Representation_2Bonus_8cpp_source"/>
+      </node>
+      <node id="18">
+        <label>src/Logic_libary/Player.h</label>
+        <link refid="Logic__libary_2Player_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>src/Logic_libary/Stopwatch.cpp</label>
+        <link refid="Stopwatch_8cpp_source"/>
+      </node>
+      <node id="13">
+        <label>src/Game_Representation/Player.h</label>
+        <link refid="Game__Representation_2Player_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>src/Logic_libary/Player.cpp</label>
+        <link refid="Logic__libary_2Player_8cpp_source"/>
+      </node>
+      <node id="21">
+        <label>src/Logic_libary/World.cpp</label>
+        <link refid="World_8cpp_source"/>
+      </node>
+      <node id="20">
+        <label>src/Logic_libary/World.h</label>
+        <link refid="World_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>src/Logic_libary/Random.cpp</label>
+        <link refid="Random_8cpp_source"/>
+      </node>
+      <node id="26">
+        <label>src/Logic_libary/Score.cpp</label>
+        <link refid="Score_8cpp_source"/>
+      </node>
+      <node id="2">
+        <label>src/Logic_libary/EntityModel.h</label>
+        <link refid="EntityModel_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classlogic_1_1Stopwatch" prot="public">logic::Stopwatch</innerclass>
+    <innernamespace refid="namespacelogic">logic</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="9"><highlight class="preprocessor">#ifndef<sp/>DOODLE_JUMP_STOPWATCH_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DOODLE_JUMP_STOPWATCH_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;chrono&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">logic<sp/>{</highlight></codeline>
+<codeline lineno="18" refid="classlogic_1_1Stopwatch" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classlogic_1_1Stopwatch" kindref="compound">Stopwatch</ref><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classlogic_1_1Stopwatch" kindref="compound">Stopwatch</ref>*<sp/>s_instance;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>chrono::system_clock::time_point<sp/>m_startTime;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>chrono::duration&lt;float&gt;<sp/>m_deltaTime{};</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>m_timeScale;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classlogic_1_1Stopwatch" kindref="compound">Stopwatch</ref>*<sp/>Instance();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Release();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Reset();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>GetDeltaTime();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SetTimeScale(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>t<sp/>=<sp/>1.0f);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><sp/>GetTimeScale();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Tick();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlogic_1_1Stopwatch" kindref="compound">Stopwatch</ref>();</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>~<ref refid="classlogic_1_1Stopwatch" kindref="compound">Stopwatch</ref>();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//DOODLE_JUMP_STOPWATCH_H</highlight></codeline>
+    </programlisting>
+    <location file="src/Logic_libary/Stopwatch.h"/>
+  </compounddef>
+</doxygen>

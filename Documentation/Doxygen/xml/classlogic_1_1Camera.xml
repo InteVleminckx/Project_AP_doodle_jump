@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classlogic_1_1Camera" kind="class" language="C++" prot="public">
+    <compoundname>logic::Camera</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classlogic_1_1Camera_1a822c3f8f854ad2a3318f2f34143116f0" prot="private" static="yes" mutable="no">
+        <type><ref refid="classlogic_1_1Camera" kindref="compound">Camera</ref> *</type>
+        <definition>Camera * logic::Camera::s_instance</definition>
+        <argsstring></argsstring>
+        <name>s_instance</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/Camera.h" line="32" column="23" bodyfile="src/Logic_libary/Camera.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlogic_1_1Camera_1ab5452173004fec042c9e279b68a3445c" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int logic::Camera::m_width</definition>
+        <argsstring></argsstring>
+        <name>m_width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/Camera.h" line="39" column="13" bodyfile="src/Logic_libary/Camera.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlogic_1_1Camera_1a04da7f2cdea18d22ab74606e1dc7d410" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int logic::Camera::m_height</definition>
+        <argsstring></argsstring>
+        <name>m_height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/Camera.h" line="39" column="21" bodyfile="src/Logic_libary/Camera.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlogic_1_1Camera_1ac1e06180c21ec854e806ee404d124633" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float logic::Camera::m_offset</definition>
+        <argsstring></argsstring>
+        <name>m_offset</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/Camera.h" line="46" column="15" bodyfile="src/Logic_libary/Camera.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classlogic_1_1Camera_1a36431f6796dec94b8794e41937edb047" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>logic::Camera::Camera</definition>
+        <argsstring>(int width, int height)</argsstring>
+        <name>Camera</name>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/Camera.h" line="54" column="9" bodyfile="src/Logic_libary/Camera.cpp" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1Camera_1acc422e02a899639e6a3b3d1722d89b4d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>logic::Camera::~Camera</definition>
+        <argsstring>()</argsstring>
+        <name>~Camera</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/Camera.h" line="119" column="9" bodyfile="src/Logic_libary/Camera.cpp" bodystart="20" bodyend="20"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classlogic_1_1Camera_1a6fd90f3c62a82355d4ba950761cf0641" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classlogic_1_1Camera" kindref="compound">Camera</ref> *</type>
+        <definition>Camera * logic::Camera::Instance</definition>
+        <argsstring>(int width=0, int height=0)</argsstring>
+        <name>Instance</name>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/Camera.h" line="65" column="23" bodyfile="src/Logic_libary/Camera.cpp" bodystart="7" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1Camera_1a4ee21ae38689346338d13c61641e5a1a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void logic::Camera::Release</definition>
+        <argsstring>()</argsstring>
+        <name>Release</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/Camera.h" line="71" column="21" bodyfile="src/Logic_libary/Camera.cpp" bodystart="13" bodyend="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlogic_1_1Camera_1a0204ba5b3f37b5da098fe68d1f319d51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structprojectedPixels" kindref="compound">projectedPixels</ref></type>
+        <definition>projectedPixels logic::Camera::projectToPixel</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>projectToPixel</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/Camera.h" line="80" column="25" bodyfile="src/Logic_libary/Camera.cpp" bodystart="22" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1Camera_1a1eef110799bfb3b466172814e32522fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int logic::Camera::reproduceScore</definition>
+        <argsstring>(float score)</argsstring>
+        <name>reproduceScore</name>
+        <param>
+          <type>float</type>
+          <declname>score</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/Camera.h" line="88" column="13" bodyfile="src/Logic_libary/Camera.cpp" bodystart="49" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1Camera_1ac5840a8d6de8dbf7f8da3f809193f986" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int logic::Camera::getCameraWidth</definition>
+        <argsstring>()</argsstring>
+        <name>getCameraWidth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/Camera.h" line="95" column="13" bodyfile="src/Logic_libary/Camera.cpp" bodystart="41" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1Camera_1a4c7ed7581d0b70df69fd19f233bc31b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int logic::Camera::getCameraHeight</definition>
+        <argsstring>()</argsstring>
+        <name>getCameraHeight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/Camera.h" line="102" column="13" bodyfile="src/Logic_libary/Camera.cpp" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1Camera_1a32c201ba9306e9b420320149c8d4948e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float logic::Camera::getOffset</definition>
+        <argsstring>()</argsstring>
+        <name>getOffset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/Camera.h" line="109" column="15" bodyfile="src/Logic_libary/Camera.cpp" bodystart="55" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classlogic_1_1Camera_1a19bcc5cf591d64e1af3af7bff211a47c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void logic::Camera::setOffset</definition>
+        <argsstring>(float y)</argsstring>
+        <name>setOffset</name>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Logic_libary/Camera.h" line="116" column="14" bodyfile="src/Logic_libary/Camera.cpp" bodystart="45" bodyend="47"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/Logic_libary/Camera.h" line="25" column="17" bodyfile="src/Logic_libary/Camera.h" bodystart="25" bodyend="121"/>
+    <listofallmembers>
+      <member refid="classlogic_1_1Camera_1a36431f6796dec94b8794e41937edb047" prot="private" virt="non-virtual"><scope>logic::Camera</scope><name>Camera</name></member>
+      <member refid="classlogic_1_1Camera_1a4c7ed7581d0b70df69fd19f233bc31b5" prot="public" virt="non-virtual"><scope>logic::Camera</scope><name>getCameraHeight</name></member>
+      <member refid="classlogic_1_1Camera_1ac5840a8d6de8dbf7f8da3f809193f986" prot="public" virt="non-virtual"><scope>logic::Camera</scope><name>getCameraWidth</name></member>
+      <member refid="classlogic_1_1Camera_1a32c201ba9306e9b420320149c8d4948e" prot="public" virt="non-virtual"><scope>logic::Camera</scope><name>getOffset</name></member>
+      <member refid="classlogic_1_1Camera_1a6fd90f3c62a82355d4ba950761cf0641" prot="public" virt="non-virtual"><scope>logic::Camera</scope><name>Instance</name></member>
+      <member refid="classlogic_1_1Camera_1a04da7f2cdea18d22ab74606e1dc7d410" prot="private" virt="non-virtual"><scope>logic::Camera</scope><name>m_height</name></member>
+      <member refid="classlogic_1_1Camera_1ac1e06180c21ec854e806ee404d124633" prot="private" virt="non-virtual"><scope>logic::Camera</scope><name>m_offset</name></member>
+      <member refid="classlogic_1_1Camera_1ab5452173004fec042c9e279b68a3445c" prot="private" virt="non-virtual"><scope>logic::Camera</scope><name>m_width</name></member>
+      <member refid="classlogic_1_1Camera_1a0204ba5b3f37b5da098fe68d1f319d51" prot="public" virt="non-virtual"><scope>logic::Camera</scope><name>projectToPixel</name></member>
+      <member refid="classlogic_1_1Camera_1a4ee21ae38689346338d13c61641e5a1a" prot="public" virt="non-virtual"><scope>logic::Camera</scope><name>Release</name></member>
+      <member refid="classlogic_1_1Camera_1a1eef110799bfb3b466172814e32522fa" prot="public" virt="non-virtual"><scope>logic::Camera</scope><name>reproduceScore</name></member>
+      <member refid="classlogic_1_1Camera_1a822c3f8f854ad2a3318f2f34143116f0" prot="private" virt="non-virtual"><scope>logic::Camera</scope><name>s_instance</name></member>
+      <member refid="classlogic_1_1Camera_1a19bcc5cf591d64e1af3af7bff211a47c" prot="public" virt="non-virtual"><scope>logic::Camera</scope><name>setOffset</name></member>
+      <member refid="classlogic_1_1Camera_1acc422e02a899639e6a3b3d1722d89b4d" prot="private" virt="non-virtual"><scope>logic::Camera</scope><name>~Camera</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

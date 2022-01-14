@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="Exceptions_8h" kind="file" language="C++">
+    <compoundname>Exceptions.h</compoundname>
+    <includes local="no">iostream</includes>
+    <includes local="no">exception</includes>
+    <includedby refid="Exceptions_8cpp" local="yes">src/Exceptions.cpp</includedby>
+    <includedby refid="EntityView_8h" local="yes">src/Game_Representation/EntityView.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>exception</label>
+      </node>
+      <node id="2">
+        <label>iostream</label>
+      </node>
+      <node id="1">
+        <label>src/Exceptions.h</label>
+        <link refid="Exceptions_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="8">
+        <label>src/Game_Representation/Game.h</label>
+        <link refid="Game_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>src/Game_Representation/Platform.h</label>
+        <link refid="Game__Representation_2Platform_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>src/Game_Representation/Bonus.h</label>
+        <link refid="Game__Representation_2Bonus_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/Game_Representation/EntityView.h</label>
+        <link refid="EntityView_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>src/Game_Representation/BG_Tile.cpp</label>
+        <link refid="Game__Representation_2BG__Tile_8cpp_source"/>
+      </node>
+      <node id="4">
+        <label>src/Game_Representation/BG_Tile.h</label>
+        <link refid="Game__Representation_2BG__Tile_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>src/Game_Representation/Player.cpp</label>
+        <link refid="Game__Representation_2Player_8cpp_source"/>
+      </node>
+      <node id="7">
+        <label>src/Game_Representation/ConcreteFactory.cpp</label>
+        <link refid="ConcreteFactory_8cpp_source"/>
+      </node>
+      <node id="6">
+        <label>src/Game_Representation/ConcreteFactory.h</label>
+        <link refid="ConcreteFactory_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>src/Game_Representation/EntityView.cpp</label>
+        <link refid="EntityView_8cpp_source"/>
+      </node>
+      <node id="2">
+        <label>src/Exceptions.cpp</label>
+        <link refid="Exceptions_8cpp_source"/>
+      </node>
+      <node id="16">
+        <label>src/Game_Representation/Platform.cpp</label>
+        <link refid="Game__Representation_2Platform_8cpp_source"/>
+      </node>
+      <node id="10">
+        <label>src/main.cpp</label>
+        <link refid="main_8cpp_source"/>
+      </node>
+      <node id="9">
+        <label>src/Game_Representation/Game.cpp</label>
+        <link refid="Game_8cpp_source"/>
+      </node>
+      <node id="1">
+        <label>src/Exceptions.h</label>
+        <link refid="Exceptions_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>src/Game_Representation/Bonus.cpp</label>
+        <link refid="Game__Representation_2Bonus_8cpp_source"/>
+      </node>
+      <node id="13">
+        <label>src/Game_Representation/Player.h</label>
+        <link refid="Game__Representation_2Player_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classInputException" prot="public">InputException</innerclass>
+    <innernamespace refid="namespacestd">std</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Created<sp/>by<sp/>inte<sp/>on<sp/>11/22/21.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>DOODLE_JUMP_EXCEPTIONS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DOODLE_JUMP_EXCEPTIONS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;exception&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="classInputException" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classInputException" kindref="compound">InputException</ref><sp/>:<sp/>exception{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classInputException" kindref="compound">InputException</ref>();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>what()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>noexcept<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//DOODLE_JUMP_EXCEPTIONS_H</highlight></codeline>
+    </programlisting>
+    <location file="src/Exceptions.h"/>
+  </compounddef>
+</doxygen>

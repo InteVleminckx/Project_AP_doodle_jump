@@ -1,0 +1,575 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="EntityModel_8h" kind="file" language="C++">
+    <compoundname>EntityModel.h</compoundname>
+    <includes local="no">iostream</includes>
+    <includes refid="Subject_8h" local="yes">Subject.h</includes>
+    <includes refid="Observer_8h" local="yes">Observer.h</includes>
+    <includes refid="Camera_8h" local="yes">Camera.h</includes>
+    <includes refid="Stopwatch_8h" local="yes">Stopwatch.h</includes>
+    <includedby refid="EntityView_8h" local="yes">src/Game_Representation/EntityView.h</includedby>
+    <includedby refid="Logic__libary_2Player_8h" local="yes">src/Logic_libary/Player.h</includedby>
+    <includedby refid="Logic__libary_2BG__Tile_8h" local="yes">src/Logic_libary/BG_Tile.h</includedby>
+    <includedby refid="Logic__libary_2Bonus_8h" local="yes">src/Logic_libary/Bonus.h</includedby>
+    <includedby refid="Logic__libary_2Platform_8h" local="yes">src/Logic_libary/Platform.h</includedby>
+    <includedby refid="EntityModel_8cpp" local="yes">src/Logic_libary/EntityModel.cpp</includedby>
+    <incdepgraph>
+      <node id="6">
+        <label>../Game_Representation/Window.h</label>
+        <link refid="Window_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+      <node id="3">
+        <label>Subject.h</label>
+        <link refid="Subject_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Stopwatch.h</label>
+        <link refid="Stopwatch_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>cmath</label>
+      </node>
+      <node id="8">
+        <label>Observer.h</label>
+        <link refid="Observer_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Camera.h</label>
+        <link refid="Camera_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+      <node id="2">
+        <label>iostream</label>
+      </node>
+      <node id="12">
+        <label>chrono</label>
+      </node>
+      <node id="5">
+        <label>memory</label>
+      </node>
+      <node id="1">
+        <label>src/Logic_libary/EntityModel.h</label>
+        <link refid="EntityModel_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="7">
+        <label>src/Game_Representation/Game.h</label>
+        <link refid="Game_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>src/Game_Representation/Platform.h</label>
+        <link refid="Game__Representation_2Platform_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>src/Game_Representation/Bonus.h</label>
+        <link refid="Game__Representation_2Bonus_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>src/Game_Representation/EntityView.h</label>
+        <link refid="EntityView_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>src/Logic_libary/Score.h</label>
+        <link refid="Score_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>src/Game_Representation/BG_Tile.cpp</label>
+        <link refid="Game__Representation_2BG__Tile_8cpp_source"/>
+      </node>
+      <node id="31">
+        <label>src/Logic_libary/Platform.h</label>
+        <link refid="Logic__libary_2Platform_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>src/Logic_libary/EntityFactory.h</label>
+        <link refid="EntityFactory_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>src/Game_Representation/BG_Tile.h</label>
+        <link refid="Game__Representation_2BG__Tile_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>src/Game_Representation/Player.cpp</label>
+        <link refid="Game__Representation_2Player_8cpp_source"/>
+      </node>
+      <node id="30">
+        <label>src/Logic_libary/Bonus.cpp</label>
+        <link refid="Logic__libary_2Bonus_8cpp_source"/>
+      </node>
+      <node id="6">
+        <label>src/Game_Representation/ConcreteFactory.cpp</label>
+        <link refid="ConcreteFactory_8cpp_source"/>
+      </node>
+      <node id="32">
+        <label>src/Logic_libary/Platform.cpp</label>
+        <link refid="Logic__libary_2Platform_8cpp_source"/>
+      </node>
+      <node id="5">
+        <label>src/Game_Representation/ConcreteFactory.h</label>
+        <link refid="ConcreteFactory_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>src/Logic_libary/Random.h</label>
+        <link refid="Random_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>src/Logic_libary/EntityFactory.cpp</label>
+        <link refid="EntityFactory_8cpp_source"/>
+      </node>
+      <node id="16">
+        <label>src/Game_Representation/EntityView.cpp</label>
+        <link refid="EntityView_8cpp_source"/>
+      </node>
+      <node id="15">
+        <label>src/Game_Representation/Platform.cpp</label>
+        <link refid="Game__Representation_2Platform_8cpp_source"/>
+      </node>
+      <node id="29">
+        <label>src/Logic_libary/Bonus.h</label>
+        <link refid="Logic__libary_2Bonus_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>src/Logic_libary/BG_Tile.cpp</label>
+        <link refid="Logic__libary_2BG__Tile_8cpp_source"/>
+      </node>
+      <node id="9">
+        <label>src/main.cpp</label>
+        <link refid="main_8cpp_source"/>
+      </node>
+      <node id="27">
+        <label>src/Logic_libary/BG_Tile.h</label>
+        <link refid="Logic__libary_2BG__Tile_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>src/Game_Representation/Game.cpp</label>
+        <link refid="Game_8cpp_source"/>
+      </node>
+      <node id="33">
+        <label>src/Logic_libary/EntityModel.cpp</label>
+        <link refid="EntityModel_8cpp_source"/>
+      </node>
+      <node id="11">
+        <label>src/Game_Representation/Bonus.cpp</label>
+        <link refid="Game__Representation_2Bonus_8cpp_source"/>
+      </node>
+      <node id="17">
+        <label>src/Logic_libary/Player.h</label>
+        <link refid="Logic__libary_2Player_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>src/Game_Representation/Player.h</label>
+        <link refid="Game__Representation_2Player_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>src/Logic_libary/Player.cpp</label>
+        <link refid="Logic__libary_2Player_8cpp_source"/>
+      </node>
+      <node id="20">
+        <label>src/Logic_libary/World.cpp</label>
+        <link refid="World_8cpp_source"/>
+      </node>
+      <node id="19">
+        <label>src/Logic_libary/World.h</label>
+        <link refid="World_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>src/Logic_libary/Random.cpp</label>
+        <link refid="Random_8cpp_source"/>
+      </node>
+      <node id="25">
+        <label>src/Logic_libary/Score.cpp</label>
+        <link refid="Score_8cpp_source"/>
+      </node>
+      <node id="1">
+        <label>src/Logic_libary/EntityModel.h</label>
+        <link refid="EntityModel_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classlogic_1_1EntityModel" prot="public">logic::EntityModel</innerclass>
+    <innernamespace refid="namespacelogic">logic</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/****************************************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>@Naam<sp/>Inte<sp/>Vleminckx</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>@Studentennummer<sp/>20201844</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>@Datum</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>@Class<sp/>EntityModel</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>@BaseClass<sp/>Subject</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>@SubClasses<sp/>Player_L,<sp/>Platform_L,<sp/>Bonus_L,<sp/>BG_Tile_L</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>@Namespace<sp/>logic</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Is<sp/>een<sp/>subclass<sp/>van<sp/>Subject.&amp;</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>DOODLE_JUMP_ENTITYMODEL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DOODLE_JUMP_ENTITYMODEL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Subject.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Observer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Camera.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Stopwatch.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">logic<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="classlogic_1_1EntityModel" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classlogic_1_1EntityModel" kindref="compound">EntityModel</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classlogic_1_1Subject" kindref="compound">Subject</ref><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Is<sp/>de<sp/>postie<sp/>van<sp/>een<sp/>entity.</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@type<sp/>float</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@var<sp/>m_x,<sp/>m_y</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>m_x{},<sp/>m_y{};</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Is<sp/>de<sp/>positie<sp/>van<sp/>de<sp/>entity<sp/>op<sp/>zijn<sp/>vorige<sp/>frame.</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@type<sp/>float</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@var<sp/>m_xPrev,<sp/>m_yPrev</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>m_xPrev{},<sp/>m_yPrev{};</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Is<sp/>de<sp/>velocity<sp/>van<sp/>de<sp/>entity.</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@type<sp/>float</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@var<sp/>m_velocityX,<sp/>m_velocityY</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>m_velocityX{},<sp/>m_velocityY{};</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Zijn<sp/>de<sp/>afmetingen<sp/>van<sp/>de<sp/>entity.</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@type<sp/>float</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@var<sp/>m_width,<sp/>m_height</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>m_width{},<sp/>m_height{};</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Is<sp/>de<sp/>zwaartekracht<sp/>die<sp/>inwerkt<sp/>op<sp/>de<sp/>entity.</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@type<sp/>float</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@var<sp/>m_gravity</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>m_gravity{};</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Zijn<sp/>de<sp/>geprojecteerde<sp/>coördinaten<sp/>van<sp/>de<sp/>entity.</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@type<sp/>int</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@var<sp/>m_projectedX,<sp/>m_projectedY</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m_projectedX{},<sp/>m_projectedY{};</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>EntityModel()</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Is<sp/>een<sp/>default<sp/>constructor.</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlogic_1_1EntityModel" kindref="compound">EntityModel</ref>();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>void<sp/>projectPointsToPixels()</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Zet<sp/>de<sp/>huidige<sp/>punten<sp/>om<sp/>naar<sp/>pixels.</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>projectPointsToPixels();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>void<sp/>Notify()<sp/>override</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Roept<sp/>de<sp/>update<sp/>functie<sp/>op<sp/>van<sp/>zijn<sp/>observers.</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Notify()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>void<sp/>setX(float<sp/>x)</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Geeft<sp/>een<sp/>x<sp/>waarde<sp/>aan<sp/>de<sp/>entity</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>x:<sp/>is<sp/>een<sp/>float</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setX(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>x);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>void<sp/>setY(float<sp/>y)</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Geeft<sp/>een<sp/>y<sp/>waarde<sp/>aan<sp/>de<sp/>entity</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>y:<sp/>is<sp/>een<sp/>float</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setY(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>void<sp/>setX(float<sp/>x)</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Geeft<sp/>een<sp/>x<sp/>waarde<sp/>aan<sp/>de<sp/>entity</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>x:<sp/>is<sp/>een<sp/>float</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setXprev(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>x);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>void<sp/>setY(float<sp/>y)</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Geeft<sp/>een<sp/>y<sp/>waarde<sp/>aan<sp/>de<sp/>entity</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>y:<sp/>is<sp/>een<sp/>float</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setYprev(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>void<sp/>setVelocityX(float<sp/>velocityX)</highlight></codeline>
+<codeline lineno="121"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Geeft<sp/>een<sp/>velocity<sp/>in<sp/>de<sp/>x<sp/>richting<sp/>aan<sp/>de<sp/>entity</highlight></codeline>
+<codeline lineno="122"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>velocityX:<sp/>is<sp/>een<sp/>float</highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setVelocityX(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>velocityX);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>void<sp/>setVelocityY(float<sp/>velocityY)</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Geeft<sp/>een<sp/>velocity<sp/>in<sp/>de<sp/>y<sp/>richting<sp/>aan<sp/>de<sp/>entity</highlight></codeline>
+<codeline lineno="129"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>velocityY:<sp/>is<sp/>een<sp/>float</highlight></codeline>
+<codeline lineno="130"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setVelocityY(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>velocityY);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>void<sp/>setWidth(float<sp/>width)</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Geeft<sp/>de<sp/>entity<sp/>een<sp/>breedte.</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>width:<sp/>is<sp/>een<sp/>float.</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setWidth(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>width);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="141"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>void<sp/>setheight(float<sp/>height)</highlight></codeline>
+<codeline lineno="142"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Geeft<sp/>de<sp/>entity<sp/>een<sp/>hoogte.</highlight></codeline>
+<codeline lineno="143"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>height:<sp/>is<sp/>een<sp/>float.</highlight></codeline>
+<codeline lineno="144"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setHeight(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>height);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="148"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>void<sp/>setGravity(float<sp/>gravity)</highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Geeft<sp/>een<sp/>waarde<sp/>aan<sp/>de<sp/>gravity.</highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>gravity:<sp/>is<sp/>een<sp/>float.</highlight></codeline>
+<codeline lineno="151"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setGravity(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>gravity);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="155"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>float<sp/>getX()</highlight></codeline>
+<codeline lineno="156"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Geeft<sp/>de<sp/>x<sp/>waarde<sp/>van<sp/>de<sp/>entity<sp/>terug.</highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>is<sp/>een<sp/>float<sp/>die<sp/>de<sp/>x<sp/>waarde<sp/>teruggeeft.</highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>getX()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="162"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>float<sp/>getY()</highlight></codeline>
+<codeline lineno="163"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Geeft<sp/>de<sp/>y<sp/>waarde<sp/>van<sp/>de<sp/>entity<sp/>terug.</highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>is<sp/>een<sp/>float<sp/>die<sp/>de<sp/>y<sp/>waarde<sp/>teruggeeft.</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>getY()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>float<sp/>getX()</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Geeft<sp/>de<sp/>vorige<sp/>frame<sp/>x<sp/>waarde<sp/>van<sp/>de<sp/>entity<sp/>terug.</highlight></codeline>
+<codeline lineno="171"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>is<sp/>een<sp/>float<sp/>die<sp/>de<sp/>vorige<sp/>frame<sp/>x<sp/>waarde<sp/>teruggeeft.</highlight></codeline>
+<codeline lineno="172"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>getXprev()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="176"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>float<sp/>getY()</highlight></codeline>
+<codeline lineno="177"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Geeft<sp/>de<sp/>vorige<sp/>frame<sp/>y<sp/>waarde<sp/>van<sp/>de<sp/>entity<sp/>terug.</highlight></codeline>
+<codeline lineno="178"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>is<sp/>een<sp/>float<sp/>die<sp/>vorige<sp/>frame<sp/>y<sp/>waarde<sp/>terugggeeft.</highlight></codeline>
+<codeline lineno="179"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>getYprev()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="183"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>float<sp/>getVelocityX()</highlight></codeline>
+<codeline lineno="184"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Geeft<sp/>de<sp/>velocityX<sp/>waarde<sp/>van<sp/>de<sp/>entity<sp/>terug.</highlight></codeline>
+<codeline lineno="185"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>is<sp/>een<sp/>float<sp/>die<sp/>de<sp/>velocity<sp/>in<sp/>x<sp/>richting<sp/>teruggeeft.</highlight></codeline>
+<codeline lineno="186"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>getVelocityX()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="190"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>float<sp/>getVelocityY()</highlight></codeline>
+<codeline lineno="191"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Geeft<sp/>de<sp/>velocityY<sp/>waarde<sp/>van<sp/>de<sp/>entity<sp/>terug.</highlight></codeline>
+<codeline lineno="192"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>is<sp/>een<sp/>float<sp/>die<sp/>de<sp/>velocity<sp/>in<sp/>de<sp/>y<sp/>richting<sp/>teruggeeft.</highlight></codeline>
+<codeline lineno="193"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>getVelocityY()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="197"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>float<sp/>getHeight()</highlight></codeline>
+<codeline lineno="198"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Geeft<sp/>de<sp/>hoogte<sp/>van<sp/>de<sp/>entity<sp/>terug.</highlight></codeline>
+<codeline lineno="199"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>is<sp/>een<sp/>float<sp/>die<sp/>de<sp/>hoogte<sp/>teruggeeft.</highlight></codeline>
+<codeline lineno="200"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>getHeight()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="204"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>float<sp/>getWidth()</highlight></codeline>
+<codeline lineno="205"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Geeft<sp/>de<sp/>breedte<sp/>van<sp/>de<sp/>entity<sp/>terug.</highlight></codeline>
+<codeline lineno="206"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>is<sp/>een<sp/>float<sp/>die<sp/>de<sp/>breedte<sp/>teruggeeft.</highlight></codeline>
+<codeline lineno="207"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>getWidth()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="211"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>float<sp/>getGravity()</highlight></codeline>
+<codeline lineno="212"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Geeft<sp/>de<sp/>waarde<sp/>van<sp/>de<sp/>gravity<sp/>terug.</highlight></codeline>
+<codeline lineno="213"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>is<sp/>een<sp/>float<sp/>die<sp/>de<sp/>zwaartekracht<sp/>teruggeeft.</highlight></codeline>
+<codeline lineno="214"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>getGravity()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="218"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>int<sp/>getProjectedX()</highlight></codeline>
+<codeline lineno="219"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Geeft<sp/>de<sp/>geprojecteerde<sp/>x<sp/>waarde<sp/>van<sp/>de<sp/>entity<sp/>terug.</highlight></codeline>
+<codeline lineno="220"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>is<sp/>een<sp/>int<sp/>die<sp/>de<sp/>geprojecteerde<sp/>x<sp/>waarde<sp/>teruggeeft.</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getProjectedX()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/****************************************************************************************************</highlight></codeline>
+<codeline lineno="225"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@function<sp/>int<sp/>getProjectedY()</highlight></codeline>
+<codeline lineno="226"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Geeft<sp/>de<sp/>geprojecteerde<sp/>y<sp/>waarde<sp/>van<sp/>de<sp/>entity<sp/>terug.</highlight></codeline>
+<codeline lineno="227"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>is<sp/>een<sp/>int<sp/>die<sp/>de<sp/>geprojecteerde<sp/>y<sp/>waarde<sp/>teruggeeft.</highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>****************************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>getProjectedY()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="232"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//DOODLE_JUMP_ENTITYMODEL_H</highlight></codeline>
+    </programlisting>
+    <location file="src/Logic_libary/EntityModel.h"/>
+  </compounddef>
+</doxygen>

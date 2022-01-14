@@ -1,0 +1,134 @@
+.TH "Representation::ConcreteFactory" 3 "Tue Dec 21 2021" "Doxygen Test" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Representation::ConcreteFactory
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBlogic::EntityFactory\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBConcreteFactory\fP ()"
+.br
+.RI "Default constructor\&. "
+.ti -1c
+.RI "void \fBcreatePlayer\fP (shared_ptr< \fBlogic::Player_L\fP > &player) override"
+.br
+.RI "Maakt een nieuwe Player aan dat een observer is en wordt toegevoegd aan het subject player\&. Deze functie wordt overschreven uit de base class EntityFactory\&. "
+.ti -1c
+.RI "void \fBcreateBG_Tile\fP (shared_ptr< \fBlogic::BG_Tile_L\fP > &bg_tile) override"
+.br
+.RI "Maakt een nieuwe BG_Tile aan dat een observer is en wordt toegevoegd aan het subject bg_tile\&. Deze functie wordt overschreven uit de base class EntityFactory\&. "
+.ti -1c
+.RI "void \fBcreatePlatform\fP (shared_ptr< \fBlogic::Platform_L\fP > &platform, _Platform type) override"
+.br
+.RI "Maakt een nieuw Platform aan naargelang het type, dat een observer is en wordt toegevoegd aan het subject platform\&. Deze functie wordt overschreven uit de base class EntityFactory\&. "
+.ti -1c
+.RI "void \fBcreateBonus\fP (shared_ptr< \fBlogic::Bonus_L\fP > &bonus, _Bonus type) override"
+.br
+.RI "Maakt een nieuwe Bonus aan naargelang het type, dat een observer is en wordt toegevoegd aan de subject bonus\&. Deze functie wordt overschreven uit de base class EntityFactory\&. "
+.ti -1c
+.RI "void \fBcreateScore\fP (shared_ptr< \fBlogic::Player_L\fP > &player, shared_ptr< \fBlogic::Score\fP > &score) override"
+.br
+.RI "Maakt een nieuwe score aan dat een observer is en wordt toegevoegd aan de subject player\&. Deze functie wordt overschreven uit de base class EntityFactory\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 25 of file ConcreteFactory\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Representation::ConcreteFactory::ConcreteFactory ()\fC [default]\fP"
+
+.PP
+Default constructor\&. @function \fBConcreteFactory()\fP 
+.SH "Member Function Documentation"
+.PP 
+.SS "void Representation::ConcreteFactory::createBG_Tile (shared_ptr< \fBlogic::BG_Tile_L\fP > & bg_tile)\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Maakt een nieuwe BG_Tile aan dat een observer is en wordt toegevoegd aan het subject bg_tile\&. Deze functie wordt overschreven uit de base class EntityFactory\&. @function void \fBcreateBG_Tile(shared_ptr<logic::BG_Tile_L> &bg_tile)\fP override 
+.PP
+\fBParameters\fP
+.RS 4
+\fIbg_tile\fP een shared_ptr naar een BG_Tile_L wat een afleiding is van een EnityModel\&. 
+.RE
+.PP
+
+.PP
+Implements \fBlogic::EntityFactory\fP\&.
+.PP
+Definition at line 12 of file ConcreteFactory\&.cpp\&.
+.SS "void Representation::ConcreteFactory::createBonus (shared_ptr< \fBlogic::Bonus_L\fP > & bonus, _Bonus type)\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Maakt een nieuwe Bonus aan naargelang het type, dat een observer is en wordt toegevoegd aan de subject bonus\&. Deze functie wordt overschreven uit de base class EntityFactory\&. @function void \fBcreateBonus(shared_ptr<logic::Bonus_L> &bonus, _Bonus type)\fP override 
+.PP
+\fBParameters\fP
+.RS 4
+\fIbonus\fP een shared_ptr naar een Bonus_L wat een afleiding is van een EnityModel\&. 
+.br
+\fItype\fP bevat het de soort van de bonus dat aangemaakt moet worden\&. (Spring, Rocket) 
+.RE
+.PP
+
+.PP
+Implements \fBlogic::EntityFactory\fP\&.
+.PP
+Definition at line 38 of file ConcreteFactory\&.cpp\&.
+.SS "void Representation::ConcreteFactory::createPlatform (shared_ptr< \fBlogic::Platform_L\fP > & platform, _Platform type)\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Maakt een nieuw Platform aan naargelang het type, dat een observer is en wordt toegevoegd aan het subject platform\&. Deze functie wordt overschreven uit de base class EntityFactory\&. @function void \fBcreatePlatform(shared_ptr<logic::Platform_L> &platform, _Platform type)\fP override 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplatform\fP een shared_ptr naar een Platform_L wat een afleiding is van een EnityModel\&. 
+.br
+\fItype\fP bevat het de soort van het platform dat aangemaakt moet worden\&. (Static, Horizontal, Vertical, Temporary) 
+.RE
+.PP
+
+.PP
+Implements \fBlogic::EntityFactory\fP\&.
+.PP
+Definition at line 17 of file ConcreteFactory\&.cpp\&.
+.SS "void Representation::ConcreteFactory::createPlayer (shared_ptr< \fBlogic::Player_L\fP > & player)\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Maakt een nieuwe Player aan dat een observer is en wordt toegevoegd aan het subject player\&. Deze functie wordt overschreven uit de base class EntityFactory\&. @function void \fBcreatePlayer(shared_ptr<logic::Player_L> &subject)\fP override 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplayer\fP een shared_ptr naar een Player_L wat een afleiding is van een EnityModel\&. 
+.RE
+.PP
+
+.PP
+Implements \fBlogic::EntityFactory\fP\&.
+.PP
+Definition at line 7 of file ConcreteFactory\&.cpp\&.
+.SS "void Representation::ConcreteFactory::createScore (shared_ptr< \fBlogic::Player_L\fP > & player, shared_ptr< \fBlogic::Score\fP > & score)\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Maakt een nieuwe score aan dat een observer is en wordt toegevoegd aan de subject player\&. Deze functie wordt overschreven uit de base class EntityFactory\&. @function void \fBcreateScore(shared_ptr<logic::Player_L> &player, shared_ptr<logic::Score>& score)\fP override 
+.PP
+\fBParameters\fP
+.RS 4
+\fIplayer\fP een shared_ptr naar een Player_L wat een afleiding is van een EnityModel\&. 
+.br
+\fIscore\fP een shared_ptr naar een Score wat een afleiding is van een Observer\&. 
+.RE
+.PP
+
+.PP
+Implements \fBlogic::EntityFactory\fP\&.
+.PP
+Definition at line 50 of file ConcreteFactory\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Doxygen Test from the source code\&.

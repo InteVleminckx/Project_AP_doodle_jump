@@ -1,0 +1,75 @@
+\hypertarget{classlogic_1_1Random}{}\doxysubsection{logic\+::Random Class Reference}
+\label{classlogic_1_1Random}\index{logic::Random@{logic::Random}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Platform\+Type \mbox{\hyperlink{classlogic_1_1Random_a8836e5f709a2076468b2b511541c5ac3}{get\+Platform\+Type}} () const
+\item 
+bool \mbox{\hyperlink{classlogic_1_1Random_afe42fe8028561d04d838a9153eb7ac71}{create\+Platform}} (float prev\+Platform, float possible\+Platform) const
+\item 
+bool \mbox{\hyperlink{classlogic_1_1Random_a29751b3ac230fa28c3f9418240112636}{create\+Bonus}} () const
+\item 
+\mbox{\Hypertarget{classlogic_1_1Random_aaa700e12cd8e780e32a7f2b9c3022493}\label{classlogic_1_1Random_aaa700e12cd8e780e32a7f2b9c3022493}} 
+void {\bfseries Reset} ()
+\item 
+\mbox{\Hypertarget{classlogic_1_1Random_a3742b9dd059678906e1cf37190fe6923}\label{classlogic_1_1Random_a3742b9dd059678906e1cf37190fe6923}} 
+void {\bfseries refresh\+Difficulty} (int score)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classlogic_1_1Random_a91bd6dab802a9819facf612af04757a4}\label{classlogic_1_1Random_a91bd6dab802a9819facf612af04757a4}} 
+static \mbox{\hyperlink{classlogic_1_1Random}{Random}} \& {\bfseries Instance} ()
+\item 
+\mbox{\Hypertarget{classlogic_1_1Random_a9e18d86116420ea7b08059095449d9e8}\label{classlogic_1_1Random_a9e18d86116420ea7b08059095449d9e8}} 
+static Bonus\+Type {\bfseries get\+Bonus\+Type} ()
+\item 
+\mbox{\Hypertarget{classlogic_1_1Random_a816bbfea6d1847f99b6a4a1d604b798c}\label{classlogic_1_1Random_a816bbfea6d1847f99b6a4a1d604b798c}} 
+static float {\bfseries give\+RandomX} (float left\+Bound, float right\+Bound)
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+
+
+Definition at line 23 of file Random.\+h.
+
+
+
+\doxysubsubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlogic_1_1Random_a29751b3ac230fa28c3f9418240112636}\label{classlogic_1_1Random_a29751b3ac230fa28c3f9418240112636}} 
+\index{logic::Random@{logic::Random}!createBonus@{createBonus}}
+\index{createBonus@{createBonus}!logic::Random@{logic::Random}}
+\doxyparagraph{\texorpdfstring{createBonus()}{createBonus()}}
+{\footnotesize\ttfamily bool logic\+::\+Random\+::create\+Bonus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Niveau chance 1 38,00\% 2 34,00\% 3 30,00\% 4 26,00\% 5 22,00\% 6 18,00\% 7 14,00\% 8 10,00\% 9 6,00\% 10 2,00\%
+
+Definition at line 113 of file Random.\+cpp.
+
+\mbox{\Hypertarget{classlogic_1_1Random_afe42fe8028561d04d838a9153eb7ac71}\label{classlogic_1_1Random_afe42fe8028561d04d838a9153eb7ac71}} 
+\index{logic::Random@{logic::Random}!createPlatform@{createPlatform}}
+\index{createPlatform@{createPlatform}!logic::Random@{logic::Random}}
+\doxyparagraph{\texorpdfstring{createPlatform()}{createPlatform()}}
+{\footnotesize\ttfamily bool logic\+::\+Random\+::create\+Platform (\begin{DoxyParamCaption}\item[{float}]{prev\+Platform,  }\item[{float}]{possible\+Platform }\end{DoxyParamCaption}) const}
+
+platform spawn chance\+: Niveau max plats\+: 11 per niveau chance 1 10 90,91\% 2 9 81,82\% 3 8 72,73\% 4 7 63,64\% 5 6 54,55\% 6 5 45,45\% 7 4 36,36\% 8 3 27,27\% 9 2 18,18\% 10 1 9,09\%
+
+Definition at line 68 of file Random.\+cpp.
+
+\mbox{\Hypertarget{classlogic_1_1Random_a8836e5f709a2076468b2b511541c5ac3}\label{classlogic_1_1Random_a8836e5f709a2076468b2b511541c5ac3}} 
+\index{logic::Random@{logic::Random}!getPlatformType@{getPlatformType}}
+\index{getPlatformType@{getPlatformType}!logic::Random@{logic::Random}}
+\doxyparagraph{\texorpdfstring{getPlatformType()}{getPlatformType()}}
+{\footnotesize\ttfamily Platform\+Type logic\+::\+Random\+::get\+Platform\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Chances per niveau\+: Niveau static hori verti temp total chances\+: static hori verti temp 1 18 2 0 0 20 90,00\% 10,00\% 0,00\% 0,00\% 2 16,5 2,5 0,4 0,6 20 82,50\% 12,50\% 2,00\% 3,00\% 3 15 3 0,8 1,2 20 75,00\% 15,00\% 4,00\% 6,00\% 4 13,5 3,5 1,2 1,8 20 67,50\% 17,50\% 6,00\% 9,00\% 5 12 4 1,6 2,4 20 60,00\% 20,00\% 8,00\% 12,00\% 6 10,5 4,5 2 3 20 52,50\% 22,50\% 10,00\% 15,00\% 7 9 5 2,4 3,6 20 45,00\% 25,00\% 12,00\% 18,00\% 8 7,5 5,5 2,8 4,2 20 37,50\% 27,50\% 14,00\% 21,00\% 9 6 6 3,2 4,8 20 30,00\% 30,00\% 16,00\% 24,00\% 10 4,5 6,5 3,6 5,4 20 22,50\% 32,50\% 18,00\% 27,00\%
+
+Definition at line 19 of file Random.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Logic\+\_\+libary/Random.\+h\item 
+src/\+Logic\+\_\+libary/Random.\+cpp\end{DoxyCompactItemize}

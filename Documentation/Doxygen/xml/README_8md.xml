@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="README_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Project_AP_doodle_jump</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Code<sp/>Conventions</highlight></codeline>
+<codeline><highlight class="normal">###<sp/>Naming</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>Classes,<sp/>class<sp/>methods,<sp/>functions,<sp/>typedef<sp/>or<sp/>namespace<sp/>names<sp/>start<sp/>with<sp/>an<sp/>upper<sp/>case.<sp/>The<sp/>name<sp/>&quot;main&quot;<sp/>is<sp/>the<sp/>unavoidable<sp/>exception.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>Names<sp/>for<sp/>variables,<sp/>class<sp/>data<sp/>members,<sp/>function<sp/>parameters,<sp/>etc.<sp/>must<sp/>be<sp/>all<sp/>lower<sp/>case.<sp/>Start<sp/>names<sp/>for<sp/>data<sp/>member<sp/>with<sp/>a<sp/>&quot;m_&quot;<sp/>prefix<sp/>and<sp/>for<sp/>static<sp/>data<sp/>member<sp/>names<sp/>with<sp/>a<sp/>&quot;s_&quot;.</highlight></codeline>
+    </programlisting>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

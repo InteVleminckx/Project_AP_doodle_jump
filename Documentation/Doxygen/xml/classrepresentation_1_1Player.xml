@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classrepresentation_1_1Player" kind="class" language="C++" prot="public">
+    <compoundname>representation::Player</compoundname>
+    <basecompoundref refid="classrepresentation_1_1EntityView" prot="public" virt="non-virtual">representation::EntityView</basecompoundref>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classrepresentation_1_1Player_1acd3d4056c6730c779af4c0faa7598b16" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>representation::Player::Player</definition>
+        <argsstring>()</argsstring>
+        <name>Player</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Game_Representation/Player.h" line="26" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classrepresentation_1_1Player_1a74a236f5c48d1bf9d889e3662c740537" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>representation::Player::Player</definition>
+        <argsstring>(shared_ptr&lt; logic::Player_L &gt; &amp;player, string image)</argsstring>
+        <name>Player</name>
+        <param>
+          <type>shared_ptr&lt; <ref refid="classlogic_1_1Player__L" kindref="compound">logic::Player_L</ref> &gt; &amp;</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Game_Representation/Player.h" line="36" column="9" bodyfile="src/Game_Representation/Player.cpp" bodystart="7" bodyend="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>logic::Observer</label>
+        <link refid="classlogic_1_1Observer"/>
+      </node>
+      <node id="2">
+        <label>representation::EntityView</label>
+        <link refid="classrepresentation_1_1EntityView"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>representation::Player</label>
+        <link refid="classrepresentation_1_1Player"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>logic::Observer</label>
+        <link refid="classlogic_1_1Observer"/>
+      </node>
+      <node id="2">
+        <label>representation::EntityView</label>
+        <link refid="classrepresentation_1_1EntityView"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>representation::Player</label>
+        <link refid="classrepresentation_1_1Player"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/Game_Representation/Player.h" line="20" column="35" bodyfile="src/Game_Representation/Player.h" bodystart="20" bodyend="37"/>
+    <listofallmembers>
+      <member refid="classrepresentation_1_1EntityView_1aa018b9d0503814a1e6038281da9452ca" prot="protected" virt="non-virtual"><scope>representation::Player</scope><name>createSprite</name></member>
+      <member refid="classrepresentation_1_1EntityView_1aa7ee9ae264ef678092634a4974bd5f8c" prot="protected" virt="non-virtual"><scope>representation::Player</scope><name>EntityView</name></member>
+      <member refid="classrepresentation_1_1EntityView_1affb247fc4aa1dad51e4e01c6d199790d" prot="public" virt="non-virtual"><scope>representation::Player</scope><name>EntityView</name></member>
+      <member refid="classrepresentation_1_1EntityView_1a3a2014f648fd21e5e284d25fa1835e67" prot="public" virt="non-virtual"><scope>representation::Player</scope><name>getEntityModel</name></member>
+      <member refid="classrepresentation_1_1EntityView_1aa6eadfe150b2bd485d2fe27e063e1306" prot="public" virt="non-virtual"><scope>representation::Player</scope><name>getHeight</name></member>
+      <member refid="classrepresentation_1_1EntityView_1ac53f71a495ee4082ae6d5e643666866c" prot="public" virt="non-virtual"><scope>representation::Player</scope><name>getSprite</name></member>
+      <member refid="classrepresentation_1_1EntityView_1ada8f1bdb9f494ffc2a92a39004e07c82" prot="public" virt="non-virtual"><scope>representation::Player</scope><name>getTexture</name></member>
+      <member refid="classrepresentation_1_1EntityView_1ae879ef06bd447b17680449621689d674" prot="public" virt="non-virtual"><scope>representation::Player</scope><name>getWidth</name></member>
+      <member refid="classlogic_1_1Observer_1a6c8e55f7a0cc16af2994520cbf6739d7" prot="protected" virt="non-virtual"><scope>representation::Player</scope><name>Observer</name></member>
+      <member refid="classrepresentation_1_1Player_1acd3d4056c6730c779af4c0faa7598b16" prot="private" virt="non-virtual"><scope>representation::Player</scope><name>Player</name></member>
+      <member refid="classrepresentation_1_1Player_1a74a236f5c48d1bf9d889e3662c740537" prot="public" virt="non-virtual"><scope>representation::Player</scope><name>Player</name></member>
+      <member refid="classrepresentation_1_1EntityView_1a21ff314108e26a014297a3761ee5e379" prot="public" virt="non-virtual"><scope>representation::Player</scope><name>setEntityModel</name></member>
+      <member refid="classrepresentation_1_1EntityView_1a333ec615f7a86d3806e3a067b74c44d3" prot="public" virt="non-virtual"><scope>representation::Player</scope><name>setEntityModel</name></member>
+      <member refid="classrepresentation_1_1EntityView_1aa95dae7fd1c951e6111ea4ea35a4cc45" prot="public" virt="non-virtual"><scope>representation::Player</scope><name>setEntityModel</name></member>
+      <member refid="classrepresentation_1_1EntityView_1a85d4c8714f87abfa430d64aa92933c98" prot="public" virt="non-virtual"><scope>representation::Player</scope><name>setEntityModel</name></member>
+      <member refid="classrepresentation_1_1EntityView_1a9b2c27e193cc0cf90841a3fafd933665" prot="public" virt="non-virtual"><scope>representation::Player</scope><name>setHeight</name></member>
+      <member refid="classrepresentation_1_1EntityView_1a667330d571bda480aa2b411f49951cc9" prot="public" virt="non-virtual"><scope>representation::Player</scope><name>setSprite</name></member>
+      <member refid="classrepresentation_1_1EntityView_1a86f71a633de83940583874e9551bb2c2" prot="public" virt="non-virtual"><scope>representation::Player</scope><name>setTexture</name></member>
+      <member refid="classrepresentation_1_1EntityView_1abadc2ff648c2f49af9259df202932f93" prot="public" virt="non-virtual"><scope>representation::Player</scope><name>setWidth</name></member>
+      <member refid="classrepresentation_1_1EntityView_1a609e08de8dbeec013659ab4a12df6601" prot="public" virt="virtual"><scope>representation::Player</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

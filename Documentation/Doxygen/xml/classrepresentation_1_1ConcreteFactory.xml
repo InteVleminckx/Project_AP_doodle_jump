@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classrepresentation_1_1ConcreteFactory" kind="class" language="C++" prot="public">
+    <compoundname>representation::ConcreteFactory</compoundname>
+    <basecompoundref refid="classlogic_1_1EntityFactory" prot="public" virt="non-virtual">logic::EntityFactory</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classrepresentation_1_1ConcreteFactory_1aaea91f080dfdd66b807ddb50b901d4dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>representation::ConcreteFactory::ConcreteFactory</definition>
+        <argsstring>()</argsstring>
+        <name>ConcreteFactory</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Game_Representation/ConcreteFactory.h" line="32" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classrepresentation_1_1ConcreteFactory_1a5b8bba2b87fb7d319d92e798b6e9c1e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void representation::ConcreteFactory::createPlayer</definition>
+        <argsstring>(shared_ptr&lt; logic::Player_L &gt; &amp;player) override</argsstring>
+        <name>createPlayer</name>
+        <reimplements refid="classlogic_1_1EntityFactory_1af228fe31097965efb5709dc24ad22b06">createPlayer</reimplements>
+        <param>
+          <type>shared_ptr&lt; <ref refid="classlogic_1_1Player__L" kindref="compound">logic::Player_L</ref> &gt; &amp;</type>
+          <declname>player</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Game_Representation/ConcreteFactory.h" line="40" column="14" bodyfile="src/Game_Representation/ConcreteFactory.cpp" bodystart="7" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classrepresentation_1_1ConcreteFactory_1ab41db894f221bdf4332165f8f5e87774" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void representation::ConcreteFactory::createBG_Tile</definition>
+        <argsstring>(shared_ptr&lt; logic::BG_Tile_L &gt; &amp;bg_tile) override</argsstring>
+        <name>createBG_Tile</name>
+        <reimplements refid="classlogic_1_1EntityFactory_1a3df331b31d8bb18dcc96346661ab7a0b">createBG_Tile</reimplements>
+        <param>
+          <type>shared_ptr&lt; <ref refid="classlogic_1_1BG__Tile__L" kindref="compound">logic::BG_Tile_L</ref> &gt; &amp;</type>
+          <declname>bg_tile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Game_Representation/ConcreteFactory.h" line="48" column="14" bodyfile="src/Game_Representation/ConcreteFactory.cpp" bodystart="12" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classrepresentation_1_1ConcreteFactory_1adf9de36ef5c139232b059e534af760f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void representation::ConcreteFactory::createPlatform</definition>
+        <argsstring>(shared_ptr&lt; logic::Platform_L &gt; &amp;platform, PlatformType type) override</argsstring>
+        <name>createPlatform</name>
+        <reimplements refid="classlogic_1_1EntityFactory_1aae00cb6d71fb3f0954ff86fa29407e5e">createPlatform</reimplements>
+        <param>
+          <type>shared_ptr&lt; <ref refid="classlogic_1_1Platform__L" kindref="compound">logic::Platform_L</ref> &gt; &amp;</type>
+          <declname>platform</declname>
+        </param>
+        <param>
+          <type>PlatformType</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Game_Representation/ConcreteFactory.h" line="57" column="14" bodyfile="src/Game_Representation/ConcreteFactory.cpp" bodystart="17" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classrepresentation_1_1ConcreteFactory_1a544049028a33ae7047a7f6039ddd453a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void representation::ConcreteFactory::createBonus</definition>
+        <argsstring>(shared_ptr&lt; logic::Bonus_L &gt; &amp;bonus, BonusType type) override</argsstring>
+        <name>createBonus</name>
+        <reimplements refid="classlogic_1_1EntityFactory_1a02b2c5157a6b0238c74c969ba249db16">createBonus</reimplements>
+        <param>
+          <type>shared_ptr&lt; <ref refid="classlogic_1_1Bonus__L" kindref="compound">logic::Bonus_L</ref> &gt; &amp;</type>
+          <declname>bonus</declname>
+        </param>
+        <param>
+          <type>BonusType</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Game_Representation/ConcreteFactory.h" line="66" column="14" bodyfile="src/Game_Representation/ConcreteFactory.cpp" bodystart="38" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classrepresentation_1_1ConcreteFactory_1a2091b2ce54350cf1450b23c7e762fc92" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void representation::ConcreteFactory::createScore</definition>
+        <argsstring>(shared_ptr&lt; logic::Player_L &gt; &amp;player, shared_ptr&lt; logic::Score &gt; &amp;score) override</argsstring>
+        <name>createScore</name>
+        <reimplements refid="classlogic_1_1EntityFactory_1ae54b6c99bc109c3dfc776d00b47f90eb">createScore</reimplements>
+        <param>
+          <type>shared_ptr&lt; <ref refid="classlogic_1_1Player__L" kindref="compound">logic::Player_L</ref> &gt; &amp;</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type>shared_ptr&lt; <ref refid="classlogic_1_1Score" kindref="compound">logic::Score</ref> &gt; &amp;</type>
+          <declname>score</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Game_Representation/ConcreteFactory.h" line="75" column="14" bodyfile="src/Game_Representation/ConcreteFactory.cpp" bodystart="50" bodyend="53"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>logic::EntityFactory</label>
+        <link refid="classlogic_1_1EntityFactory"/>
+      </node>
+      <node id="1">
+        <label>representation::ConcreteFactory</label>
+        <link refid="classrepresentation_1_1ConcreteFactory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>logic::EntityFactory</label>
+        <link refid="classlogic_1_1EntityFactory"/>
+      </node>
+      <node id="1">
+        <label>representation::ConcreteFactory</label>
+        <link refid="classrepresentation_1_1ConcreteFactory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/Game_Representation/ConcreteFactory.h" line="25" column="54" bodyfile="src/Game_Representation/ConcreteFactory.h" bodystart="25" bodyend="77"/>
+    <listofallmembers>
+      <member refid="classrepresentation_1_1ConcreteFactory_1aaea91f080dfdd66b807ddb50b901d4dd" prot="public" virt="non-virtual"><scope>representation::ConcreteFactory</scope><name>ConcreteFactory</name></member>
+      <member refid="classrepresentation_1_1ConcreteFactory_1ab41db894f221bdf4332165f8f5e87774" prot="public" virt="virtual"><scope>representation::ConcreteFactory</scope><name>createBG_Tile</name></member>
+      <member refid="classrepresentation_1_1ConcreteFactory_1a544049028a33ae7047a7f6039ddd453a" prot="public" virt="virtual"><scope>representation::ConcreteFactory</scope><name>createBonus</name></member>
+      <member refid="classrepresentation_1_1ConcreteFactory_1adf9de36ef5c139232b059e534af760f5" prot="public" virt="virtual"><scope>representation::ConcreteFactory</scope><name>createPlatform</name></member>
+      <member refid="classrepresentation_1_1ConcreteFactory_1a5b8bba2b87fb7d319d92e798b6e9c1e2" prot="public" virt="virtual"><scope>representation::ConcreteFactory</scope><name>createPlayer</name></member>
+      <member refid="classrepresentation_1_1ConcreteFactory_1a2091b2ce54350cf1450b23c7e762fc92" prot="public" virt="virtual"><scope>representation::ConcreteFactory</scope><name>createScore</name></member>
+      <member refid="classlogic_1_1EntityFactory_1a7825e52b73296d28e4621b7bdfda849e" prot="public" virt="non-virtual"><scope>representation::ConcreteFactory</scope><name>EntityFactory</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

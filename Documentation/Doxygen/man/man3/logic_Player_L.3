@@ -1,0 +1,48 @@
+.TH "logic::Player_L" 3 "Fri Jan 14 2022" "Doxygen Test" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+logic::Player_L
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBlogic::EntityModel\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPlayer_L\fP (float posX, float posY, float width, float height)"
+.br
+.ti -1c
+.RI "void \fBgravity\fP ()"
+.br
+.ti -1c
+.RI "void \fBmoveRight\fP (float leftBound, float rightBound)"
+.br
+.ti -1c
+.RI "void \fBmoveLeft\fP (float leftBound, float rightBound)"
+.br
+.ti -1c
+.RI "void \fBjump\fP ()"
+.br
+.ti -1c
+.RI "void \fBpowerup\fP (float power)"
+.br
+.ti -1c
+.RI "bool \fBgetBonusActive\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 22 of file Player\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "logic::Player_L::Player_L (float posX, float posY, float width, float height)"
+We werken in het logic gedeelte tussen -1 en 1 in de x-as en -1 en +inf in de y-as De begin positie van onze player moet dus tussen deze waarde te komen liggen Dit geldt dus ook voor de grote van onze player Onze player start midden in het scherm en wordt vanaf 0 gelauched naar boven op de y-as Dus het centrum van onze player in het begin zou eigl (0,-1) moeten zijn
+.PP
+Definition at line 5 of file Player\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Doxygen Test from the source code\&.
